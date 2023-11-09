@@ -286,11 +286,11 @@
                 <form class="price__filter--form" action="#"> 
                     <div class="price__filter--form__inner mb-15 d-flex align-items-center">
                         <div class="price__filter--group">
-                            <label class="price__filter--label" for="fromPrice">From</label>
+                            <label class="price__filter--label" for="fromPrice">Từ</label>
                             <div class="price__filter--input border-radius-5 d-flex align-items-center">
-                                <span class="price__filter--currency">$</span>
+                                <!-- <span class="price__filter--currency">VNĐ</span> -->
                                 <label>
-                                    <input class="price__filter--input__field border-0" id="fromPrice" type="number" placeholder="0" min="0" max="250.00">
+                                    <input class="price__filter--input__field border-0" id="fromPrice" type="number" placeholder="0" min="0" max="2.000.000">
                                 </label>
                             </div>
                         </div>
@@ -298,16 +298,16 @@
                             <span>-</span>
                         </div>
                         <div class="price__filter--group">
-                            <label class="price__filter--label" for="toPrice">To</label>
+                            <label class="price__filter--label" for="toPrice">Tới</label>
                             <div class="price__filter--input border-radius-5 d-flex align-items-center">
-                                <span class="price__filter--currency">$</span>
+                                <!-- <span class="price__filter--currency">VNĐ</span> -->
                                 <label>
-                                    <input class="price__filter--input__field border-0" id="toPrice" type="number" min="0" placeholder="250.00" max="250.00">
+                                    <input class="price__filter--input__field border-0" id="toPrice" type="number" min="0" placeholder="250.00" max="2.000.000">
                                 </label> 
                             </div>	
                         </div>
                     </div>
-                    <button class="price__filter--btn primary__btn" type="submit">Filter</button>
+                    <button class="price__filter--btn primary__btn" type="submit">Lọc</button>
                 </form>
             </div>
             <div class="single__widget widget__bg">
@@ -942,10 +942,10 @@
                             <label class="product__view--label">Sắp xếp theo:</label>
                             <div class="select shop__header--select">
                                 <select class="product__view--select">
-                                    <option selected value="1">Sort by latest</option>
-                                    <option value="2">Sort by popularity</option>
-                                    <option value="3">Sort by newness</option>
-                                    <option value="4">Sort by  rating </option>
+                                    <option selected value="1">Sắp xếp theo mới nhất</option>
+                                    <option value="2">Sắp xếp theo mức độ phổ biến</option>
+                                    <option value="3">Sắp xếp theo độ mới</option>
+                                    <option value="4">Sắp xếp theo đánh giá</option>
                                 </select>
                             </div>
                         </div>
@@ -982,16 +982,6 @@
                                       </svg>
                                 </button>
                             </div>
-                        </div>
-                        <div class="product__view--mode__list product__view--search d-none d-lg-block">
-                            <form class="product__view--search__form" action="#">
-                                <label>
-                                    <input class="product__view--search__input border-0" placeholder="Tìm kiếm" type="text">
-                                </label>
-                                <button class="product__view--search__btn" aria-label="shop button"  type="submit">
-                                    <svg class="product__view--search__btn--svg" xmlns="http://www.w3.org/2000/svg" width="22.51" height="20.443" viewBox="0 0 512 512"><path d="M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M338.29 338.29L448 448"/></svg>  
-                                </button>
-                            </form>
                         </div>
                     </div>
                     <p class="product__showing--count">Hiển thị 1–9 trên 21 kết quả</p>
@@ -1041,11 +1031,11 @@
                                 <form class="price__filter--form" action="#"> 
                                     <div class="price__filter--form__inner mb-15 d-flex align-items-center">
                                         <div class="price__filter--group">
-                                            <label class="price__filter--label" for="Filter-Price-GTE2">From</label>
+                                            <label class="price__filter--label" for="Filter-Price-GTE2">Từ</label>
                                             <div class="price__filter--input border-radius-5 d-flex align-items-center">
-                                                <span class="price__filter--currency">$</span>
+                                                <!-- <span class="price__filter--currency">VNĐ</span> -->
                                                 <label>
-                                                    <input class="price__filter--input__field border-0" name="filter.v.price.gte" type="number" placeholder="0" min="0" max="250.00">
+                                                    <input class="price__filter--input__field border-0" name="filter.v.price.gte" type="number" placeholder="0" min="0" max="2.000.000">
                                                 </label>
                                             </div>
                                         </div>
@@ -1053,16 +1043,16 @@
                                             <span>-</span>
                                         </div>
                                         <div class="price__filter--group">
-                                            <label class="price__filter--label" for="Filter-Price-LTE2">To</label>
+                                            <label class="price__filter--label" for="Filter-Price-LTE2">Tới</label>
                                             <div class="price__filter--input border-radius-5 d-flex align-items-center">
-                                                <span class="price__filter--currency">$</span>
+                                                <!-- <span class="price__filter--currency">VNĐ</span> -->
                                                 <label>
-                                                    <input class="price__filter--input__field border-0" name="filter.v.price.lte" type="number" min="0" placeholder="250.00" max="250.00"> 
+                                                    <input class="price__filter--input__field border-0" name="filter.v.price.lte" type="number" min="0" placeholder="2.000.000" max="2.000.000"> 
                                                 </label>
                                             </div>	
                                         </div>
                                     </div>
-                                    <button class="price__filter--btn primary__btn" type="submit">Filter</button>
+                                    <button class="price__filter--btn primary__btn" type="submit">Lọc</button>
                                 </form>
                             </div>
                             <div class="single__widget widget__bg">
@@ -1322,7 +1312,7 @@
                                                                 </a>
                                                             </li>
                                                             <li class="product__items--action__list">
-                                                                <a class="product__items--action__btn" data-open="modal1" href="javascript:void(0)">
+                                                                <a class="product__items--action__btn" data-open="modal1" href="product-details.html">
                                                                     <svg class="product__items--action__btn--svg" xmlns="http://www.w3.org/2000/svg"  width="25.51" height="23.443" viewBox="0 0 512 512"><path d="M255.66 112c-77.94 0-157.89 45.11-220.83 135.33a16 16 0 00-.27 17.77C82.92 340.8 161.8 400 255.66 400c92.84 0 173.34-59.38 221.79-135.25a16.14 16.14 0 000-17.47C428.89 172.28 347.8 112 255.66 112z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><circle cx="256" cy="256" r="80" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/></svg>
                                                                     <span class="visually-hidden">Quick View</span>
                                                                 </a>
@@ -1404,7 +1394,7 @@
                                                                 </a>
                                                             </li>
                                                             <li class="product__items--action__list">
-                                                                <a class="product__items--action__btn" data-open="modal1" href="javascript:void(0)">
+                                                                <a class="product__items--action__btn" data-open="modal1" href="product-details.html">
                                                                     <svg class="product__items--action__btn--svg" xmlns="http://www.w3.org/2000/svg"  width="25.51" height="23.443" viewBox="0 0 512 512"><path d="M255.66 112c-77.94 0-157.89 45.11-220.83 135.33a16 16 0 00-.27 17.77C82.92 340.8 161.8 400 255.66 400c92.84 0 173.34-59.38 221.79-135.25a16.14 16.14 0 000-17.47C428.89 172.28 347.8 112 255.66 112z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><circle cx="256" cy="256" r="80" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/></svg>
                                                                     <span class="visually-hidden">Quick View</span>
                                                                 </a>
@@ -1486,7 +1476,7 @@
                                                                 </a>
                                                             </li>
                                                             <li class="product__items--action__list">
-                                                                <a class="product__items--action__btn" data-open="modal1" href="javascript:void(0)">
+                                                                <a class="product__items--action__btn" data-open="modal1" href="product-details.html">
                                                                     <svg class="product__items--action__btn--svg" xmlns="http://www.w3.org/2000/svg"  width="25.51" height="23.443" viewBox="0 0 512 512"><path d="M255.66 112c-77.94 0-157.89 45.11-220.83 135.33a16 16 0 00-.27 17.77C82.92 340.8 161.8 400 255.66 400c92.84 0 173.34-59.38 221.79-135.25a16.14 16.14 0 000-17.47C428.89 172.28 347.8 112 255.66 112z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><circle cx="256" cy="256" r="80" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/></svg>
                                                                     <span class="visually-hidden">Quick View</span>
                                                                 </a>
@@ -1568,7 +1558,7 @@
                                                                 </a>
                                                             </li>
                                                             <li class="product__items--action__list">
-                                                                <a class="product__items--action__btn" data-open="modal1" href="javascript:void(0)">
+                                                                <a class="product__items--action__btn" data-open="modal1" href="product-details.html">
                                                                     <svg class="product__items--action__btn--svg" xmlns="http://www.w3.org/2000/svg"  width="25.51" height="23.443" viewBox="0 0 512 512"><path d="M255.66 112c-77.94 0-157.89 45.11-220.83 135.33a16 16 0 00-.27 17.77C82.92 340.8 161.8 400 255.66 400c92.84 0 173.34-59.38 221.79-135.25a16.14 16.14 0 000-17.47C428.89 172.28 347.8 112 255.66 112z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><circle cx="256" cy="256" r="80" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/></svg>
                                                                     <span class="visually-hidden">Quick View</span>
                                                                 </a>
@@ -1650,7 +1640,7 @@
                                                                 </a>
                                                             </li>
                                                             <li class="product__items--action__list">
-                                                                <a class="product__items--action__btn" data-open="modal1" href="javascript:void(0)">
+                                                                <a class="product__items--action__btn" data-open="modal1" href="product-details.html">
                                                                     <svg class="product__items--action__btn--svg" xmlns="http://www.w3.org/2000/svg"  width="25.51" height="23.443" viewBox="0 0 512 512"><path d="M255.66 112c-77.94 0-157.89 45.11-220.83 135.33a16 16 0 00-.27 17.77C82.92 340.8 161.8 400 255.66 400c92.84 0 173.34-59.38 221.79-135.25a16.14 16.14 0 000-17.47C428.89 172.28 347.8 112 255.66 112z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><circle cx="256" cy="256" r="80" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/></svg>
                                                                     <span class="visually-hidden">Quick View</span>
                                                                 </a>
@@ -1732,7 +1722,7 @@
                                                                 </a>
                                                             </li>
                                                             <li class="product__items--action__list">
-                                                                <a class="product__items--action__btn" data-open="modal1" href="javascript:void(0)">
+                                                                <a class="product__items--action__btn" data-open="modal1" href="product-details.html">
                                                                     <svg class="product__items--action__btn--svg" xmlns="http://www.w3.org/2000/svg"  width="25.51" height="23.443" viewBox="0 0 512 512"><path d="M255.66 112c-77.94 0-157.89 45.11-220.83 135.33a16 16 0 00-.27 17.77C82.92 340.8 161.8 400 255.66 400c92.84 0 173.34-59.38 221.79-135.25a16.14 16.14 0 000-17.47C428.89 172.28 347.8 112 255.66 112z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><circle cx="256" cy="256" r="80" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/></svg>
                                                                     <span class="visually-hidden">Quick View</span>
                                                                 </a>
@@ -1814,7 +1804,7 @@
                                                                 </a>
                                                             </li>
                                                             <li class="product__items--action__list">
-                                                                <a class="product__items--action__btn" data-open="modal1" href="javascript:void(0)">
+                                                                <a class="product__items--action__btn" data-open="modal1" href="product-details.html">
                                                                     <svg class="product__items--action__btn--svg" xmlns="http://www.w3.org/2000/svg"  width="25.51" height="23.443" viewBox="0 0 512 512"><path d="M255.66 112c-77.94 0-157.89 45.11-220.83 135.33a16 16 0 00-.27 17.77C82.92 340.8 161.8 400 255.66 400c92.84 0 173.34-59.38 221.79-135.25a16.14 16.14 0 000-17.47C428.89 172.28 347.8 112 255.66 112z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><circle cx="256" cy="256" r="80" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/></svg>
                                                                     <span class="visually-hidden">Quick View</span>
                                                                 </a>
@@ -1896,7 +1886,7 @@
                                                                 </a>
                                                             </li>
                                                             <li class="product__items--action__list">
-                                                                <a class="product__items--action__btn" data-open="modal1" href="javascript:void(0)">
+                                                                <a class="product__items--action__btn" data-open="modal1" href="product-details.html">
                                                                     <svg class="product__items--action__btn--svg" xmlns="http://www.w3.org/2000/svg"  width="25.51" height="23.443" viewBox="0 0 512 512"><path d="M255.66 112c-77.94 0-157.89 45.11-220.83 135.33a16 16 0 00-.27 17.77C82.92 340.8 161.8 400 255.66 400c92.84 0 173.34-59.38 221.79-135.25a16.14 16.14 0 000-17.47C428.89 172.28 347.8 112 255.66 112z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><circle cx="256" cy="256" r="80" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/></svg>
                                                                     <span class="visually-hidden">Quick View</span>
                                                                 </a>
@@ -1978,7 +1968,7 @@
                                                                 </a>
                                                             </li>
                                                             <li class="product__items--action__list">
-                                                                <a class="product__items--action__btn" data-open="modal1" href="javascript:void(0)">
+                                                                <a class="product__items--action__btn" data-open="modal1" href="product-details.html">
                                                                     <svg class="product__items--action__btn--svg" xmlns="http://www.w3.org/2000/svg"  width="25.51" height="23.443" viewBox="0 0 512 512"><path d="M255.66 112c-77.94 0-157.89 45.11-220.83 135.33a16 16 0 00-.27 17.77C82.92 340.8 161.8 400 255.66 400c92.84 0 173.34-59.38 221.79-135.25a16.14 16.14 0 000-17.47C428.89 172.28 347.8 112 255.66 112z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><circle cx="256" cy="256" r="80" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/></svg>
                                                                     <span class="visually-hidden">Quick View</span>
                                                                 </a>
@@ -2060,7 +2050,7 @@
                                                                 </a>
                                                             </li>
                                                             <li class="product__items--action__list">
-                                                                <a class="product__items--action__btn" data-open="modal1" href="javascript:void(0)">
+                                                                <a class="product__items--action__btn" data-open="modal1" href="product-details.html">
                                                                     <svg class="product__items--action__btn--svg" xmlns="http://www.w3.org/2000/svg"  width="25.51" height="23.443" viewBox="0 0 512 512"><path d="M255.66 112c-77.94 0-157.89 45.11-220.83 135.33a16 16 0 00-.27 17.77C82.92 340.8 161.8 400 255.66 400c92.84 0 173.34-59.38 221.79-135.25a16.14 16.14 0 000-17.47C428.89 172.28 347.8 112 255.66 112z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><circle cx="256" cy="256" r="80" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/></svg>
                                                                     <span class="visually-hidden">Quick View</span>
                                                                 </a>
@@ -2142,7 +2132,7 @@
                                                                 </a>
                                                             </li>
                                                             <li class="product__items--action__list">
-                                                                <a class="product__items--action__btn" data-open="modal1" href="javascript:void(0)">
+                                                                <a class="product__items--action__btn" data-open="modal1" href="product-details.html">
                                                                     <svg class="product__items--action__btn--svg" xmlns="http://www.w3.org/2000/svg"  width="25.51" height="23.443" viewBox="0 0 512 512"><path d="M255.66 112c-77.94 0-157.89 45.11-220.83 135.33a16 16 0 00-.27 17.77C82.92 340.8 161.8 400 255.66 400c92.84 0 173.34-59.38 221.79-135.25a16.14 16.14 0 000-17.47C428.89 172.28 347.8 112 255.66 112z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><circle cx="256" cy="256" r="80" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/></svg>
                                                                     <span class="visually-hidden">Quick View</span>
                                                                 </a>
@@ -2224,7 +2214,7 @@
                                                                 </a>
                                                             </li>
                                                             <li class="product__items--action__list">
-                                                                <a class="product__items--action__btn" data-open="modal1" href="javascript:void(0)">
+                                                                <a class="product__items--action__btn" data-open="modal1" href="product-details.html">
                                                                     <svg class="product__items--action__btn--svg" xmlns="http://www.w3.org/2000/svg"  width="25.51" height="23.443" viewBox="0 0 512 512"><path d="M255.66 112c-77.94 0-157.89 45.11-220.83 135.33a16 16 0 00-.27 17.77C82.92 340.8 161.8 400 255.66 400c92.84 0 173.34-59.38 221.79-135.25a16.14 16.14 0 000-17.47C428.89 172.28 347.8 112 255.66 112z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><circle cx="256" cy="256" r="80" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/></svg>
                                                                     <span class="visually-hidden">Quick View</span>
                                                                 </a>
@@ -2306,7 +2296,7 @@
                                                                 </a>
                                                             </li>
                                                             <li class="product__items--action__list">
-                                                                <a class="product__items--action__btn" data-open="modal1" href="javascript:void(0)">
+                                                                <a class="product__items--action__btn" data-open="modal1" href="product-details.html">
                                                                     <svg class="product__items--action__btn--svg" xmlns="http://www.w3.org/2000/svg"  width="25.51" height="23.443" viewBox="0 0 512 512"><path d="M255.66 112c-77.94 0-157.89 45.11-220.83 135.33a16 16 0 00-.27 17.77C82.92 340.8 161.8 400 255.66 400c92.84 0 173.34-59.38 221.79-135.25a16.14 16.14 0 000-17.47C428.89 172.28 347.8 112 255.66 112z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><circle cx="256" cy="256" r="80" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/></svg>
                                                                     <span class="visually-hidden">Quick View</span>
                                                                 </a>
@@ -2388,7 +2378,7 @@
                                                                 </a>
                                                             </li>
                                                             <li class="product__items--action__list">
-                                                                <a class="product__items--action__btn" data-open="modal1" href="javascript:void(0)">
+                                                                <a class="product__items--action__btn" data-open="modal1" href="product-details.html">
                                                                     <svg class="product__items--action__btn--svg" xmlns="http://www.w3.org/2000/svg"  width="25.51" height="23.443" viewBox="0 0 512 512"><path d="M255.66 112c-77.94 0-157.89 45.11-220.83 135.33a16 16 0 00-.27 17.77C82.92 340.8 161.8 400 255.66 400c92.84 0 173.34-59.38 221.79-135.25a16.14 16.14 0 000-17.47C428.89 172.28 347.8 112 255.66 112z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><circle cx="256" cy="256" r="80" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/></svg>
                                                                     <span class="visually-hidden">Quick View</span>
                                                                 </a>
@@ -2470,7 +2460,7 @@
                                                                 </a>
                                                             </li>
                                                             <li class="product__items--action__list">
-                                                                <a class="product__items--action__btn" data-open="modal1" href="javascript:void(0)">
+                                                                <a class="product__items--action__btn" data-open="modal1" href="product-details.html">
                                                                     <svg class="product__items--action__btn--svg" xmlns="http://www.w3.org/2000/svg"  width="25.51" height="23.443" viewBox="0 0 512 512"><path d="M255.66 112c-77.94 0-157.89 45.11-220.83 135.33a16 16 0 00-.27 17.77C82.92 340.8 161.8 400 255.66 400c92.84 0 173.34-59.38 221.79-135.25a16.14 16.14 0 000-17.47C428.89 172.28 347.8 112 255.66 112z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><circle cx="256" cy="256" r="80" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/></svg>
                                                                     <span class="visually-hidden">Quick View</span>
                                                                 </a>
@@ -2552,7 +2542,7 @@
                                                                 </a>
                                                             </li>
                                                             <li class="product__items--action__list">
-                                                                <a class="product__items--action__btn" data-open="modal1" href="javascript:void(0)">
+                                                                <a class="product__items--action__btn" data-open="modal1" href="product-details.html">
                                                                     <svg class="product__items--action__btn--svg" xmlns="http://www.w3.org/2000/svg"  width="25.51" height="23.443" viewBox="0 0 512 512"><path d="M255.66 112c-77.94 0-157.89 45.11-220.83 135.33a16 16 0 00-.27 17.77C82.92 340.8 161.8 400 255.66 400c92.84 0 173.34-59.38 221.79-135.25a16.14 16.14 0 000-17.47C428.89 172.28 347.8 112 255.66 112z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><circle cx="256" cy="256" r="80" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/></svg>
                                                                     <span class="visually-hidden">Quick View</span>
                                                                 </a>
@@ -2641,7 +2631,7 @@
                                                                 </a>
                                                             </li>
                                                             <li class="product__items--action__list">
-                                                                <a class="product__items--action__btn" data-open="modal1" href="javascript:void(0)">
+                                                                <a class="product__items--action__btn" data-open="modal1" href="product-details.html">
                                                                     <svg class="product__items--action__btn--svg" xmlns="http://www.w3.org/2000/svg"  width="25.51" height="23.443" viewBox="0 0 512 512"><path d="M255.66 112c-77.94 0-157.89 45.11-220.83 135.33a16 16 0 00-.27 17.77C82.92 340.8 161.8 400 255.66 400c92.84 0 173.34-59.38 221.79-135.25a16.14 16.14 0 000-17.47C428.89 172.28 347.8 112 255.66 112z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><circle cx="256" cy="256" r="80" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/></svg>
                                                                     <span class="visually-hidden">Quick View</span>
                                                                 </a>
@@ -2724,7 +2714,7 @@
                                                                 </a>
                                                             </li>
                                                             <li class="product__items--action__list">
-                                                                <a class="product__items--action__btn" data-open="modal1" href="javascript:void(0)">
+                                                                <a class="product__items--action__btn" data-open="modal1" href="product-details.html">
                                                                     <svg class="product__items--action__btn--svg" xmlns="http://www.w3.org/2000/svg"  width="25.51" height="23.443" viewBox="0 0 512 512"><path d="M255.66 112c-77.94 0-157.89 45.11-220.83 135.33a16 16 0 00-.27 17.77C82.92 340.8 161.8 400 255.66 400c92.84 0 173.34-59.38 221.79-135.25a16.14 16.14 0 000-17.47C428.89 172.28 347.8 112 255.66 112z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><circle cx="256" cy="256" r="80" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/></svg>
                                                                     <span class="visually-hidden">Quick View</span>
                                                                 </a>
@@ -2807,7 +2797,7 @@
                                                                 </a>
                                                             </li>
                                                             <li class="product__items--action__list">
-                                                                <a class="product__items--action__btn" data-open="modal1" href="javascript:void(0)">
+                                                                <a class="product__items--action__btn" data-open="modal1" href="product-details.html">
                                                                     <svg class="product__items--action__btn--svg" xmlns="http://www.w3.org/2000/svg"  width="25.51" height="23.443" viewBox="0 0 512 512"><path d="M255.66 112c-77.94 0-157.89 45.11-220.83 135.33a16 16 0 00-.27 17.77C82.92 340.8 161.8 400 255.66 400c92.84 0 173.34-59.38 221.79-135.25a16.14 16.14 0 000-17.47C428.89 172.28 347.8 112 255.66 112z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><circle cx="256" cy="256" r="80" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/></svg>
                                                                     <span class="visually-hidden">Quick View</span>
                                                                 </a>
@@ -2890,7 +2880,7 @@
                                                                 </a>
                                                             </li>
                                                             <li class="product__items--action__list">
-                                                                <a class="product__items--action__btn" data-open="modal1" href="javascript:void(0)">
+                                                                <a class="product__items--action__btn" data-open="modal1" href="product-details.html">
                                                                     <svg class="product__items--action__btn--svg" xmlns="http://www.w3.org/2000/svg"  width="25.51" height="23.443" viewBox="0 0 512 512"><path d="M255.66 112c-77.94 0-157.89 45.11-220.83 135.33a16 16 0 00-.27 17.77C82.92 340.8 161.8 400 255.66 400c92.84 0 173.34-59.38 221.79-135.25a16.14 16.14 0 000-17.47C428.89 172.28 347.8 112 255.66 112z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><circle cx="256" cy="256" r="80" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/></svg>
                                                                     <span class="visually-hidden">Quick View</span>
                                                                 </a>
@@ -2973,7 +2963,7 @@
                                                                 </a>
                                                             </li>
                                                             <li class="product__items--action__list">
-                                                                <a class="product__items--action__btn" data-open="modal1" href="javascript:void(0)">
+                                                                <a class="product__items--action__btn" data-open="modal1" href="product-details.html">
                                                                     <svg class="product__items--action__btn--svg" xmlns="http://www.w3.org/2000/svg"  width="25.51" height="23.443" viewBox="0 0 512 512"><path d="M255.66 112c-77.94 0-157.89 45.11-220.83 135.33a16 16 0 00-.27 17.77C82.92 340.8 161.8 400 255.66 400c92.84 0 173.34-59.38 221.79-135.25a16.14 16.14 0 000-17.47C428.89 172.28 347.8 112 255.66 112z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><circle cx="256" cy="256" r="80" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/></svg>
                                                                     <span class="visually-hidden">Quick View</span>
                                                                 </a>
@@ -3056,7 +3046,7 @@
                                                                 </a>
                                                             </li>
                                                             <li class="product__items--action__list">
-                                                                <a class="product__items--action__btn" data-open="modal1" href="javascript:void(0)">
+                                                                <a class="product__items--action__btn" data-open="modal1" href="product-details.html">
                                                                     <svg class="product__items--action__btn--svg" xmlns="http://www.w3.org/2000/svg"  width="25.51" height="23.443" viewBox="0 0 512 512"><path d="M255.66 112c-77.94 0-157.89 45.11-220.83 135.33a16 16 0 00-.27 17.77C82.92 340.8 161.8 400 255.66 400c92.84 0 173.34-59.38 221.79-135.25a16.14 16.14 0 000-17.47C428.89 172.28 347.8 112 255.66 112z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><circle cx="256" cy="256" r="80" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/></svg>
                                                                     <span class="visually-hidden">Quick View</span>
                                                                 </a>
@@ -3108,8 +3098,8 @@
                             <img src="assets/img/other/shipping1.png" alt="">
                         </div>
                         <div class="shipping__items2--content">
-                            <h2 class="shipping__items2--content__title h3">Shipping</h2>
-                            <p class="shipping__items2--content__desc">From handpicked sellers</p>
+                            <h2 class="shipping__items2--content__title h3">Vận Chuyển</h2>
+                            <p class="shipping__items2--content__desc">Miễn Phí Vận Chuyển</p>
                         </div>
                     </div>
                     <div class="shipping__items2 d-flex align-items-center">
@@ -3117,8 +3107,8 @@
                             <img src="assets/img/other/shipping2.png" alt="">
                         </div>
                         <div class="shipping__items2--content">
-                            <h2 class="shipping__items2--content__title h3">Payment</h2>
-                            <p class="shipping__items2--content__desc">From handpicked sellers</p>
+                            <h2 class="shipping__items2--content__title h3">Thanh Toán</h2>
+                            <p class="shipping__items2--content__desc">Thanh toán trực tiếp và trực tuyến</p>
                         </div>
                     </div>
                     <div class="shipping__items2 d-flex align-items-center">
@@ -3126,8 +3116,8 @@
                             <img src="assets/img/other/shipping3.png" alt="">
                         </div>
                         <div class="shipping__items2--content">
-                            <h2 class="shipping__items2--content__title h3">Return</h2>
-                            <p class="shipping__items2--content__desc">From handpicked sellers</p>
+                            <h2 class="shipping__items2--content__title h3">Liên Hệ</h2>
+                            <p class="shipping__items2--content__desc">Hotline: 10072004</p>
                         </div>
                     </div>
                     <div class="shipping__items2 d-flex align-items-center">
@@ -3135,8 +3125,8 @@
                             <img src="assets/img/other/shipping4.png" alt="">
                         </div>
                         <div class="shipping__items2--content">
-                            <h2 class="shipping__items2--content__title h3">Support</h2>
-                            <p class="shipping__items2--content__desc">From handpicked sellers</p>
+                            <h2 class="shipping__items2--content__title h3">Hỗ trợ</h2>
+                            <p class="shipping__items2--content__desc">Hỗ trợ 24/7</p>
                         </div>
                     </div>
                 </div>
