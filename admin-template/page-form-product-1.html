@@ -32,12 +32,12 @@
             <ul class="menu-aside">
                 <li class="menu-item active">
                     <a class="menu-link" href="index.html"> <i class="icon material-icons md-home"></i>
-                        <span class="text">Dashboard</span>
+                        <span class="text">Trang Chủ</span>
                     </a>
                 </li>
                 <li class="menu-item">
                     <a class="menu-link" href="page-products-list.html"> <i class="icon material-icons md-shopping_bag"></i>
-                        <span class="text">Products</span>
+                        <span class="text">Sản Phẩm</span>
                     </a>
                     <!-- <div class="submenu">
                         <a href="page-products-list.html">Product List</a>
@@ -46,7 +46,7 @@
                 </li>
                 <li class="menu-item">
                     <a class="menu-link" href="page-categories.html"><i class="icon material-icons md-category"></i>
-                        <span class="text">Categories</span> 
+                        <span class="text">Danh Mục</span> 
                     </a>
                     <!-- <div class="submenu">
                         <a href="page-sellers-list.html">Sellers list</a>
@@ -54,7 +54,7 @@
                 </li>
                 <li class="menu-item">
                     <a class="menu-link" href="page-orders.html"><i class="icon material-icons md-shopping_cart"></i>
-                        <span class="text">Orders</span>
+                        <span class="text">Đơn Hàng</span>
                     </a>
                     <!-- <div class="submenu">
                         <a href="page-orders.html">Order list</a>
@@ -71,7 +71,7 @@
                 </li> -->
                 <li class="menu-item">
                     <a class="menu-link" href="page-form-product-1.html"> <i class="icon material-icons md-add_box"></i>
-                        <span class="text">Add product</span>
+                        <span class="text">Thêm Sản Phẩm</span>
                     </a>
                     <!-- <div class="submenu">
                         <a href="page-form-product-1.html">Add product</a>
@@ -89,7 +89,7 @@
                 </li> -->
                 <li class="menu-item">
                     <a class="menu-link" href="page-sellers-list.html"> <i class="icon material-icons md-person"></i>
-                        <span class="text">Account</span>
+                        <span class="text">Tài Khoản</span>
                     </a>
                     <!-- <div class="submenu">
                         <a href="page-account-login.html">User login</a>
@@ -98,7 +98,7 @@
                 </li>
                 <li class="menu-item">
                     <a class="menu-link" href="page-reviews.html"> <i class="icon material-icons md-comment"></i>
-                        <span class="text">Reviews</span>
+                        <span class="text">Đánh Giá</span>
                     </a>
                 </li>
                 <!-- <li class="menu-item">
@@ -191,58 +191,54 @@
                     <div class="content-header">
                         <h2 class="content-title">Thêm sản phẩm mới</h2>
                         <div>
-                            <button class="btn btn-light rounded font-sm mr-5 text-body hover-up">Save to draft</button>
-                            <button class="btn btn-md rounded font-sm hover-up">Publich</button>
+                            <button class="btn btn-md rounded font-sm hover-up">Lưu</button>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="card mb-4">
                         <div class="card-header">
-                            <h4>Basic</h4>
+                            <h4>Thông tin sản phẩm</h4>
                         </div>
                         <div class="card-body">
                             <form>
                                 <div class="mb-4">
-                                    <label for="product_name" class="form-label">Product title</label>
+                                    <label for="product_name" class="form-label">Mã Sản Phẩm</label>
+                                    <input type="text" placeholder="Type here" class="form-control" id="product_id">
+                                </div>
+                                <div class="mb-4">
+                                    <label class="form-label">Tên Sản Phẩm</label>
                                     <input type="text" placeholder="Type here" class="form-control" id="product_name">
                                 </div>
                                 <div class="mb-4">
-                                    <label class="form-label">Full description</label>
-                                    <textarea placeholder="Type here" class="form-control" rows="4"></textarea>
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-4">
                                         <div class="mb-4">
-                                            <label class="form-label">Regular price</label>
+                                            <label class="form-label">Giá Gốc</label>
                                             <div class="row gx-2">
-                                                <input placeholder="$" type="text" class="form-control">
+                                                <input placeholder="VND" type="text" class="form-control">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="mb-4">
-                                            <label class="form-label">Promotional price</label>
-                                            <input placeholder="$" type="text" class="form-control">
+                                            <label class="form-label">Giá Đã Giảm</label>
+                                            <input placeholder="VND" type="text" class="form-control">
                                         </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <label class="form-label">Currency</label>
-                                        <select class="form-select">
-                                            <option> USD </option>
-                                            <option> EUR </option>
-                                            <option> RUBL </option>
-                                        </select>
                                     </div>
                                 </div>
                                 <div class="mb-4">
-                                    <label class="form-label">Tax rate</label>
-                                    <input type="text" placeholder="%" class="form-control" id="product_name">
+                                    <label class="form-label">Besteller</label>
+                                    <input type="checkbox" class="form-control1" id="product_bestseller">
+
+                                    <label class="form-label">New</label>
+                                    <input type="checkbox" class="form-control1" id="product_new">
+
+                                    <label class="form-label">Hot</label>
+                                    <input type="checkbox" class="form-control1" id="product_hot">
                                 </div>
-                                <label class="form-check mb-4">
-                                    <input class="form-check-input" type="checkbox" value="">
-                                    <span class="form-check-label"> Make a template </span>
-                                </label>
+                            
                             </form>
                         </div>
                     </div>
@@ -252,7 +248,7 @@
                 <div class="col-lg-3">
                     <div class="card mb-4">
                         <div class="card-header">
-                            <h4>Media</h4>
+                            <h4>Hình ảnh</h4>
                         </div>
                         <div class="card-body">
                             <div class="input-upload">
@@ -264,12 +260,12 @@
                     <!-- card end// -->
                     <div class="card mb-4">
                         <div class="card-header">
-                            <h4>Organization</h4>
+                            <h4>Danh Mục</h4>
                         </div>
                         <div class="card-body">
                             <div class="row gx-2">
                                 <div class="col-sm-6 mb-3">
-                                    <label class="form-label">Category</label>
+                                    <label class="form-label">Danh Mục</label>
                                     <select class="form-select">
                                         <option> Automobiles </option>
                                         <option> Home items </option>
@@ -278,19 +274,6 @@
                                         <option> Sport items </option>
                                         <option> Baby and Tous </option>
                                     </select>
-                                </div>
-                                <div class="col-sm-6 mb-3">
-                                    <label class="form-label">Sub-category</label>
-                                    <select class="form-select">
-                                        <option> Nissan </option>
-                                        <option> Honda </option>
-                                        <option> Mercedes </option>
-                                        <option> Chevrolet </option>
-                                    </select>
-                                </div>
-                                <div class="mb-4">
-                                    <label for="product_name" class="form-label">Tags</label>
-                                    <input type="text" class="form-control">
                                 </div>
                             </div>
                             <!-- row.// -->

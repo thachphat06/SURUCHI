@@ -982,6 +982,14 @@ b {
     border-radius: 4px;
     height: 45px;
 }
+input{
+    color: #4f5d77;
+    box-sizing: border-box;
+    padding: 0;
+    width: 70px;
+    height: 25px;
+    margin-top: 13px;
+}
 
 .form-control:focus,
 .form-select:focus {
