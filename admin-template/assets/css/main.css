@@ -784,7 +784,10 @@ b {
     color: #ee2761;
     background-color: rgba(8, 129, 120, 0.2);
 }
-
+.btn-fix{
+    height: 45px;
+    margin-top: 13px;
+}
 .btn.btn-primary {
     font-size: 14px;
     font-weight: 500;
