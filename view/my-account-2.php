@@ -8,7 +8,7 @@
                         <div class="breadcrumb__content text-center">
                             <h1 class="breadcrumb__content--title text-white mb-25">My Account</h1>
                             <ul class="breadcrumb__content--menu d-flex justify-content-center">
-                                <li class="breadcrumb__content--menu__items"><a class="text-white" href="index.html">Home</a></li>
+                                <li class="breadcrumb__content--menu__items"><a class="text-white" href="index.php">Home</a></li>
                                 <li class="breadcrumb__content--menu__items"><span class="text-white">My Account</span></li>
                             </ul>
                         </div>

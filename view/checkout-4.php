@@ -8,7 +8,7 @@
                         <div class="breadcrumb__content text-center">
                             <h1 class="breadcrumb__content--title text-white mb-25">Tài khoản</h1>
                             <ul class="breadcrumb__content--menu d-flex justify-content-center">
-                                <li class="breadcrumb__content--menu__items"><a class="text-white" href="index.html">Trang chủ</a></li>
+                                <li class="breadcrumb__content--menu__items"><a class="text-white" href="index.php">Trang chủ</a></li>
                                 <li class="breadcrumb__content--menu__items"><span class="text-white">Tài khoản</span></li>
                             </ul>
                         </div>
@@ -254,7 +254,7 @@
                             <div class="account__details">
                                 <h4 class="account__details--title">Chi tiết tài khoản</h4>
                                 <p class="account__details--desc">thachphat<br>160/51<br>Bùi Đình Túy<br> Hồ Chí Minh</p>
-                                <a class="account__details--link" href="my-account-2.html">Xem địa chỉ (1)</a>
+                                <a class="account__details--link" href="index.php?pg=my-account-2">Xem địa chỉ (1)</a>
                             </div>
                         </div>
                     </div>

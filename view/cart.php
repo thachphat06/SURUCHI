@@ -8,7 +8,7 @@
                         <div class="breadcrumb__content text-center">
                             <h1 class="breadcrumb__content--title text-white mb-25">Giỏ Hàng</h1>
                             <ul class="breadcrumb__content--menu d-flex justify-content-center">
-                                <li class="breadcrumb__content--menu__items"><a class="text-white" href="index.html">Trang chủ</a></li>
+                                <li class="breadcrumb__content--menu__items"><a class="text-white" href="index.php">Trang chủ</a></li>
                                 <li class="breadcrumb__content--menu__items"><span class="text-white">Giỏ Hàng</span></li>
                             </ul>
                         </div>
@@ -44,7 +44,7 @@
                                                             <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="16px" height="16px"><path d="M 4.7070312 3.2929688 L 3.2929688 4.7070312 L 10.585938 12 L 3.2929688 19.292969 L 4.7070312 20.707031 L 12 13.414062 L 19.292969 20.707031 L 20.707031 19.292969 L 13.414062 12 L 20.707031 4.7070312 L 19.292969 3.2929688 L 12 10.585938 L 4.7070312 3.2929688 z"/></svg>
                                                         </button>
                                                         <div class="cart__thumbnail">
-                                                            <a href="product-details.html"><img class="border-radius-5" src="./view/./view/assets/img/product/product1.png" alt="cart-product"></a>
+                                                            <a href="product-details.html"><img class="border-radius-5" src="./view/assets/img/product/product1.png" alt="cart-product"></a>
                                                         </div>
                                                         <div class="cart__content">
                                                             <h4 class="cart__content--title"><a href="product-details.html">Fresh-whole-fish</a></h4>
@@ -76,7 +76,7 @@
                                                             <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="16px" height="16px"><path d="M 4.7070312 3.2929688 L 3.2929688 4.7070312 L 10.585938 12 L 3.2929688 19.292969 L 4.7070312 20.707031 L 12 13.414062 L 19.292969 20.707031 L 20.707031 19.292969 L 13.414062 12 L 20.707031 4.7070312 L 19.292969 3.2929688 L 12 10.585938 L 4.7070312 3.2929688 z"/></svg>
                                                         </button>
                                                         <div class="cart__thumbnail">
-                                                            <a href="product-details.html"><img class="border-radius-5" src="./view/./view/assets/img/product/product2.png" alt="cart-product"></a>
+                                                            <a href="product-details.html"><img class="border-radius-5" src="./view/assets/img/product/product2.png" alt="cart-product"></a>
                                                         </div>
                                                         <div class="cart__content">
                                                             <h4 class="cart__content--title"><a href="product-details.html">Vegetable-healthy</a></h4>
@@ -108,7 +108,7 @@
                                                             <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="16px" height="16px"><path d="M 4.7070312 3.2929688 L 3.2929688 4.7070312 L 10.585938 12 L 3.2929688 19.292969 L 4.7070312 20.707031 L 12 13.414062 L 19.292969 20.707031 L 20.707031 19.292969 L 13.414062 12 L 20.707031 4.7070312 L 19.292969 3.2929688 L 12 10.585938 L 4.7070312 3.2929688 z"/></svg>
                                                         </button>
                                                         <div class="cart__thumbnail">
-                                                            <a href="product-details.html"><img class="border-radius-5" src="./view/./view/assets/img/product/product3.png" alt="cart-product"></a>
+                                                            <a href="product-details.html"><img class="border-radius-5" src="./view/assets/img/product/product3.png" alt="cart-product"></a>
                                                         </div>
                                                         <div class="cart__content">
                                                             <h4 class="cart__content--title"><a href="product-details.html">Raw-onions-surface</a></h4>
@@ -140,7 +140,7 @@
                                                             <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="16px" height="16px"><path d="M 4.7070312 3.2929688 L 3.2929688 4.7070312 L 10.585938 12 L 3.2929688 19.292969 L 4.7070312 20.707031 L 12 13.414062 L 19.292969 20.707031 L 20.707031 19.292969 L 13.414062 12 L 20.707031 4.7070312 L 19.292969 3.2929688 L 12 10.585938 L 4.7070312 3.2929688 z"/></svg>
                                                         </button>
                                                         <div class="cart__thumbnail">
-                                                            <a href="product-details.html"><img class="border-radius-5" src="./view/./view/assets/img/product/product4.png" alt="cart-product"></a>
+                                                            <a href="product-details.html"><img class="border-radius-5" src="./view/assets/img/product/product4.png" alt="cart-product"></a>
                                                         </div>
                                                         <div class="cart__content">
                                                             <h4 class="cart__content--title"><a href="product-details.html">Oversize Cotton Dress</a></h4>
@@ -168,7 +168,7 @@
                                         </tbody>
                                     </table> 
                                     <div class="continue__shopping d-flex justify-content-between">
-                                        <a class="continue__shopping--link" href="shop.html">Tiếp tục mua sắm</a>
+                                        <a class="continue__shopping--link" href="index.php?pg=shop">Tiếp tục mua sắm</a>
                                         <button class="continue__shopping--clear" type="submit">Xóa giỏ hàng</button>
                                     </div>
                                 </div>
@@ -209,7 +209,7 @@
                                         <p class="cart__summary--footer__desc">Vận chuyển và thuế được tính khi thanh toán</p>
                                         <ul class="d-flex justify-content-between">
                                             <li><button class="cart__summary--footer__btn primary__btn cart" type="submit">Cập nhật giỏ hàng</button></li>
-                                            <li><a class="cart__summary--footer__btn primary__btn checkout" href="checkout.html">Thanh toán</a></li>
+                                            <li><a class="cart__summary--footer__btn primary__btn checkout" href="index.php?pg=checkout-2">Thanh toán</a></li>
                                         </ul>
                                     </div>
                                 </div> 
@@ -233,8 +233,8 @@
                             <div class="product__items ">
                                 <div class="product__items--thumbnail">
                                     <a class="product__items--link" href="product-details.html">
-                                        <img class="product__items--img product__primary--img" src="./view/./view/assets/img/product/product1.png" alt="product-img">
-                                        <img class="product__items--img product__secondary--img" src="./view/./view/assets/img/product/product2.png" alt="product-img">
+                                        <img class="product__items--img product__primary--img" src="./view/assets/img/product/product1.png" alt="product-img">
+                                        <img class="product__items--img product__secondary--img" src="./view/assets/img/product/product2.png" alt="product-img">
                                     </a>
                                     <div class="product__badge">
                                         <span class="product__badge--items sale">Sale</span>
@@ -315,8 +315,8 @@
                             <div class="product__items ">
                                 <div class="product__items--thumbnail">
                                     <a class="product__items--link" href="product-details.html">
-                                        <img class="product__items--img product__primary--img" src="./view/./view/assets/img/product/product3.png" alt="product-img">
-                                        <img class="product__items--img product__secondary--img" src="./view/./view/assets/img/product/product4.png" alt="product-img">
+                                        <img class="product__items--img product__primary--img" src="./view/assets/img/product/product3.png" alt="product-img">
+                                        <img class="product__items--img product__secondary--img" src="./view/assets/img/product/product4.png" alt="product-img">
                                     </a>
                                     <div class="product__badge">
                                         <span class="product__badge--items sale">Sale</span>
@@ -397,8 +397,8 @@
                             <div class="product__items ">
                                 <div class="product__items--thumbnail">
                                     <a class="product__items--link" href="product-details.html">
-                                        <img class="product__items--img product__primary--img" src="./view/./view/assets/img/product/product5.png" alt="product-img">
-                                        <img class="product__items--img product__secondary--img" src="./view/./view/assets/img/product/product11.png" alt="product-img">
+                                        <img class="product__items--img product__primary--img" src="./view/assets/img/product/product5.png" alt="product-img">
+                                        <img class="product__items--img product__secondary--img" src="./view/assets/img/product/product11.png" alt="product-img">
                                     </a>
                                     <div class="product__badge">
                                         <span class="product__badge--items sale">Sale</span>
@@ -479,8 +479,8 @@
                             <div class="product__items ">
                                 <div class="product__items--thumbnail">
                                     <a class="product__items--link" href="product-details.html">
-                                        <img class="product__items--img product__primary--img" src="./view/./view/assets/img/product/product8.png" alt="product-img">
-                                        <img class="product__items--img product__secondary--img" src="./view/./view/assets/img/product/product15.png" alt="product-img">
+                                        <img class="product__items--img product__primary--img" src="./view/assets/img/product/product8.png" alt="product-img">
+                                        <img class="product__items--img product__secondary--img" src="./view/assets/img/product/product15.png" alt="product-img">
                                     </a>
                                     <div class="product__badge">
                                         <span class="product__badge--items sale">Sale</span>
@@ -561,8 +561,8 @@
                             <div class="product__items ">
                                 <div class="product__items--thumbnail">
                                     <a class="product__items--link" href="product-details.html">
-                                        <img class="product__items--img product__primary--img" src="./view/./view/assets/img/product/product12.png" alt="product-img">
-                                        <img class="product__items--img product__secondary--img" src="./view/./view/assets/img/product/product13.png" alt="product-img">
+                                        <img class="product__items--img product__primary--img" src="./view/assets/img/product/product12.png" alt="product-img">
+                                        <img class="product__items--img product__secondary--img" src="./view/assets/img/product/product13.png" alt="product-img">
                                     </a>
                                     <div class="product__badge">
                                         <span class="product__badge--items sale">Sale</span>
@@ -643,8 +643,8 @@
                             <div class="product__items ">
                                         <div class="product__items--thumbnail">
                                             <a class="product__items--link" href="product-details.html">
-                                                <img class="product__items--img product__primary--img" src="./view/./view/assets/img/product/product14.png" alt="product-img">
-                                                <img class="product__items--img product__secondary--img" src="./view/./view/assets/img/product/product15.png" alt="product-img">
+                                                <img class="product__items--img product__primary--img" src="./view/assets/img/product/product14.png" alt="product-img">
+                                                <img class="product__items--img product__secondary--img" src="./view/assets/img/product/product15.png" alt="product-img">
                                             </a>
                                             <div class="product__badge">
                                                 <span class="product__badge--items sale">Sale</span>
@@ -732,8 +732,8 @@
                             <div class="product__items ">
                                 <div class="product__items--thumbnail">
                                     <a class="product__items--link" href="product-details.html">
-                                        <img class="product__items--img product__primary--img" src="./view/./view/assets/img/product/product11.png" alt="product-img">
-                                        <img class="product__items--img product__secondary--img" src="./view/./view/assets/img/product/product8.png" alt="product-img">
+                                        <img class="product__items--img product__primary--img" src="./view/assets/img/product/product11.png" alt="product-img">
+                                        <img class="product__items--img product__secondary--img" src="./view/assets/img/product/product8.png" alt="product-img">
                                     </a>
                                     <div class="product__badge">
                                         <span class="product__badge--items sale">Sale</span>
@@ -825,19 +825,19 @@
                     <div class="col">
                         <div class="brand__logo--section__inner d-flex justify-content-center align-items-center">
                             <div class="brand__logo--items">
-                                <img class="brand__logo--items__thumbnail--img display-block" src="./view/./view/assets/img/logo/brand-logo1.png" alt="brand logo">
+                                <img class="brand__logo--items__thumbnail--img display-block" src="./view/assets/img/logo/brand-logo1.png" alt="brand logo">
                             </div>
                             <div class="brand__logo--items">
-                                <img class="brand__logo--items__thumbnail--img display-block" src="./view/./view/assets/img/logo/brand-logo2.png" alt="brand logo">
+                                <img class="brand__logo--items__thumbnail--img display-block" src="./view/assets/img/logo/brand-logo2.png" alt="brand logo">
                             </div>
                             <div class="brand__logo--items">
-                                <img class="brand__logo--items__thumbnail--img display-block" src="./view/./view/assets/img/logo/brand-logo3.png" alt="brand logo">
+                                <img class="brand__logo--items__thumbnail--img display-block" src="./view/assets/img/logo/brand-logo3.png" alt="brand logo">
                             </div>
                             <div class="brand__logo--items">
-                                <img class="brand__logo--items__thumbnail--img display-block" src="./view/./view/assets/img/logo/brand-logo4.png" alt="brand logo">
+                                <img class="brand__logo--items__thumbnail--img display-block" src="./view/assets/img/logo/brand-logo4.png" alt="brand logo">
                             </div>
                             <div class="brand__logo--items">
-                                <img class="brand__logo--items__thumbnail--img display-block" src="./view/./view/assets/img/logo/brand-logo5.png" alt="brand logo">
+                                <img class="brand__logo--items__thumbnail--img display-block" src="./view/assets/img/logo/brand-logo5.png" alt="brand logo">
                             </div>
                         </div>
                     </div>
@@ -852,7 +852,7 @@
                 <div class="shipping__section2--inner shipping__style3--inner d-flex justify-content-between">
                     <div class="shipping__items2 d-flex align-items-center">
                         <div class="shipping__items2--icon">
-                            <img src="./view/./view/assets/img/other/shipping1.png" alt="">
+                            <img src="./view/assets/img/other/shipping1.png" alt="">
                         </div>
                         <div class="shipping__items2--content">
                             <h2 class="shipping__items2--content__title h3">Vận Chuyển</h2>
@@ -861,7 +861,7 @@
                     </div>
                     <div class="shipping__items2 d-flex align-items-center">
                         <div class="shipping__items2--icon">
-                            <img src="./view/./view/assets/img/other/shipping2.png" alt="">
+                            <img src="./view/assets/img/other/shipping2.png" alt="">
                         </div>
                         <div class="shipping__items2--content">
                             <h2 class="shipping__items2--content__title h3">Thanh Toán</h2>
@@ -870,7 +870,7 @@
                     </div>
                     <div class="shipping__items2 d-flex align-items-center">
                         <div class="shipping__items2--icon">
-                            <img src="./view/./view/assets/img/other/shipping3.png" alt="">
+                            <img src="./view/assets/img/other/shipping3.png" alt="">
                         </div>
                         <div class="shipping__items2--content">
                             <h2 class="shipping__items2--content__title h3">Liên Hệ</h2>
@@ -879,7 +879,7 @@
                     </div>
                     <div class="shipping__items2 d-flex align-items-center">
                         <div class="shipping__items2--icon">
-                            <img src="./view/./view/assets/img/other/shipping4.png" alt="">
+                            <img src="./view/assets/img/other/shipping4.png" alt="">
                         </div>
                         <div class="shipping__items2--content">
                             <h2 class="shipping__items2--content__title h3">Hỗ trợ</h2>

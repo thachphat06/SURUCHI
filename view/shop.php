@@ -323,14 +323,14 @@
                             <div class="single__widget widget__bg">
                                 <h2 class="widget__title h3">Thương hiệu</h2>
                                 <ul class="widget__tagcloud">
-                                    <li class="widget__tagcloud--list"><a class="widget__tagcloud--link" href="shop.html">Jacket</a></li>
-                                    <li class="widget__tagcloud--list"><a class="widget__tagcloud--link" href="shop.html">Women</a></li>
-                                    <li class="widget__tagcloud--list"><a class="widget__tagcloud--link" href="shop.html">Oversize</a></li>
-                                    <li class="widget__tagcloud--list"><a class="widget__tagcloud--link" href="shop.html">Cotton </a></li>
-                                    <li class="widget__tagcloud--list"><a class="widget__tagcloud--link" href="shop.html">Shoulder </a></li>
-                                    <li class="widget__tagcloud--list"><a class="widget__tagcloud--link" href="shop.html">Winter</a></li>
-                                    <li class="widget__tagcloud--list"><a class="widget__tagcloud--link" href="shop.html">Accessories</a></li>
-                                    <li class="widget__tagcloud--list"><a class="widget__tagcloud--link" href="shop.html">Dress </a></li>
+                                    <li class="widget__tagcloud--list"><a class="widget__tagcloud--link" href="index.php?pg=shop">Jacket</a></li>
+                                    <li class="widget__tagcloud--list"><a class="widget__tagcloud--link" href="index.php?pg=shop">Women</a></li>
+                                    <li class="widget__tagcloud--list"><a class="widget__tagcloud--link" href="index.php?pg=shop">Oversize</a></li>
+                                    <li class="widget__tagcloud--list"><a class="widget__tagcloud--link" href="index.php?pg=shop">Cotton </a></li>
+                                    <li class="widget__tagcloud--list"><a class="widget__tagcloud--link" href="index.php?pg=shop">Shoulder </a></li>
+                                    <li class="widget__tagcloud--list"><a class="widget__tagcloud--link" href="index.php?pg=shop">Winter</a></li>
+                                    <li class="widget__tagcloud--list"><a class="widget__tagcloud--link" href="index.php?pg=shop">Accessories</a></li>
+                                    <li class="widget__tagcloud--list"><a class="widget__tagcloud--link" href="index.php?pg=shop">Dress </a></li>
                                 </ul>
                             </div>
                         </div>
@@ -2165,17 +2165,17 @@
                                 <nav class="pagination justify-content-center">
                                     <ul class="pagination__wrapper d-flex align-items-center justify-content-center">
                                         <li class="pagination__list">
-                                            <a href="shop.html" class="pagination__item--arrow  link ">
+                                            <a href="index.php?pg=shop" class="pagination__item--arrow  link ">
                                                 <svg xmlns="http://www.w3.org/2000/svg"  width="22.51" height="20.443" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M244 400L100 256l144-144M120 256h292"/></svg>
                                                 <span class="visually-hidden">pagination arrow</span>
                                             </a>
                                         <li>
                                         <li class="pagination__list"><span class="pagination__item pagination__item--current">1</span></li>
-                                        <li class="pagination__list"><a href="shop.html" class="pagination__item link">2</a></li>
-                                        <li class="pagination__list"><a href="shop.html" class="pagination__item link">3</a></li>
-                                        <li class="pagination__list"><a href="shop.html" class="pagination__item link">4</a></li>
+                                        <li class="pagination__list"><a href="index.php?pg=shop" class="pagination__item link">2</a></li>
+                                        <li class="pagination__list"><a href="index.php?pg=shop" class="pagination__item link">3</a></li>
+                                        <li class="pagination__list"><a href="index.php?pg=shop" class="pagination__item link">4</a></li>
                                         <li class="pagination__list">
-                                            <a href="shop.html" class="pagination__item--arrow  link ">
+                                            <a href="index.php?pg=shop" class="pagination__item--arrow  link ">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="22.51" height="20.443" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M268 112l144 144-144 144M392 256H100"/></svg>
                                                 <span class="visually-hidden">pagination arrow</span>
                                             </a>

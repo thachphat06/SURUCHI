@@ -14,6 +14,9 @@
       case 'login':
         include "view/login.php";
         break;
+      case 'logout':
+        // include "view/login.php";
+        break;
       case 'my-account':
         include "view/my-account.php";
         break;
@@ -25,6 +28,12 @@
         break;
       case 'product-detail':
         include "view/product-detail.php";
+        break;
+      case 'add-cart':
+        include "view/cart.php";
+        break;
+      case 'del-cart':
+        include "view/cart.php";
         break;
       case 'cart':
         include "view/cart.php";

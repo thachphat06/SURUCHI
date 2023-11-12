@@ -60,12 +60,9 @@
                             </button>
                         </h2>
                         <ul class="footer__widget--menu footer__widget--inner">
-                            <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="my-account.html">Tài khoản của tôi</a></li>
-                            <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="wishlist.html">Yêu Thích</a></li>
-                            <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="login.html">Đăng Nhập</a></li>
-                            <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="privacy-policy.html">Chính Sách Bảo Mật</a></li>
-                            <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="compare.html">So Sánh</a></li>
-                            <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="faq.html">Thường Xuyên</a></li>
+                            <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="index.php?pg=my-account">Tài khoản của tôi</a></li>
+                            <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="index.php?pg=login">Đăng Nhập</a></li>
+                            <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="index.php?pg=privacy-policy">Chính Sách Bảo Mật</a></li>
                         </ul>
                     </div>
                     <div class="footer__widget">
@@ -77,12 +74,10 @@
                             </button>
                         </h2>
                         <ul class="footer__widget--menu footer__widget--inner">
-                            <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="about.html">Giới Thiệu</a></li>
-                            <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="contact.html">Liên Hệ</a></li>
-                            <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="portfolio.html">Đầu Tư</a></li>
-                            <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="cart.html">Giỏ Hàng</a></li>
-                            <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="checkout.html">Thanh Toán</a></li>
-                            <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="login.html">Đăng Ký</a></li>
+                            <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="index.php?pg=about">Giới Thiệu</a></li>
+                            <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="index.php?pg=contact">Liên Hệ</a></li>
+                            <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="index.php?pg=cart">Giỏ Hàng</a></li>
+                            <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="index.php?pg=login">Đăng Ký</a></li>
                         </ul>
                     </div>
                 </div>
@@ -141,7 +136,7 @@
                 </div>
             </div>
             <div class="footer__bottom d-flex justify-content-between align-items-center">
-                <p class="copyright__content text-ofwhite m-0">Bản quyền © 2023 <a class="copyright__content--link" href="index.html">Suruchi</a> . Đã đăng ký Bản quyền. Thiết kế bởi team Suruchi</p>
+                <p class="copyright__content text-ofwhite m-0">Bản quyền © 2023 <a class="copyright__content--link" href="index.php">Suruchi</a> . Đã đăng ký Bản quyền. Thiết kế bởi team Suruchi</p>
                 <div class="footer__payment text-right">
                     <img class="display-block" src="./view/assets/img/other/payment-visa-card.png" alt="visa-card">
                 </div>

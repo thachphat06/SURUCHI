@@ -15,7 +15,7 @@
                                                 Tuyệt Vời Nhất Năm 2023</h2>
                                             <p class="slider__content--desc desc2 d-sm-2-none mb-40">Giảm tới 40% các mặt hàng<br>
                                                 Nhanh chóng mua ngay !</p>    
-                                            <a class="slider__btn primary__btn" href="shop.html">Mua Ngay
+                                            <a class="slider__btn primary__btn" href="index.php?pg=shop">Mua Ngay
                                                 <svg class="primary__btn--arrow__icon" xmlns="http://www.w3.org/2000/svg" width="20.2" height="12.2" viewBox="0 0 6.2 6.2">
                                                 <path d="M7.1,4l-.546.546L8.716,6.713H4v.775H8.716L6.554,9.654,7.1,10.2,9.233,8.067,10.2,7.1Z" transform="translate(-4 -4)" fill="currentColor"></path>
                                                 </svg>
@@ -39,7 +39,7 @@
                                                 Tuyệt Vời Nhất Năm 2023</h2>
                                             <p class="slider__content--desc desc2 d-sm-2-none mb-40 ">Giảm tới 40% các mặt hàng<br>
                                                 Nhanh chóng mua ngay !</p>    
-                                            <a class="primary__btn slider__btn" href="shop.html">Mua Ngay
+                                            <a class="primary__btn slider__btn" href="index.php?pg=shop">Mua Ngay
                                                 <svg class="slider__btn--arrow__icon" xmlns="http://www.w3.org/2000/svg" width="20.2" height="12.2" viewBox="0 0 6.2 6.2">
                                                 <path d="M7.1,4l-.546.546L8.716,6.713H4v.775H8.716L6.554,9.654,7.1,10.2,9.233,8.067,10.2,7.1Z" transform="translate(-4 -4)" fill="currentColor"></path>
                                                 </svg>
@@ -63,7 +63,7 @@
                                                 Tuyệt Vời Nhất Năm 2023</h2>
                                             <p class="slider__content--desc desc2 d-sm-2-none mb-40">Giảm tới 40% các mặt hàng<br>
                                                 Nhanh chóng mua ngay !</p>    
-                                            <a class="primary__btn slider__btn" href="shop.html">Mua Ngay
+                                            <a class="primary__btn slider__btn" href="index.php?pg=shop">Mua Ngay
                                                 <svg class="slider__btn--arrow__icon" xmlns="http://www.w3.org/2000/svg" width="20.2" height="12.2" viewBox="0 0 6.2 6.2">
                                                 <path d="M7.1,4l-.546.546L8.716,6.713H4v.775H8.716L6.554,9.654,7.1,10.2,9.233,8.067,10.2,7.1Z" transform="translate(-4 -4)" fill="currentColor"></path>
                                                 </svg>
@@ -89,7 +89,7 @@
             <div class="row mb--n28">
                 <div class="col-lg-5 col-md-order mb-28">
                     <div class="banner__items">
-                        <a class="banner__items--thumbnail position__relative" href="shop.html"><img class="banner__items--thumbnail__img" src="./view/assets/img/banner/banner1.png" alt="banner-img">
+                        <a class="banner__items--thumbnail position__relative" href="index.php?pg=shop"><img class="banner__items--thumbnail__img" src="./view/assets/img/banner/banner1.png" alt="banner-img">
                             <div class="banner__items--content">
                                 <span class="banner__items--content__subtitle">Giỏ hàng</span>
                                 <h2 class="banner__items--content__title h3">Bộ sưu tập phong cách <br/> mùa xuân</h2>
@@ -106,7 +106,7 @@
                     <div class="row row-cols-lg-2 row-cols-sm-2 row-cols-1">
                         <div class="col mb-28">
                             <div class="banner__items">
-                                <a class="banner__items--thumbnail position__relative" href="shop.html"><img class="banner__items--thumbnail__img" src="./view/assets/img/banner/banner2.png" alt="banner-img"> 
+                                <a class="banner__items--thumbnail position__relative" href="index.php?pg=shop"><img class="banner__items--thumbnail__img" src="./view/assets/img/banner/banner2.png" alt="banner-img"> 
                                     <div class="banner__items--content">
                                         <span class="banner__items--content__subtitle text__secondary">Cửa hàng nữ</span>
                                         <h2 class="banner__items--content__title h3">Giảm đến 70% và <br/> miễn phí vận chuyển</h2>
@@ -121,7 +121,7 @@
                         </div>
                         <div class="col mb-28">
                             <div class="banner__items">
-                                <a class="banner__items--thumbnail position__relative" href="shop.html"><img class="banner__items--thumbnail__img" src="./view/assets/img/banner/banner3.png" alt="banner-img"> 
+                                <a class="banner__items--thumbnail position__relative" href="index.php?pg=shop"><img class="banner__items--thumbnail__img" src="./view/assets/img/banner/banner3.png" alt="banner-img"> 
                                     <div class="banner__items--content">
                                         <span class="banner__items--content__subtitle">Cửa hàng nữ</span>
                                         <h2 class="banner__items--content__title h3">Vận chuyển miễn phí <br/> khi đặt trên <br/>200.000VNĐ</h2>
@@ -136,7 +136,7 @@
                         </div>
                     </div>
                     <div class="banner__items">
-                        <a class="banner__items--thumbnail position__relative" href="shop.html"><img class="banner__items--thumbnail__img banner__img--max__height" src="./view/assets/img/banner/banner4.png" alt="banner-img"> 
+                        <a class="banner__items--thumbnail position__relative" href="index.php?pg=shop"><img class="banner__items--thumbnail__img banner__img--max__height" src="./view/assets/img/banner/banner4.png" alt="banner-img"> 
                             <div class="banner__items--content">
                                 <span class="banner__items--content__subtitle">Giảm giá 25%</span>
                                 <h2 class="banner__items--content__title h3">Kiểu túi yên ngựa<br/> bằng da</h2>
@@ -2690,7 +2690,7 @@
                             <h2 class="deals__banner--content__maintitle">Ưu đãi trong ngày</h2>
                             <p class="deals__banner--content__desc">"Chương trình sale 25% trong ngày! Hãy nhanh tay <br> mua sắm để nhận ưu đãi hấp dẫn này!"</p>
                             <div class="deals__banner--countdown d-flex" data-countdown="Sep 30, 2022 00:00:00"></div>
-                            <a class="primary__btn" href="shop.html">Mua Ngay
+                            <a class="primary__btn" href="index.php?pg=shop">Mua Ngay
                                 <svg class="primary__btn--arrow__icon" xmlns="http://www.w3.org/2000/svg" width="20.2" height="12.2" viewBox="0 0 6.2 6.2">
                                 <path d="M7.1,4l-.546.546L8.716,6.713H4v.775H8.716L6.554,9.654,7.1,10.2,9.233,8.067,10.2,7.1Z" transform="translate(-4 -4)" fill="currentColor"></path>
                                 </svg>
@@ -3325,7 +3325,7 @@
             <div class="row row-cols-md-2 row-cols-1 mb--n28">
                 <div class="col mb-28">
                     <div class="banner__items position__relative">
-                        <a class="banner__items--thumbnail " href="shop.html"><img class="banner__items--thumbnail__img banner__img--max__height" src="./view/assets/img/banner/banner5.png" alt="banner-img">
+                        <a class="banner__items--thumbnail " href="index.php?pg=shop"><img class="banner__items--thumbnail__img banner__img--max__height" src="./view/assets/img/banner/banner5.png" alt="banner-img">
                             <div class="banner__items--content">
                                 <span class="banner__items--content__subtitle d-none d-lg-block">Chọn các mặt hàng của bạn</span>
                                 <h2 class="banner__items--content__title h3">Giảm giá tới 25% </h2>
@@ -3336,7 +3336,7 @@
                 </div>
                 <div class="col mb-28">
                     <div class="banner__items position__relative">
-                        <a class="banner__items--thumbnail " href="shop.html"><img class="banner__items--thumbnail__img banner__img--max__height" src="./view/assets/img/banner/banner6.png" alt="banner-img">
+                        <a class="banner__items--thumbnail " href="index.php?pg=shop"><img class="banner__items--thumbnail__img banner__img--max__height" src="./view/assets/img/banner/banner6.png" alt="banner-img">
                             <div class="banner__items--content">
                                 <span class="banner__items--content__subtitle d-none d-lg-block">Ưu đãi đặc biệt</span>
                                 <h2 class="banner__items--content__title h3">Giảm giá tới 35%</h2>
@@ -3571,7 +3571,7 @@
             <div class="row row-cols-1">
                 <div class="col">
                     <div class="banner__section--inner position__relative">
-                        <a class="banner__items--thumbnail display-block" href="shop.html"><img class="banner__items--thumbnail__img banner__img--height__md display-block" src="./view/assets/img/banner/banner-bg2.png" alt="banner-img">
+                        <a class="banner__items--thumbnail display-block" href="index.php?pg=shop"><img class="banner__items--thumbnail__img banner__img--height__md display-block" src="./view/assets/img/banner/banner-bg2.png" alt="banner-img">
                             <div class="banner__content--style2">
                                 <h2 class="banner__content--style2__title text-white">Cần giày mùa đông?</h2>
                                 <p class="banner__content--style2__desc">Bạn đang cần một đôi giày mùa đông vừa rẻ vừa chất lượng? Hãy đến ngay với chúng tôi!!!</p>

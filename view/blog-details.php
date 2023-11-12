@@ -8,7 +8,7 @@
                         <div class="breadcrumb__content text-center">
                             <h1 class="breadcrumb__content--title text-white mb-25">Chi Tiết Tin Tức</h1>
                             <ul class="breadcrumb__content--menu d-flex justify-content-center">
-                                <li class="breadcrumb__content--menu__items"><a class="text-white" href="index.html">Trang chủ</a></li>
+                                <li class="breadcrumb__content--menu__items"><a class="text-white" href="index.php">Trang chủ</a></li>
                                 <li class="breadcrumb__content--menu__items"><span class="text-white">Chi Tiết Tin Tức</span></li>
                             </ul>
                         </div>

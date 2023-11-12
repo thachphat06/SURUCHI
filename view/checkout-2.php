@@ -4,7 +4,7 @@
             <div class="checkout__page--inner d-flex">
                 <div class="main checkout__mian">
                     <header class="main__header checkout__mian--header mb-30">
-                        <h1 class="main__logo--title"><a class="logo logo__left mb-20" href="index.html"><img src="./view/assets/img/logo/nav-log.png" alt="logo"></a></h1>
+                        <h1 class="main__logo--title"><a class="logo logo__left mb-20" href="index.php"><img src="./view/assets/img/logo/nav-log.png" alt="logo"></a></h1>
                         <details class="order__summary--mobile__version">
                             <summary class="order__summary--toggle border-radius-5">
                                 <span class="order__summary--toggle__inner">
@@ -297,13 +297,13 @@
                                 </div>
                             </div>
                             <div class="checkout__content--step__footer d-flex align-items-center">
-                                <a class="continue__shipping--btn primary__btn border-radius-5" href="checkout-3.html">Tiếp tục vận chuyển</a>
-                                <a class="previous__link--content" href="shop.html">Quay lại giỏ hàng</a>
+                                <a class="continue__shipping--btn primary__btn border-radius-5" href="index.php?pg=checkout-3">Tiếp tục</a>
+                                <a class="previous__link--content" href="index.php?pg=shop">Quay lại giỏ hàng</a>
                             </div>
                         </form>
                     </main>
                     <footer class="main__footer checkout__footer">
-                        <p class="copyright__content">Bản quyền © 2023 <a class="copyright__content--link text__primary" href="index.html">Suruchi</a>Đã đăng ký Bản quyền. Thiết kế bởi team Suruchi</p>
+                        <p class="copyright__content">Bản quyền © 2023 <a class="copyright__content--link text__primary" href="index.php">Suruchi .</a> Đã đăng ký Bản quyền.Thiết kế bởi team Suruchi</p>
                     </footer>
                 </div>
                 <aside class="checkout__sidebar sidebar">
