@@ -1,5 +1,9 @@
 <?php
-
+  session_start();
+  ob_start();
+  
+  // nhúng kết nối csdl
+  include "dao/pdo.php";
 
   include "view/header.php";
 
