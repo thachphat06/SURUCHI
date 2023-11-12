@@ -1,9 +1,12 @@
 <?php
+
+
   include "view/header.php";
-  if(!isset($_GET['pg'])){
+
+  if(!isset($_GET['pg'])) {
     include "view/home.php";
-  }else{
-    switch ($_GET['pg']){
+  } else {
+    switch ($_GET['pg']) {
       case 'login':
         include "view/login.php";
         break;
@@ -46,7 +49,6 @@
       case 'contact':
         include "view/contact.php";
         break;
-
         
       case 'privacy-policy':
         include "view/privacy-policy.php";
@@ -60,5 +62,6 @@
         break;
     }
   }
+
   include "view/footer.php";
 ?>
