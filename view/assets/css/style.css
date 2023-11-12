@@ -12180,7 +12180,7 @@ details > summary::-webkit-details-marker {
   background: var(--white-color);
   position: relative;
   font-weight: 500;
-  color: var(--light-color);
+  color: var(--text-gray-color);
 }
 
 @media only screen and (min-width: 992px) {

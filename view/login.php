@@ -21,9 +21,9 @@
         <!-- Start login section  -->
         <div class="login__section section--padding">
             <div class="container">
-                <form action="#">
-                    <div class="login__section--inner">
-                        <div class="row row-cols-md-2 row-cols-1">
+                <div class="login__section--inner">
+                    <div class="row row-cols-md-2 row-cols-1">
+                        <form action="" method="post">
                             <div class="col">
                                 <div class="account__login">
                                     <div class="account__login--header mb-25">
@@ -31,8 +31,8 @@
                                         <p class="account__login--header__desc">Đăng nhập nếu bạn là khách hàng cũ.</p>
                                     </div>
                                     <div class="account__login--inner">
-                                        <input class="account__login--input" placeholder="Email của bạn" type="text">
-                                        <input class="account__login--input" placeholder="Mật khẩu" type="password">
+                                        <input class="account__login--input" name="name" placeholder="Tên đăng nhập" type="text">
+                                        <input class="account__login--input" name="password" placeholder="Mật khẩu" type="password">
                                         <div class="account__login--remember__forgot mb-15 d-flex justify-content-between align-items-center">
                                             <div class="account__login--remember position__relative">
                                                 <input class="checkout__checkbox--input" id="check1" type="checkbox">
@@ -41,9 +41,9 @@
                                             </div>
                                             <button class="account__login--forgot" type="submit">Quên mật khẩu</button>
                                         </div>
-                                        <button class="account__login--btn primary__btn" type="submit">Đăng Nhập</button>
+                                        <input class="account__login--btn primary__btn" type="submit" value="Đăng Nhập">
                                         <div class="account__login--divide">
-                                            <span class="account__login--divide__text">OR</span>
+                                            <span class="account__login--divide__text">HOẶC</span>
                                         </div>
                                         <div class="account__social d-flex justify-content-center mb-15">
                                             <a class="account__social--link facebook" target="_blank" href="https://www.facebook.com">Facebook</a>
@@ -54,6 +54,8 @@
                                     </div>
                                 </div>
                             </div>
+                        </form>
+                        <form action="index.php?pg=adduser" method="post">
                             <div class="col">
                                 <div class="account__login register">
                                     <div class="account__login--header mb-25">
@@ -61,11 +63,11 @@
                                         <p class="account__login--header__desc">Đăng ký tại đây nếu bạn là khách hàng mới</p>
                                     </div>
                                     <div class="account__login--inner">
-                                        <input class="account__login--input" placeholder="Tên của bạn" type="text">
-                                        <input class="account__login--input" placeholder="Email của bạn" type="text">
-                                        <input class="account__login--input" placeholder="Mật khẩu" type="password">
-                                        <input class="account__login--input" placeholder="Xác nhận mật khẩu" type="password">
-                                        <button class="account__login--btn primary__btn mb-10" type="submit">Đăng Ký</button>
+                                        <input class="account__login--input" id="name" name="name" placeholder="Tên đăng nhập" type="text">
+                                        <input class="account__login--input" name="email" placeholder="Email của bạn" type="text">
+                                        <input class="account__login--input" name="password" placeholder="Mật khẩu" type="password">
+                                        <input class="account__login--input" name="repassword" placeholder="Xác nhận mật khẩu" type="password">
+                                        <input class="account__login--btn primary__btn mb-10" type="submit" value="Đăng Ký">
                                         <div class="account__login--remember position__relative">
                                             <input class="checkout__checkbox--input" id="check2" type="checkbox">
                                             <span class="checkout__checkbox--checkmark"></span>
@@ -75,9 +77,10 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </form>
                     </div>
-                </form>
+                </div>
+                
             </div>     
         </div>
         <!-- End login section  -->
