@@ -25,9 +25,9 @@
                     <div class="account__left--sidebar">
                         <h2 class="account__content--title h3 mb-20">Thông tin của tôi</h2>
                         <ul class="account__menu">
-                            <li class="account__menu--list"><a href="my-account.html">Thông tin mua hàng</a></li>
-                            <li class="account__menu--list active"><a href="my-account-2.html">Địa chỉ</a></li>
-                            <li class="account__menu--list"><a href="login.html">Đăng xuất</a></li>
+                            <li class="account__menu--list"><a href="index.php?pg=my-account">Thông tin mua hàng</a></li>
+                            <li class="account__menu--list active"><a href="index.php?pg=my-account-2">Địa chỉ</a></li>
+                            <li class="account__menu--list"><a href="index.php?pg=logout">Đăng xuất</a></li>
                         </ul>
                     </div>
                     <div class="account__wrapper">

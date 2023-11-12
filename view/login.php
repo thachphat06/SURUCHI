@@ -23,7 +23,7 @@
             <div class="container">
                 <div class="login__section--inner">
                     <div class="row row-cols-md-2 row-cols-1">
-                        <form action="" method="post">
+                        <form action="index.php?pg=login" method="post">
                             <div class="col">
                                 <div class="account__login">
                                     <div class="account__login--header mb-25">
@@ -31,8 +31,16 @@
                                         <p class="account__login--header__desc">Đăng nhập nếu bạn là khách hàng cũ.</p>
                                     </div>
                                     <div class="account__login--inner">
-                                        <input class="account__login--input" name="name" placeholder="Tên đăng nhập" type="text">
+                                        <input class="account__login--input" name="username" placeholder="Tên đăng nhập" type="text">
                                         <input class="account__login--input" name="password" placeholder="Mật khẩu" type="password">
+                                        <span style="color: red;">
+                                            <?php 
+                                                if(isset($_SESSION['tb_dangnhap'])&&($_SESSION['tb_dangnhap']!="")) {
+                                                    echo $_SESSION['tb_dangnhap'];
+                                                    unset($_SESSION['tb_dangnhap']);
+                                                }
+                                            ?>
+                                        </span> <br> 
                                         <div class="account__login--remember__forgot mb-15 d-flex justify-content-between align-items-center">
                                             <div class="account__login--remember position__relative">
                                                 <input class="checkout__checkbox--input" id="check1" type="checkbox">
@@ -41,7 +49,7 @@
                                             </div>
                                             <button class="account__login--forgot" type="submit">Quên mật khẩu</button>
                                         </div>
-                                        <input class="account__login--btn primary__btn" type="submit" value="Đăng Nhập">
+                                        <input class="account__login--btn primary__btn" name="login" type="submit" value="Đăng Nhập">
                                         <div class="account__login--divide">
                                             <span class="account__login--divide__text">HOẶC</span>
                                         </div>
@@ -63,11 +71,11 @@
                                         <p class="account__login--header__desc">Đăng ký tại đây nếu bạn là khách hàng mới</p>
                                     </div>
                                     <div class="account__login--inner">
-                                        <input class="account__login--input" id="name" name="name" placeholder="Tên đăng nhập" type="text">
+                                        <input class="account__login--input" name="username" placeholder="Tên đăng nhập" type="text">
                                         <input class="account__login--input" name="email" placeholder="Email của bạn" type="text">
                                         <input class="account__login--input" name="password" placeholder="Mật khẩu" type="password">
                                         <input class="account__login--input" name="repassword" placeholder="Xác nhận mật khẩu" type="password">
-                                        <input class="account__login--btn primary__btn mb-10" type="submit" value="Đăng Ký">
+                                        <input class="account__login--btn primary__btn mb-10" name="register" type="submit" value="Đăng Ký">
                                         <div class="account__login--remember position__relative">
                                             <input class="checkout__checkbox--input" id="check2" type="checkbox">
                                             <span class="checkout__checkbox--checkmark"></span>

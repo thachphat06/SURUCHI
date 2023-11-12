@@ -61,7 +61,7 @@
                         </h2>
                         <ul class="footer__widget--menu footer__widget--inner">
                             <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="index.php?pg=my-account">Tài khoản của tôi</a></li>
-                            <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="index.php?pg=login">Đăng Nhập</a></li>
+                            <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="index.php?pg=signin-signup">Đăng Nhập</a></li>
                             <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="index.php?pg=privacy-policy">Chính Sách Bảo Mật</a></li>
                         </ul>
                     </div>
@@ -77,7 +77,7 @@
                             <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="index.php?pg=about">Giới Thiệu</a></li>
                             <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="index.php?pg=contact">Liên Hệ</a></li>
                             <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="index.php?pg=cart">Giỏ Hàng</a></li>
-                            <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="index.php?pg=login">Đăng Ký</a></li>
+                            <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="index.php?pg=signin-signup">Đăng Ký</a></li>
                         </ul>
                     </div>
                 </div>

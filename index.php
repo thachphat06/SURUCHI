@@ -4,6 +4,7 @@
   
   // nhúng kết nối csdl
   include "dao/pdo.php";
+  include "dao/user.php";
 
   include "view/header.php";
 
@@ -11,11 +12,43 @@
     include "view/home.php";
   } else {
     switch ($_GET['pg']) {
-      case 'login':
+      case 'signin-signup':
         include "view/login.php";
         break;
+      case 'login':
+        //input
+        if(isset($_POST["login"])&&($_POST["login"])) {
+          $username=$_POST["username"];
+          $password=$_POST["password"];
+          //xử lý: kiem tra
+          $kq=checkuser($username, $password);
+          if(is_array($kq)&&(count($kq))) {
+              $_SESSION['s_user']=$kq;
+              header('location: index.php');
+          }else{
+              $tb="Tài khoản không tồn tại hoặc thông tin đăng nhập sai !";
+              $_SESSION['tb_dangnhap']=$tb;
+              header('location: index.php?pg=login');
+          }
+          //xl
+        }
+        break;
       case 'logout':
-        // include "view/login.php";
+        if(isset($_SESSION['s_user'])&&(count($_SESSION['s_user'])>0)) {
+            unset($_SESSION['s_user']);
+        }
+        header('location: index.php');
+        break;
+      case 'adduser':
+        // xác định giá trị input
+        if(isset($_POST["register"])&&($_POST["register"])){
+          $username=$_POST["username"];
+          $password=$_POST["password"];
+          $email=$_POST["email"];
+          //xử lý
+          user_insert($username, $password, $email);
+        }
+        include "view/login.php";
         break;
       case 'my-account':
         include "view/my-account.php";
