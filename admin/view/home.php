@@ -4,9 +4,6 @@
                     <h2 class="content-title card-title">Dashboard </h2>
                     <p>Toàn bộ dữ liệu về doanh nghiệp của bạn ở đây</p>
                 </div>
-                <!-- <div>
-                    <a href="#" class="btn btn-primary"><i class="text-muted material-icons md-post_add"></i>Create report</a>
-                </div> -->
             </div>
             <div class="row">
                 <div class="col-lg-3">
