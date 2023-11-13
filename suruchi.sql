@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 12, 2023 at 05:44 PM
+-- Generation Time: Nov 13, 2023 at 08:56 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -20,6 +20,25 @@ SET time_zone = "+00:00";
 --
 -- Database: `suruchi`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product`
+--
+
+CREATE TABLE `product` (
+  `id` int(10) NOT NULL,
+  `name` varchar(250) NOT NULL,
+  `price` int(10) NOT NULL DEFAULT 0,
+  `old_price` int(10) NOT NULL DEFAULT 0,
+  `img` varchar(200) NOT NULL,
+  `view` int(10) NOT NULL,
+  `bestseller` tinyint(1) NOT NULL DEFAULT 0,
+  `new` tinyint(1) NOT NULL DEFAULT 0,
+  `hot` tinyint(1) NOT NULL DEFAULT 0,
+  `iddm` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -50,6 +69,12 @@ INSERT INTO `users` (`id`, `username`, `password`, `name`, `address`, `email`, `
 --
 
 --
+-- Indexes for table `product`
+--
+ALTER TABLE `product`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -58,6 +83,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `product`
+--
+ALTER TABLE `product`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
