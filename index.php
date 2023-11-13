@@ -87,7 +87,7 @@
         include "view/blog.php";
         break;
       case 'blog-detail':
-        include "view/blog-detail.php";
+        include "view/blog-details.php";
         break;
       case 'about':
         include "view/about.php";

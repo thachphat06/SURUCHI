@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 13, 2023 at 09:40 AM
+-- Generation Time: Nov 13, 2023 at 12:24 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -140,7 +140,8 @@ CREATE TABLE `product` (
   `price` int(10) NOT NULL DEFAULT 0,
   `old_price` int(10) NOT NULL DEFAULT 0,
   `img` varchar(200) NOT NULL,
-  `describe` varchar(1000) NOT NULL,
+  `describe1` varchar(1000) NOT NULL,
+  `describe2` varchar(1000) NOT NULL,
   `view` int(10) NOT NULL,
   `bestseller` tinyint(1) NOT NULL DEFAULT 0,
   `new` tinyint(1) NOT NULL DEFAULT 0,
