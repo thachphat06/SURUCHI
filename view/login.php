@@ -40,7 +40,7 @@
                                                     unset($_SESSION['tb_dangnhap']);
                                                 }
                                             ?>
-                                        </span> <br> 
+                                        </span> <br>
                                         <div class="account__login--remember__forgot mb-15 d-flex justify-content-between align-items-center">
                                             <div class="account__login--remember position__relative">
                                                 <input class="checkout__checkbox--input" id="check1" type="checkbox">
