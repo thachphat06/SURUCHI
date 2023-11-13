@@ -159,7 +159,7 @@ CREATE TABLE `users` (
   `id` int(6) NOT NULL,
   `username` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
-  `name` varchar(50) NOT NULL,
+  `name` varchar(50) DEFAULT NULL,
   `address` varchar(100) DEFAULT NULL,
   `email` varchar(50) NOT NULL,
   `sdt` varchar(20) DEFAULT NULL,

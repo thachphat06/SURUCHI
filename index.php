@@ -15,7 +15,7 @@
       case 'signin-signup':
         include "view/login.php";
         break;
-      case 'login':
+      case 'signin':
         //input
         if(isset($_POST["login"])&&($_POST["login"])) {
           $username=$_POST["username"];
@@ -50,11 +50,32 @@
         }
         include "view/login.php";
         break;
+      case 'updateuser':
+        // xác định giá trị input
+        if(isset($_POST["update"])&&($_POST["update"])) {
+          $username=$_POST["username"];
+          // $password=$_POST["password"];
+          $email=$_POST["email"];
+          $name=$_POST["name"];
+          $address=$_POST["address"];
+          $sdt=$_POST["sdt"];
+          $id=$_POST["id"];
+          $role=0;
+            //xử lý
+          user_update($username, $password, $email, $name, $address, $sdt, $role, $id);
+          include "view/my-account.php";
+        }
+        break;
       case 'my-account':
-        include "view/my-account.php";
+        if(isset($_SESSION['s_user'])&&(count($_SESSION['s_user'])>0)) {
+          include "view/my-account.php";
+        }
         break;
       case 'my-account-2':
         include "view/my-account-2.php";
+        break;
+      case 'my-account-3':
+        include "view/my-account-3.php";
         break;
       case 'shop':
         include "view/shop.php";

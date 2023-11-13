@@ -1,3 +1,12 @@
+<?php 
+  if(isset($_SESSION['s_user'])&&(count($_SESSION['s_user'])>0)){
+    extract($_SESSION['s_user']);
+    $userinfo=get_user($id);
+    $_SESSION['s_user']=$userinfo;
+    extract($userinfo); 
+  }
+?>
+
 <main class="main__content_wrapper">
 
         <!-- Start breadcrumb section -->
@@ -6,10 +15,10 @@
                 <div class="row row-cols-1">
                     <div class="col">
                         <div class="breadcrumb__content text-center">
-                            <h1 class="breadcrumb__content--title text-white mb-25">My Account</h1>
+                            <h1 class="breadcrumb__content--title text-white mb-25">Tài khoản</h1>
                             <ul class="breadcrumb__content--menu d-flex justify-content-center">
-                                <li class="breadcrumb__content--menu__items"><a class="text-white" href="index.php">Home</a></li>
-                                <li class="breadcrumb__content--menu__items"><span class="text-white">My Account</span></li>
+                                <li class="breadcrumb__content--menu__items"><a class="text-white" href="index.php">Trang chủ</a></li>
+                                <li class="breadcrumb__content--menu__items"><span class="text-white">Tài khoản</span></li>
                             </ul>
                         </div>
                     </div>
@@ -25,25 +34,25 @@
                     <div class="account__left--sidebar">
                         <h2 class="account__content--title h3 mb-20">Thông tin của tôi</h2>
                         <ul class="account__menu">
-                            <li class="account__menu--list"><a href="index.php?pg=my-account">Thông tin mua hàng</a></li>
-                            <li class="account__menu--list active"><a href="index.php?pg=my-account-2">Địa chỉ</a></li>
+                            <li class="account__menu--list active"><a href="index.php?pg=my-account">Địa chỉ</a></li>
+                            <li class="account__menu--list"><a href="index.php?pg=my-account-3">Thông tin mua hàng</a></li>
                             <li class="account__menu--list"><a href="index.php?pg=logout">Đăng xuất</a></li>
                         </ul>
                     </div>
                     <div class="account__wrapper">
-                        <div class="account__content">
-                            <h3 class="account__content--title mb-20">Địa chỉ</h3>
-                            <button class="new__address--btn primary__btn mb-25" type="button">Thêm địa chỉ mới</button>
-                            <div class="account__details two">
-                                <h4 class="account__details--title">Mặc định</h4>
-                                <p class="account__details--desc">Nghĩa <br> Nguyễn <br> Nghĩa Nguyễn 2023 <br> VietNam</p>
-                                <a class="account__details--link" href="my-account-2.html">Xem địa chỉ(1)</a>
-                            </div>
+                        <form class="account__content" action="index.php?pg=updateuser" method="post">
+                          <h3 class="account__content--title mb-20">Thông tin tài khoản</h3>
+                            <input class="account__login--input" placeholder="Tên của bạn" type="text" name="username" value="<?=$username?>">
+                            <input class="account__login--input" placeholder="Email của bạn" type="text" name="email" value="<?=$email?>">
+                            <input class="account__login--input" placeholder="Họ và tên" type="text" name="name" value="<?=$name?>">
+                            <input class="account__login--input" placeholder="Địa chỉ" type="text" name="address" value="<?=$address?>">
+                            <input class="account__login--input" placeholder="Số điện thoại" type="text" name="sdt" value="<?=$sdt?>">
                             <div class="account__details--footer d-flex">
-                                <button class="account__details--footer__btn" type="button">Sửa</button>
-                                <button class="account__details--footer__btn" type="button">Xóa</button>
+                              <input type="hidden" name="id" value="<?=$id?>">
+                              <input class="account__details--footer__btn" name="update" type="submit" value="Cập nhật">
+                              <!-- <button class="account__details--footer__btn" type="button">Xóa</button> -->
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -59,8 +68,8 @@
                             <img src="./view/assets/img/other/shipping1.png" alt="">
                         </div>
                         <div class="shipping__items2--content">
-                            <h2 class="shipping__items2--content__title h3">Shipping</h2>
-                            <p class="shipping__items2--content__desc">From handpicked sellers</p>
+                            <h2 class="shipping__items2--content__title h3">Vận Chuyển</h2>
+                            <p class="shipping__items2--content__desc">Miễn Phí Vận Chuyển</p>
                         </div>
                     </div>
                     <div class="shipping__items2 d-flex align-items-center">
@@ -68,8 +77,8 @@
                             <img src="./view/assets/img/other/shipping2.png" alt="">
                         </div>
                         <div class="shipping__items2--content">
-                            <h2 class="shipping__items2--content__title h3">Payment</h2>
-                            <p class="shipping__items2--content__desc">From handpicked sellers</p>
+                            <h2 class="shipping__items2--content__title h3">Thanh Toán</h2>
+                            <p class="shipping__items2--content__desc">Thanh toán trực tiếp và trực tuyến</p>
                         </div>
                     </div>
                     <div class="shipping__items2 d-flex align-items-center">
@@ -77,8 +86,8 @@
                             <img src="./view/assets/img/other/shipping3.png" alt="">
                         </div>
                         <div class="shipping__items2--content">
-                            <h2 class="shipping__items2--content__title h3">Return</h2>
-                            <p class="shipping__items2--content__desc">From handpicked sellers</p>
+                            <h2 class="shipping__items2--content__title h3">Liên Hệ</h2>
+                            <p class="shipping__items2--content__desc">Hotline: 10072004</p>
                         </div>
                     </div>
                     <div class="shipping__items2 d-flex align-items-center">
@@ -86,8 +95,8 @@
                             <img src="./view/assets/img/other/shipping4.png" alt="">
                         </div>
                         <div class="shipping__items2--content">
-                            <h2 class="shipping__items2--content__title h3">Support</h2>
-                            <p class="shipping__items2--content__desc">From handpicked sellers</p>
+                            <h2 class="shipping__items2--content__title h3">Hỗ trợ</h2>
+                            <p class="shipping__items2--content__desc">Hỗ trợ 24/7</p>
                         </div>
                     </div>
                 </div>

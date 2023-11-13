@@ -23,7 +23,7 @@
             <div class="container">
                 <div class="login__section--inner">
                     <div class="row row-cols-md-2 row-cols-1">
-                        <form action="index.php?pg=login" method="post">
+                        <form action="index.php?pg=signin" name="form" method="post">
                             <div class="col">
                                 <div class="account__login">
                                     <div class="account__login--header mb-25">
@@ -63,7 +63,7 @@
                                 </div>
                             </div>
                         </form>
-                        <form action="index.php?pg=adduser" method="post">
+                        <form action="index.php?pg=adduser" name="form" method="post">
                             <div class="col">
                                 <div class="account__login register">
                                     <div class="account__login--header mb-25">
