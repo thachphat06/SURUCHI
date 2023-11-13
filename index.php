@@ -3,8 +3,8 @@
   ob_start();
   
   // nhúng kết nối csdl
-  include "dao/pdo.php";
-  include "dao/user.php";
+  include "model/pdo.php";
+  include "model/user.php";
 
   include "view/header.php";
 
