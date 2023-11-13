@@ -28,7 +28,7 @@
           }else{
               $tb="Tài khoản không tồn tại hoặc thông tin đăng nhập sai !";
               $_SESSION['tb_dangnhap']=$tb;
-              header('location: index.php?pg=login');
+              header('location: index.php?pg=signin-signup');
           }
           //xl
         }
