@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 13, 2023 at 08:56 AM
+-- Generation Time: Nov 13, 2023 at 09:40 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -24,6 +24,113 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `bill`
+--
+
+CREATE TABLE `bill` (
+  `id` int(9) NOT NULL,
+  `mahd` varchar(50) NOT NULL,
+  `iduser` int(6) NOT NULL,
+  `nguoidat_ten` varchar(50) NOT NULL,
+  `nguoidat_email` varchar(50) NOT NULL,
+  `nguoidat_tel` varchar(20) NOT NULL,
+  `nguoidat_diachi` varchar(100) NOT NULL,
+  `nguoinhan_ten` varchar(50) DEFAULT NULL,
+  `nguoinhan_diachi` varchar(100) DEFAULT NULL,
+  `nguoinhan_tel` varchar(20) DEFAULT NULL,
+  `note` varchar(500) NOT NULL,
+  `total` int(9) NOT NULL,
+  `ship` int(6) NOT NULL DEFAULT 0,
+  `voucher` int(6) NOT NULL DEFAULT 0,
+  `tongthanhtoan` int(10) NOT NULL,
+  `pttt` tinyint(1) NOT NULL COMMENT '0: COD; 1: ck; 2: ví điện tử'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bill_detail`
+--
+
+CREATE TABLE `bill_detail` (
+  `id` int(10) NOT NULL,
+  `idsp` int(10) NOT NULL,
+  `idbill` int(10) NOT NULL,
+  `quantity` int(10) NOT NULL,
+  `total` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `blog`
+--
+
+CREATE TABLE `blog` (
+  `id` int(10) NOT NULL,
+  `date` date NOT NULL,
+  `title` varchar(100) NOT NULL,
+  `content` varchar(10000) NOT NULL,
+  `img` varchar(200) NOT NULL,
+  `idloai` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `blog_category`
+--
+
+CREATE TABLE `blog_category` (
+  `id` int(10) NOT NULL,
+  `name` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cart`
+--
+
+CREATE TABLE `cart` (
+  `id` int(6) NOT NULL,
+  `idpro` int(10) NOT NULL,
+  `price` int(10) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `img` varchar(200) NOT NULL,
+  `soluong` int(3) NOT NULL,
+  `thanhtien` int(6) NOT NULL,
+  `idbill` int(6) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `category`
+--
+
+CREATE TABLE `category` (
+  `id` int(10) NOT NULL,
+  `name` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comment`
+--
+
+CREATE TABLE `comment` (
+  `id` int(10) NOT NULL,
+  `iduser` int(10) NOT NULL,
+  `idsp` int(10) NOT NULL,
+  `content` varchar(500) NOT NULL,
+  `date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `product`
 --
 
@@ -33,6 +140,7 @@ CREATE TABLE `product` (
   `price` int(10) NOT NULL DEFAULT 0,
   `old_price` int(10) NOT NULL DEFAULT 0,
   `img` varchar(200) NOT NULL,
+  `describe` varchar(1000) NOT NULL,
   `view` int(10) NOT NULL,
   `bestseller` tinyint(1) NOT NULL DEFAULT 0,
   `new` tinyint(1) NOT NULL DEFAULT 0,
@@ -69,6 +177,36 @@ INSERT INTO `users` (`id`, `username`, `password`, `name`, `address`, `email`, `
 --
 
 --
+-- Indexes for table `bill_detail`
+--
+ALTER TABLE `bill_detail`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `blog`
+--
+ALTER TABLE `blog`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `blog_category`
+--
+ALTER TABLE `blog_category`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `category`
+--
+ALTER TABLE `category`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `comment`
+--
+ALTER TABLE `comment`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `product`
 --
 ALTER TABLE `product`
@@ -83,6 +221,36 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `bill_detail`
+--
+ALTER TABLE `bill_detail`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `blog`
+--
+ALTER TABLE `blog`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `blog_category`
+--
+ALTER TABLE `blog_category`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `category`
+--
+ALTER TABLE `category`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `comment`
+--
+ALTER TABLE `comment`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `product`
