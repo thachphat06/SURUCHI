@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 13, 2023 at 06:08 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Máy chủ: 127.0.0.1:3307
+-- Thời gian đã tạo: Th10 14, 2023 lúc 02:59 AM
+-- Phiên bản máy phục vụ: 10.4.28-MariaDB
+-- Phiên bản PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `suruchi`
+-- Cơ sở dữ liệu: `suruchi`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bill`
+-- Cấu trúc bảng cho bảng `bill`
 --
 
 CREATE TABLE `bill` (
@@ -49,7 +49,7 @@ CREATE TABLE `bill` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bill_detail`
+-- Cấu trúc bảng cho bảng `bill_detail`
 --
 
 CREATE TABLE `bill_detail` (
@@ -63,7 +63,7 @@ CREATE TABLE `bill_detail` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `blog`
+-- Cấu trúc bảng cho bảng `blog`
 --
 
 CREATE TABLE `blog` (
@@ -78,7 +78,7 @@ CREATE TABLE `blog` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `blog_category`
+-- Cấu trúc bảng cho bảng `blog_category`
 --
 
 CREATE TABLE `blog_category` (
@@ -89,7 +89,7 @@ CREATE TABLE `blog_category` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cart`
+-- Cấu trúc bảng cho bảng `cart`
 --
 
 CREATE TABLE `cart` (
@@ -106,7 +106,7 @@ CREATE TABLE `cart` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `category`
+-- Cấu trúc bảng cho bảng `category`
 --
 
 CREATE TABLE `category` (
@@ -115,7 +115,7 @@ CREATE TABLE `category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `category`
+-- Đang đổ dữ liệu cho bảng `category`
 --
 
 INSERT INTO `category` (`id`, `name`) VALUES
@@ -126,7 +126,7 @@ INSERT INTO `category` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `comment`
+-- Cấu trúc bảng cho bảng `comment`
 --
 
 CREATE TABLE `comment` (
@@ -140,7 +140,7 @@ CREATE TABLE `comment` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `product`
+-- Cấu trúc bảng cho bảng `product`
 --
 
 CREATE TABLE `product` (
@@ -159,7 +159,7 @@ CREATE TABLE `product` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `product`
+-- Đang đổ dữ liệu cho bảng `product`
 --
 
 INSERT INTO `product` (`id`, `name`, `price`, `old_price`, `img`, `describe1`, `describe2`, `view`, `bestseller`, `new`, `hot`, `iddm`) VALUES
@@ -178,20 +178,20 @@ INSERT INTO `product` (`id`, `name`, `price`, `old_price`, `img`, `describe1`, `
 (13, 'Áo Thun Nam Cổ Tròn Màu Da Vải Cotton Co Giãn Trơn Basic Tay Ngắn Form Rộng', 112000, 140000, 'pd13.jpg', 'Áo Thun Nam Cổ Tròn Màu Da Vải Cotton Co Giãn<br>Trơn Basic Tay Ngắn Form Rộng là một loại áo thun<br>nam đơn giản nhưng không kém phần thời trang.<br>Áo có màu da, với chất liệu vải cotton 100%<br>mềm mại, thoáng mát, co giãn 2 chiều và<br>thấm hút mồ hôi tốt. Áo có kiểu dáng cổ tròn,<br>tay ngắn, form rộng (oversize), phù hợp cho cả nam và nữ,<br>dễ dàng kết hợp với nhiều loại quần áo khác nhau.', 'THÔNG TIN SẢN PHẨM<br>\nTên sản phẩm: Áo Thun Nam Cổ Tròn Màu Da Vải Cotton<br>Co Giãn Trơn Basic Tay Ngắn Form Rộng.<br>\nChất liệu: Cotton 100%.<br>\nMàu sắc: Da.<br>\nHình in: Trơn.<br>\nKiểu dáng:  Cổ tròn, tay ngắn, form rộng (oversize).<br>\nĐặc điểm: Mềm mại, thoáng mát, co giãn 2 chiều, thấm hút.<br> mồ hôi tốt.<br>\nPhù hợp: Cả nam và nữ, mặc đi chơi, đi làm, hay thể hiện<br>cá tính và phong cách riêng.<br>\nKích thước: Freesize.<br>\nCách bảo quản: Giặt tay hoặc máy ở nhiệt độ thấp,<br>không sử dụng chất tẩy, phơi trong bóng râm.', 89, 0, 0, 0, 2),
 (14, 'Áo Thun Unisex Tay Lỡ Form Rộng Nam Nữ', 130000, 145000, 'pd14.jpg', 'Áo Thun Unisex Tay Lỡ Form Rộng Nam Nữ là<br> một loại áo thun thời trang phù hợp cho cả<br> nam và nữ, có kiểu dáng tay lỡ, cổ tròn,<br> form rộng (oversize), mang đến một phong cách<br>cá tính, năng động và dễ phối đồ.', 'THÔNG TIN SẢN PHẨM<br>\nTên sản phẩm:  Áo Thun Unisex Tay Lỡ Form Rộng Nam Nữ.<br>\nChất liệu: Cotton 100%.<br>\nMàu sắc: Da.<br>\nHình in: Trơn.<br>\nKiểu dáng:  Cổ tròn, tay ngắn, form rộng (oversize).<br>\nĐặc điểm: Mềm mại, thoáng mát, co giãn 2 chiều,<br> thấm hút mồ hôi tốt.<br>\nPhù hợp:  Áo thun tay lỡ unisex phù hợp cho cả<br> nam và nữ, có thể mặc đi chơi, đi làm, hay thể<br> hiện cá tính và phong cách riêng.<br>\nKích thước: Freesize.<br>\nCách bảo quản: Giặt tay hoặc máy ở nhiệt độ thấp, không<br>sử dụng chất tẩy, phơi trong bóng râm.', 144, 0, 0, 0, 2),
 (15, 'Áo thun nam nữ Unisex', 145000, 165000, 'pd16.jpg', 'Áo thun nam unisex màu da là một loại áo thun<br>dành cho cả nam và nữ, có chất liệu vải nan,<br>một loại vải có khả năng kháng khuẩn, chống nắng<br>và thấm hút mồ hôi tốt.', 'THÔNG TIN SẢN PHẨM<br>\nTên sản phẩm:  Áo thun nam nữ Unisex.<br>\nChất liệu: Cotton 100%.<br>\nMàu sắc: Da.<br>\nHình in: Hình thành phố.<br>\nKiểu dáng:  Tay ngắn, cổ tròn, form rộng.<br>\nĐặc điểm: Mềm mại, thoáng mát, co giãn 2 chiều,<br>thấm hút mồ hôi tốt.<br>\nPhù hợp:  Áo thun tay lỡ unisex phù hợp cho cả<br>nam và nữ, có thể mặc đi chơi, đi làm,<br>hay thể hiện cá tính và phong cách riêng.<br>\nKích thước: Freesize.<br>\nÁo thun nan unisex màu da là một item thời trang<br>phù hợp cho mọi mùa, mọi dịp, mang đến<br>cho bạn một phong cách trẻ trung, năng động và thoải mái.<br>\nCách bảo quản: Giặt tay hoặc máy ở nhiệt độ thấp, không<br>sử dụng chất tẩy, phơi trong bóng râm.', 65, 0, 0, 0, 2),
-(16, 'Áo Khoác Cadigan Nữ Màu Hồng Chất Len Dài Tay Style Hàn Quốc', 265000, 286000, 'pd17.jpg', 'Áo Khoác Cadigan Nữ Hoạ Tiết Quả Trám To Màu Hồng<br>Chất Len Dài Tay Style Hàn Quốc là một loại áo<br>khoác len dành cho nữ, có họa tiết quả trám<br>to màu hồng trên nền trắng. Áo khoác len<br>này có chất liệu len dày dặn, ấm áp và mềm mại.', 'THÔNG TIN SẢN PHẨM\r\nTên sản phẩm:  Áo Khoác Cadigan Nữ Màu Hồng Chất Len Dài Tay Style Hàn Quốc\r\nChất liệu: Len 100% \r\nMàu sắc: Hồng\r\nHình in: Quả trám to trên nền trắng\r\nKiểu dáng:  Tay ngắn, cổ tròn, form rộng\r\nĐặc điểm: Dày dặn, ấm áp, mềm mại\r\nKích thước: Freesize\r\nÁo khoác len này có kiểu dáng cardigan, cài nút trước ngực, tay dài, cổ tròn, form rộng, phù hợp cho cả nam và nữ. Áo khoác len này có phong cách Hàn Quốc, mang đến cho bạn một vẻ ngoài trẻ trung, đáng yêu và thời trang. \r\nCách bảo quản: Giặt tay hoặc máy ở nhiệt độ thấp, không sử dụng chất tẩy, phơi trong bóng râm', 194, 1, 0, 0, 3),
-(17, 'Áo len dài tay cún nhỏ dễ thương', 220000, 234000, 'pd18.jpg', 'Áo len dài tay cún nhỏ dễ thương là một loại áo len dành cho nữ, có hình in một chú cún nhỏ đáng yêu trên ngực. Áo len này có chất liệu len mềm mại, ấm áp và co giãn tốt.', 'THÔNG TIN SẢN PHẨM\r\nTên sản phẩm:  Áo len dài tay cún nhỏ dễ thương\r\nChất liệu: Len 100% \r\nMàu sắc: Trắng\r\nHình in: Nhiều chú cún nhỏ\r\nKiểu dáng:  Tay ngắn, cổ tròn, form rộng\r\nĐặc điểm: Dày dặn, ấm áp, mềm mại\r\nKích thước: Freesize\r\nÁo len này có phong cách dễ thương, nữ tính và thời trang.. \r\nCách bảo quản: Giặt tay hoặc máy ở nhiệt độ thấp, không sử dụng chất tẩy, phơi trong bóng râm', 168, 0, 0, 1, 3),
-(18, 'Áo Khoác nỉ khoác kéo in chữ EVERYTIME', 225000, 240000, 'pd19.jpg', 'Áo Khoác nỉ khoác kéo in chữ EVERYTIME màu xám form rộng unisex nam nữ là một loại áo khoác nỉ dành cho cả nam và nữ, có chất liệu nỉ mềm mại, ấm áp và co giãn tốt. Áo khoác nỉ này có màu xám, với hình in chữ EVERYTIME trên ngực trái.', 'THÔNG TIN SẢN PHẨM\r\nTên sản phẩm:  Áo Khoác nỉ khoác kéo in chữ EVERYTIME \r\nChất liệu:  Nỉ 100%\r\nMàu sắc: Xám\r\nHình in: Chữ EVERYTIME\r\nKiểu dáng: Khoác kéo, tay dài, cổ tròn, form rộng, có mũ trùm đầu\r\nĐặc điểm: Mềm mại, ấm áp, co giãn tốt\r\nKích thước: Freesize\r\nÁo khoác nỉ này có kiểu dáng khoác kéo, cài khóa trước ngực, tay dài, cổ tròn, form rộng, phù hợp cho cả nam và nữ. Áo khoác nỉ này có phong cách thời trang, năng động và cá tính.  \r\nCách bảo quản: Giặt tay hoặc máy ở nhiệt độ thấp, không sử dụng chất tẩy, phơi trong bóng râm', 177, 0, 0, 0, 3),
-(19, 'Kẻ sọc Tweed Áo khoác', 275000, 298000, 'pd20.jpg', 'Kẻ sọc Tweed Áo khoác là một loại áo khoác thời trang quần áo cao cấp, chính hãng đến từ Việt Nam. Áo khoác này có chất liệu vải tweed, một loại vải được dệt từ sợi len lông cừu thô, dày dặn, ấm áp và chống chịu thời tiết tốt.', 'THÔNG TIN SẢN PHẨM\r\nTên sản phẩm: Kẻ sọc Tweed Áo khoác\r\nChất liệu: Vải tweed\r\nMàu sắc: Hồng\r\nHình in: Chữ EVERYTIME\r\nKiểu dáng: Áo khoác dài, cài nút trước ngực, tay dài, cổ tròn, form rộng\r\nĐặc điểm: Dày dặn, ấm áp, chống chịu thời tiết tốt, cổ điển nhưng vẫn sang trọng và thanh lịch\r\nÁo khoác này có họa tiết kẻ sọc xước màu hồng và trắng, mang đến một nét cổ điển nhưng vẫn sang trọng và thanh lịch. Áo khoác này có kiểu dáng áo khoác dài, cài nút trước ngực, tay dài, cổ tròn, form rộng, phù hợp cho cả nam và nữ. Áo khoác này có phong cách thời trang Hàn Quốc, mang đến cho bạn một vẻ ngoài trẻ trung, năng động và cá tính\r\nCách bảo quản: Giặt tay hoặc máy ở nhiệt độ thấp, không sử dụng chất tẩy, phơi trong bóng râm', 212, 1, 0, 0, 3),
-(20, 'ÁO KHOÁC DENIM NHẬT BẢN', 256000, 273000, 'pd21.jpg', 'ÁO KHOÁC DENIM NHẬT BẢN là một loại áo khoác được làm từ vải denim, một loại vải bền, chắc và có khả năng chống chịu thời tiết tốt. ', 'THÔNG TIN SẢN PHẨM\r\nTên sản phẩm: ÁO KHOÁC DENIM NHẬT BẢN\r\nChất liệu: Vải denim \r\nMàu sắc: Trắng\r\nHình in: Trơn\r\nKiểu dáng: cổ điển, cài nút trước ngực, tay dài, cổ tròn, form rộng, phù hợp cho cả nam và nữ\r\nĐặc điểm: Dày dặn, ấm áp, chống chịu thời tiết tốt, cổ điển nhưng vẫn sang trọng và thanh lịch\r\nÁo khoác denim Nhật Bản có phong cách thời trang Hàn Quốc, mang đến cho bạn một vẻ ngoài trẻ trung, năng động và cá tính.\r\nCách bảo quản: Giặt tay hoặc máy ở nhiệt độ thấp, không sử dụng chất tẩy, phơi trong bóng râm', 185, 1, 0, 0, 3),
-(21, 'Áo Jean Nam Nữ form rộng', 265000, 279000, 'pd22.jpg', 'Áo Jean Nam Nữ form rộng là một loại áo khoác được làm từ vải jean, một loại vải bền, chắc và có khả năng chống chịu thời tiết tốt.', 'THÔNG TIN SẢN PHẨM\r\nTên sản phẩm: Áo Jean Nam Nữ form rộng\r\nChất liệu: Vải jean 100% cotton\r\nMàu sắc: Xanh\r\nKiểu dáng:Áo khoác dài, cài nút trước ngực, tay dài, cổ tròn, form rộng\r\nĐặc điểm: Bền, chắc, chống chịu thời tiết tốt, phong cách Hàn Quốc\r\nÁo jean nam nữ form rộng có phong cách thời trang Hàn Quốc, mang đến cho bạn một vẻ ngoài trẻ trung, năng động và cá tính.\r\nCách bảo quản: Giặt tay hoặc máy ở nhiệt độ thấp, không sử dụng chất tẩy, phơi trong bóng râm.', 128, 0, 1, 0, 3),
-(22, 'Áo hoodie Nỉ ngoại in chữ New York', 215000, 235000, 'pd23.jpg', 'Áo hoodie nỉ ngoại in chữ New York là một loại áo khoác nỉ có mũ trùm đầu, cài khóa trước ngực, tay dài, form rộng, phù hợp cho cả nam và nữ.', 'THÔNG TIN SẢN PHẨM\r\nTên sản phẩm: Áo hoodie Nỉ ngoại in chữ New York\r\nChất liệu: Nỉ ngoại 100% cotton\r\nMàu sắc: Xám\r\nKiểu dáng: Khoác kéo, tay dài, cổ tròn, form rộng, có mũ trùm đầu\r\nĐặc điểm:  Mềm mại, ấm áp, co giãn tốt\r\nÁo hoodie nỉ ngoại in chữ New York có chất liệu nỉ ngoại, một loại nỉ được nhập khẩu từ nước ngoài, có độ mềm mại, ấm áp và co giãn tốt. Áo hoodie nỉ ngoại in chữ New York có màu sắc đa dạng. Áo hoodie nỉ ngoại in chữ New York có hình in chữ New York trên ngực, mang đến một nét thời trang, năng động và cá tính.\r\nCách bảo quản: Giặt tay hoặc máy ở nhiệt độ thấp, không sử dụng chất tẩy, phơi trong bóng râm', 105, 0, 0, 0, 3),
-(23, 'Áo khoác da dáng Bomber', 259000, 278000, 'pd24.jpg', 'Áo khoác da dáng Bomber lót lông cừu siêu ấm dáng Over phong cách Ulzang là một loại áo khoác nam được thiết kế theo phong cách Hàn Quốc.', 'THÔNG TIN SẢN PHẨM\r\nTên sản phẩm: Áo khoác da dáng Bomber\r\nChất liệu: Da lộn hoặc da trơn bên ngoài, lông cừu bên trong.\r\nMàu sắc: Đen.\r\nKiểu dáng: Bomber, cổ cao, tay dài, khóa kéo, hai túi hông, bo dệt RIB 4X4, dáng over, phong cách ulzzang.\r\nĐặc điểm: có khả năng chống nhăn nhàu, bong tróc và cản gió. Lớp lót bên trong là lông cừu mềm mại, giữ nhiệt tốt và sinh nhiệt giúp bảo vệ cơ thể khỏi thời tiết lạnh sâu.\r\nÁo khoác có dáng over, rộng rãi và thoải mái, tạo nên phong cách ulzzang thể hiện sự trẻ trung, năng động và cá tính.\r\nCách bảo quản: Giặt tay hoặc máy ở nhiệt độ thấp, không sử dụng chất tẩy, phơi trong bóng râm', 199, 0, 0, 1, 3),
-(24, 'Áo thun tay nam ngắn in hình Routine', 125000, 136000, 'pd15.jpg', 'Áo thun tay nam ngắn in hình Routine là một thương hiệu quần áo cao cấp, chính hãng đến từ Việt Nam', 'THÔNG TIN SẢN PHẨM\r\nTên sản phẩm:  Áo thun tay nam ngắn in hình Routine\r\nChất liệu: Cotton 100%\r\nMàu sắc: Đen\r\nHình in: Hình thành phố\r\nKiểu dáng:  Tay ngắn, cổ tròn, form regular\r\nĐặc điểm: Mềm mại, thoáng mát, co giãn 2 chiều, thấm hút mồ hôi tốt\r\nPhù hợp:  Áo thun tay lỡ unisex phù hợp cho cả nam và nữ, có thể mặc đi chơi, đi làm, hay thể hiện cá tính và phong cách riêng.\r\nKích thước: Freesize\r\nCách bảo quản: Giặt tay hoặc máy ở nhiệt độ thấp, không sử dụng chất tẩy, phơi trong bóng râm', 123, 0, 0, 0, 2);
+(16, 'Áo Khoác Cadigan Nữ Màu Hồng Chất Len Dài Tay Style Hàn Quốc', 265000, 286000, 'pd17.jpg', 'Áo Khoác Cadigan Nữ Hoạ Tiết Quả Trám To Màu Hồng<br>Chất Len Dài Tay Style Hàn Quốc là một loại áo<br>khoác len dành cho nữ, có họa tiết quả trám<br>to màu hồng trên nền trắng. Áo khoác len<br>này có chất liệu len dày dặn, ấm áp và mềm mại.', 'THÔNG TIN SẢN PHẨM<br>\r\nTên sản phẩm:  Áo Khoác Cadigan Nữ Màu Hồng Chất Len Dài Tay Style Hàn Quốc<br>\r\nChất liệu: Len 100% <br>\r\nMàu sắc: Hồng<br>\r\nHình in: Quả trám to trên nền trắng<br>\r\nKiểu dáng:  Tay ngắn, cổ tròn, form rộng<br>\r\nĐặc điểm: Dày dặn, ấm áp, mềm mại<br>\r\nKích thước: Freesize<br>\r\nÁo khoác len này có kiểu dáng cardigan, cài nút trước ngực, tay dài, cổ tròn, form rộng, phù hợp cho cả nam và nữ. Áo khoác len này có phong cách Hàn Quốc, mang đến cho bạn một vẻ ngoài trẻ trung, đáng yêu và thời trang. <br>\r\nCách bảo quản: Giặt tay hoặc máy ở nhiệt độ thấp, không sử dụng chất tẩy, phơi trong bóng râm', 194, 1, 0, 0, 3),
+(17, 'Áo len dài tay cún nhỏ dễ thương', 220000, 234000, 'pd18.jpg', 'Áo len dài tay cún nhỏ dễ thương là một loại áo len dành cho nữ, có hình in một chú cún nhỏ đáng yêu trên ngực.<br> Áo len này có chất liệu len mềm mại, ấm áp và co giãn tốt.', 'THÔNG TIN SẢN PHẨM<br>\r\nTên sản phẩm:  Áo len dài tay cún nhỏ dễ thương<br>\r\nChất liệu: Len 100% <br>\r\nMàu sắc: Trắng<br>\r\nHình in: Nhiều chú cún nhỏ<br>\r\nKiểu dáng:  Tay ngắn, cổ tròn, form rộng<br>\r\nĐặc điểm: Dày dặn, ấm áp, mềm mại<br>\r\nKích thước: Freesize<br>\r\nÁo len này có phong cách dễ thương, nữ tính và thời trang.<br>\r\nCách bảo quản: Giặt tay hoặc máy ở nhiệt độ thấp, không sử dụng chất tẩy, phơi trong bóng râm', 168, 0, 0, 1, 3),
+(18, 'Áo Khoác nỉ khoác kéo in chữ EVERYTIME', 225000, 240000, 'pd19.jpg', 'Áo Khoác nỉ khoác kéo in chữ EVERYTIME màu xám form rộng unisex nam nữ là một loại áo khoác nỉ dành cho cả nam và nữ, có chất liệu nỉ mềm mại, ấm áp và co giãn tốt.<br> Áo khoác nỉ này có màu xám, với hình in chữ EVERYTIME trên ngực trái.', 'THÔNG TIN SẢN PHẨM<br>\r\nTên sản phẩm:  Áo Khoác nỉ khoác kéo in chữ EVERYTIME <br>\r\nChất liệu:  Nỉ 100%<br>\r\nMàu sắc: Xám<br>\r\nHình in: Chữ EVERYTIME<br>\r\nKiểu dáng: Khoác kéo, tay dài, cổ tròn, form rộng, có mũ trùm đầu<br>\r\nĐặc điểm: Mềm mại, ấm áp, co giãn tốt<br>\r\nKích thước: Freesize<br>\r\nÁo khoác nỉ này có kiểu dáng khoác kéo, cài khóa trước ngực, tay dài, cổ tròn, form rộng, phù hợp cho cả nam và nữ.<br> Áo khoác nỉ này có phong cách thời trang, năng động và cá tính.  <br>\r\nCách bảo quản: Giặt tay hoặc máy ở nhiệt độ thấp, không sử dụng chất tẩy, phơi trong bóng râm', 177, 0, 0, 0, 3),
+(19, 'Kẻ sọc Tweed Áo khoác', 275000, 298000, 'pd20.jpg', 'Kẻ sọc Tweed Áo khoác là một loại áo khoác thời trang quần áo cao cấp, chính hãng đến từ Việt Nam.<br> Áo khoác này có chất liệu vải tweed, một loại vải được dệt từ sợi len lông cừu thô, dày dặn, ấm áp và chống chịu thời tiết tốt.', 'THÔNG TIN SẢN PHẨM<br>\r\nTên sản phẩm: Kẻ sọc Tweed Áo khoác<br>\r\nChất liệu: Vải tweed<br>\r\nMàu sắc: Hồng<br>\r\nHình in: Chữ EVERYTIME<br>\r\nKiểu dáng: Áo khoác dài, cài nút trước ngực, tay dài, cổ tròn, form rộng.<br>\r\nĐặc điểm: Dày dặn, ấm áp, chống chịu thời tiết tốt, cổ điển nhưng vẫn sang trọng và thanh lịch.<br>\r\nÁo khoác này có họa tiết kẻ sọc xước màu hồng và trắng, mang đến một nét cổ điển nhưng vẫn sang trọng và thanh lịch.<br> Áo khoác này có kiểu dáng áo khoác dài, cài nút trước ngực, tay dài, cổ tròn, form rộng, phù hợp cho cả nam và nữ. <br>Áo khoác này có phong cách thời trang Hàn Quốc, mang đến cho bạn một vẻ ngoài trẻ trung, năng động và cá tính\r\nCách bảo quản: Giặt tay hoặc máy ở nhiệt độ thấp, không sử dụng chất tẩy, phơi trong bóng râm', 212, 1, 0, 0, 3),
+(20, 'ÁO KHOÁC DENIM NHẬT BẢN', 256000, 273000, 'pd21.jpg', 'ÁO KHOÁC DENIM NHẬT BẢN là một loại áo khoác được làm từ vải denim, một loại vải bền, chắc và có khả năng chống chịu thời tiết tốt. ', 'THÔNG TIN SẢN PHẨM<br>\r\nTên sản phẩm: ÁO KHOÁC DENIM NHẬT BẢN<br>\r\nChất liệu: Vải denim <br>\r\nMàu sắc: Trắng<br>\r\nHình in: Trơn<br>\r\nKiểu dáng: cổ điển, cài nút trước ngực, tay dài, cổ tròn, form rộng, phù hợp cho cả nam và nữ<br>\r\nĐặc điểm: Dày dặn, ấm áp, chống chịu thời tiết tốt, cổ điển nhưng vẫn sang trọng và thanh lịch.<br>\r\nÁo khoác denim Nhật Bản có phong cách thời trang Hàn Quốc, mang đến cho bạn một vẻ ngoài trẻ trung, năng động và cá tính.<br>\r\nCách bảo quản: Giặt tay hoặc máy ở nhiệt độ thấp, không sử dụng chất tẩy, phơi trong bóng râm', 185, 1, 0, 0, 3),
+(21, 'Áo Jean Nam Nữ form rộng', 265000, 279000, 'pd22.jpg', 'Áo Jean Nam Nữ form rộng là một loại áo khoác được làm từ vải jean, một loại vải bền, chắc và có khả năng chống chịu thời tiết tốt.', 'THÔNG TIN SẢN PHẨM<br>\r\nTên sản phẩm: Áo Jean Nam Nữ form rộng<br>\r\nChất liệu: Vải jean 100% cotton<br>\r\nMàu sắc: Xanh<br>\r\nKiểu dáng:Áo khoác dài, cài nút trước ngực, tay dài, cổ tròn, form rộng<br>\r\nĐặc điểm: Bền, chắc, chống chịu thời tiết tốt, phong cách Hàn Quốc<br>\r\nÁo jean nam nữ form rộng có phong cách thời trang Hàn Quốc, mang đến cho bạn một vẻ ngoài trẻ trung, năng động và cá tính.<br>\r\nCách bảo quản: Giặt tay hoặc máy ở nhiệt độ thấp, không sử dụng chất tẩy, phơi trong bóng râm.', 128, 0, 1, 0, 3),
+(22, 'Áo hoodie Nỉ ngoại in chữ New York', 215000, 235000, 'pd23.jpg', 'Áo hoodie nỉ ngoại in chữ New York là một loại áo khoác nỉ có mũ trùm đầu, cài khóa trước ngực, tay dài, form rộng, phù hợp cho cả nam và nữ.', 'THÔNG TIN SẢN PHẨM<br>\r\nTên sản phẩm: Áo hoodie Nỉ ngoại in chữ New York<br>\r\nChất liệu: Nỉ ngoại 100% cotton<br>\r\nMàu sắc: Xám<br>\r\nKiểu dáng: Khoác kéo, tay dài, cổ tròn, form rộng, có mũ trùm đầu<br>\r\nĐặc điểm:  Mềm mại, ấm áp, co giãn tốt\r\nÁo hoodie nỉ ngoại in chữ New York có chất liệu nỉ ngoại, một loại nỉ được nhập khẩu từ nước ngoài, có độ mềm mại, ấm áp và co giãn tốt.<br> Áo hoodie nỉ ngoại in chữ New York có màu sắc đa dạng.<br> Áo hoodie nỉ ngoại in chữ New York có hình in chữ New York trên ngực, mang đến một nét thời trang, năng động và cá tính.<br>\r\nCách bảo quản: Giặt tay hoặc máy ở nhiệt độ thấp, không sử dụng chất tẩy, phơi trong bóng râm', 105, 0, 0, 0, 3),
+(23, 'Áo khoác da dáng Bomber', 259000, 278000, 'pd24.jpg', 'Áo khoác da dáng Bomber lót lông cừu siêu ấm dáng Over phong cách Ulzang là một loại áo khoác nam được thiết kế theo phong cách Hàn Quốc.', 'THÔNG TIN SẢN PHẨM<br>\r\nTên sản phẩm: Áo khoác da dáng Bomber<br>\r\nChất liệu: Da lộn hoặc da trơn bên ngoài, lông cừu bên trong.<br>\r\nMàu sắc: Đen.<br>\r\nKiểu dáng: Bomber, cổ cao, tay dài, khóa kéo, hai túi hông, bo dệt RIB 4X4, dáng over, phong cách ulzzang.<br>\r\nĐặc điểm: có khả năng chống nhăn nhàu, bong tróc và cản gió. Lớp lót bên trong là lông cừu mềm mại, giữ nhiệt tốt và sinh nhiệt giúp bảo vệ cơ thể khỏi thời tiết lạnh sâu.<br>\r\nÁo khoác có dáng over, rộng rãi và thoải mái, tạo nên phong cách ulzzang thể hiện sự trẻ trung, năng động và cá tính.<br>\r\nCách bảo quản: Giặt tay hoặc máy ở nhiệt độ thấp, không sử dụng chất tẩy, phơi trong bóng râm', 199, 0, 0, 1, 3),
+(24, 'Áo thun tay nam ngắn in hình Routine', 125000, 136000, 'pd15.jpg', 'Áo thun tay nam ngắn in hình Routine là một thương hiệu quần áo cao cấp, chính hãng đến từ Việt Nam', 'THÔNG TIN SẢN PHẨM<br>\r\nTên sản phẩm:  Áo thun tay nam ngắn in hình Routine<br>\r\nChất liệu: Cotton 100%<br>\r\nMàu sắc: Đen<br>\r\nHình in: Hình thành phố<br>\r\nKiểu dáng:  Tay ngắn, cổ tròn, form regular<br>\r\nĐặc điểm: Mềm mại, thoáng mát, co giãn 2 chiều, thấm hút mồ hôi tốt<br>\r\nPhù hợp:  Áo thun tay lỡ unisex phù hợp cho cả nam và nữ, có thể mặc đi chơi, đi làm, hay thể hiện cá tính và phong cách riêng.<br>\r\nKích thước: Freesize<br>\r\nCách bảo quản: Giặt tay hoặc máy ở nhiệt độ thấp, không sử dụng chất tẩy, phơi trong bóng râm', 123, 0, 0, 0, 2);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Cấu trúc bảng cho bảng `users`
 --
 
 CREATE TABLE `users` (
@@ -206,25 +206,25 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `users`
+-- Đang đổ dữ liệu cho bảng `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `name`, `address`, `email`, `sdt`, `role`) VALUES
 (1, 'nghia', '123', '', NULL, 'nghianhps27599@fpt.edu.vn', NULL, 0);
 
 --
--- Indexes for dumped tables
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Indexes for table `bill`
+-- Chỉ mục cho bảng `bill`
 --
 ALTER TABLE `bill`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_kh_hd` (`iduser`);
 
 --
--- Indexes for table `bill_detail`
+-- Chỉ mục cho bảng `bill_detail`
 --
 ALTER TABLE `bill_detail`
   ADD PRIMARY KEY (`id`),
@@ -232,33 +232,33 @@ ALTER TABLE `bill_detail`
   ADD KEY `fk_sp_hdct` (`idsp`);
 
 --
--- Indexes for table `blog`
+-- Chỉ mục cho bảng `blog`
 --
 ALTER TABLE `blog`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_dmtt_tt` (`idloai`);
 
 --
--- Indexes for table `blog_category`
+-- Chỉ mục cho bảng `blog_category`
 --
 ALTER TABLE `blog_category`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `cart`
+-- Chỉ mục cho bảng `cart`
 --
 ALTER TABLE `cart`
   ADD KEY `fk_sp_cart` (`idpro`),
   ADD KEY `fk_hd_cart` (`idbill`);
 
 --
--- Indexes for table `category`
+-- Chỉ mục cho bảng `category`
 --
 ALTER TABLE `category`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `comment`
+-- Chỉ mục cho bảng `comment`
 --
 ALTER TABLE `comment`
   ADD PRIMARY KEY (`id`),
@@ -266,109 +266,109 @@ ALTER TABLE `comment`
   ADD KEY `fk_sp_bl` (`idsp`);
 
 --
--- Indexes for table `product`
+-- Chỉ mục cho bảng `product`
 --
 ALTER TABLE `product`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_dm_sp` (`iddm`);
 
 --
--- Indexes for table `users`
+-- Chỉ mục cho bảng `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT cho các bảng đã đổ
 --
 
 --
--- AUTO_INCREMENT for table `bill`
+-- AUTO_INCREMENT cho bảng `bill`
 --
 ALTER TABLE `bill`
   MODIFY `id` int(9) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `bill_detail`
+-- AUTO_INCREMENT cho bảng `bill_detail`
 --
 ALTER TABLE `bill_detail`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `blog`
+-- AUTO_INCREMENT cho bảng `blog`
 --
 ALTER TABLE `blog`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `blog_category`
+-- AUTO_INCREMENT cho bảng `blog_category`
 --
 ALTER TABLE `blog_category`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `category`
+-- AUTO_INCREMENT cho bảng `category`
 --
 ALTER TABLE `category`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `comment`
+-- AUTO_INCREMENT cho bảng `comment`
 --
 ALTER TABLE `comment`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `product`
+-- AUTO_INCREMENT cho bảng `product`
 --
 ALTER TABLE `product`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- Constraints for dumped tables
+-- Các ràng buộc cho các bảng đã đổ
 --
 
 --
--- Constraints for table `bill`
+-- Các ràng buộc cho bảng `bill`
 --
 ALTER TABLE `bill`
   ADD CONSTRAINT `fk_kh_hd` FOREIGN KEY (`iduser`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
--- Constraints for table `bill_detail`
+-- Các ràng buộc cho bảng `bill_detail`
 --
 ALTER TABLE `bill_detail`
   ADD CONSTRAINT `fk_hd_hdct` FOREIGN KEY (`idbill`) REFERENCES `bill` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_sp_hdct` FOREIGN KEY (`idsp`) REFERENCES `product` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
--- Constraints for table `blog`
+-- Các ràng buộc cho bảng `blog`
 --
 ALTER TABLE `blog`
   ADD CONSTRAINT `fk_dmtt_tt` FOREIGN KEY (`idloai`) REFERENCES `blog_category` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
--- Constraints for table `cart`
+-- Các ràng buộc cho bảng `cart`
 --
 ALTER TABLE `cart`
   ADD CONSTRAINT `fk_hd_cart` FOREIGN KEY (`idbill`) REFERENCES `bill` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_sp_cart` FOREIGN KEY (`idpro`) REFERENCES `product` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
--- Constraints for table `comment`
+-- Các ràng buộc cho bảng `comment`
 --
 ALTER TABLE `comment`
   ADD CONSTRAINT `fk_kh_bl` FOREIGN KEY (`iduser`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_sp_bl` FOREIGN KEY (`idsp`) REFERENCES `product` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
--- Constraints for table `product`
+-- Các ràng buộc cho bảng `product`
 --
 ALTER TABLE `product`
   ADD CONSTRAINT `fk_dm_sp` FOREIGN KEY (`iddm`) REFERENCES `category` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
