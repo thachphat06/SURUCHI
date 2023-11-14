@@ -4,14 +4,17 @@
   
   // nhúng kết nối csdl
   include "model/pdo.php";
-  include "model/user.php";
-  include "model/danhmuc.php";
-  include "view/header.php";
   include "model/sanpham.php";
+  include "model/danhmuc.php";
+  include "model/user.php";
+
+  include "view/header.php";
+
   if(!isset($_GET['pg'])) {
     $dssp_new=get_new(10);
     $dssp_hot=get_hot(10);
     $dssp_best=get_best(10);
+    $dssp_best2=get_best(10);
     include "view/home.php";
   } else {
     switch ($_GET['pg']) {
@@ -20,7 +23,7 @@
         break;
       case 'signin':
         //input
-        if(isset($_POST["login"])&&($_POST["login"])) {
+        if(isset($_POST["login"])) {
           $username=$_POST["username"];
           $password=$_POST["password"];
           //xử lý: kiem tra
@@ -44,7 +47,7 @@
         break;
       case 'adduser':
         // xác định giá trị input
-        if(isset($_POST["register"])&&($_POST["register"])){
+        if(isset($_POST["register"])){
           $username=$_POST["username"];
           $password=$_POST["password"];
           $email=$_POST["email"];
@@ -82,17 +85,34 @@
         break;
       case 'shop':
         $dsdm=danhmuc_all();
+        $kyw="";
+        $titlepage="";
+
         if(!isset($_GET['iddm'])){
           $iddm=0;
         }else{
-          $iddm=$_GET['iddm'];
+            $iddm=$_GET['iddm'];
+            $titlepage=get_name_dm($iddm);
+        }  
+
+        if (isset($_POST["search"])) {
+          $kyw=$_POST["kyw"];
+          $titlepage="Kết quả tìm kiếm với từ khóa: ".$kyw;
         }
-        $dssp=get_dssp($iddm,16);
+        $dssp=get_dssp($kyw, $iddm, 16);
 
         include "view/shop.php";
         break;
       case 'product-detail':
-        include "view/product-detail.php";
+        if(isset($_GET['idpro'])&&($_GET["idpro"]>0)) {
+          $id=$_GET['idpro'];
+          $iddm=get_iddm($id);
+          $spchitiet=get_sp_by_id($id);
+          $splienquan=get_dssp_lienquan($iddm, $id, 4);
+          include "view/product-details.php";
+      }else {
+          include "view/home.php";
+      }
         break;
       case 'add-cart':
         include "view/cart.php";

@@ -47,9 +47,9 @@
                                                 <span class="checkout__checkbox--checkmark"></span>
                                                 <label class="checkout__checkbox--label login__remember--label" for="check1">Ghi nhớ mật khẩu</label>
                                             </div>
-                                            <button class="account__login--forgot" type="submit">Quên mật khẩu</button>
+                                            <a class="account__login--forgot" href="#">Quên mật khẩu</a>
                                         </div>
-                                        <input class="account__login--btn primary__btn" name="login" type="submit" value="Đăng Nhập">
+                                        <button class="account__login--btn primary__btn" name="login" type="submit">Đăng Nhập</button>
                                         <div class="account__login--divide">
                                             <span class="account__login--divide__text">HOẶC</span>
                                         </div>
@@ -58,7 +58,7 @@
                                             <a class="account__social--link google" target="_blank" href="https://www.google.com">Google</a>
                                             <a class="account__social--link twitter" target="_blank" href="https://twitter.com">Twitter</a>
                                         </div>
-                                        <p class="account__login--signup__text">Bạn chưa có tài khoản? <button type="submit">Đăng ký ngay</button></p>
+                                        <p class="account__login--signup__text">Bạn chưa có tài khoản? <a href="#">Đăng ký ngay</a></p>
                                     </div>
                                 </div>
                             </div>
@@ -75,7 +75,7 @@
                                         <input class="account__login--input" name="email" placeholder="Email của bạn" type="text">
                                         <input class="account__login--input" name="password" placeholder="Mật khẩu" type="password">
                                         <input class="account__login--input" name="repassword" placeholder="Xác nhận mật khẩu" type="password">
-                                        <input class="account__login--btn primary__btn mb-10" name="register" type="submit" value="Đăng Ký">
+                                        <button class="account__login--btn primary__btn mb-10" name="register" type="submit">Đăng Ký</button>
                                         <div class="account__login--remember position__relative">
                                             <input class="checkout__checkbox--input" id="check2" type="checkbox">
                                             <span class="checkout__checkbox--checkmark"></span>

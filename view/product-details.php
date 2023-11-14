@@ -1,3 +1,9 @@
+<?php
+    extract($spchitiet);
+
+    $html_dssp_lienquan=showsp_slide($splienquan);
+?>
+
 <main class="main__content_wrapper">
         
         <!-- Start breadcrumb section -->
@@ -28,9 +34,9 @@
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide">
                                         <div class="product__media--preview__items">
-                                            <a class="product__media--preview__items--link glightbox" data-gallery="product-media-preview" href="./view/assets/img/product/big-product2.jpg"><img class="product__media--preview__items--img" src="./view/assets/img/product/big-product2.jpg" alt="product-media-img"></a>
+                                            <a class="product__media--preview__items--link glightbox" data-gallery="product-media-preview" href="./view/assets/img/product/<?=$img?>"><img class="product__media--preview__items--img" src="./view/assets/img/product/<?=$img?>" alt="product-media-img"></a>
                                             <div class="product__media--view__icon">
-                                                <a class="product__media--view__icon--link glightbox" href="./view/assets/img/product/big-product2.jpg" data-gallery="product-media-preview">
+                                                <a class="product__media--view__icon--link glightbox" href="./view/assets/img/product/<?=$img?>" data-gallery="product-media-preview">
                                                     <svg class="product__media--view__icon--svg" xmlns="http://www.w3.org/2000/svg" width="22.51" height="22.443" viewBox="0 0 512 512"><path d="M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"></path><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M338.29 338.29L448 448"></path></svg>
                                                 </a>
                                             </div>
@@ -129,11 +135,11 @@
                     <div class="col">
                         <div class="product__details--info">
                             <form action="#">
-                                <h2 class="product__details--info__title mb-15">Áo vest công sở vải kaki</h2>
+                                <h2 class="product__details--info__title mb-15"><?=$name?></h2>
                                 <div class="product__details--info__price mb-10">
-                                    <span class="current__price">220.00VND - 300.000VND</span>
+                                    <span class="current__price"><?=number_format($price,0,",",".")?>VNĐ</span>
                                     <span class="price__divided"></span>
-                                    <span class="old__price">- 300.000VND</span>
+                                    <span class="old__price">- <?=number_format($old_price,0,",",".")?>VNĐ</span>
                                 </div>
                                 <div class="product__details--info__rating d-flex align-items-center mb-15">
                                     <ul class="rating d-flex justify-content-center">
@@ -175,32 +181,8 @@
                                     </ul>
                                     <span class="product__items--rating__count--number">(24)</span>
                                 </div>
-                                <p class="product__details--info__desc mb-15">Tựa như sự kết hợp giữa truyền thống và hiện đại mang đến cho nàng sự chỉn chu chuyên nghịệp mà không mất đi nét nữ tính, thời thượng. Làm nàng nổi bật nét đẹp, ấn tượng giữa đám đông. Không mất nhiều thời gian để phối đồ khi nàng chỉ cần một chân váy bút chì hay một chiếc quần ống rộng là có thể tự tin nổi bật chốn công sở.</p>
+                                <p class="product__details--info__desc mb-15"><?=$describe1?></p>
                                 <div class="product__variant">
-                                    <div class="product__variant--list mb-10">
-                                        <fieldset class="variant__input--fieldset">
-                                            <legend class="product__variant--title mb-8">Màu sắc :</legend>
-                                            <input id="color-red1" name="color" type="radio" checked>
-                                            <label class="variant__color--value red" for="color-red1" title="Red"><img class="variant__color--value__img" src="./view/assets/img/product/product1.png" alt="variant-color-img"></label>
-                                            <input id="color-red2" name="color" type="radio">
-                                            <label class="variant__color--value red" for="color-red2" title="Black"><img class="variant__color--value__img" src="./view/assets/img/product/product2.png" alt="variant-color-img"></label>
-                                            <input id="color-red3" name="color" type="radio">
-                                            <label class="variant__color--value red" for="color-red3" title="Pink"><img class="variant__color--value__img" src="./view/assets/img/product/product3.png" alt="variant-color-img"></label>
-                                            <input id="color-red4" name="color" type="radio">
-                                            <label class="variant__color--value red" for="color-red4" title="Orange"><img class="variant__color--value__img" src="./view/assets/img/product/product4.png" alt="variant-color-img"></label>
-                                        </fieldset>
-                                    </div>
-                                    <div class="product__variant--list mb-15">
-                                        <fieldset class="variant__input--fieldset weight">
-                                            <legend class="product__variant--title mb-8">Cân nặng :</legend>
-                                            <input id="weight1" name="weight" type="radio" checked>
-                                            <label class="variant__size--value red" for="weight1">5 kg</label>
-                                            <input id="weight2" name="weight" type="radio">
-                                            <label class="variant__size--value red" for="weight2">3 kg</label>
-                                            <input id="weight3" name="weight" type="radio">
-                                            <label class="variant__size--value red" for="weight3">2 kg</label>
-                                        </fieldset>
-                                    </div>
                                     <div class="product__variant--list quantity d-flex align-items-center mb-20">
                                         <div class="quantity__box">
                                             <button type="button" class="quantity__value quickview__value--quantity decrease" aria-label="quantity value" value="Decrease Value">-</button>
@@ -215,10 +197,9 @@
                                         <button class="variant__buy--now__btn primary__btn" type="submit">Mua ngay</button>
                                     </div>
                                     <div class="product__details--info__meta">
-                                        <p class="product__details--info__meta--list"><strong>Mã vạch:</strong>  <span>565461</span> </p>
-                                        <p class="product__details--info__meta--list"><strong>Sky:</strong>  <span>4420</span> </p>
-                                        <p class="product__details--info__meta--list"><strong>Người bán:</strong>  <span>Belo</span> </p>
-                                        <p class="product__details--info__meta--list"><strong>Kiểu:</strong>  <span>Dress</span> </p>
+                                        <p class="product__details--info__meta--list">
+                                            <strong>Mã vạch:</strong>  <span><?=$id?></span>
+                                        </p>
                                     </div>
                                 </div>
                                 <div class="quickview__social d-flex align-items-center mb-15">
@@ -276,7 +257,7 @@
                 <div class="row row-cols-1">
                     <div class="col">
                         <ul class="product__details--tab d-flex mb-30">
-                            <li class="product__details--tab__list active" data-toggle="tab" data-target="#description">Miêu tả</li>
+                            <li class="product__details--tab__list active" data-toggle="tab" data-target="#description">Mô tả</li>
                             <li class="product__details--tab__list" data-toggle="tab" data-target="#reviews">Đánh giá</li>
                         </ul>
                         <div class="product__details--tab__inner border-radius-10">
@@ -284,10 +265,11 @@
                                 <div id="description" class="tab_pane active show">
                                     <div class="product__tab--content">
                                         <div class="product__tab--content__step mb-30">
-                                            <h2 class="product__tab--content__title h4 mb-10">Đặc điểm nổi bật của sản phẩm</h2>
-                                            <p class="product__tab--content__desc">Thiết kế có chất liệu cotton lạnh thoáng mát, nhanh khô và ưu điểm là không nhăn<br>Form dáng suông hiện đại, áo có lớp đệm ở cầu vai tạo bờ vai móc áo hoàn hảo, chuyên nghiệp.<br>Áo xẻ tà, đắp vạt sau giúp nàng thoải mái khi diện trang phục.</p>
+                                            <!-- <h2 class="product__tab--content__title h4 mb-10">Đặc điểm nổi bật của sản phẩm</h2>
+                                            <p class="product__tab--content__desc">Thiết kế có chất liệu cotton lạnh thoáng mát, nhanh khô và ưu điểm là không nhăn<br>Form dáng suông hiện đại, áo có lớp đệm ở cầu vai tạo bờ vai móc áo hoàn hảo, chuyên nghiệp.<br>Áo xẻ tà, đắp vạt sau giúp nàng thoải mái khi diện trang phục.</p> -->
+                                            <?=$describe2?>
                                         </div>
-                                        <div class="product__tab--content__step">
+                                        <!-- <div class="product__tab--content__step">
                                             <h4 class="product__tab--content__title mb-10">Thêm chi tiết</h4>
                                             <ul>
                                                 <li class="product__tab--content__list">
@@ -307,7 +289,7 @@
                                                     <svg class="product__tab--content__list--icon" xmlns="http://www.w3.org/2000/svg" width="22.51" height="20.443" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M268 112l144 144-144 144M392 256H100"></path></svg>
                                                     Bạn có yêu cầu về thương hiệu cụ thể không?                                                </li>
                                             </ul>
-                                        </div>
+                                        </div> -->
                                     </div> 
                                 </div>
                                 <div id="reviews" class="tab_pane">
@@ -589,593 +571,7 @@
                 </div>
                 <div class="product__section--inner product__swiper--column4__activation swiper">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="product__items ">
-                                <div class="product__items--thumbnail">
-                                    <a class="product__items--link" href="product-details.html">
-                                        <img class="product__items--img product__primary--img" src="./view/assets/img/product/product1.png" alt="product-img">
-                                        <img class="product__items--img product__secondary--img" src="./view/assets/img/product/product2.png" alt="product-img">
-                                    </a>
-                                    <div class="product__badge">
-                                        <span class="product__badge--items sale">Sale</span>
-                                    </div>
-                                </div>
-                                <div class="product__items--content">
-                                    <span class="product__items--content__subtitle">Váy, Nữ</span>
-                                    <h3 class="product__items--content__title h4"><a href="product-details.html">Váy cotton cỡ lớn</a></h3>
-                                    <div class="product__items--price">
-                                        <span class="current__price">220.00VND </span>
-                                        <span class="price__divided"></span>
-                                        <span class="old__price"> 300.000VND</span>
-                                    </div>
-                                    <ul class="rating product__rating d-flex">
-                                        <li class="rating__list">
-                                            <span class="rating__list--icon">
-                                                <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="14.105" height="14.732" viewBox="0 0 10.105 9.732">
-                                                <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                </svg>
-                                            </span>
-                                        </li>
-                                        <li class="rating__list">
-                                            <span class="rating__list--icon">
-                                                <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="14.105" height="14.732" viewBox="0 0 10.105 9.732">
-                                                <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                </svg>
-                                            </span>
-                                        </li>
-                                        <li class="rating__list">
-                                            <span class="rating__list--icon">
-                                                <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="14.105" height="14.732" viewBox="0 0 10.105 9.732">
-                                                <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                </svg>
-                                            </span>
-                                        </li>
-                                        <li class="rating__list">
-                                            <span class="rating__list--icon">
-                                                <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="14.105" height="14.732" viewBox="0 0 10.105 9.732">
-                                                <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                </svg>
-                                            </span>
-                                        </li>
-                                        <li class="rating__list">
-                                            <span class="rating__list--icon">
-                                                <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="14.105" height="14.732" viewBox="0 0 10.105 9.732">
-                                                <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                </svg>
-                                            </span>
-                                        </li>
-
-                                    </ul>
-                                    <ul class="product__items--action d-flex">
-                                        <li class="product__items--action__list">
-                                            <a class="product__items--action__btn add__to--cart" href="cart.html">
-                                                <svg class="product__items--action__btn--svg" xmlns="http://www.w3.org/2000/svg" width="22.51" height="20.443" viewBox="0 0 14.706 13.534">
-                                                    <g transform="translate(0 0)">
-                                                      <g>
-                                                        <path data-name="Path 16787" d="M4.738,472.271h7.814a.434.434,0,0,0,.414-.328l1.723-6.316a.466.466,0,0,0-.071-.4.424.424,0,0,0-.344-.179H3.745L3.437,463.6a.435.435,0,0,0-.421-.353H.431a.451.451,0,0,0,0,.9h2.24c.054.257,1.474,6.946,1.555,7.33a1.36,1.36,0,0,0-.779,1.242,1.326,1.326,0,0,0,1.293,1.354h7.812a.452.452,0,0,0,0-.9H4.74a.451.451,0,0,1,0-.9Zm8.966-6.317-1.477,5.414H5.085l-1.149-5.414Z" transform="translate(0 -463.248)" fill="currentColor"></path>
-                                                        <path data-name="Path 16788" d="M5.5,478.8a1.294,1.294,0,1,0,1.293-1.353A1.325,1.325,0,0,0,5.5,478.8Zm1.293-.451a.452.452,0,1,1-.431.451A.442.442,0,0,1,6.793,478.352Z" transform="translate(-1.191 -466.622)" fill="currentColor"></path>
-                                                        <path data-name="Path 16789" d="M13.273,478.8a1.294,1.294,0,1,0,1.293-1.353A1.325,1.325,0,0,0,13.273,478.8Zm1.293-.451a.452.452,0,1,1-.431.451A.442.442,0,0,1,14.566,478.352Z" transform="translate(-2.875 -466.622)" fill="currentColor"></path>
-                                                      </g>
-                                                    </g>
-                                                </svg>
-                                                <span class="add__to--cart__text"> + Thêm vào giỏ hàng</span>
-                                            </a>
-                                        </li>
-                                        <li class="product__items--action__list">
-                                            <a class="product__items--action__btn" data-open="modal1" href="product-details.html">
-                                                <svg class="product__items--action__btn--svg" xmlns="http://www.w3.org/2000/svg"  width="25.51" height="23.443" viewBox="0 0 512 512"><path d="M255.66 112c-77.94 0-157.89 45.11-220.83 135.33a16 16 0 00-.27 17.77C82.92 340.8 161.8 400 255.66 400c92.84 0 173.34-59.38 221.79-135.25a16.14 16.14 0 000-17.47C428.89 172.28 347.8 112 255.66 112z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><circle cx="256" cy="256" r="80" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/></svg>
-                                                <span class="visually-hidden">Xem lướt qua</span>
-                                            </a>
-                                        </li>
-                                        
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="product__items ">
-                                <div class="product__items--thumbnail">
-                                    <a class="product__items--link" href="product-details.html">
-                                        <img class="product__items--img product__primary--img" src="./view/assets/img/product/product3.png" alt="product-img">
-                                        <img class="product__items--img product__secondary--img" src="./view/assets/img/product/product4.png" alt="product-img">
-                                    </a>
-                                    <div class="product__badge">
-                                        <span class="product__badge--items sale">Sale</span>
-                                    </div>
-                                </div>
-                                <div class="product__items--content">
-                                    <span class="product__items--content__subtitle">Áo, Nữ</span>
-                                    <h3 class="product__items--content__title h4"><a href="product-details.html">Áo denim hình hộp</a></h3>
-                                    <div class="product__items--price">
-                                        <span class="current__price">220.00VND </span>
-                                        <span class="price__divided"></span>
-                                        <span class="old__price"> 300.000VND</span>
-                                    </div>
-                                    <ul class="rating product__rating d-flex">
-                                        <li class="rating__list">
-                                            <span class="rating__list--icon">
-                                                <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="14.105" height="14.732" viewBox="0 0 10.105 9.732">
-                                                <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                </svg>
-                                            </span>
-                                        </li>
-                                        <li class="rating__list">
-                                            <span class="rating__list--icon">
-                                                <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="14.105" height="14.732" viewBox="0 0 10.105 9.732">
-                                                <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                </svg>
-                                            </span>
-                                        </li>
-                                        <li class="rating__list">
-                                            <span class="rating__list--icon">
-                                                <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="14.105" height="14.732" viewBox="0 0 10.105 9.732">
-                                                <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                </svg>
-                                            </span>
-                                        </li>
-                                        <li class="rating__list">
-                                            <span class="rating__list--icon">
-                                                <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="14.105" height="14.732" viewBox="0 0 10.105 9.732">
-                                                <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                </svg>
-                                            </span>
-                                        </li>
-                                        <li class="rating__list">
-                                            <span class="rating__list--icon">
-                                                <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="14.105" height="14.732" viewBox="0 0 10.105 9.732">
-                                                <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                </svg>
-                                            </span>
-                                        </li>
-
-                                    </ul>
-                                    <ul class="product__items--action d-flex">
-                                        <li class="product__items--action__list">
-                                            <a class="product__items--action__btn add__to--cart" href="cart.html">
-                                                <svg class="product__items--action__btn--svg" xmlns="http://www.w3.org/2000/svg" width="22.51" height="20.443" viewBox="0 0 14.706 13.534">
-                                                    <g transform="translate(0 0)">
-                                                      <g>
-                                                        <path data-name="Path 16787" d="M4.738,472.271h7.814a.434.434,0,0,0,.414-.328l1.723-6.316a.466.466,0,0,0-.071-.4.424.424,0,0,0-.344-.179H3.745L3.437,463.6a.435.435,0,0,0-.421-.353H.431a.451.451,0,0,0,0,.9h2.24c.054.257,1.474,6.946,1.555,7.33a1.36,1.36,0,0,0-.779,1.242,1.326,1.326,0,0,0,1.293,1.354h7.812a.452.452,0,0,0,0-.9H4.74a.451.451,0,0,1,0-.9Zm8.966-6.317-1.477,5.414H5.085l-1.149-5.414Z" transform="translate(0 -463.248)" fill="currentColor"></path>
-                                                        <path data-name="Path 16788" d="M5.5,478.8a1.294,1.294,0,1,0,1.293-1.353A1.325,1.325,0,0,0,5.5,478.8Zm1.293-.451a.452.452,0,1,1-.431.451A.442.442,0,0,1,6.793,478.352Z" transform="translate(-1.191 -466.622)" fill="currentColor"></path>
-                                                        <path data-name="Path 16789" d="M13.273,478.8a1.294,1.294,0,1,0,1.293-1.353A1.325,1.325,0,0,0,13.273,478.8Zm1.293-.451a.452.452,0,1,1-.431.451A.442.442,0,0,1,14.566,478.352Z" transform="translate(-2.875 -466.622)" fill="currentColor"></path>
-                                                      </g>
-                                                    </g>
-                                                </svg>
-                                                <span class="add__to--cart__text"> + Thêm vào giỏ hàng</span>
-                                            </a>
-                                        </li>
-                                        <li class="product__items--action__list">
-                                            <a class="product__items--action__btn" data-open="modal1" href="product-details.html">
-                                                <svg class="product__items--action__btn--svg" xmlns="http://www.w3.org/2000/svg"  width="25.51" height="23.443" viewBox="0 0 512 512"><path d="M255.66 112c-77.94 0-157.89 45.11-220.83 135.33a16 16 0 00-.27 17.77C82.92 340.8 161.8 400 255.66 400c92.84 0 173.34-59.38 221.79-135.25a16.14 16.14 0 000-17.47C428.89 172.28 347.8 112 255.66 112z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><circle cx="256" cy="256" r="80" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/></svg>
-                                                <span class="visually-hidden">Quick View</span>
-                                            </a>
-                                        </li>
-                                        
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="product__items ">
-                                <div class="product__items--thumbnail">
-                                    <a class="product__items--link" href="product-details.html">
-                                        <img class="product__items--img product__primary--img" src="./view/assets/img/product/product5.png" alt="product-img">
-                                        <img class="product__items--img product__secondary--img" src="./view/assets/img/product/product11.png" alt="product-img">
-                                    </a>
-                                    <div class="product__badge">
-                                        <span class="product__badge--items sale">Sale</span>
-                                    </div>
-                                </div>
-                                <div class="product__items--content">
-                                    <span class="product__items--content__subtitle">Áo khoác, Nam</span>
-                                    <h4 class="product__items--content__title"><a href="product-details.html">Áo khoác bomber bông cừu</a></h4>
-                                    <div class="product__items--price">
-                                        <span class="current__price">220.00VND </span>
-                                        <span class="price__divided"></span>
-                                        <span class="old__price"> 300.000VND</span>
-                                    </div>
-                                    <ul class="rating product__rating d-flex">
-                                        <li class="rating__list">
-                                            <span class="rating__list--icon">
-                                                <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="14.105" height="14.732" viewBox="0 0 10.105 9.732">
-                                                <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                </svg>
-                                            </span>
-                                        </li>
-                                        <li class="rating__list">
-                                            <span class="rating__list--icon">
-                                                <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="14.105" height="14.732" viewBox="0 0 10.105 9.732">
-                                                <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                </svg>
-                                            </span>
-                                        </li>
-                                        <li class="rating__list">
-                                            <span class="rating__list--icon">
-                                                <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="14.105" height="14.732" viewBox="0 0 10.105 9.732">
-                                                <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                </svg>
-                                            </span>
-                                        </li>
-                                        <li class="rating__list">
-                                            <span class="rating__list--icon">
-                                                <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="14.105" height="14.732" viewBox="0 0 10.105 9.732">
-                                                <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                </svg>
-                                            </span>
-                                        </li>
-                                        <li class="rating__list">
-                                            <span class="rating__list--icon">
-                                                <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="14.105" height="14.732" viewBox="0 0 10.105 9.732">
-                                                <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                </svg>
-                                            </span>
-                                        </li>
-
-                                    </ul>
-                                    <ul class="product__items--action d-flex">
-                                        <li class="product__items--action__list">
-                                            <a class="product__items--action__btn add__to--cart" href="cart.html">
-                                                <svg class="product__items--action__btn--svg" xmlns="http://www.w3.org/2000/svg" width="22.51" height="20.443" viewBox="0 0 14.706 13.534">
-                                                    <g transform="translate(0 0)">
-                                                      <g>
-                                                        <path data-name="Path 16787" d="M4.738,472.271h7.814a.434.434,0,0,0,.414-.328l1.723-6.316a.466.466,0,0,0-.071-.4.424.424,0,0,0-.344-.179H3.745L3.437,463.6a.435.435,0,0,0-.421-.353H.431a.451.451,0,0,0,0,.9h2.24c.054.257,1.474,6.946,1.555,7.33a1.36,1.36,0,0,0-.779,1.242,1.326,1.326,0,0,0,1.293,1.354h7.812a.452.452,0,0,0,0-.9H4.74a.451.451,0,0,1,0-.9Zm8.966-6.317-1.477,5.414H5.085l-1.149-5.414Z" transform="translate(0 -463.248)" fill="currentColor"></path>
-                                                        <path data-name="Path 16788" d="M5.5,478.8a1.294,1.294,0,1,0,1.293-1.353A1.325,1.325,0,0,0,5.5,478.8Zm1.293-.451a.452.452,0,1,1-.431.451A.442.442,0,0,1,6.793,478.352Z" transform="translate(-1.191 -466.622)" fill="currentColor"></path>
-                                                        <path data-name="Path 16789" d="M13.273,478.8a1.294,1.294,0,1,0,1.293-1.353A1.325,1.325,0,0,0,13.273,478.8Zm1.293-.451a.452.452,0,1,1-.431.451A.442.442,0,0,1,14.566,478.352Z" transform="translate(-2.875 -466.622)" fill="currentColor"></path>
-                                                      </g>
-                                                    </g>
-                                                </svg>
-                                                <span class="add__to--cart__text"> + Thêm vào giỏ hàng</span>
-                                            </a>
-                                        </li>
-                                        <li class="product__items--action__list">
-                                            <a class="product__items--action__btn" data-open="modal1" href="product-details.html">
-                                                <svg class="product__items--action__btn--svg" xmlns="http://www.w3.org/2000/svg"  width="25.51" height="23.443" viewBox="0 0 512 512"><path d="M255.66 112c-77.94 0-157.89 45.11-220.83 135.33a16 16 0 00-.27 17.77C82.92 340.8 161.8 400 255.66 400c92.84 0 173.34-59.38 221.79-135.25a16.14 16.14 0 000-17.47C428.89 172.28 347.8 112 255.66 112z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><circle cx="256" cy="256" r="80" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/></svg>
-                                                <span class="visually-hidden">Quick View</span>
-                                            </a>
-                                        </li>
-                                        
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="product__items ">
-                                <div class="product__items--thumbnail">
-                                    <a class="product__items--link" href="product-details.html">
-                                        <img class="product__items--img product__primary--img" src="./view/assets/img/product/product8.png" alt="product-img">
-                                        <img class="product__items--img product__secondary--img" src="./view/assets/img/product/product15.png" alt="product-img">
-                                    </a>
-                                    <div class="product__badge">
-                                        <span class="product__badge--items sale">Sale</span>
-                                    </div>
-                                </div>
-                                <div class="product__items--content">
-                                    <span class="product__items--content__subtitle">Áo, Nữ</span>
-                                    <h4 class="product__items--content__title"><a href="product-details.html">Áo vai vuông cổ điển</a></h4>
-                                    <div class="product__items--price">
-                                        <span class="current__price">220.00VND </span>
-                                        <span class="price__divided"></span>
-                                        <span class="old__price"> 300.000VND</span>
-                                    </div>
-                                    <ul class="rating product__rating d-flex">
-                                        <li class="rating__list">
-                                            <span class="rating__list--icon">
-                                                <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="14.105" height="14.732" viewBox="0 0 10.105 9.732">
-                                                <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                </svg>
-                                            </span>
-                                        </li>
-                                        <li class="rating__list">
-                                            <span class="rating__list--icon">
-                                                <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="14.105" height="14.732" viewBox="0 0 10.105 9.732">
-                                                <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                </svg>
-                                            </span>
-                                        </li>
-                                        <li class="rating__list">
-                                            <span class="rating__list--icon">
-                                                <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="14.105" height="14.732" viewBox="0 0 10.105 9.732">
-                                                <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                </svg>
-                                            </span>
-                                        </li>
-                                        <li class="rating__list">
-                                            <span class="rating__list--icon">
-                                                <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="14.105" height="14.732" viewBox="0 0 10.105 9.732">
-                                                <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                </svg>
-                                            </span>
-                                        </li>
-                                        <li class="rating__list">
-                                            <span class="rating__list--icon">
-                                                <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="14.105" height="14.732" viewBox="0 0 10.105 9.732">
-                                                <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                </svg>
-                                            </span>
-                                        </li>
-
-                                    </ul>
-                                    <ul class="product__items--action d-flex">
-                                        <li class="product__items--action__list">
-                                            <a class="product__items--action__btn add__to--cart" href="cart.html">
-                                                <svg class="product__items--action__btn--svg" xmlns="http://www.w3.org/2000/svg" width="22.51" height="20.443" viewBox="0 0 14.706 13.534">
-                                                    <g transform="translate(0 0)">
-                                                      <g>
-                                                        <path data-name="Path 16787" d="M4.738,472.271h7.814a.434.434,0,0,0,.414-.328l1.723-6.316a.466.466,0,0,0-.071-.4.424.424,0,0,0-.344-.179H3.745L3.437,463.6a.435.435,0,0,0-.421-.353H.431a.451.451,0,0,0,0,.9h2.24c.054.257,1.474,6.946,1.555,7.33a1.36,1.36,0,0,0-.779,1.242,1.326,1.326,0,0,0,1.293,1.354h7.812a.452.452,0,0,0,0-.9H4.74a.451.451,0,0,1,0-.9Zm8.966-6.317-1.477,5.414H5.085l-1.149-5.414Z" transform="translate(0 -463.248)" fill="currentColor"></path>
-                                                        <path data-name="Path 16788" d="M5.5,478.8a1.294,1.294,0,1,0,1.293-1.353A1.325,1.325,0,0,0,5.5,478.8Zm1.293-.451a.452.452,0,1,1-.431.451A.442.442,0,0,1,6.793,478.352Z" transform="translate(-1.191 -466.622)" fill="currentColor"></path>
-                                                        <path data-name="Path 16789" d="M13.273,478.8a1.294,1.294,0,1,0,1.293-1.353A1.325,1.325,0,0,0,13.273,478.8Zm1.293-.451a.452.452,0,1,1-.431.451A.442.442,0,0,1,14.566,478.352Z" transform="translate(-2.875 -466.622)" fill="currentColor"></path>
-                                                      </g>
-                                                    </g>
-                                                </svg>
-                                                <span class="add__to--cart__text"> + Thêm vào giỏ hàng</span>
-                                            </a>
-                                        </li>
-                                        <li class="product__items--action__list">
-                                            <a class="product__items--action__btn" data-open="modal1" href="product-details.html">
-                                                <svg class="product__items--action__btn--svg" xmlns="http://www.w3.org/2000/svg"  width="25.51" height="23.443" viewBox="0 0 512 512"><path d="M255.66 112c-77.94 0-157.89 45.11-220.83 135.33a16 16 0 00-.27 17.77C82.92 340.8 161.8 400 255.66 400c92.84 0 173.34-59.38 221.79-135.25a16.14 16.14 0 000-17.47C428.89 172.28 347.8 112 255.66 112z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><circle cx="256" cy="256" r="80" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/></svg>
-                                                <span class="visually-hidden">Quick View</span>
-                                            </a>
-                                        </li>
-                                        
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="product__items ">
-                                <div class="product__items--thumbnail">
-                                    <a class="product__items--link" href="product-details.html">
-                                        <img class="product__items--img product__primary--img" src="./view/assets/img/product/product12.png" alt="product-img">
-                                        <img class="product__items--img product__secondary--img" src="./view/assets/img/product/product13.png" alt="product-img">
-                                    </a>
-                                    <div class="product__badge">
-                                        <span class="product__badge--items sale">Sale</span>
-                                    </div>
-                                </div>
-                                <div class="product__items--content">
-                                    <span class="product__items--content__subtitle">Áo, Nữ</span>
-                                    <h4 class="product__items--content__title"><a href="product-details.html">Áo jeans tay dài vai nút</a></h4>
-                                    <div class="product__items--price">
-                                        <span class="current__price">200.00VND </span>
-                                        <span class="price__divided"></span>
-                                        <span class="old__price"> 300.00VND</span>
-                                    </div>
-                                    <ul class="rating product__rating d-flex">
-                                        <li class="rating__list">
-                                            <span class="rating__list--icon">
-                                                <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="14.105" height="14.732" viewBox="0 0 10.105 9.732">
-                                                <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                </svg>
-                                            </span>
-                                        </li>
-                                        <li class="rating__list">
-                                            <span class="rating__list--icon">
-                                                <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="14.105" height="14.732" viewBox="0 0 10.105 9.732">
-                                                <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                </svg>
-                                            </span>
-                                        </li>
-                                        <li class="rating__list">
-                                            <span class="rating__list--icon">
-                                                <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="14.105" height="14.732" viewBox="0 0 10.105 9.732">
-                                                <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                </svg>
-                                            </span>
-                                        </li>
-                                        <li class="rating__list">
-                                            <span class="rating__list--icon">
-                                                <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="14.105" height="14.732" viewBox="0 0 10.105 9.732">
-                                                <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                </svg>
-                                            </span>
-                                        </li>
-                                        <li class="rating__list">
-                                            <span class="rating__list--icon">
-                                                <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="14.105" height="14.732" viewBox="0 0 10.105 9.732">
-                                                <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                </svg>
-                                            </span>
-                                        </li>
-
-                                    </ul>
-                                    <ul class="product__items--action d-flex">
-                                        <li class="product__items--action__list">
-                                            <a class="product__items--action__btn add__to--cart" href="cart.html">
-                                                <svg class="product__items--action__btn--svg" xmlns="http://www.w3.org/2000/svg" width="22.51" height="20.443" viewBox="0 0 14.706 13.534">
-                                                    <g transform="translate(0 0)">
-                                                        <g>
-                                                        <path data-name="Path 16787" d="M4.738,472.271h7.814a.434.434,0,0,0,.414-.328l1.723-6.316a.466.466,0,0,0-.071-.4.424.424,0,0,0-.344-.179H3.745L3.437,463.6a.435.435,0,0,0-.421-.353H.431a.451.451,0,0,0,0,.9h2.24c.054.257,1.474,6.946,1.555,7.33a1.36,1.36,0,0,0-.779,1.242,1.326,1.326,0,0,0,1.293,1.354h7.812a.452.452,0,0,0,0-.9H4.74a.451.451,0,0,1,0-.9Zm8.966-6.317-1.477,5.414H5.085l-1.149-5.414Z" transform="translate(0 -463.248)" fill="currentColor"></path>
-                                                        <path data-name="Path 16788" d="M5.5,478.8a1.294,1.294,0,1,0,1.293-1.353A1.325,1.325,0,0,0,5.5,478.8Zm1.293-.451a.452.452,0,1,1-.431.451A.442.442,0,0,1,6.793,478.352Z" transform="translate(-1.191 -466.622)" fill="currentColor"></path>
-                                                        <path data-name="Path 16789" d="M13.273,478.8a1.294,1.294,0,1,0,1.293-1.353A1.325,1.325,0,0,0,13.273,478.8Zm1.293-.451a.452.452,0,1,1-.431.451A.442.442,0,0,1,14.566,478.352Z" transform="translate(-2.875 -466.622)" fill="currentColor"></path>
-                                                        </g>
-                                                    </g>
-                                                </svg>
-                                                <span class="add__to--cart__text"> + Thêm vào giỏ hàng</span>
-                                            </a>
-                                        </li>
-                                        <li class="product__items--action__list">
-                                            <a class="product__items--action__btn" data-open="modal1" href="product-details.html">
-                                                <svg class="product__items--action__btn--svg" xmlns="http://www.w3.org/2000/svg"  width="25.51" height="23.443" viewBox="0 0 512 512"><path d="M255.66 112c-77.94 0-157.89 45.11-220.83 135.33a16 16 0 00-.27 17.77C82.92 340.8 161.8 400 255.66 400c92.84 0 173.34-59.38 221.79-135.25a16.14 16.14 0 000-17.47C428.89 172.28 347.8 112 255.66 112z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><circle cx="256" cy="256" r="80" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/></svg>
-                                                <span class="visually-hidden">Quick View</span>
-                                            </a>
-                                        </li>
-                                        
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="product__items ">
-                                        <div class="product__items--thumbnail">
-                                            <a class="product__items--link" href="product-details.html">
-                                                <img class="product__items--img product__primary--img" src="./view/assets/img/product/product14.png" alt="product-img">
-                                                <img class="product__items--img product__secondary--img" src="./view/assets/img/product/product15.png" alt="product-img">
-                                            </a>
-                                            <div class="product__badge">
-                                                <span class="product__badge--items sale">Sale</span>
-                                            </div>
-                                        </div>
-                                        <div class="product__items--content">
-                                            <span class="product__items--content__subtitle">Áo, Nữ</span>
-                                            <h4 class="product__items--content__title"><a href="product-details.html">Áo sweater rách phong cách</a></h4>
-                                            <div class="product__items--price">
-                                                <span class="current__price">200.00VND </span>
-                                                <span class="price__divided"></span>
-                                                <span class="old__price"> 300.00VND</span>
-                                            </div>
-                                            <ul class="rating product__rating d-flex">
-                                                <li class="rating__list">
-                                                    <span class="rating__list--icon">
-                                                        <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="14.105" height="14.732" viewBox="0 0 10.105 9.732">
-                                                        <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                        </svg>
-                                                    </span>
-                                                </li>
-                                                <li class="rating__list">
-                                                    <span class="rating__list--icon">
-                                                        <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="14.105" height="14.732" viewBox="0 0 10.105 9.732">
-                                                        <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                        </svg>
-                                                    </span>
-                                                </li>
-                                                <li class="rating__list">
-                                                    <span class="rating__list--icon">
-                                                        <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="14.105" height="14.732" viewBox="0 0 10.105 9.732">
-                                                        <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                        </svg>
-                                                    </span>
-                                                </li>
-                                                <li class="rating__list">
-                                                    <span class="rating__list--icon">
-                                                        <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="14.105" height="14.732" viewBox="0 0 10.105 9.732">
-                                                        <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                        </svg>
-                                                    </span>
-                                                </li>
-                                                <li class="rating__list">
-                                                    <span class="rating__list--icon">
-                                                        <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="14.105" height="14.732" viewBox="0 0 10.105 9.732">
-                                                        <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                        </svg>
-                                                    </span>
-                                                </li>
-        
-                                            </ul>
-                                            <ul class="product__items--action d-flex">
-                                                <li class="product__items--action__list">
-                                                    <a class="product__items--action__btn add__to--cart" href="cart.html">
-                                                        <svg class="product__items--action__btn--svg" xmlns="http://www.w3.org/2000/svg" width="22.51" height="20.443" viewBox="0 0 14.706 13.534">
-                                                            <g transform="translate(0 0)">
-                                                              <g>
-                                                                <path data-name="Path 16787" d="M4.738,472.271h7.814a.434.434,0,0,0,.414-.328l1.723-6.316a.466.466,0,0,0-.071-.4.424.424,0,0,0-.344-.179H3.745L3.437,463.6a.435.435,0,0,0-.421-.353H.431a.451.451,0,0,0,0,.9h2.24c.054.257,1.474,6.946,1.555,7.33a1.36,1.36,0,0,0-.779,1.242,1.326,1.326,0,0,0,1.293,1.354h7.812a.452.452,0,0,0,0-.9H4.74a.451.451,0,0,1,0-.9Zm8.966-6.317-1.477,5.414H5.085l-1.149-5.414Z" transform="translate(0 -463.248)" fill="currentColor"></path>
-                                                                <path data-name="Path 16788" d="M5.5,478.8a1.294,1.294,0,1,0,1.293-1.353A1.325,1.325,0,0,0,5.5,478.8Zm1.293-.451a.452.452,0,1,1-.431.451A.442.442,0,0,1,6.793,478.352Z" transform="translate(-1.191 -466.622)" fill="currentColor"></path>
-                                                                <path data-name="Path 16789" d="M13.273,478.8a1.294,1.294,0,1,0,1.293-1.353A1.325,1.325,0,0,0,13.273,478.8Zm1.293-.451a.452.452,0,1,1-.431.451A.442.442,0,0,1,14.566,478.352Z" transform="translate(-2.875 -466.622)" fill="currentColor"></path>
-                                                              </g>
-                                                            </g>
-                                                        </svg>
-                                                        <span class="add__to--cart__text"> + Thêm vào giỏ hàng</span>
-                                                    </a>
-                                                </li>
-                                                <li class="product__items--action__list">
-                                                    <a class="product__items--action__btn" href="wishlist.html">
-                                                        <svg class="product__items--action__btn--svg" xmlns="http://www.w3.org/2000/svg" width="25.51" height="23.443" viewBox="0 0 512 512"><path d="M352.92 80C288 80 256 144 256 144s-32-64-96.92-64c-52.76 0-94.54 44.14-95.08 96.81-1.1 109.33 86.73 187.08 183 252.42a16 16 0 0018 0c96.26-65.34 184.09-143.09 183-252.42-.54-52.67-42.32-96.81-95.08-96.81z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"></path></svg> 
-                                                        <span class="visually-hidden">Wishlist</span>
-                                                    </a>
-                                                </li>
-                                                <li class="product__items--action__list">
-                                                    <a class="product__items--action__btn" data-open="modal1" href="product-details.html">
-                                                        <svg class="product__items--action__btn--svg" xmlns="http://www.w3.org/2000/svg"  width="25.51" height="23.443" viewBox="0 0 512 512"><path d="M255.66 112c-77.94 0-157.89 45.11-220.83 135.33a16 16 0 00-.27 17.77C82.92 340.8 161.8 400 255.66 400c92.84 0 173.34-59.38 221.79-135.25a16.14 16.14 0 000-17.47C428.89 172.28 347.8 112 255.66 112z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><circle cx="256" cy="256" r="80" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/></svg>
-                                                        <span class="visually-hidden">Quick View</span>
-                                                    </a>
-                                                </li>
-                                                
-                                            </ul>
-                                        </div>
-                                    </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="product__items ">
-                                <div class="product__items--thumbnail">
-                                    <a class="product__items--link" href="product-details.html">
-                                        <img class="product__items--img product__primary--img" src="./view/assets/img/product/product11.png" alt="product-img">
-                                        <img class="product__items--img product__secondary--img" src="./view/assets/img/product/product8.png" alt="product-img">
-                                    </a>
-                                    <div class="product__badge">
-                                        <span class="product__badge--items sale">Sale</span>
-                                    </div>
-                                </div>
-                                <div class="product__items--content">
-                                    <span class="product__items--content__subtitle">Áo, Nam</span>
-                                    <h4 class="product__items--content__title"><a href="product-details.html">Áo thun tay ngắn trơn</a></h4>
-                                    <div class="product__items--price">
-                                        <span class="current__price">200.00VND </span>
-                                        <span class="price__divided"></span>
-                                        <span class="old__price"> 300.00VND</span>
-                                    </div>
-                                    <ul class="rating product__rating d-flex">
-                                        <li class="rating__list">
-                                            <span class="rating__list--icon">
-                                                <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="14.105" height="14.732" viewBox="0 0 10.105 9.732">
-                                                <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                </svg>
-                                            </span>
-                                        </li>
-                                        <li class="rating__list">
-                                            <span class="rating__list--icon">
-                                                <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="14.105" height="14.732" viewBox="0 0 10.105 9.732">
-                                                <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                </svg>
-                                            </span>
-                                        </li>
-                                        <li class="rating__list">
-                                            <span class="rating__list--icon">
-                                                <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="14.105" height="14.732" viewBox="0 0 10.105 9.732">
-                                                <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                </svg>
-                                            </span>
-                                        </li>
-                                        <li class="rating__list">
-                                            <span class="rating__list--icon">
-                                                <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="14.105" height="14.732" viewBox="0 0 10.105 9.732">
-                                                <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                </svg>
-                                            </span>
-                                        </li>
-                                        <li class="rating__list">
-                                            <span class="rating__list--icon">
-                                                <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="14.105" height="14.732" viewBox="0 0 10.105 9.732">
-                                                <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                </svg>
-                                            </span>
-                                        </li>
-
-                                    </ul>
-                                    <ul class="product__items--action d-flex">
-                                        <li class="product__items--action__list">
-                                            <a class="product__items--action__btn add__to--cart" href="cart.html">
-                                                <svg class="product__items--action__btn--svg" xmlns="http://www.w3.org/2000/svg" width="22.51" height="20.443" viewBox="0 0 14.706 13.534">
-                                                    <g transform="translate(0 0)">
-                                                      <g>
-                                                        <path data-name="Path 16787" d="M4.738,472.271h7.814a.434.434,0,0,0,.414-.328l1.723-6.316a.466.466,0,0,0-.071-.4.424.424,0,0,0-.344-.179H3.745L3.437,463.6a.435.435,0,0,0-.421-.353H.431a.451.451,0,0,0,0,.9h2.24c.054.257,1.474,6.946,1.555,7.33a1.36,1.36,0,0,0-.779,1.242,1.326,1.326,0,0,0,1.293,1.354h7.812a.452.452,0,0,0,0-.9H4.74a.451.451,0,0,1,0-.9Zm8.966-6.317-1.477,5.414H5.085l-1.149-5.414Z" transform="translate(0 -463.248)" fill="currentColor"></path>
-                                                        <path data-name="Path 16788" d="M5.5,478.8a1.294,1.294,0,1,0,1.293-1.353A1.325,1.325,0,0,0,5.5,478.8Zm1.293-.451a.452.452,0,1,1-.431.451A.442.442,0,0,1,6.793,478.352Z" transform="translate(-1.191 -466.622)" fill="currentColor"></path>
-                                                        <path data-name="Path 16789" d="M13.273,478.8a1.294,1.294,0,1,0,1.293-1.353A1.325,1.325,0,0,0,13.273,478.8Zm1.293-.451a.452.452,0,1,1-.431.451A.442.442,0,0,1,14.566,478.352Z" transform="translate(-2.875 -466.622)" fill="currentColor"></path>
-                                                      </g>
-                                                    </g>
-                                                </svg>
-                                                <span class="add__to--cart__text"> + Thêm vào giỏ hàng</span>
-                                            </a>
-                                        </li>
-                                        <li class="product__items--action__list">
-                                            <a class="product__items--action__btn" data-open="modal1" href="product-details.html">
-                                                <svg class="product__items--action__btn--svg" xmlns="http://www.w3.org/2000/svg"  width="25.51" height="23.443" viewBox="0 0 512 512"><path d="M255.66 112c-77.94 0-157.89 45.11-220.83 135.33a16 16 0 00-.27 17.77C82.92 340.8 161.8 400 255.66 400c92.84 0 173.34-59.38 221.79-135.25a16.14 16.14 0 000-17.47C428.89 172.28 347.8 112 255.66 112z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><circle cx="256" cy="256" r="80" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/></svg>
-                                                <span class="visually-hidden">Quick View</span>
-                                            </a>
-                                        </li>
-                                        
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                        <?=$html_dssp_lienquan?>
                     </div>
                     <div class="swiper__nav--btn swiper-button-next"></div>
                     <div class="swiper__nav--btn swiper-button-prev"></div>

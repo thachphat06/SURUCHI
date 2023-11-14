@@ -4325,6 +4325,7 @@ input[type="number"]::-webkit-outer-spin-button {
 .product__items--img {
   display: block;
   width: 100%;
+  height: 280px;
 }
 
 .product__items--action__list {
@@ -9247,6 +9248,7 @@ input.quickview__value--number {
 
 .product__media--preview__items--img {
   width: 100%;
+  height: 620px;
   display: block;
 }
 

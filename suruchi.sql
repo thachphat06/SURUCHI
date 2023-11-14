@@ -119,10 +119,10 @@ CREATE TABLE `category` (
 -- Đang đổ dữ liệu cho bảng `category`
 --
 
-INSERT INTO `category` (`iddm`, `name_dm`, `stt`) VALUES
-(1, 'nu', 1),
-(2, 'nam', 0),
-(3, 'be de', 2);
+INSERT INTO `category` (`id`, `name`, `stt`) VALUES
+(1, 'Áo kiểu', 1),
+(2, 'Áo thun', 2),
+(3, 'Áo khoác', 3);
 
 -- --------------------------------------------------------
 

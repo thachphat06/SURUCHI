@@ -42,8 +42,14 @@ require_once 'pdo.php';
  * @throws PDOException lỗi truy vấn
  */
 function danhmuc_all(){
-    $sql = "SELECT * FROM category ORDER BY stt DESC";
+    $sql = "SELECT * FROM category ORDER BY stt";
     return pdo_query($sql);
+}
+
+function get_name_dm($id) {
+    $sql = "SELECT name FROM category WHERE id=".$id;
+    $kq = pdo_query_one($sql);
+    return $kq["name"];
 }
 // /**
 //  * Truy vấn một loại theo mã
