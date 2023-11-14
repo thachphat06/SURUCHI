@@ -5,10 +5,13 @@
   // nhúng kết nối csdl
   include "model/pdo.php";
   include "model/user.php";
-
+  include "model/danhmuc.php";
   include "view/header.php";
-
+  include "model/sanpham.php";
   if(!isset($_GET['pg'])) {
+    $dssp_new=get_new(10);
+    $dssp_hot=get_hot(10);
+    $dssp_best=get_best(10);
     include "view/home.php";
   } else {
     switch ($_GET['pg']) {
@@ -78,6 +81,14 @@
         include "view/my-account-3.php";
         break;
       case 'shop':
+        $dsdm=danhmuc_all();
+        if(!isset($_GET['iddm'])){
+          $iddm=0;
+        }else{
+          $iddm=$_GET['iddm'];
+        }
+        $dssp=get_dssp($iddm,16);
+
         include "view/shop.php";
         break;
       case 'product-detail':
