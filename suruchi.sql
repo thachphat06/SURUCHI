@@ -2,8 +2,8 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1:3307
--- Thời gian đã tạo: Th10 14, 2023 lúc 02:59 AM
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th10 14, 2023 lúc 11:50 AM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -110,18 +110,19 @@ CREATE TABLE `cart` (
 --
 
 CREATE TABLE `category` (
-  `id` int(10) NOT NULL,
-  `name` varchar(100) NOT NULL
+  `iddm` int(10) NOT NULL,
+  `name_dm` varchar(100) NOT NULL,
+  `stt` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `category`
 --
 
-INSERT INTO `category` (`id`, `name`) VALUES
-(1, 'nu'),
-(2, 'nam'),
-(3, 'be de');
+INSERT INTO `category` (`iddm`, `name_dm`, `stt`) VALUES
+(1, 'nu', 1),
+(2, 'nam', 0),
+(3, 'be de', 2);
 
 -- --------------------------------------------------------
 
@@ -169,7 +170,7 @@ INSERT INTO `product` (`id`, `name`, `price`, `old_price`, `img`, `describe1`, `
 (4, 'Áo Kiểu Tay Dài Cổ Vuông Họa Tiết Hoa Xinh Xắn', 160000, 185000, 'pd4.jpg', 'Chiếc áo kiểu tay dài cổ vuông họa tiết hoa xinh xắn<br>phong cách Hàn Quốc là một loại trang phục nữ đẹp,<br>nữ tính và hiện đại. Áo được làm từ chất liệu<br>polyester, một loại vải nhân tạo có độ bền cao,<br> không nhăn, không bai, không xù và có khả năng<br>chống thấm nước. Áo có họa tiết hoa, mang lại<br>sự tươi sáng, duyên dáng và lãng mạn cho người mặc.', 'THÔNG TIN SẢN PHẨM<br>\nChất liệu: polyester, một loại vải nhân tạo có độ bền cao,<br>không nhăn, không bai, không xù và có khả năng chống thấm nước.<br>\nKiểu dáng: tay dài, cổ tim.<br>\nHoạ tiết: hoa, mang lại sự tươi sáng, duyên dáng và<br>lãng mạn cho người mặc.<br>\nMàu sắc: trắng.<br>\nDịp: nhiều dịp khác nhau, như đi làm, đi chơi, hẹn hò…<br>và kết hợp được với nhiều loại quần, váy, giày dép khác.', 62, 0, 0, 0, 1),
 (5, 'Áo 2 dây babydoll cột nơ vai phong cách tiểu thư công chúa', 145000, 159000, 'pd5.jpg', 'Chiếc áo 2 dây babydoll cột nơ vai phong cách<br>tiểu thư công chúa là một loại trang phục nữ<br>đáng yêu, nữ tính và lãng mạn.<br>Áo được làm từ chất liệu vải cotton, mềm mại,<br>thoáng mát và thấm hút tốt. Áo có kiểu dáng babydoll,<br>tức là có phần ngực ôm sát, phần eo<br>và hông rộng và xòe ra, tạo nên sự nhẹ nhàng,<br>bay bổng và tôn lên vòng một của người mặc.<br>Áo có 2 dây buộc nơ ở vai,<br>có thể điều chỉnh độ dài và độ rộng của áo<br>theo ý muốn. Áo 2 dây babydoll cột nơ vai phong cách tiểu thư công chúa là một lựa chọn hoàn hảo cho bạn gái muốn thể hiện sự đáng yêu, dễ thương và quyến rũ của mình.', 'THÔNG TIN SẢN PHẨM<br>\nChất liệu: cotton, mềm mại, thoáng mát và thấm hút tốt .<br>\nKiểu dáng: babydoll, tức là có phần ngực ôm sát, phần eo<br>và hông rộng và xòe ra, tạo nên sự nhẹ nhàng, bay bổng<br>và tôn lên vòng một của người mặc.<br>                                                   \nMàu sắc: xanh dương.<br>\nDịp: nhiều dịp khác nhau, như đi chơi, hẹn hò, dự tiệc…<br>và kết hợp được với nhiều loại quần, váy, giày dép khác.', 68, 0, 0, 0, 1),
 (6, 'Áo Len Tăm Cổ Vuông', 182000, 199000, 'pd6.jpg', 'Chiếc áo len tăm cổ vuông là một loại<br>trang phục nữ đẹp, sang trọng và hiện đại.<br>Áo được làm từ chất liệu len tăm, một loại<br>sợi len mỏng, nhẹ, mềm mại và ấm áp.<br>Len tăm có độ bền cao, không nhăn, không bai,<br>không xù và có khả năng thấm hút tốt.<br>Áo có kiểu dáng cổ vuông, tạo nên sự thanh lịch, quý phái và rất hiện đại', 'THÔNG TIN SẢN PHẨM<br>\nChất liệu: len tăm, một loại sợi len mỏng, nhẹ, mềm mại<br>và ấm áp.<br>\nKiểu dáng: cổ vuông. Áo có tay dài, phối nút hoặc khuy<br>ở phía trước.<br>\nMàu sắc: trắng.<br>\nDịp: nhiều dịp khác nhau, như đi làm, đi chơi, hẹn hò…<br>và kết hợp được với nhiều loại quần, váy, giày dép khác.', 122, 0, 1, 0, 1),
-(7, 'Áo kiểu trễ vai xanh', 177000, 184000, 'pd7.jpg', 'Chiếc áo kiểu trễ vai xanh là một loại<br>trang phục nữ đẹp, gợi cảm và thời trang.<br>Áo có thiết kế cổ áo hở vai, tạo ra<br>sự nữ tính và quyến rũ cho người mặc. ', 'THÔNG TIN SẢN PHẨM<br>\nChất liệu: sợi nhân tạo…<br>\nKiểu dáng: cổ áo hở vai, tạo ra sự nữ tính và quyến rũ<br>cho người mặc. Áo có kiểu tay phồng, cột nơ.<br>\nMàu sắc: xanh, mang lại sự tươi sáng, thanh lịch và<br>hiện đại cho người mặc.<br>\nDịp: nhiều dịp khác nhau, như đi làm, đi chơi, hẹn hò,<br>dự tiệc… và kết hợp được với nhiều loại quần, váy, giày dép khác', 165, 1, 0, 1, 1),
+(7, 'Áo kiểu trễ vai xanh', 177000, 184000, 'pd7.jpg', 'Chiếc áo kiểu trễ vai xanh là một loại<br>trang phục nữ đẹp, gợi cảm và thời trang.<br>Áo có thiết kế cổ áo hở vai, tạo ra<br>sự nữ tính và quyến rũ cho người mặc. ', 'THÔNG TIN SẢN PHẨM<br>\nChất liệu: sợi nhân tạo…<br>\nKiểu dáng: cổ áo hở vai, tạo ra sự nữ tính và quyến rũ<br>cho người mặc. Áo có kiểu tay phồng, cột nơ.<br>\nMàu sắc: xanh, mang lại sự tươi sáng, thanh lịch và<br>hiện đại cho người mặc.<br>\nDịp: nhiều dịp khác nhau, như đi làm, đi chơi, hẹn hò,<br>dự tiệc… và kết hợp được với nhiều loại quần, váy, giày dép khác', 165, 1, 0, 0, 1),
 (8, 'Áo sơ mi mỏng thời', 158000, 169000, 'pd8.jpg', 'Chiếc áo sơ mi mỏng thời trang là một loại<br>trang phục nữ đẹp, thanh lịch và hiện đại.<br> Áo có thiết kế cổ áo, tay áo và thân áo<br>bằng vải mỏng, nhẹ, mềm mại và thoáng mát.<br>Áo được làm từ loại vải voan. ', 'THÔNG TIN SẢN PHẨM<br>\nChất liệu: voan.<br>\nKiểu dáng: cổ áo, tay áo và thân áo bằng vải mỏng, nhẹ,<br>mềm mại và thoáng mát.<br>\nHoạ tiết: kẻ sọc, chấm bi, hoa văn…<br>\nMàu sắc: nhiều màu sắc.<br>\nDịp: nhiều dịp khác nhau, như đi làm, đi chơi, hẹn hò,<br>dự tiệc… và kết hợp được với nhiều loại quần, váy, giày dép khác.', 95, 0, 0, 0, 1),
 (9, 'Áo phông trắng freesize phong cách trẻ trung', 135000, 164000, 'pd9.jpg', 'Chiếc áo phông trắng freesize phong cách trẻ trung<br>năng động là một loại áo thun đơn giản<br>nhưng có thể tạo ra nhiều phong cách thời trang khác nhau.<br>Bạn có thể kết hợp chiếc áo này với nhiều loại<br>quần, chân váy, áo khoác hay phụ kiện để<br>thể hiện cá tính và sự năng động của mình.', 'THÔNG TIN SẢN PHẨM<br>\nTên sản phẩm: Áo phông trắng freesize phong cách trẻ trung<br>năng động.<br>\nChất liệu: Cotton 100%.<br> \nMàu sắc: Trắng.<br>\nKích thước: Freesize.<br> \nHình in: 3D, ngộ nghĩnh, cá tính.<br> \nThiết kế: Cổ tròn, tay ngắn, dáng rộng Phong cách: Trẻ trung,<br>năng động, cá tính.<br> \nCách bảo quản: Giặt tay hoặc giặt máy ở chế độ nhẹ nhàng,<br>không sử dụng chất tẩy, phơi trong bóng râm, ủi<br>ở nhiệt độ thấp.', 115, 0, 1, 0, 2),
 (10, 'Áo Thun Meow Tee Nomography Unisex Form Rộng', 139000, 168000, 'pd10.jpg', 'Chiếc áo thun Meow Tee Nomography Unisex Form Rộng<br> là một sản phẩm thời trang dành cho cả nam và nữ,<br>mang phong cách năng động, cá tính và sáng tạo.', 'THÔNG TIN SẢN PHẨM<br>\nTên sản phẩm: Áo Thun Meow Tee Nomography Unisex Form Rộng.<br>\nChất liệu: Cotton 100%.<br> \nMàu sắc: Trắng.<br>\nKích thước: Freesize.<br> \nHình in: 3D, hiệu ứng trame nên các bạn sẽ không bị bung tróc.<br>\nThiết kế: Cổ tròn, tay ngắn, dáng rộng.<br>\nPhong cách: Trẻ trung, năng động, cá tính.<br>\nCách bảo quản: Giặt tay hoặc giặt máy ở chế độ nhẹ nhàng,<br>không sử dụng chất tẩy, phơi trong bóng râm, ủi ở nhiệt độ thấp.', 165, 0, 0, 1, 2),
@@ -177,7 +178,7 @@ INSERT INTO `product` (`id`, `name`, `price`, `old_price`, `img`, `describe1`, `
 (12, 'Áo Thun Levents 2Lip/ Cream', 130000, 165000, 'pd12.jpg', 'Áo Thun Levents 2Lip/ Cream là một sản phẩm<br>áo thun thời trang. Áo có màu kem, với hình in<br>hai đôi môi đỏ chót trên ngực trái. Áo được<br>làm từ chất liệu lì ven compact, một loại vải<br>dày dặn, thoáng mát, mềm mịn và không bị nhăn<br>hay xù. Áo có kiểu dáng tay ngắn, cổ tròn, phù hợp<br>cho cả nam và nữ.', 'THÔNG TIN SẢN PHẨM<br>\nTên sản phẩm: Áo Thun Levents 2Lip/ Cream.<br>\nChất liệu: Cotton 100%.<br>\nMàu sắc: Kem.<br>\nHình in: Hai bông hoa đỏ chót.<br>\nKiểu dáng: Tay lỡ, cổ tròn.<br>\nĐặc điểm: Dày dặn, thoáng mát, mềm mịn, không nhăn hay xù.<br>\nPhù hợp: Cả nam và nữ, mặc đi chơi, đi làm, hay thể hiện<br>cá tính và phong cách riêng.<br>\nKích thước: Freesize.<br>\nCách bảo quản: Giặt tay hoặc máy ở nhiệt độ thấp,<br> không sử dụng chất tẩy, phơi trong bóng râm.', 104, 0, 0, 0, 2),
 (13, 'Áo Thun Nam Cổ Tròn Màu Da Vải Cotton Co Giãn Trơn Basic Tay Ngắn Form Rộng', 112000, 140000, 'pd13.jpg', 'Áo Thun Nam Cổ Tròn Màu Da Vải Cotton Co Giãn<br>Trơn Basic Tay Ngắn Form Rộng là một loại áo thun<br>nam đơn giản nhưng không kém phần thời trang.<br>Áo có màu da, với chất liệu vải cotton 100%<br>mềm mại, thoáng mát, co giãn 2 chiều và<br>thấm hút mồ hôi tốt. Áo có kiểu dáng cổ tròn,<br>tay ngắn, form rộng (oversize), phù hợp cho cả nam và nữ,<br>dễ dàng kết hợp với nhiều loại quần áo khác nhau.', 'THÔNG TIN SẢN PHẨM<br>\nTên sản phẩm: Áo Thun Nam Cổ Tròn Màu Da Vải Cotton<br>Co Giãn Trơn Basic Tay Ngắn Form Rộng.<br>\nChất liệu: Cotton 100%.<br>\nMàu sắc: Da.<br>\nHình in: Trơn.<br>\nKiểu dáng:  Cổ tròn, tay ngắn, form rộng (oversize).<br>\nĐặc điểm: Mềm mại, thoáng mát, co giãn 2 chiều, thấm hút.<br> mồ hôi tốt.<br>\nPhù hợp: Cả nam và nữ, mặc đi chơi, đi làm, hay thể hiện<br>cá tính và phong cách riêng.<br>\nKích thước: Freesize.<br>\nCách bảo quản: Giặt tay hoặc máy ở nhiệt độ thấp,<br>không sử dụng chất tẩy, phơi trong bóng râm.', 89, 0, 0, 0, 2),
 (14, 'Áo Thun Unisex Tay Lỡ Form Rộng Nam Nữ', 130000, 145000, 'pd14.jpg', 'Áo Thun Unisex Tay Lỡ Form Rộng Nam Nữ là<br> một loại áo thun thời trang phù hợp cho cả<br> nam và nữ, có kiểu dáng tay lỡ, cổ tròn,<br> form rộng (oversize), mang đến một phong cách<br>cá tính, năng động và dễ phối đồ.', 'THÔNG TIN SẢN PHẨM<br>\nTên sản phẩm:  Áo Thun Unisex Tay Lỡ Form Rộng Nam Nữ.<br>\nChất liệu: Cotton 100%.<br>\nMàu sắc: Da.<br>\nHình in: Trơn.<br>\nKiểu dáng:  Cổ tròn, tay ngắn, form rộng (oversize).<br>\nĐặc điểm: Mềm mại, thoáng mát, co giãn 2 chiều,<br> thấm hút mồ hôi tốt.<br>\nPhù hợp:  Áo thun tay lỡ unisex phù hợp cho cả<br> nam và nữ, có thể mặc đi chơi, đi làm, hay thể<br> hiện cá tính và phong cách riêng.<br>\nKích thước: Freesize.<br>\nCách bảo quản: Giặt tay hoặc máy ở nhiệt độ thấp, không<br>sử dụng chất tẩy, phơi trong bóng râm.', 144, 0, 0, 0, 2),
-(15, 'Áo thun nam nữ Unisex', 145000, 165000, 'pd16.jpg', 'Áo thun nam unisex màu da là một loại áo thun<br>dành cho cả nam và nữ, có chất liệu vải nan,<br>một loại vải có khả năng kháng khuẩn, chống nắng<br>và thấm hút mồ hôi tốt.', 'THÔNG TIN SẢN PHẨM<br>\nTên sản phẩm:  Áo thun nam nữ Unisex.<br>\nChất liệu: Cotton 100%.<br>\nMàu sắc: Da.<br>\nHình in: Hình thành phố.<br>\nKiểu dáng:  Tay ngắn, cổ tròn, form rộng.<br>\nĐặc điểm: Mềm mại, thoáng mát, co giãn 2 chiều,<br>thấm hút mồ hôi tốt.<br>\nPhù hợp:  Áo thun tay lỡ unisex phù hợp cho cả<br>nam và nữ, có thể mặc đi chơi, đi làm,<br>hay thể hiện cá tính và phong cách riêng.<br>\nKích thước: Freesize.<br>\nÁo thun nan unisex màu da là một item thời trang<br>phù hợp cho mọi mùa, mọi dịp, mang đến<br>cho bạn một phong cách trẻ trung, năng động và thoải mái.<br>\nCách bảo quản: Giặt tay hoặc máy ở nhiệt độ thấp, không<br>sử dụng chất tẩy, phơi trong bóng râm.', 65, 0, 0, 0, 2),
+(15, 'Áo thun nam nữ Unisex', 145000, 165000, 'pd16.jpg', 'Áo thun nam unisex màu da là một loại áo thun<br>dành cho cả nam và nữ, có chất liệu vải nan,<br>một loại vải có khả năng kháng khuẩn, chống nắng<br>và thấm hút mồ hôi tốt.', 'THÔNG TIN SẢN PHẨM<br>\nTên sản phẩm:  Áo thun nam nữ Unisex.<br>\nChất liệu: Cotton 100%.<br>\nMàu sắc: Da.<br>\nHình in: Hình thành phố.<br>\nKiểu dáng:  Tay ngắn, cổ tròn, form rộng.<br>\nĐặc điểm: Mềm mại, thoáng mát, co giãn 2 chiều,<br>thấm hút mồ hôi tốt.<br>\nPhù hợp:  Áo thun tay lỡ unisex phù hợp cho cả<br>nam và nữ, có thể mặc đi chơi, đi làm,<br>hay thể hiện cá tính và phong cách riêng.<br>\nKích thước: Freesize.<br>\nÁo thun nan unisex màu da là một item thời trang<br>phù hợp cho mọi mùa, mọi dịp, mang đến<br>cho bạn một phong cách trẻ trung, năng động và thoải mái.<br>\nCách bảo quản: Giặt tay hoặc máy ở nhiệt độ thấp, không<br>sử dụng chất tẩy, phơi trong bóng râm.', 65, 1, 0, 0, 2),
 (16, 'Áo Khoác Cadigan Nữ Màu Hồng Chất Len Dài Tay Style Hàn Quốc', 265000, 286000, 'pd17.jpg', 'Áo Khoác Cadigan Nữ Hoạ Tiết Quả Trám To Màu Hồng<br>Chất Len Dài Tay Style Hàn Quốc là một loại áo<br>khoác len dành cho nữ, có họa tiết quả trám<br>to màu hồng trên nền trắng. Áo khoác len<br>này có chất liệu len dày dặn, ấm áp và mềm mại.', 'THÔNG TIN SẢN PHẨM<br>\r\nTên sản phẩm:  Áo Khoác Cadigan Nữ Màu Hồng Chất Len Dài Tay Style Hàn Quốc<br>\r\nChất liệu: Len 100% <br>\r\nMàu sắc: Hồng<br>\r\nHình in: Quả trám to trên nền trắng<br>\r\nKiểu dáng:  Tay ngắn, cổ tròn, form rộng<br>\r\nĐặc điểm: Dày dặn, ấm áp, mềm mại<br>\r\nKích thước: Freesize<br>\r\nÁo khoác len này có kiểu dáng cardigan, cài nút trước ngực, tay dài, cổ tròn, form rộng, phù hợp cho cả nam và nữ. Áo khoác len này có phong cách Hàn Quốc, mang đến cho bạn một vẻ ngoài trẻ trung, đáng yêu và thời trang. <br>\r\nCách bảo quản: Giặt tay hoặc máy ở nhiệt độ thấp, không sử dụng chất tẩy, phơi trong bóng râm', 194, 1, 0, 0, 3),
 (17, 'Áo len dài tay cún nhỏ dễ thương', 220000, 234000, 'pd18.jpg', 'Áo len dài tay cún nhỏ dễ thương là một loại áo len dành cho nữ, có hình in một chú cún nhỏ đáng yêu trên ngực.<br> Áo len này có chất liệu len mềm mại, ấm áp và co giãn tốt.', 'THÔNG TIN SẢN PHẨM<br>\r\nTên sản phẩm:  Áo len dài tay cún nhỏ dễ thương<br>\r\nChất liệu: Len 100% <br>\r\nMàu sắc: Trắng<br>\r\nHình in: Nhiều chú cún nhỏ<br>\r\nKiểu dáng:  Tay ngắn, cổ tròn, form rộng<br>\r\nĐặc điểm: Dày dặn, ấm áp, mềm mại<br>\r\nKích thước: Freesize<br>\r\nÁo len này có phong cách dễ thương, nữ tính và thời trang.<br>\r\nCách bảo quản: Giặt tay hoặc máy ở nhiệt độ thấp, không sử dụng chất tẩy, phơi trong bóng râm', 168, 0, 0, 1, 3),
 (18, 'Áo Khoác nỉ khoác kéo in chữ EVERYTIME', 225000, 240000, 'pd19.jpg', 'Áo Khoác nỉ khoác kéo in chữ EVERYTIME màu xám form rộng unisex nam nữ là một loại áo khoác nỉ dành cho cả nam và nữ, có chất liệu nỉ mềm mại, ấm áp và co giãn tốt.<br> Áo khoác nỉ này có màu xám, với hình in chữ EVERYTIME trên ngực trái.', 'THÔNG TIN SẢN PHẨM<br>\r\nTên sản phẩm:  Áo Khoác nỉ khoác kéo in chữ EVERYTIME <br>\r\nChất liệu:  Nỉ 100%<br>\r\nMàu sắc: Xám<br>\r\nHình in: Chữ EVERYTIME<br>\r\nKiểu dáng: Khoác kéo, tay dài, cổ tròn, form rộng, có mũ trùm đầu<br>\r\nĐặc điểm: Mềm mại, ấm áp, co giãn tốt<br>\r\nKích thước: Freesize<br>\r\nÁo khoác nỉ này có kiểu dáng khoác kéo, cài khóa trước ngực, tay dài, cổ tròn, form rộng, phù hợp cho cả nam và nữ.<br> Áo khoác nỉ này có phong cách thời trang, năng động và cá tính.  <br>\r\nCách bảo quản: Giặt tay hoặc máy ở nhiệt độ thấp, không sử dụng chất tẩy, phơi trong bóng râm', 177, 0, 0, 0, 3),
@@ -210,7 +211,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `name`, `address`, `email`, `sdt`, `role`) VALUES
-(1, 'nghia', '123', '', NULL, 'nghianhps27599@fpt.edu.vn', NULL, 0);
+(1, 'nghia', '123', '', NULL, 'nghianhps27599@fpt.edu.vn', NULL, 0),
+(4, 'duong', '123', '', NULL, 'duongtran12a5@gmail.com', NULL, 0);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -255,7 +257,7 @@ ALTER TABLE `cart`
 -- Chỉ mục cho bảng `category`
 --
 ALTER TABLE `category`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`iddm`);
 
 --
 -- Chỉ mục cho bảng `comment`
@@ -310,7 +312,7 @@ ALTER TABLE `blog_category`
 -- AUTO_INCREMENT cho bảng `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `iddm` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `comment`
@@ -328,7 +330,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
@@ -371,7 +373,7 @@ ALTER TABLE `comment`
 -- Các ràng buộc cho bảng `product`
 --
 ALTER TABLE `product`
-  ADD CONSTRAINT `fk_dm_sp` FOREIGN KEY (`iddm`) REFERENCES `category` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_dm_sp` FOREIGN KEY (`iddm`) REFERENCES `category` (`iddm`) ON DELETE NO ACTION ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
