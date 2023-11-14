@@ -1,4 +1,11 @@
 <?php
+  // session_start();
+  // if(!isset($_SESSION['admin'])){
+  //     header('location: login.php');
+  // }else{
+  //   $username=$_SESSION['username'];
+  //   $password=$_SESSION['password'];
+  // }
   include "view/header.php";
   if(!isset($_GET['pg'])){
     include "view/home.php";

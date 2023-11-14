@@ -1,3 +1,29 @@
+<?php
+    session_start();
+    include "../model/pdo.php";
+    include "../model/user.php";
+    if(isset($_POST["login"])){
+        $username=$_POST["username"];
+        $password=$_POST["password"];
+        $user=checkuser($username, $password);
+        if(isset($user)&&(is_array($user))&&(count($user)>0)){
+            extract($user);
+            if($role==1){
+                $_SESSION['username'] = $username;
+                header('location: index.php');
+            }else{
+                $tb="Tài khoản không có quyền đăng nhập trang quản trị";
+            }
+        } else {
+            $tb="Tài khoản hoặc mật khẩu không chính xác";
+        }     
+    }
+    
+    
+?>
+
+
+
 <!DOCTYPE HTML>
 <html lang="vi">
 
@@ -65,13 +91,13 @@
             <div class="card mx-auto card-login">
                 <div class="card-body">
                     <h4 class="card-title mb-4">Đăng nhập</h4>
-                    <form>
+                    <form action="login.php" method="post">
                         <div class="mb-3">
-                            <input class="form-control" placeholder="Tên người dùng hoặc email" type="text">
+                            <input class="form-control" placeholder="Tên người dùng" type="text" name="username">
                         </div>
                         <!-- form-group// -->
                         <div class="mb-3">
-                            <input class="form-control" placeholder="Mật khẩu" type="password">
+                            <input class="form-control" placeholder="Mật khẩu" type="password" name="password">
                         </div>
                         <!-- form-group// -->
                         <div class="mb-3">
@@ -83,7 +109,12 @@
                         </div>
                         <!-- form-group form-check .// -->
                         <div class="mb-4">
-                            <button type="submit" class="btn btn-primary w-100"> Đăng nhập </button>
+                            <?php
+                                if(isset($tb)&&($tb!="")){
+                                    echo"<h6 style='color:red'>".$tb."</h3>";
+                                }
+                            ?>
+                          <button type="submit" class="btn btn-primary w-100" name="login"> Đăng nhập </button>
                         </div>
                         <!-- form-group// -->
                     </form>
