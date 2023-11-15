@@ -25,9 +25,9 @@
                             <div class="product__items--content">
                                 <h3 class="product__items--content__title h4"><a href="'.$link.'">'.$name.'</a></h3>
                                 <div class="product__items--price">
-                                    <span class="current__price">'.$gia.'VNĐ</span>
+                                    <span class="current__price">'.$gia.'</span>
                                     <span class="price__divided"></span>
-                                    <span class="old__price">'.$gia_cu.'VNĐ</span>
+                                    <span class="old__price">'.$gia_cu.'</span>
                                 </div>
                                 <ul class="rating product__rating d-flex">
                                     <li class="rating__list">
@@ -120,9 +120,9 @@
                             
                                 <h3 class="product__items--content__title h4"><a href="'.$link.'">'.$name.'</a></h3>
                                 <div class="product__items--price">
-                                    <span class="current__price">'.$gia.'VNĐ</span>
+                                    <span class="current__price">'.$gia.'</span>
                                     <span class="price__divided"></span>
-                                    <span class="old__price">'.$gia_cu.'VNĐ</span>
+                                    <span class="old__price">'.$gia_cu.'</span>
                                 </div>
                                 <ul class="rating product__rating d-flex">
                                     <li class="rating__list">
