@@ -90,7 +90,7 @@
                         <div class="mb-4">
                         <?php 
                             if(isset($tb)&&($tb!="")){
-                                echo "<h4 style='color: red;'>".$tb."</h4>";
+                                echo "<span style='color: red;'>".$tb."</span> <br> <br> ";
                             }
                         ?>
                           <button type="submit" class="btn btn-primary w-100" name="login"> Đăng nhập </button>

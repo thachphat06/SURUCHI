@@ -221,176 +221,31 @@
                                         <label class="widget__categories--menu__label d-flex align-items-center">
                                             <img class="widget__categories--menu__img" src="./view/assets/img/product/small-product1.png" alt="categories-img">
                                             <span class="widget__categories--menu__text">Áo khoác denim</span>
-                                            <svg class="widget__categories--menu__arrowdown--icon" xmlns="http://www.w3.org/2000/svg" width="12.355" height="8.394">
-                                                <path  d="M15.138,8.59l-3.961,3.952L7.217,8.59,6,9.807l5.178,5.178,5.178-5.178Z" transform="translate(-6 -8.59)" fill="currentColor"></path>
-                                            </svg>
                                         </label>
-                                        <ul class="widget__categories--sub__menu">
-                                            <li class="widget__categories--sub__menu--list">
-                                                <a class="widget__categories--sub__menu--link d-flex align-items-center" href="blog-details.html">
-                                                    <img class="widget__categories--sub__menu--img" src="./view/assets/img/product/small-product2.png" alt="categories-img">
-                                                    <span class="widget__categories--sub__menu--text">Áo khoác, Phụ nữ</span>
-                                                </a>
-                                            </li>
-                                            <li class="widget__categories--sub__menu--list">
-                                                <a class="widget__categories--sub__menu--link d-flex align-items-center" href="blog-details.html">
-                                                    <img class="widget__categories--sub__menu--img" src="./view/assets/img/product/small-product3.png" alt="categories-img">
-                                                    <span class="widget__categories--sub__menu--text">Áo khoác len</span>
-                                                </a>
-                                            </li>
-                                            <li class="widget__categories--sub__menu--list">
-                                                <a class="widget__categories--sub__menu--link d-flex align-items-center" href="blog-details.html">
-                                                    <img class="widget__categories--sub__menu--img" src="./view/assets/img/product/small-product4.png" alt="categories-img">
-                                                    <span class="widget__categories--sub__menu--text">Denim phương Tây</span>
-                                                </a>
-                                            </li>
-                                            <li class="widget__categories--sub__menu--list">
-                                                <a class="widget__categories--sub__menu--link d-flex align-items-center" href="blog-details.html">
-                                                    <img class="widget__categories--sub__menu--img" src="./view/assets/img/product/small-product5.png" alt="categories-img">
-                                                    <span class="widget__categories--sub__menu--text">Váy ngắn</span>
-                                                </a>
-                                            </li>
-                                        </ul>
                                     </li>
                                     <li class="widget__categories--menu__list">
                                         <label class="widget__categories--menu__label d-flex align-items-center">
                                             <img class="widget__categories--menu__img" src="./view/assets/img/product/small-product2.png" alt="categories-img">
                                             <span class="widget__categories--menu__text">Áo form rộng</span>
-                                            <svg class="widget__categories--menu__arrowdown--icon" xmlns="http://www.w3.org/2000/svg" width="12.355" height="8.394" >
-                                                <path  d="M15.138,8.59l-3.961,3.952L7.217,8.59,6,9.807l5.178,5.178,5.178-5.178Z" transform="translate(-6 -8.59)" fill="currentColor"></path>
-                                            </svg>
                                         </label>
-                                        <ul class="widget__categories--sub__menu">
-                                            <li class="widget__categories--sub__menu--list">
-                                                <a class="widget__categories--sub__menu--link d-flex align-items-center" href="blog-details.html">
-                                                    <img class="widget__categories--sub__menu--img" src="./view/assets/img/product/small-product2.png" alt="categories-img">
-                                                    <span class="widget__categories--sub__menu--text">Áo khoác, Phụ nữ</span>
-                                                </a>
-                                            </li>
-                                            <li class="widget__categories--sub__menu--list">
-                                                <a class="widget__categories--sub__menu--link d-flex align-items-center" href="blog-details.html">
-                                                    <img class="widget__categories--sub__menu--img" src="./view/assets/img/product/small-product3.png" alt="categories-img">
-                                                    <span class="widget__categories--sub__menu--text">Áo khoác len</span>
-                                                </a>
-                                            </li>
-                                            <li class="widget__categories--sub__menu--list">
-                                                <a class="widget__categories--sub__menu--link d-flex align-items-center" href="blog-details.html">
-                                                    <img class="widget__categories--sub__menu--img" src="./view/assets/img/product/small-product4.png" alt="categories-img">
-                                                    <span class="widget__categories--sub__menu--text">Denim phương Tây</span>
-                                                </a>
-                                            </li>
-                                            <li class="widget__categories--sub__menu--list">
-                                                <a class="widget__categories--sub__menu--link d-flex align-items-center" href="blog-details.html">
-                                                    <img class="widget__categories--sub__menu--img" src="./view/assets/img/product/small-product5.png" alt="categories-img">
-                                                    <span class="widget__categories--sub__menu--text">Váy ngắn</span>
-                                                </a>
-                                            </li>
-                                        </ul>
                                     </li>
                                     <li class="widget__categories--menu__list">
                                         <label class="widget__categories--menu__label d-flex align-items-center">
                                             <img class="widget__categories--menu__img" src="./view/assets/img/product/small-product3.png" alt="categories-img">
                                             <span class="widget__categories--menu__text">Áo Sweater</span>
-                                            <svg class="widget__categories--menu__arrowdown--icon" xmlns="http://www.w3.org/2000/svg" width="12.355" height="8.394">
-                                                <path  d="M15.138,8.59l-3.961,3.952L7.217,8.59,6,9.807l5.178,5.178,5.178-5.178Z" transform="translate(-6 -8.59)" fill="currentColor"></path>
-                                            </svg>
                                         </label>
-                                        <ul class="widget__categories--sub__menu">
-                                            <li class="widget__categories--sub__menu--list">
-                                                <a class="widget__categories--sub__menu--link d-flex align-items-center" href="blog-details.html">
-                                                    <img class="widget__categories--sub__menu--img" src="./view/assets/img/product/small-product2.png" alt="categories-img">
-                                                    <span class="widget__categories--sub__menu--text">Áo khoác, Phụ nữ</span>
-                                                </a>
-                                            </li>
-                                            <li class="widget__categories--sub__menu--list">
-                                                <a class="widget__categories--sub__menu--link d-flex align-items-center" href="blog-details.html">
-                                                    <img class="widget__categories--sub__menu--img" src="./view/assets/img/product/small-product3.png" alt="categories-img">
-                                                    <span class="widget__categories--sub__menu--text">Áo khoác len</span>
-                                                </a>
-                                            </li>
-                                            <li class="widget__categories--sub__menu--list">
-                                                <a class="widget__categories--sub__menu--link d-flex align-items-center" href="blog-details.html">
-                                                    <img class="widget__categories--sub__menu--img" src="./view/assets/img/product/small-product4.png" alt="categories-img">
-                                                    <span class="widget__categories--sub__menu--text">Túi</span>
-                                                </a>
-                                            </li>
-                                            <li class="widget__categories--sub__menu--list">
-                                                <a class="widget__categories--sub__menu--link d-flex align-items-center" href="blog-details.html">
-                                                    <img class="widget__categories--sub__menu--img" src="./view/assets/img/product/small-product5.png" alt="categories-img">
-                                                    <span class="widget__categories--sub__menu--text">Váy ngắn</span>
-                                                </a>
-                                            </li>
-                                        </ul>
                                     </li>
                                     <li class="widget__categories--menu__list">
                                         <label class="widget__categories--menu__label d-flex align-items-center">
                                             <img class="widget__categories--menu__img" src="./view/assets/img/product/small-product4.png" alt="categories-img">
                                             <span class="widget__categories--menu__text">Áo ngắn tay</span>
-                                            <svg class="widget__categories--menu__arrowdown--icon" xmlns="http://www.w3.org/2000/svg" width="12.355" height="8.394">
-                                                <path  d="M15.138,8.59l-3.961,3.952L7.217,8.59,6,9.807l5.178,5.178,5.178-5.178Z" transform="translate(-6 -8.59)" fill="currentColor"></path>
-                                            </svg>
                                         </label>
-                                        <ul class="widget__categories--sub__menu">
-                                            <li class="widget__categories--sub__menu--list">
-                                                <a class="widget__categories--sub__menu--link d-flex align-items-center" href="blog-details.html">
-                                                    <img class="widget__categories--sub__menu--img" src="./view/assets/img/product/small-product2.png" alt="categories-img">
-                                                    <span class="widget__categories--sub__menu--text">Áo khoác, Phụ nữ</span>
-                                                </a>
-                                            </li>
-                                            <li class="widget__categories--sub__menu--list">
-                                                <a class="widget__categories--sub__menu--link d-flex align-items-center" href="blog-details.html">
-                                                    <img class="widget__categories--sub__menu--img" src="./view/assets/img/product/small-product3.png" alt="categories-img">
-                                                    <span class="widget__categories--sub__menu--text">Áo khoác len</span>
-                                                </a>
-                                            </li>
-                                            <li class="widget__categories--sub__menu--list">
-                                                <a class="widget__categories--sub__menu--link d-flex align-items-center" href="blog-details.html">
-                                                    <img class="widget__categories--sub__menu--img" src="./view/assets/img/product/small-product4.png" alt="categories-img">
-                                                    <span class="widget__categories--sub__menu--text">Túi</span>
-                                                </a>
-                                            </li>
-                                            <li class="widget__categories--sub__menu--list">
-                                                <a class="widget__categories--sub__menu--link d-flex align-items-center" href="blog-details.html">
-                                                    <img class="widget__categories--sub__menu--img" src="./view/assets/img/product/small-product5.png" alt="categories-img">
-                                                    <span class="widget__categories--sub__menu--text">Váy ngắn</span>
-                                                </a>
-                                            </li>
-                                        </ul>
                                     </li>
                                     <li class="widget__categories--menu__list">
                                         <label class="widget__categories--menu__label d-flex align-items-center">
                                             <img class="widget__categories--menu__img" src="./view/assets/img/product/small-product5.png" alt="categories-img">
                                             <span class="widget__categories--menu__text">Túi sách</span>
-                                            <svg class="widget__categories--menu__arrowdown--icon" xmlns="http://www.w3.org/2000/svg" width="12.355" height="8.394">
-                                                <path  d="M15.138,8.59l-3.961,3.952L7.217,8.59,6,9.807l5.178,5.178,5.178-5.178Z" transform="translate(-6 -8.59)" fill="currentColor"></path>
-                                            </svg>
                                         </label>
-                                        <ul class="widget__categories--sub__menu">
-                                            <li class="widget__categories--sub__menu--list">
-                                                <a class="widget__categories--sub__menu--link d-flex align-items-center" href="blog-details.html">
-                                                    <img class="widget__categories--sub__menu--img" src="./view/assets/img/product/small-product2.png" alt="categories-img">
-                                                    <span class="widget__categories--sub__menu--text">Áo khoác, Phụ nữ</span>
-                                                </a>
-                                            </li>
-                                            <li class="widget__categories--sub__menu--list">
-                                                <a class="widget__categories--sub__menu--link d-flex align-items-center" href="blog-details.html">
-                                                    <img class="widget__categories--sub__menu--img" src="./view/assets/img/product/small-product3.png" alt="categories-img">
-                                                    <span class="widget__categories--sub__menu--text">Áo khoác len</span>
-                                                </a>
-                                            </li>
-                                            <li class="widget__categories--sub__menu--list">
-                                                <a class="widget__categories--sub__menu--link d-flex align-items-center" href="blog-details.html">
-                                                    <img class="widget__categories--sub__menu--img" src="./view/assets/img/product/small-product4.png" alt="categories-img">
-                                                    <span class="widget__categories--sub__menu--text">Túi</span>
-                                                </a>
-                                            </li>
-                                            <li class="widget__categories--sub__menu--list">
-                                                <a class="widget__categories--sub__menu--link d-flex align-items-center" href="blog-details.html">
-                                                    <img class="widget__categories--sub__menu--img" src="./view/assets/img/product/small-product5.png" alt="categories-img">
-                                                    <span class="widget__categories--sub__menu--text">Váy ngắn</span>
-                                                </a>
-                                            </li>
-                                        </ul>
                                     </li>
                                 </ul>
                             </div>

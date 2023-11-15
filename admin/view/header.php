@@ -1,3 +1,13 @@
+<?php
+    // session_start();
+    ob_start();
+    if(isset($_SESSION['s_user'])&&(is_array($_SESSION['s_user']))&&(count($_SESSION['s_user'])>0)) {
+        $admin=$_SESSION['s_user'];
+    } else {
+        header('location: login.php');
+    }
+?>
+
 <!DOCTYPE HTML>
 <html lang="vi">
 
@@ -110,7 +120,7 @@
                     <li class="dropdown nav-item">
                         <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#" id="dropdownAccount" aria-expanded="false"> <img class="img-xs rounded-circle" src="./view/assets/imgs/people/quantri.jpg" alt="User"></a>
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownAccount">
-                            <!-- <a class="dropdown-item" href="#"><i class="material-icons md-perm_identity"></i><?=$username;?></a> -->
+                            <a class="dropdown-item" href="#"><i class="material-icons md-perm_identity"></i><?=$admin["username"];?></a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item text-danger" href="logout.php"><i class="material-icons md-exit_to_app"></i>Đăng xuất</a>
                         </div>
