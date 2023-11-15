@@ -6,7 +6,7 @@
         $html_dm.='<li class="widget__categories--menu__list">
                         <a href="'.$link.'">
                             <label class="widget__categories--menu__label d-flex align-items-center">
-                            <img class="widget__categories--menu__img" src="./view/assets/img/favicon.ico" alt="categories-img">
+                            <img class="widget__categories--menu__img" src="./view/assets/img/product/'.$img.'" alt="categories-img">
                             <span class="widget__categories--menu__text">'.$name.'</span>
                             </label>
                         </a>
