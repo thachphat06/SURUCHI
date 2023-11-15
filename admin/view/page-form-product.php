@@ -1,6 +1,6 @@
 <section class="content-main">
             <div class="row">
-                <div class="col-9">
+                <div class="col-12">
                     <div class="content-header">
                         <h2 class="content-title">Thêm sản phẩm mới</h2>
                         <div>
@@ -8,7 +8,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-7">
                     <div class="card mb-4">
                         <div class="card-header">
                             <h4>Thông tin sản phẩm</h4>
@@ -16,14 +16,8 @@
                         <div class="card-body">
                             <form>
                                 <div class="mb-4">
-                                    <label for="product_name" class="form-label">Mã Sản Phẩm</label>
-                                    <input type="text" placeholder="Type here" class="form-control" id="product_id">
-                                </div>
-                                <div class="mb-4">
                                     <label class="form-label">Tên Sản Phẩm</label>
                                     <input type="text" placeholder="Type here" class="form-control" id="product_name">
-                                </div>
-                                <div class="mb-4">
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-4">
@@ -42,6 +36,14 @@
                                     </div>
                                 </div>
                                 <div class="mb-4">
+                                    <label class="form-label" for="">Mô tả 1</label>
+                                    <textarea name="" id="" cols="30" rows="10" class="form-control"></textarea>
+                                </div>
+                                <div class="mb-4">
+                                    <label class="form-label" for="">Mô tả 2</label>
+                                    <textarea name="" id="" cols="30" rows="10" class="form-control"></textarea>
+                                </div>
+                                <div class="mb-4">
                                     <label class="form-label">Besteller</label>
                                     <input type="checkbox" class="form-control1" id="product_bestseller">
 
@@ -58,14 +60,14 @@
                     <!-- card end// -->
                     <!-- card end// -->
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-5">
                     <div class="card mb-4">
                         <div class="card-header">
                             <h4>Hình ảnh</h4>
                         </div>
                         <div class="card-body">
                             <div class="input-upload">
-                                <img src="./view/assets/imgs/theme/upload.svg" alt="">
+                                <img src="assets/imgs/theme/upload.svg" alt="">
                                 <input class="form-control" type="file">
                             </div>
                         </div>

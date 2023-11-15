@@ -52,13 +52,11 @@
                                             <td><span class="badge rounded-pill alert-success">Received</span></td>
                                             <td>07.05.2022</td>
                                             <td class="text-end">
-                                                <a href="page-orders-detail.html" class="btn btn-md rounded font-sm">Detail</a>
                                                 <div class="dropdown">
                                                     <a href="#" data-bs-toggle="dropdown" class="btn btn-light rounded btn-sm font-sm"> <i class="material-icons md-more_horiz"></i> </a>
                                                     <div class="dropdown-menu">
-                                                        <a class="dropdown-item" href="#">View detail</a>
-                                                        <a class="dropdown-item" href="#">Edit info</a>
-                                                        <a class="dropdown-item text-danger" href="#">Delete</a>
+                                                        <a class="dropdown-item" href="index.php?orders-detail">Chi tiết</a>
+                                                        <a class="dropdown-item text-danger" href="#">Xóa</a>
                                                     </div>
                                                 </div>
                                                 <!-- dropdown //end -->
@@ -71,13 +69,11 @@
                                             <td><span class="badge rounded-pill alert-danger">Cancelled</span></td>
                                             <td>25.05.2022</td>
                                             <td class="text-end">
-                                                <a href="page-orders-detail.html" class="btn btn-md rounded font-sm">Detail</a>
                                                 <div class="dropdown">
                                                     <a href="#" data-bs-toggle="dropdown" class="btn btn-light rounded btn-sm font-sm"> <i class="material-icons md-more_horiz"></i> </a>
                                                     <div class="dropdown-menu">
-                                                        <a class="dropdown-item" href="#">View detail</a>
-                                                        <a class="dropdown-item" href="#">Edit info</a>
-                                                        <a class="dropdown-item text-danger" href="#">Delete</a>
+                                                        <a class="dropdown-item" href="index.php?orders-detail">Chi tiết</a>
+                                                        <a class="dropdown-item text-danger" href="#">Xóa</a>
                                                     </div>
                                                 </div>
                                                 <!-- dropdown //end -->
@@ -90,13 +86,13 @@
                                             <td><span class="badge rounded-pill alert-warning">Pending</span></td>
                                             <td>18.05.2022</td>
                                             <td class="text-end">
-                                                <a href="page-orders-detail.html" class="btn btn-md rounded font-sm">Detail</a>
+                                                
                                                 <div class="dropdown">
                                                     <a href="#" data-bs-toggle="dropdown" class="btn btn-light rounded btn-sm font-sm"> <i class="material-icons md-more_horiz"></i> </a>
                                                     <div class="dropdown-menu">
-                                                        <a class="dropdown-item" href="#">View detail</a>
-                                                        <a class="dropdown-item" href="#">Edit info</a>
-                                                        <a class="dropdown-item text-danger" href="#">Delete</a>
+                                                        <a class="dropdown-item" href="index.php?orders-detail">Chi tiết</a>
+                                                        
+                                                        <a class="dropdown-item text-danger" href="#">Xóa</a>
                                                     </div>
                                                 </div>
                                                 <!-- dropdown //end -->
@@ -109,13 +105,13 @@
                                             <td><span class="badge rounded-pill alert-warning">Pending</span></td>
                                             <td>07.02.2022</td>
                                             <td class="text-end">
-                                                <a href="page-orders-detail.html" class="btn btn-md rounded font-sm">Detail</a>
+                                                
                                                 <div class="dropdown">
                                                     <a href="#" data-bs-toggle="dropdown" class="btn btn-light rounded btn-sm font-sm"> <i class="material-icons md-more_horiz"></i> </a>
                                                     <div class="dropdown-menu">
-                                                        <a class="dropdown-item" href="#">View detail</a>
-                                                        <a class="dropdown-item" href="#">Edit info</a>
-                                                        <a class="dropdown-item text-danger" href="#">Delete</a>
+                                                        <a class="dropdown-item" href="index.php?orders-detail">Chi tiết</a>
+                                                        
+                                                        <a class="dropdown-item text-danger" href="#">Xóa</a>
                                                     </div>
                                                 </div>
                                                 <!-- dropdown //end -->
@@ -128,13 +124,13 @@
                                             <td><span class="badge rounded-pill alert-success">Received</span></td>
                                             <td>18.03.2022</td>
                                             <td class="text-end">
-                                                <a href="page-orders-detail.html" class="btn btn-md rounded font-sm">Detail</a>
+                                                
                                                 <div class="dropdown">
                                                     <a href="#" data-bs-toggle="dropdown" class="btn btn-light rounded btn-sm font-sm"> <i class="material-icons md-more_horiz"></i> </a>
                                                     <div class="dropdown-menu">
-                                                        <a class="dropdown-item" href="#">View detail</a>
-                                                        <a class="dropdown-item" href="#">Edit info</a>
-                                                        <a class="dropdown-item text-danger" href="#">Delete</a>
+                                                        <a class="dropdown-item" href="index.php?orders-detail">Chi tiết</a>
+                                                        
+                                                        <a class="dropdown-item text-danger" href="#">Xóa</a>
                                                     </div>
                                                 </div>
                                                 <!-- dropdown //end -->
@@ -147,13 +143,13 @@
                                             <td><span class="badge rounded-pill alert-success">Received</span></td>
                                             <td>23.04.2022</td>
                                             <td class="text-end">
-                                                <a href="page-orders-detail.html" class="btn btn-md rounded font-sm">Detail</a>
+                                                
                                                 <div class="dropdown">
                                                     <a href="#" data-bs-toggle="dropdown" class="btn btn-light rounded btn-sm font-sm"> <i class="material-icons md-more_horiz"></i> </a>
                                                     <div class="dropdown-menu">
-                                                        <a class="dropdown-item" href="#">View detail</a>
-                                                        <a class="dropdown-item" href="#">Edit info</a>
-                                                        <a class="dropdown-item text-danger" href="#">Delete</a>
+                                                        <a class="dropdown-item" href="index.php?orders-detail">Chi tiết</a>
+                                                        
+                                                        <a class="dropdown-item text-danger" href="#">Xóa</a>
                                                     </div>
                                                 </div>
                                                 <!-- dropdown //end -->
@@ -166,13 +162,13 @@
                                             <td><span class="badge rounded-pill alert-success">Received</span></td>
                                             <td>18.05.2022</td>
                                             <td class="text-end">
-                                                <a href="page-orders-detail.html" class="btn btn-md rounded font-sm">Detail</a>
+                                                
                                                 <div class="dropdown">
                                                     <a href="#" data-bs-toggle="dropdown" class="btn btn-light rounded btn-sm font-sm"> <i class="material-icons md-more_horiz"></i> </a>
                                                     <div class="dropdown-menu">
-                                                        <a class="dropdown-item" href="#">View detail</a>
-                                                        <a class="dropdown-item" href="#">Edit info</a>
-                                                        <a class="dropdown-item text-danger" href="#">Delete</a>
+                                                        <a class="dropdown-item" href="index.php?orders-detail">Chi tiết</a>
+                                                        
+                                                        <a class="dropdown-item text-danger" href="#">Xóa</a>
                                                     </div>
                                                 </div>
                                                 <!-- dropdown //end -->
@@ -185,13 +181,13 @@
                                             <td><span class="badge rounded-pill alert-success">Received</span></td>
                                             <td>23.03.2022</td>
                                             <td class="text-end">
-                                                <a href="page-orders-detail.html" class="btn btn-md rounded font-sm">Detail</a>
+                                                
                                                 <div class="dropdown">
                                                     <a href="#" data-bs-toggle="dropdown" class="btn btn-light rounded btn-sm font-sm"> <i class="material-icons md-more_horiz"></i> </a>
                                                     <div class="dropdown-menu">
-                                                        <a class="dropdown-item" href="#">View detail</a>
-                                                        <a class="dropdown-item" href="#">Edit info</a>
-                                                        <a class="dropdown-item text-danger" href="#">Delete</a>
+                                                        <a class="dropdown-item" href="index.php?orders-detail">Chi tiết</a>
+                                                        
+                                                        <a class="dropdown-item text-danger" href="#">Xóa</a>
                                                     </div>
                                                 </div>
                                                 <!-- dropdown //end -->
@@ -204,13 +200,13 @@
                                             <td><span class="badge rounded-pill alert-success">Received</span></td>
                                             <td>07.05.2022</td>
                                             <td class="text-end">
-                                                <a href="page-orders-detail.html" class="btn btn-md rounded font-sm">Detail</a>
+                                                
                                                 <div class="dropdown">
                                                     <a href="#" data-bs-toggle="dropdown" class="btn btn-light rounded btn-sm font-sm"> <i class="material-icons md-more_horiz"></i> </a>
                                                     <div class="dropdown-menu">
-                                                        <a class="dropdown-item" href="#">View detail</a>
-                                                        <a class="dropdown-item" href="#">Edit info</a>
-                                                        <a class="dropdown-item text-danger" href="#">Delete</a>
+                                                        <a class="dropdown-item" href="index.php?orders-detail">Chi tiết</a>
+                                                        
+                                                        <a class="dropdown-item text-danger" href="#">Xóa</a>
                                                     </div>
                                                 </div>
                                                 <!-- dropdown //end -->
@@ -223,13 +219,13 @@
                                             <td><span class="badge rounded-pill alert-success">Received</span></td>
                                             <td>07.05.2022</td>
                                             <td class="text-end">
-                                                <a href="page-orders-detail.html" class="btn btn-md rounded font-sm">Detail</a>
+                                                
                                                 <div class="dropdown">
                                                     <a href="#" data-bs-toggle="dropdown" class="btn btn-light rounded btn-sm font-sm"> <i class="material-icons md-more_horiz"></i> </a>
                                                     <div class="dropdown-menu">
-                                                        <a class="dropdown-item" href="#">View detail</a>
-                                                        <a class="dropdown-item" href="#">Edit info</a>
-                                                        <a class="dropdown-item text-danger" href="#">Delete</a>
+                                                        <a class="dropdown-item" href="index.php?orders-detail">Chi tiết</a>
+                                                        
+                                                        <a class="dropdown-item text-danger" href="#">Xóa</a>
                                                     </div>
                                                 </div>
                                                 <!-- dropdown //end -->

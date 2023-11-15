@@ -30,6 +30,9 @@
       case 'sellers-list':
         include "view/page-sellers-list.php";
         break;
+      case 'page-review':
+        include "view/page-review.php";
+        break;
   
       default:
         include "view/home.php";

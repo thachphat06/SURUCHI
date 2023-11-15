@@ -99,7 +99,7 @@ video {
     border: 0;
     font-size: 100%;
     font: inherit;
-    vertical-align: baseline;
+    /* vertical-align: baseline; */
 }
 
 thead {
@@ -784,10 +784,7 @@ b {
     color: #ee2761;
     background-color: rgba(8, 129, 120, 0.2);
 }
-.btn-fix{
-    height: 45px;
-    margin-top: 13px;
-}
+
 .btn.btn-primary {
     font-size: 14px;
     font-weight: 500;
@@ -984,6 +981,7 @@ b {
     width: 100%;
     border-radius: 4px;
     height: 45px;
+    margin-top: 0px;
 }
 input{
     color: #4f5d77;

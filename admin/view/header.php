@@ -71,7 +71,7 @@
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a class="menu-link" href="page-reviews.html"> <i class="icon material-icons md-comment"></i>
+                    <a class="menu-link" href="index.php?pg=page-review"> <i class="icon material-icons md-comment"></i>
                         <span class="text">Đánh Giá</span>
                     </a>
                 </li>

@@ -2,7 +2,6 @@
             <div class="content-header">
                 <div>
                     <h2 class="content-title card-title">Danh sách sản phẩm</h2>
-                    <!-- <p>Lorem ipsum dolor sit amet.</p> -->
                 </div>
                 <!-- <div>
                     <a href="#" class="btn btn-light rounded font-md">Export</a>
@@ -43,12 +42,7 @@
                 <div class="card-body">
                     <article class="itemlist">
                         <div class="row align-items-center">
-                            <div class="col col-check flex-grow-0">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox">
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-sm-4 col-8 flex-grow-1 col-name">
+                            <div class="col-lg-2 col-sm-4 col-8 flex-grow-1 col-name">
                                 <a class="itemside" href="#">
                                     <div class="left">
                                         <img src="./view/assets/imgs/items/1.jpg" class="img-sm img-thumbnail" alt="Item">
@@ -58,19 +52,20 @@
                                     </div>
                                 </a>
                             </div>
-                            <div class="col-lg-2 col-sm-2 col-4 col-price"> <span>$34.50</span> </div>
-                            <div class="col-lg-2 col-sm-2 col-4 col-status">
-                                <span class="badge rounded-pill alert-success">Active</span>
+                            <div class="col-lg-1 col-sm-2 col-4 col-price"> 
+                                <span>$34.50</span> 
                             </div>
-                            <div class="col-lg-1 col-sm-2 col-4 col-date">
-                                <span>02.11.2022</span>
+                            <div class="col-lg-1 col-sm-2 col-4 col-old_price">
+                                <span><del>$34.50</del></span> 
                             </div>
-                            <div class="col-lg-2 col-sm-2 col-4 col-action text-end">
+                            <div class="col-lg-5 col-sm-2 col-4 col-describe">
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis beatae exercitationem tempora aliquam, odio molestiae? Veritatis enim voluptas est praesentium, quibusdam iure omnis laborum, consectetur at explicabo fugit. Repellat, modi.</p>
+                            </div>
+                            <div class="col-lg-1 col-sm-2 col-4 col-action text-end">
                                 <a href="#" class="btn btn-sm font-sm rounded btn-brand">
-                                    <i class="material-icons md-edit"></i> Edit
-                                </a>
+                                    <i class="material-icons md-edit"></i>Sửa</a>
                                 <a href="#" class="btn btn-sm font-sm btn-light rounded">
-                                    <i class="material-icons md-delete_forever"></i> Delete
+                                    <i class="material-icons md-delete_forever"></i>Xóa
                                 </a>
                             </div>
                         </div>
@@ -79,34 +74,30 @@
                     <!-- itemlist  .// -->
                     <article class="itemlist">
                         <div class="row align-items-center">
-                            <div class="col col-check flex-grow-0">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="">
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-sm-4 col-8 flex-grow-1 col-name">
+                            <div class="col-lg-2 col-sm-4 col-8 flex-grow-1 col-name">
                                 <a class="itemside" href="#">
                                     <div class="left">
-                                        <img src="./view/assets/imgs/items/2.jpg" class="img-sm img-thumbnail" alt="Item">
+                                        <img src="./view/assets/imgs/items/1.jpg" class="img-sm img-thumbnail" alt="Item">
                                     </div>
                                     <div class="info">
-                                        <h6 class="mb-0">Helionic Hooded Down Jacket</h6>
+                                        <h6 class="mb-0">T-shirt for men medium size</h6>
                                     </div>
                                 </a>
                             </div>
-                            <div class="col-lg-2 col-sm-2 col-4 col-price"> <span>$990.99</span> </div>
-                            <div class="col-lg-2 col-sm-2 col-4 col-status">
-                                <span class="badge rounded-pill alert-success">Active</span>
+                            <div class="col-lg-1 col-sm-2 col-4 col-price"> 
+                                <span>$34.50</span> 
                             </div>
-                            <div class="col-lg-1 col-sm-2 col-4 col-date">
-                                <span>02.11.2022</span>
+                            <div class="col-lg-1 col-sm-2 col-4 col-old_price">
+                                <span><del>$34.50</del></span> 
                             </div>
-                            <div class="col-lg-2 col-sm-2 col-4 col-action text-end">
+                            <div class="col-lg-5 col-sm-2 col-4 col-describe">
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis beatae exercitationem tempora aliquam, odio molestiae? Veritatis enim voluptas est praesentium, quibusdam iure omnis laborum, consectetur at explicabo fugit. Repellat, modi.</p>
+                            </div>
+                            <div class="col-lg-1 col-sm-2 col-4 col-action text-end">
                                 <a href="#" class="btn btn-sm font-sm rounded btn-brand">
-                                    <i class="material-icons md-edit"></i> Edit
-                                </a>
+                                    <i class="material-icons md-edit"></i>Sửa</a>
                                 <a href="#" class="btn btn-sm font-sm btn-light rounded">
-                                    <i class="material-icons md-delete_forever"></i> Delete
+                                    <i class="material-icons md-delete_forever"></i>Xóa
                                 </a>
                             </div>
                         </div>
@@ -115,34 +106,30 @@
                     <!-- itemlist  .// -->
                     <article class="itemlist">
                         <div class="row align-items-center">
-                            <div class="col col-check flex-grow-0">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="">
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-sm-4 col-8 flex-grow-1 col-name">
+                            <div class="col-lg-2 col-sm-4 col-8 flex-grow-1 col-name">
                                 <a class="itemside" href="#">
                                     <div class="left">
-                                        <img src="./view/assets/imgs/items/3.jpg" class="img-sm img-thumbnail" alt="Item">
+                                        <img src="./view/assets/imgs/items/1.jpg" class="img-sm img-thumbnail" alt="Item">
                                     </div>
                                     <div class="info">
-                                        <h6 class="mb-0">Lace mini dress with faux leather</h6>
+                                        <h6 class="mb-0">T-shirt for men medium size</h6>
                                     </div>
                                 </a>
                             </div>
-                            <div class="col-lg-2 col-sm-2 col-4 col-price"> <span>$76.99</span> </div>
-                            <div class="col-lg-2 col-sm-2 col-4 col-status">
-                                <span class="badge rounded-pill alert-warning">Archived</span>
+                            <div class="col-lg-1 col-sm-2 col-4 col-price"> 
+                                <span>$34.50</span> 
                             </div>
-                            <div class="col-lg-1 col-sm-2 col-4 col-date">
-                                <span>02.11.2022</span>
+                            <div class="col-lg-1 col-sm-2 col-4 col-old_price">
+                                <span><del>$34.50</del></span> 
                             </div>
-                            <div class="col-lg-2 col-sm-2 col-4 col-action text-end">
+                            <div class="col-lg-5 col-sm-2 col-4 col-describe">
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis beatae exercitationem tempora aliquam, odio molestiae? Veritatis enim voluptas est praesentium, quibusdam iure omnis laborum, consectetur at explicabo fugit. Repellat, modi.</p>
+                            </div>
+                            <div class="col-lg-1 col-sm-2 col-4 col-action text-end">
                                 <a href="#" class="btn btn-sm font-sm rounded btn-brand">
-                                    <i class="material-icons md-edit"></i> Edit
-                                </a>
+                                    <i class="material-icons md-edit"></i>Sửa</a>
                                 <a href="#" class="btn btn-sm font-sm btn-light rounded">
-                                    <i class="material-icons md-delete_forever"></i> Delete
+                                    <i class="material-icons md-delete_forever"></i>Xóa
                                 </a>
                             </div>
                         </div>
@@ -151,34 +138,30 @@
                     <!-- itemlist  .// -->
                     <article class="itemlist">
                         <div class="row align-items-center">
-                            <div class="col col-check flex-grow-0">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="">
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-sm-4 col-8 flex-grow-1 col-name">
+                            <div class="col-lg-2 col-sm-4 col-8 flex-grow-1 col-name">
                                 <a class="itemside" href="#">
                                     <div class="left">
-                                        <img src="./view/assets/imgs/items/4.jpg" class="img-sm img-thumbnail" alt="Item">
+                                        <img src="./view/assets/imgs/items/1.jpg" class="img-sm img-thumbnail" alt="Item">
                                     </div>
                                     <div class="info">
-                                        <h6 class="mb-0">Fanmis Men's Travel Bag</h6>
+                                        <h6 class="mb-0">T-shirt for men medium size</h6>
                                     </div>
                                 </a>
                             </div>
-                            <div class="col-lg-2 col-sm-2 col-4 col-price"> <span>$18.00</span> </div>
-                            <div class="col-lg-2 col-sm-2 col-4 col-status">
-                                <span class="badge rounded-pill alert-success">Active</span>
+                            <div class="col-lg-1 col-sm-2 col-4 col-price"> 
+                                <span>$34.50</span> 
                             </div>
-                            <div class="col-lg-1 col-sm-2 col-4 col-date">
-                                <span>02.11.2022</span>
+                            <div class="col-lg-1 col-sm-2 col-4 col-old_price">
+                                <span><del>$34.50</del></span> 
                             </div>
-                            <div class="col-lg-2 col-sm-2 col-4 col-action text-end">
+                            <div class="col-lg-5 col-sm-2 col-4 col-describe">
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis beatae exercitationem tempora aliquam, odio molestiae? Veritatis enim voluptas est praesentium, quibusdam iure omnis laborum, consectetur at explicabo fugit. Repellat, modi.</p>
+                            </div>
+                            <div class="col-lg-1 col-sm-2 col-4 col-action text-end">
                                 <a href="#" class="btn btn-sm font-sm rounded btn-brand">
-                                    <i class="material-icons md-edit"></i> Edit
-                                </a>
+                                    <i class="material-icons md-edit"></i>Sửa</a>
                                 <a href="#" class="btn btn-sm font-sm btn-light rounded">
-                                    <i class="material-icons md-delete_forever"></i> Delete
+                                    <i class="material-icons md-delete_forever"></i>Xóa
                                 </a>
                             </div>
                         </div>
@@ -187,34 +170,30 @@
                     <!-- itemlist  .// -->
                     <article class="itemlist">
                         <div class="row align-items-center">
-                            <div class="col col-check flex-grow-0">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="">
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-sm-4 col-8 flex-grow-1 col-name">
+                            <div class="col-lg-2 col-sm-4 col-8 flex-grow-1 col-name">
                                 <a class="itemside" href="#">
                                     <div class="left">
-                                        <img src="./view/assets/imgs/items/3.jpg" class="img-sm img-thumbnail" alt="Item">
+                                        <img src="./view/assets/imgs/items/1.jpg" class="img-sm img-thumbnail" alt="Item">
                                     </div>
                                     <div class="info">
-                                        <h6 class="mb-0">Jeans Shorts for Men</h6>
+                                        <h6 class="mb-0">T-shirt for men medium size</h6>
                                     </div>
                                 </a>
                             </div>
-                            <div class="col-lg-2 col-sm-2 col-4 col-price"> <span>$76.99</span> </div>
-                            <div class="col-lg-2 col-sm-2 col-4 col-status">
-                                <span class="badge rounded-pill alert-danger">Disabled</span>
+                            <div class="col-lg-1 col-sm-2 col-4 col-price"> 
+                                <span>$34.50</span> 
                             </div>
-                            <div class="col-lg-1 col-sm-2 col-4 col-date">
-                                <span>02.11.2022</span>
+                            <div class="col-lg-1 col-sm-2 col-4 col-old_price">
+                                <span><del>$34.50</del></span> 
                             </div>
-                            <div class="col-lg-2 col-sm-2 col-4 col-action text-end">
+                            <div class="col-lg-5 col-sm-2 col-4 col-describe">
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis beatae exercitationem tempora aliquam, odio molestiae? Veritatis enim voluptas est praesentium, quibusdam iure omnis laborum, consectetur at explicabo fugit. Repellat, modi.</p>
+                            </div>
+                            <div class="col-lg-1 col-sm-2 col-4 col-action text-end">
                                 <a href="#" class="btn btn-sm font-sm rounded btn-brand">
-                                    <i class="material-icons md-edit"></i> Edit
-                                </a>
+                                    <i class="material-icons md-edit"></i>Sửa</a>
                                 <a href="#" class="btn btn-sm font-sm btn-light rounded">
-                                    <i class="material-icons md-delete_forever"></i> Delete
+                                    <i class="material-icons md-delete_forever"></i>Xóa
                                 </a>
                             </div>
                         </div>
@@ -223,178 +202,30 @@
                     <!-- itemlist  .// -->
                     <article class="itemlist">
                         <div class="row align-items-center">
-                            <div class="col col-check flex-grow-0">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="">
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-sm-4 col-8 flex-grow-1 col-name">
+                            <div class="col-lg-2 col-sm-4 col-8 flex-grow-1 col-name">
                                 <a class="itemside" href="#">
                                     <div class="left">
-                                        <img src="./view/assets/imgs/items/5.jpg" class="img-sm img-thumbnail" alt="Item">
+                                        <img src="./view/assets/imgs/items/1.jpg" class="img-sm img-thumbnail" alt="Item">
                                     </div>
                                     <div class="info">
-                                        <h6 class="mb-0">Wallet made of leather brown color</h6>
+                                        <h6 class="mb-0">T-shirt for men medium size</h6>
                                     </div>
                                 </a>
                             </div>
-                            <div class="col-lg-2 col-sm-2 col-4 col-price"> <span>$18.00</span> </div>
-                            <div class="col-lg-2 col-sm-2 col-4 col-status">
-                                <span class="badge rounded-pill alert-warning">Archived</span>
+                            <div class="col-lg-1 col-sm-2 col-4 col-price"> 
+                                <span>$34.50</span> 
                             </div>
-                            <div class="col-lg-1 col-sm-2 col-4 col-date">
-                                <span>02.11.2022</span>
+                            <div class="col-lg-1 col-sm-2 col-4 col-old_price">
+                                <span><del>$34.50</del></span> 
                             </div>
-                            <div class="col-lg-2 col-sm-2 col-4 col-action text-end">
+                            <div class="col-lg-5 col-sm-2 col-4 col-describe">
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis beatae exercitationem tempora aliquam, odio molestiae? Veritatis enim voluptas est praesentium, quibusdam iure omnis laborum, consectetur at explicabo fugit. Repellat, modi.</p>
+                            </div>
+                            <div class="col-lg-1 col-sm-2 col-4 col-action text-end">
                                 <a href="#" class="btn btn-sm font-sm rounded btn-brand">
-                                    <i class="material-icons md-edit"></i> Edit
-                                </a>
+                                    <i class="material-icons md-edit"></i>Sửa</a>
                                 <a href="#" class="btn btn-sm font-sm btn-light rounded">
-                                    <i class="material-icons md-delete_forever"></i> Delete
-                                </a>
-                            </div>
-                        </div>
-                        <!-- row .// -->
-                    </article>
-                    <!-- itemlist  .// -->
-                    <article class="itemlist">
-                        <div class="row align-items-center">
-                            <div class="col col-check flex-grow-0">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="">
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-sm-4 col-8 flex-grow-1 col-name">
-                                <a class="itemside" href="#">
-                                    <div class="left">
-                                        <img src="./view/assets/imgs/items/6.jpg" class="img-sm img-thumbnail" alt="Item">
-                                    </div>
-                                    <div class="info">
-                                        <h6 class="mb-0">Modern Armchair for home interiors</h6>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-lg-2 col-sm-2 col-4 col-price"> <span>$76.99</span> </div>
-                            <div class="col-lg-2 col-sm-2 col-4 col-status">
-                                <span class="badge rounded-pill alert-success">Active</span>
-                            </div>
-                            <div class="col-lg-1 col-sm-2 col-4 col-date">
-                                <span>02.11.2022</span>
-                            </div>
-                            <div class="col-lg-2 col-sm-2 col-4 col-action text-end">
-                                <a href="#" class="btn btn-sm font-sm rounded btn-brand">
-                                    <i class="material-icons md-edit"></i> Edit
-                                </a>
-                                <a href="#" class="btn btn-sm font-sm btn-light rounded">
-                                    <i class="material-icons md-delete_forever"></i> Delete
-                                </a>
-                            </div>
-                        </div>
-                        <!-- row .// -->
-                    </article>
-                    <!-- itemlist  .// -->
-                    <article class="itemlist">
-                        <div class="row align-items-center">
-                            <div class="col col-check flex-grow-0">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="">
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-sm-4 col-8 flex-grow-1 col-name">
-                                <a class="itemside" href="#">
-                                    <div class="left">
-                                        <img src="./view/assets/imgs/items/4.jpg" class="img-sm img-thumbnail" alt="Item">
-                                    </div>
-                                    <div class="info">
-                                        <h6 class="mb-0">Lace mini dress with faux leather</h6>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-lg-2 col-sm-2 col-4 col-price"> <span>$18.00</span> </div>
-                            <div class="col-lg-2 col-sm-2 col-4 col-status">
-                                <span class="badge rounded-pill alert-success">Active</span>
-                            </div>
-                            <div class="col-lg-1 col-sm-2 col-4 col-date">
-                                <span>02.11.2022</span>
-                            </div>
-                            <div class="col-lg-2 col-sm-2 col-4 col-action text-end">
-                                <a href="#" class="btn btn-sm font-sm rounded btn-brand">
-                                    <i class="material-icons md-edit"></i> Edit
-                                </a>
-                                <a href="#" class="btn btn-sm font-sm btn-light rounded">
-                                    <i class="material-icons md-delete_forever"></i> Delete
-                                </a>
-                            </div>
-                        </div>
-                        <!-- row .// -->
-                    </article>
-                    <!-- itemlist  .// -->
-                    <article class="itemlist">
-                        <div class="row align-items-center">
-                            <div class="col col-check flex-grow-0">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="">
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-sm-4 col-8 flex-grow-1 col-name">
-                                <a class="itemside" href="#">
-                                    <div class="left">
-                                        <img src="./view/assets/imgs/items/3.jpg" class="img-sm img-thumbnail" alt="Item">
-                                    </div>
-                                    <div class="info">
-                                        <h6 class="mb-0">Lace mini dress with faux leather</h6>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-lg-2 col-sm-2 col-4 col-price"> <span>$76.99</span> </div>
-                            <div class="col-lg-2 col-sm-2 col-4 col-status">
-                                <span class="badge rounded-pill alert-success">Active</span>
-                            </div>
-                            <div class="col-lg-1 col-sm-2 col-4 col-date">
-                                <span>02.11.2022</span>
-                            </div>
-                            <div class="col-lg-2 col-sm-2 col-4 col-action text-end">
-                                <a href="#" class="btn btn-sm font-sm rounded btn-brand">
-                                    <i class="material-icons md-edit"></i> Edit
-                                </a>
-                                <a href="#" class="btn btn-sm font-sm btn-light rounded">
-                                    <i class="material-icons md-delete_forever"></i> Delete
-                                </a>
-                            </div>
-                        </div>
-                        <!-- row .// -->
-                    </article>
-                    <!-- itemlist  .// -->
-                    <article class="itemlist">
-                        <div class="row align-items-center">
-                            <div class="col col-check flex-grow-0">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="">
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-sm-4 col-8 flex-grow-1 col-name">
-                                <a class="itemside" href="#">
-                                    <div class="left">
-                                        <img src="./view/assets/imgs/items/4.jpg" class="img-sm img-thumbnail" alt="Item">
-                                    </div>
-                                    <div class="info">
-                                        <h6 class="mb-0">Lace mini dress with faux leather</h6>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-lg-2 col-sm-2 col-4 col-price"> <span>$180.99</span> </div>
-                            <div class="col-lg-2 col-sm-2 col-4 col-status">
-                                <span class="badge rounded-pill alert-success">Active</span>
-                            </div>
-                            <div class="col-lg-1 col-sm-2 col-4 col-date">
-                                <span>02.11.2022</span>
-                            </div>
-                            <div class="col-lg-2 col-sm-2 col-4 col-action text-end">
-                                <a href="#" class="btn btn-sm font-sm rounded btn-brand">
-                                    <i class="material-icons md-edit"></i> Edit
-                                </a>
-                                <a href="#" class="btn btn-sm font-sm btn-light rounded">
-                                    <i class="material-icons md-delete_forever"></i> Delete
+                                    <i class="material-icons md-delete_forever"></i>Xóa
                                 </a>
                             </div>
                         </div>
