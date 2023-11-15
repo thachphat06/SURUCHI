@@ -41,31 +41,19 @@
                                     <li class="widget__categories--menu__list">
                                         <label class="widget__categories--menu__label d-flex align-items-center">
                                             <img class="widget__categories--menu__img" src="./view/assets/img/product/small-product1.png" alt="categories-img">
-                                            <span class="widget__categories--menu__text">Denim Jacket</span>
+                                            <span class="widget__categories--menu__text">Áo kiểu</span>
                                         </label>
                                     </li>
                                     <li class="widget__categories--menu__list">
                                         <label class="widget__categories--menu__label d-flex align-items-center">
                                             <img class="widget__categories--menu__img" src="./view/assets/img/product/small-product2.png" alt="categories-img">
-                                            <span class="widget__categories--menu__text">Oversize Cotton</span>
+                                            <span class="widget__categories--menu__text">Áo thun</span>
                                         </label>
                                     </li>
                                     <li class="widget__categories--menu__list">
                                         <label class="widget__categories--menu__label d-flex align-items-center">
                                             <img class="widget__categories--menu__img" src="./view/assets/img/product/small-product3.png" alt="categories-img">
-                                            <span class="widget__categories--menu__text">Dairy & chesse</span>
-                                        </label>
-                                    </li>
-                                    <li class="widget__categories--menu__list">
-                                        <label class="widget__categories--menu__label d-flex align-items-center">
-                                            <img class="widget__categories--menu__img" src="./view/assets/img/product/small-product4.png" alt="categories-img">
-                                            <span class="widget__categories--menu__text">Shoulder Bag</span>
-                                        </label>
-                                    </li>
-                                    <li class="widget__categories--menu__list">
-                                        <label class="widget__categories--menu__label d-flex align-items-center">
-                                            <img class="widget__categories--menu__img" src="./view/assets/img/product/small-product5.png" alt="categories-img">
-                                            <span class="widget__categories--menu__text">Denim Jacket</span>
+                                            <span class="widget__categories--menu__text">Áo khoác</span>
                                         </label>
                                     </li>
                                 </ul>
