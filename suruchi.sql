@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1:3307
--- Thời gian đã tạo: Th10 15, 2023 lúc 09:36 AM
--- Phiên bản máy phục vụ: 10.4.28-MariaDB
--- Phiên bản PHP: 8.2.4
+-- Host: 127.0.0.1
+-- Generation Time: Nov 15, 2023 at 11:15 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `suruchi`
+-- Database: `suruchi`
 --
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `bill`
+-- Table structure for table `bill`
 --
 
 CREATE TABLE `bill` (
@@ -49,7 +49,7 @@ CREATE TABLE `bill` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `bill_detail`
+-- Table structure for table `bill_detail`
 --
 
 CREATE TABLE `bill_detail` (
@@ -63,7 +63,7 @@ CREATE TABLE `bill_detail` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `blog`
+-- Table structure for table `blog`
 --
 
 CREATE TABLE `blog` (
@@ -78,7 +78,7 @@ CREATE TABLE `blog` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `blog_category`
+-- Table structure for table `blog_category`
 --
 
 CREATE TABLE `blog_category` (
@@ -89,7 +89,7 @@ CREATE TABLE `blog_category` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `cart`
+-- Table structure for table `cart`
 --
 
 CREATE TABLE `cart` (
@@ -106,7 +106,7 @@ CREATE TABLE `cart` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `category`
+-- Table structure for table `category`
 --
 
 CREATE TABLE `category` (
@@ -117,7 +117,7 @@ CREATE TABLE `category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `category`
+-- Dumping data for table `category`
 --
 
 INSERT INTO `category` (`id`, `name`, `img`, `stt`) VALUES
@@ -128,7 +128,7 @@ INSERT INTO `category` (`id`, `name`, `img`, `stt`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `comment`
+-- Table structure for table `comment`
 --
 
 CREATE TABLE `comment` (
@@ -142,7 +142,7 @@ CREATE TABLE `comment` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `product`
+-- Table structure for table `product`
 --
 
 CREATE TABLE `product` (
@@ -161,7 +161,7 @@ CREATE TABLE `product` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `product`
+-- Dumping data for table `product`
 --
 
 INSERT INTO `product` (`id`, `name`, `price`, `old_price`, `img`, `describe1`, `describe2`, `view`, `bestseller`, `new`, `hot`, `iddm`) VALUES
@@ -193,7 +193,7 @@ INSERT INTO `product` (`id`, `name`, `price`, `old_price`, `img`, `describe1`, `
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -208,27 +208,25 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `name`, `address`, `email`, `sdt`, `role`) VALUES
-(1, 'nghia', '123', '', NULL, 'nghianhps27599@fpt.edu.vn', NULL, 1),
-(4, 'duong', '123', '', NULL, 'duongtran12a5@gmail.com', NULL, 0),
-(5, '', '', '', NULL, '', NULL, 0);
+(1, 'nghia', '123', '', NULL, 'nghianhps27599@fpt.edu.vn', NULL, 1);
 
 --
--- Chỉ mục cho các bảng đã đổ
+-- Indexes for dumped tables
 --
 
 --
--- Chỉ mục cho bảng `bill`
+-- Indexes for table `bill`
 --
 ALTER TABLE `bill`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_kh_hd` (`iduser`);
 
 --
--- Chỉ mục cho bảng `bill_detail`
+-- Indexes for table `bill_detail`
 --
 ALTER TABLE `bill_detail`
   ADD PRIMARY KEY (`id`),
@@ -236,33 +234,33 @@ ALTER TABLE `bill_detail`
   ADD KEY `fk_sp_hdct` (`idsp`);
 
 --
--- Chỉ mục cho bảng `blog`
+-- Indexes for table `blog`
 --
 ALTER TABLE `blog`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_dmtt_tt` (`idloai`);
 
 --
--- Chỉ mục cho bảng `blog_category`
+-- Indexes for table `blog_category`
 --
 ALTER TABLE `blog_category`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `cart`
+-- Indexes for table `cart`
 --
 ALTER TABLE `cart`
   ADD KEY `fk_sp_cart` (`idpro`),
   ADD KEY `fk_hd_cart` (`idbill`);
 
 --
--- Chỉ mục cho bảng `category`
+-- Indexes for table `category`
 --
 ALTER TABLE `category`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `comment`
+-- Indexes for table `comment`
 --
 ALTER TABLE `comment`
   ADD PRIMARY KEY (`id`),
@@ -270,109 +268,109 @@ ALTER TABLE `comment`
   ADD KEY `fk_sp_bl` (`idsp`);
 
 --
--- Chỉ mục cho bảng `product`
+-- Indexes for table `product`
 --
 ALTER TABLE `product`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_dm_sp` (`iddm`);
 
 --
--- Chỉ mục cho bảng `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT cho các bảng đã đổ
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT cho bảng `bill`
+-- AUTO_INCREMENT for table `bill`
 --
 ALTER TABLE `bill`
   MODIFY `id` int(9) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT cho bảng `bill_detail`
+-- AUTO_INCREMENT for table `bill_detail`
 --
 ALTER TABLE `bill_detail`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT cho bảng `blog`
+-- AUTO_INCREMENT for table `blog`
 --
 ALTER TABLE `blog`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT cho bảng `blog_category`
+-- AUTO_INCREMENT for table `blog_category`
 --
 ALTER TABLE `blog_category`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT cho bảng `category`
+-- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT cho bảng `comment`
+-- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT cho bảng `product`
+-- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
--- AUTO_INCREMENT cho bảng `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- Các ràng buộc cho các bảng đã đổ
+-- Constraints for dumped tables
 --
 
 --
--- Các ràng buộc cho bảng `bill`
+-- Constraints for table `bill`
 --
 ALTER TABLE `bill`
   ADD CONSTRAINT `fk_kh_hd` FOREIGN KEY (`iduser`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
--- Các ràng buộc cho bảng `bill_detail`
+-- Constraints for table `bill_detail`
 --
 ALTER TABLE `bill_detail`
   ADD CONSTRAINT `fk_hd_hdct` FOREIGN KEY (`idbill`) REFERENCES `bill` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_sp_hdct` FOREIGN KEY (`idsp`) REFERENCES `product` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
--- Các ràng buộc cho bảng `blog`
+-- Constraints for table `blog`
 --
 ALTER TABLE `blog`
   ADD CONSTRAINT `fk_dmtt_tt` FOREIGN KEY (`idloai`) REFERENCES `blog_category` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
--- Các ràng buộc cho bảng `cart`
+-- Constraints for table `cart`
 --
 ALTER TABLE `cart`
   ADD CONSTRAINT `fk_hd_cart` FOREIGN KEY (`idbill`) REFERENCES `bill` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_sp_cart` FOREIGN KEY (`idpro`) REFERENCES `product` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
--- Các ràng buộc cho bảng `comment`
+-- Constraints for table `comment`
 --
 ALTER TABLE `comment`
   ADD CONSTRAINT `fk_kh_bl` FOREIGN KEY (`iduser`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_sp_bl` FOREIGN KEY (`idsp`) REFERENCES `product` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
--- Các ràng buộc cho bảng `product`
+-- Constraints for table `product`
 --
 ALTER TABLE `product`
   ADD CONSTRAINT `fk_dm_sp` FOREIGN KEY (`iddm`) REFERENCES `category` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
