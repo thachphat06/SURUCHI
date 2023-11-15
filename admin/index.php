@@ -1,19 +1,17 @@
 <?php
-  // session_start();
-  // if(!isset($_SESSION['admin'])){
-  //     header('location: login.php');
-  // }else{
-  //   $username=$_SESSION['username'];
-  //   $password=$_SESSION['password'];
-  // }
+  session_start();
+  ob_start();
+  if(isset($_SESSION['s_user'])&&(is_array($_SESSION['s_user']))&&(count($_SESSION['s_user'])>0)) {
+      $admin=$_SESSION['s_user'];
+  } else{
+      header('location: login.php');
+  }
+
   include "view/header.php";
   if(!isset($_GET['pg'])){
     include "view/home.php";
   }else{
     switch ($_GET['pg']){
-      case 'login':
-        include "view/login.php";
-        break;
       case 'add-product':
         include "view/page-form-product.php";
         break;

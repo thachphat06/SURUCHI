@@ -1,28 +1,25 @@
-<?php
+<?php 
     session_start();
     include "../model/pdo.php";
     include "../model/user.php";
-    if(isset($_POST["login"])){
-        $username=$_POST["username"];
-        $password=$_POST["password"];
-        $user=checkuser($username, $password);
+    // ob_start();
+    if(isset($_POST["login"])) {
+        $uname=$_POST["uname"];
+        $pass=$_POST["pass"];
+        $user=checkuser($uname, $pass);
         if(isset($user)&&(is_array($user))&&(count($user)>0)){
             extract($user);
-            if($role==1){
-                $_SESSION['username'] = $username;
+            if($role==1) {
+                $_SESSION['s_user']=$user;
                 header('location: index.php');
-            }else{
-                $tb="Tài khoản không có quyền đăng nhập trang quản trị";
+            } else{ 
+                $tb="Tài khoản này không có quyền đăng nhập trang quản trị";
             }
-        } else {
-            $tb="Tài khoản hoặc mật khẩu không chính xác";
-        }     
+        } else{
+            $tb="Tài khoản này không tồn tại. Hoặc đã nhầm !";
+        }
     }
-    
-    
 ?>
-
-
 
 <!DOCTYPE HTML>
 <html lang="vi">
@@ -53,12 +50,6 @@
             </div>
             <div class="col-nav">
                 <ul class="nav">
-                    <!-- <li class="nav-item">
-                        <a class="nav-link btn-icon" href="#">
-                            <i class="material-icons md-notifications animation-shake"></i>
-                            <span class="badge rounded-pill">0</span>
-                        </a>
-                    </li> -->
                     <li class="nav-item">
                         <a class="nav-link btn-icon darkmode" href="#"> <i class="material-icons md-nights_stay"></i> </a>
                     </li>
@@ -72,18 +63,6 @@
                             <a class="dropdown-item" href="#"><img src="./view/assets/imgs/theme/flag-fr.png" alt="Français">Français</a>
                         </div>
                     </li>
-                    <!-- <li class="dropdown nav-item">
-                        <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#" id="dropdownAccount" aria-expanded="false"> <img class="img-xs rounded-circle" src="./view/assets/imgs/people/avatar2.jpg" alt="User"></a>
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownAccount">
-                            <a class="dropdown-item" href="#"><i class="material-icons md-perm_identity"></i>Edit Profile</a>
-                            <a class="dropdown-item" href="#"><i class="material-icons md-settings"></i>Account Settings</a>
-                            <a class="dropdown-item" href="#"><i class="material-icons md-account_balance_wallet"></i>Wallet</a>
-                            <a class="dropdown-item" href="#"><i class="material-icons md-receipt"></i>Billing</a>
-                            <a class="dropdown-item" href="#"><i class="material-icons md-help_outline"></i>Help center</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item text-danger" href="#"><i class="material-icons md-exit_to_app"></i>Logout</a>
-                        </div>
-                    </li> -->
                 </ul>
             </div>
         </header>
@@ -91,13 +70,13 @@
             <div class="card mx-auto card-login">
                 <div class="card-body">
                     <h4 class="card-title mb-4">Đăng nhập</h4>
-                    <form action="login.php" method="post">
+                    <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
                         <div class="mb-3">
-                            <input class="form-control" placeholder="Tên người dùng" type="text" name="username">
+                            <input class="form-control" placeholder="Tên người dùng" type="text" name="uname">
                         </div>
                         <!-- form-group// -->
                         <div class="mb-3">
-                            <input class="form-control" placeholder="Mật khẩu" type="password" name="password">
+                            <input class="form-control" placeholder="Mật khẩu" type="password" name="pass">
                         </div>
                         <!-- form-group// -->
                         <div class="mb-3">
@@ -109,11 +88,11 @@
                         </div>
                         <!-- form-group form-check .// -->
                         <div class="mb-4">
-                            <?php
-                                if(isset($tb)&&($tb!="")){
-                                    echo"<h6 style='color:red'>".$tb."</h3>";
-                                }
-                            ?>
+                        <?php 
+                            if(isset($tb)&&($tb!="")){
+                                echo "<h4 style='color: red;'>".$tb."</h4>";
+                            }
+                        ?>
                           <button type="submit" class="btn btn-primary w-100" name="login"> Đăng nhập </button>
                         </div>
                         <!-- form-group// -->
