@@ -11,9 +11,14 @@ function user_insert_id($username, $password, $name, $address, $sdt, $email){
     return pdo_execute_id($sql,$username, $password,  $name, $address, $sdt, $email);
 }
 
-function user_update($username, $password, $email, $name, $address, $sdt, $role, $id) {
-    $sql = "UPDATE users SET username=?, password=?, email=?, name=?, address=?, sdt=?, role=? WHERE id=?";
-    pdo_execute($sql, $username, $password, $email, $name, $address, $sdt, $role, $id);
+function user_update($username, $password, $email, $name, $img, $address, $sdt, $role, $id) {
+    if($img!="") {
+        $sql = "UPDATE users SET username=?, password=?, email=?, name=?, img=?, address=?, sdt=?, role=? WHERE id=?";
+        pdo_execute($sql, $username, $password, $email, $name, $img, $address, $sdt, $role, $id);
+    } else {
+        $sql = "UPDATE users SET username=?, password=?, email=?, name=?, address=?, sdt=?, role=? WHERE id=?";
+        pdo_execute($sql, $username, $password, $email, $name, $address, $sdt, $role, $id);
+    }
 }
 
 function checkuser($username, $password) {

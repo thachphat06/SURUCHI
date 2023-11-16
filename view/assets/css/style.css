@@ -12952,4 +12952,52 @@ details > summary::-webkit-details-marker {
     font-size: 1.6rem;
   }
 }
+
+.upload-image {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.image-container {
+  height: 100px;
+  width: 100px;
+  border: 3px solid #ee2761;
+  border-radius:50%;
+  overflow:hidden;
+}
+.image-container img {
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  object-fit: cover;
+}
+.image-prev {
+  margin-top: 10px;
+  text-align: center;
+  width: 100px;
+}
+#userimage {
+  display: none;
+}
+#imagelabel {
+  color: #000;
+  background-image: linear-gradient(45deg, #ee2761 50%, transparent 50%);
+  background-position: 100%;
+  background-size: 400%;
+  background-color: transparent;
+  border: 1px solid #ee2761;
+  border-radius: 0.6em;
+  cursor: pointer;
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  transition: background 300ms ease-in-out;
+}
+#imagelabel:hover,
+#imagelabel:focus {
+  color: #fff;
+  outline: 0;
+  background-position: 0;
+}
 /*# sourceMappingURL=style.css.map */

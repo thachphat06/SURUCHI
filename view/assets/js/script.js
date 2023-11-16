@@ -854,3 +854,18 @@ if (wrapper) {
   });
 }
 
+//Image preview
+function showPreview(input) {
+  // Get the file object from the input element.
+  const file = input.files[0];
+
+  // Get the image element by its ID
+  let image = document.getElementById("preview");
+      
+  // Use URL.createObjectURL to create a blob URL for the selected file
+  const blobUrl = URL.createObjectURL(file);
+
+ // Set the 'src' attribute of the image element to the blob URL
+  image.src = blobUrl;
+}
+

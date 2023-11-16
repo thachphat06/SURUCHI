@@ -4750,4 +4750,11 @@ body.dark .dropdown-menu .dropdown-item.text-danger {
     }
 }
 
+.col-describe{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    text-overflow: ellipsis;
+}
 /*# sourceMappingURL=main.css.map */

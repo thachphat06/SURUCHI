@@ -4,6 +4,7 @@
   
   // nhúng kết nối csdl
   include "model/pdo.php";
+  include "model/global.php";
   include "model/sanpham.php";
   include "model/danhmuc.php";
   include "model/user.php";
@@ -58,7 +59,7 @@
         break;
       case 'updateuser':
         // xác định giá trị input
-        if(isset($_POST["update"])&&($_POST["update"])) {
+        if(isset($_POST["update"])) {
           $username=$_POST["username"];
           // $password=$_POST["password"];
           $email=$_POST["email"];
@@ -67,8 +68,24 @@
           $sdt=$_POST["sdt"];
           $id=$_POST["id"];
           $role=0;
+
+          $img=$_FILES["img"]["name"];
+          $target_file = IMG_PATH_USER.basename($img);
+          if($img!=""){
+            //upload hình
+            $target_file = IMG_PATH_USER.$img;
+            move_uploaded_file($_FILES["img"]["tmp_name"], $target_file);
+            
+            //xóa hình cũ trên host
+            $old_img=IMG_PATH_USER.$_POST['old_img'];
+            if(file_exists($old_img)) unlink($old_img);
+
+          } else {
+            $img="";
+          }
             //xử lý
-          user_update($username, $password, $email, $name, $address, $sdt, $role, $id);
+          user_update($username, $password, $email, $name, $img, $address, $sdt, $role, $id);
+
           include "view/my-account.php";
         }
         break;

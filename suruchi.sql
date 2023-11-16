@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 15, 2023 at 11:46 AM
+-- Generation Time: Nov 16, 2023 at 01:58 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -201,6 +201,7 @@ CREATE TABLE `users` (
   `username` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
   `name` varchar(50) NOT NULL,
+  `img` varchar(255) NOT NULL DEFAULT 'avatar.png',
   `address` varchar(100) DEFAULT NULL,
   `email` varchar(50) NOT NULL,
   `sdt` varchar(20) DEFAULT NULL,
@@ -211,8 +212,8 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`, `name`, `address`, `email`, `sdt`, `role`) VALUES
-(1, 'nghia', '123', '', NULL, 'nghianhps27599@fpt.edu.vn', NULL, 1);
+INSERT INTO `users` (`id`, `username`, `password`, `name`, `img`, `address`, `email`, `sdt`, `role`) VALUES
+(1, 'admin', '123', '', '0', NULL, 'nghianhps27599@fpt.edu.vn', NULL, 1);
 
 --
 -- Indexes for dumped tables
@@ -330,7 +331,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Constraints for dumped tables

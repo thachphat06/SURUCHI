@@ -46,6 +46,11 @@
                             <div class="account__details two">
                                 <!-- <h4 class="account__details--title">Mặc định</h4> -->
                                 <p class="account__details--desc">
+                                    <div class="upload-image">
+                                        <div class="image-container">
+                                            <img src="./uploads/<?=$img?>" alt="" id="preview"/>
+                                        </div>
+                                    </div>
                                     <strong style="color: #000">Tên tài khoản:</strong>
                                     <?=$username?> <br>
                                     <strong style="color: #000">Email:</strong>

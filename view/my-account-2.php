@@ -5,6 +5,14 @@
     $_SESSION['s_user']=$userinfo;
     extract($userinfo); 
   }
+    $imgpath=IMG_PATH_USER.$img;
+    if(is_file($imgpath)){
+        $img='<img src="'.$imgpath.'" alt="" id="preview"/>';
+        $old_img=basename($imgpath);
+    } else {
+        $img='';
+    }
+  
 ?>
 
 <main class="main__content_wrapper">
@@ -40,17 +48,28 @@
                         </ul>
                     </div>
                     <div class="account__wrapper">
-                        <form class="account__content" action="index.php?pg=updateuser" method="post">
+                        <form class="account__content" action="index.php?pg=updateuser" method="post" enctype="multipart/form-data">
                           <h3 class="account__content--title mb-20">Thông tin tài khoản</h3>
+                            <div class="upload-image">
+                                <div class="image-container">
+                                    <?=$img?>
+                                </div>
+                                <div class="image-prev">
+                                    <label for="userimage" id="imagelabel">Chọn ảnh</label> <br />
+                                    <input class="account__login--input" type="file" name="img" id="userimage" onchange="showPreview(this)"/>
+                                </div>
+                            </div>
                             <input class="account__login--input" placeholder="Tên của bạn" type="text" name="username" value="<?=$username?>">
                             <input class="account__login--input" placeholder="Email của bạn" type="text" name="email" value="<?=$email?>">
                             <input class="account__login--input" placeholder="Họ và tên" type="text" name="name" value="<?=$name?>">
                             <input class="account__login--input" placeholder="Địa chỉ" type="text" name="address" value="<?=$address?>">
                             <input class="account__login--input" placeholder="Số điện thoại" type="text" name="sdt" value="<?=$sdt?>">
                             <div class="account__details--footer d-flex">
-                              <input type="hidden" name="id" value="<?=$id?>">
-                              <input class="account__details--footer__btn" name="update" type="submit" value="Cập nhật">
-                              <!-- <button class="account__details--footer__btn" type="button">Xóa</button> -->
+                            <div class="input-hidden" hidden>
+                                  <input type="hidden" name="id" value="<?=$id?>">
+                                  <input type="hidden" name="old_img" value="<?=$old_img?>">
+                              </div>
+                              <button class="account__details--footer__btn" name="update" type="submit">Cập nhật</button>
                             </div>
                         </form>
                     </div>
