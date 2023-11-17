@@ -1,23 +1,19 @@
 <?php 
     if(isset($_SESSION['s_user'])&&(count($_SESSION['s_user'])>0)){
         extract($_SESSION['s_user']);
-        // $html_account='<li class="dropdown nav-item header__account--items">
-        //                     <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#" id="dropdownAccount" aria-expanded="false"> <img class="img-xs rounded-circle" src="./uploads/'.$img.'" alt="" id="preview" alt="User" width="40px" height="40px"></a>
-        //                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownAccount">
-        //                         <a class="dropdown-item" href="#">
-        //                             <i class="material-icons md-perm_identity"></i>
-        //                             '.$username.'
-        //                         </a>
-        //                         <div class="dropdown-divider"></div>
-        //                         <a class="dropdown-item text-danger" href="logout.php"><i class="material-icons md-exit_to_app"></i>Đăng xuất</a>
-        //                     </div>
-        //                 </li>';
-        $html_account='<li class="header__account--items">
-                            <a class="header__account--btn" href="index.php?pg=my-account">
-                                <svg xmlns="http://www.w3.org/2000/svg"  width="26.51" height="23.443" viewBox="0 0 512 512"><path d="M344 144c-3.92 52.87-44 96-88 96s-84.15-43.12-88-96c-4-55 35-96 88-96s92 42 88 96z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><path d="M256 304c-87 0-175.3 48-191.64 138.6C62.39 453.52 68.57 464 80 464h352c11.44 0 17.62-10.48 15.65-21.4C431.3 352 343 304 256 304z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/></svg> 
-                                <span class="header__account--btn__text">'.$username.'</span>
-                            </a>
-                        </li>';
+        $html_account='<li class="header__account--items1">
+                        <a class="header__account--btn" href="index.php?pg=my-account">
+                            <img class="img-xs rounded-circle" src="./uploads/'.$img.'" alt="" alt="User" width="40px" height="40px">
+                            <span class="header__account--btn__text">'.$username.'</span>
+                        </a>
+                    </li>';
+        $html_account_mobile='<a class="offcanvas__account--items__btn d-flex align-items-center" href="index.php?pg=my-account">
+                                <img class="img-xs rounded-circle" src="./uploads/'.$img.'" alt="" alt="User" width="40px" height="40px">
+                                <span class="offcanvas__account--items__label">'.$username.'</span>
+                            </a>';
+        $html_account_scroll='<a class="header__account--btn" href="index.php?pg=signin-signup">
+                                <img class="img-xs rounded-circle" src="./uploads/'.$img.'" alt="" alt="User" width="35px" height="35px">
+                            </a>';
     }else {
         $html_account='<li class="header__account--items">
                             <a class="header__account--btn" href="index.php?pg=signin-signup">
@@ -25,6 +21,16 @@
                                 <span class="header__account--btn__text">Đăng Nhập</span>
                             </a>
                         </li>';
+        $html_account_mobile='<a class="offcanvas__account--items__btn d-flex align-items-center" href="index.php?pg=signin-signup">
+                                <span class="offcanvas__account--items__icon"> 
+                                    <svg xmlns="http://www.w3.org/2000/svg"  width="20.51" height="19.443" viewBox="0 0 512 512"><path d="M344 144c-3.92 52.87-44 96-88 96s-84.15-43.12-88-96c-4-55 35-96 88-96s92 42 88 96z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><path d="M256 304c-87 0-175.3 48-191.64 138.6C62.39 453.52 68.57 464 80 464h352c11.44 0 17.62-10.48 15.65-21.4C431.3 352 343 304 256 304z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/></svg> 
+                                </span>
+                                <span class="offcanvas__account--items__label">Đăng nhập / Đăng ký</span>
+                            </a>';
+        $html_account_scroll='<a class="header__account--btn" href="index.php?pg=signin-signup">
+                                <svg xmlns="http://www.w3.org/2000/svg"  width="26.51" height="23.443" viewBox="0 0 512 512"><path d="M344 144c-3.92 52.87-44 96-88 96s-84.15-43.12-88-96c-4-55 35-96 88-96s92 42 88 96z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><path d="M256 304c-87 0-175.3 48-191.64 138.6C62.39 453.52 68.57 464 80 464h352c11.44 0 17.62-10.48 15.65-21.4C431.3 352 343 304 256 304z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/></svg>
+                                <span class="visually-hidden">Đăng Nhập</span>
+                            </a>';
     }
 ?>
 
@@ -219,10 +225,11 @@
                                 </a>
                             </li>
                             <li class="header__account--items header__account2--items">
-                                <a class="header__account--btn" href="index.php?pg=signin-signup">
+                                <!-- <a class="header__account--btn" href="index.php?pg=signin-signup">
                                     <svg xmlns="http://www.w3.org/2000/svg"  width="26.51" height="23.443" viewBox="0 0 512 512"><path d="M344 144c-3.92 52.87-44 96-88 96s-84.15-43.12-88-96c-4-55 35-96 88-96s92 42 88 96z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><path d="M256 304c-87 0-175.3 48-191.64 138.6C62.39 453.52 68.57 464 80 464h352c11.44 0 17.62-10.48 15.65-21.4C431.3 352 343 304 256 304z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/></svg>
                                     <span class="visually-hidden">Đăng Nhập</span>
-                                </a>
+                                </a> -->
+                                <?$html_account_scroll;?>
                             </li>
                             <li class="header__account--items header__account2--items">
                                 <a class="header__account--btn minicart__open--btn" href="javascript:void(0)" data-offcanvas>
@@ -296,12 +303,7 @@
                         <li class="offcanvas__menu_li"><a class="offcanvas__menu_item" href="index.php?pg=contact">LIÊN HỆ</a></li>
                     </ul>
                     <div class="offcanvas__account--items">
-                        <a class="offcanvas__account--items__btn d-flex align-items-center" href="index.php?pg=signin-signup">
-                        <span class="offcanvas__account--items__icon"> 
-                            <svg xmlns="http://www.w3.org/2000/svg"  width="20.51" height="19.443" viewBox="0 0 512 512"><path d="M344 144c-3.92 52.87-44 96-88 96s-84.15-43.12-88-96c-4-55 35-96 88-96s92 42 88 96z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><path d="M256 304c-87 0-175.3 48-191.64 138.6C62.39 453.52 68.57 464 80 464h352c11.44 0 17.62-10.48 15.65-21.4C431.3 352 343 304 256 304z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/></svg> 
-                            </span>
-                        <span class="offcanvas__account--items__label">Đăng nhập / Đăng ký</span>
-                        </a>
+                        <?=$html_account_mobile;?>
                     </div>
                     <div class="language__currency">
                         <ul class="d-flex align-items-center">

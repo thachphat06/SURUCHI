@@ -3033,6 +3033,10 @@ body.overlay__active::before,
 .header__account--items:last-child {
   margin-right: 0;
 }
+.header__account--items1 {
+  margin-top: -1rem;
+  margin-right: 4rem;
+}
 
 @media only screen and (min-width: 992px) {
   .header__account--items {
@@ -3043,6 +3047,10 @@ body.overlay__active::before,
 @media only screen and (min-width: 1200px) {
   .header__account--items {
     margin-right: 3rem;
+  }
+  .header__account--items1 {
+    margin-top: -1rem;
+    margin-right: 4rem;
   }
 }
 
@@ -12957,6 +12965,7 @@ details > summary::-webkit-details-marker {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-bottom: 10px;
 }
 .image-container {
   height: 100px;
@@ -13000,4 +13009,6 @@ details > summary::-webkit-details-marker {
   outline: 0;
   background-position: 0;
 }
+
+
 /*# sourceMappingURL=style.css.map */
