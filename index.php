@@ -131,14 +131,32 @@
           include "view/home.php";
       }
         break;
-      case 'add-cart':
-        include "view/cart.php";
-        break;
-      case 'del-cart':
-        include "view/cart.php";
-        break;
       case 'cart':
-        include "view/cart.php";
+        if(isset($_GET['del'])&&($_GET['del']==1)) {
+          unset($_SESSION["giohang"]);
+          header('location: index.php?pg=cart');
+        }else{
+            include "view/cart.php";
+        }
+        break;
+      case 'addcart':
+        if(isset($_POST["btnaddcart"])&&($_POST['btnaddcart'])) {
+          $id=$_POST['id'];
+          $name=$_POST["name"];
+          $img=$_POST["img"];
+          $amount=$_POST["amount"]; 
+          $price=$_POST["price"];
+          $thanhtien=(int)$amount * (int)$price;
+          $sp=["id"=>$id, "name"=>$name, "img"=>$img, "price"=>$price, "amount"=>$amount, "thanhtien"=>$thanhtien];
+          $_SESSION['giohang'][]=$sp;
+          header('location: index.php?pg=cart');
+        }
+        break;
+      case 'delcart':
+        if(isset($_GET['ind'])&&($_GET['ind']>=0)) {
+          array_splice($_SESSION['giohang'],$_GET['ind'],1);
+          header('location: index.php?pg=cart');
+        }
         break;
       case 'checkout':
         include "view/checkout.php";
