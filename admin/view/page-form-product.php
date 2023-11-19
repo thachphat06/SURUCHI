@@ -5,7 +5,7 @@
                 <div class="content-header">
                     <h2 class="content-title">Thêm sản phẩm mới</h2>
                     <div>
-                        <button class="btn btn-md rounded font-sm hover-up">Lưu</button>
+                        <button type="submit" class="btn btn-md rounded font-sm hover-up">Lưu</button>
                     </div>
                 </div>
             </div>
