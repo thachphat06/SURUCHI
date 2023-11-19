@@ -1,3 +1,23 @@
+<?php
+    $html_dmuc='';
+    foreach ($dmtintuc as $dmblog) {
+        extract($dmblog);
+        $link='index.php?pg=blog&idloai='.$id;
+        $html_dmuc.='<li class="widget__categories--menu__list">
+                        <a href="'.$link.'">
+                            <label class="widget__categories--menu__label d-flex align-items-center">
+                                <img class="widget__categories--menu__img" src="./view/assets/img/product/'.$img.'" alt="categories-img">
+                                <span class="widget__categories--menu__text">'.$name.'</span>
+                            </label>
+                        </a>
+                    </li>';
+    }
+    if($titlepage!="") $title=$titlepage;
+    else $title="Tin tức";
+    
+    $html_dsblog=showblog($dsblog);
+?>
+
 <main class="main__content_wrapper">
         
         <!-- Start breadcrumb section -->
@@ -6,7 +26,7 @@
                 <div class="row row-cols-1">
                     <div class="col">
                         <div class="breadcrumb__content text-center">
-                            <h1 class="breadcrumb__content--title text-white mb-25">Tin tức</h1>
+                            <h1 class="breadcrumb__content--title text-white mb-25"><?=$title;?></h1>
                             <ul class="breadcrumb__content--menu d-flex justify-content-center">
                                 <li class="breadcrumb__content--menu__items"><a class="text-white" href="index.html">Trang chủ</a></li>
                                 <li class="breadcrumb__content--menu__items"><span class="text-white">Tin tức</span></li>
@@ -38,24 +58,7 @@
                             <div class="single__widget widget__bg">
                                 <h2 class="widget__title h3">Danh mục</h2>
                                 <ul class="widget__categories--menu">
-                                    <li class="widget__categories--menu__list">
-                                        <label class="widget__categories--menu__label d-flex align-items-center">
-                                            <img class="widget__categories--menu__img" src="./view/assets/img/product/small-product1.png" alt="categories-img">
-                                            <span class="widget__categories--menu__text">Áo kiểu</span>
-                                        </label>
-                                    </li>
-                                    <li class="widget__categories--menu__list">
-                                        <label class="widget__categories--menu__label d-flex align-items-center">
-                                            <img class="widget__categories--menu__img" src="./view/assets/img/product/small-product2.png" alt="categories-img">
-                                            <span class="widget__categories--menu__text">Áo thun</span>
-                                        </label>
-                                    </li>
-                                    <li class="widget__categories--menu__list">
-                                        <label class="widget__categories--menu__label d-flex align-items-center">
-                                            <img class="widget__categories--menu__img" src="./view/assets/img/product/small-product3.png" alt="categories-img">
-                                            <span class="widget__categories--menu__text">Áo khoác</span>
-                                        </label>
-                                    </li>
+                                    <?=$html_dmuc;?>
                                 </ul>
                             </div>
                         </div>
@@ -63,78 +66,7 @@
                     <div class="col-xxl-9 col-xl-8 col-lg-8">
                         <div class="blog__wrapper blog__wrapper--sidebar">
                             <div class="row row-cols-xl-3 row-cols-lg-2 row-cols-md-2 row-cols-sm-2 row-cols-sm-u-2 row-cols-1 mb--n30">
-                                <div class="col mb-30">
-                                    <div class="blog__items">
-                                        <div class="blog__thumbnail">
-                                            <a class="blog__thumbnail--link" href="index.php?pg=blog-detail"><img class="blog__thumbnail--img" src="./view/assets/img/blog/blog1.png" alt="blog-img"></a>
-                                        </div>
-                                        <div class="blog__content">
-                                            <span class="blog__content--meta">Ngày 03 tháng 2 năm 2023</span>
-                                            <h3 class="blog__content--title"><a href="index.php?pg=blog-detail">Bức tranh thời trang mới: Những xu hướng áo hot nhất mùa này!</a></h3>
-                                            <a class="blog__content--btn primary__btn" href="index.php?pg=blog-detail">Đọc thêm </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col mb-30">
-                                    <div class="blog__items">
-                                        <div class="blog__thumbnail">
-                                            <a class="blog__thumbnail--link" href="index.php?pg=blog-detail"><img class="blog__thumbnail--img" src="./view/assets/img/blog/blog2.png" alt="blog-img"></a>
-                                        </div>
-                                        <div class="blog__content">
-                                            <span class="blog__content--meta">Ngày 03 tháng 2 năm 2023</span>
-                                            <h3 class="blog__content--title"><a href="index.php?pg=blog-detail">Khám phá bộ sưu tập áo độc đáo, phong cách mới từ thương hiệu nổi tiếng </a></h3>
-                                            <a class="blog__content--btn primary__btn" href="index.php?pg=blog-detail">Đọc thêm </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col mb-30">
-                                    <div class="blog__items">
-                                        <div class="blog__thumbnail">
-                                            <a class="blog__thumbnail--link" href="index.php?pg=blog-detail"><img class="blog__thumbnail--img" src="./view/assets/img/blog/blog3.png" alt="blog-img"></a>
-                                        </div>
-                                        <div class="blog__content">
-                                            <span class="blog__content--meta">Ngày 03 tháng 2 năm 2023</span>
-                                            <h3 class="blog__content--title"><a href="index.php?pg=blog-detail">Chọn lựa thông minh: Áo thời trang phản ánh cá tính riêng của bạn</a></h3>
-                                            <a class="blog__content--btn primary__btn" href="index.php?pg=blog-detail">Đọc thêm </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col mb-30">
-                                    <div class="blog__items">
-                                        <div class="blog__thumbnail">
-                                            <a class="blog__thumbnail--link" href="index.php?pg=blog-detail"><img class="blog__thumbnail--img" src="./view/assets/img/blog/blog4.png" alt="blog-img"></a>
-                                        </div>
-                                        <div class="blog__content">
-                                            <span class="blog__content--meta">Ngày 03 tháng 2 năm 2023</span>
-                                            <h3 class="blog__content--title"><a href="index.php?pg=blog-detail">Ưu đãi hấp dẫn: Mua áo và nhận ngay những quà tặng thú vị!</a></h3>
-                                            <a class="blog__content--btn primary__btn" href="index.php?pg=blog-detail">Đọc thêm </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col mb-30">
-                                    <div class="blog__items">
-                                        <div class="blog__thumbnail">
-                                            <a class="blog__thumbnail--link" href="index.php?pg=blog-detail"><img class="blog__thumbnail--img" src="./view/assets/img/blog/blog1.png" alt="blog-img"></a>
-                                        </div>
-                                        <div class="blog__content">
-                                            <span class="blog__content--meta">Ngày 03 tháng 2 năm 2023</span>
-                                            <h3 class="blog__content--title"><a href="index.php?pg=blog-detail">Tinh tế và Sang trọng: Áo công sở cho phụ nữ hiện đại</a></h3>
-                                            <a class="blog__content--btn primary__btn" href="index.php?pg=blog-detail">Đọc thêm </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col mb-30">
-                                    <div class="blog__items">
-                                        <div class="blog__thumbnail">
-                                            <a class="blog__thumbnail--link" href="index.php?pg=blog-detail"><img class="blog__thumbnail--img" src="./view/assets/img/blog/blog2.png" alt="blog-img"></a>
-                                        </div>
-                                        <div class="blog__content">
-                                            <span class="blog__content--meta">Ngày 03 tháng 2 năm 2023</span>
-                                            <h3 class="blog__content--title"><a href="index.php?pg=blog-detail">Chinh phục mọi sở thích: Bộ sưu tập áo đa dạng từ casual đến sporty</a></h3>
-                                            <a class="blog__content--btn primary__btn" href="index.php?pg=blog-detail">Đọc thêm </a>
-                                        </div>
-                                    </div>
-                                </div>
+                                <?=$html_dsblog;?>
                             </div>
                             <div class="pagination__area bg__gray--color">
                                 <nav class="pagination justify-content-center">

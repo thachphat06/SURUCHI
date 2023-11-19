@@ -191,6 +191,8 @@
     }
 
     $html_best2=showsp_slide($dssp_best);
+
+    $html_blog=showblog_slide($dsblog);
 ?>
 <main class="main__content_wrapper">
     <!-- Start slider section -->
@@ -731,67 +733,7 @@
             </div>
             <div class="blog__section--inner blog__swiper--activation swiper">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="blog__items">
-                            <div class="blog__thumbnail">
-                                <a class="blog__thumbnail--link" href="blog-details.html"><img class="blog__thumbnail--img" src="./view/assets/img/blog/blog1.png" alt="blog-img"></a>
-                            </div>
-                            <div class="blog__content">
-                                <span class="blog__content--meta">Ngày 03 tháng 2 năm 2023</span>
-                                <h3 class="blog__content--title"><a href="blog-details.html">Bức tranh thời trang mới: Những xu hướng áo hot nhất mùa này!</a></h3>
-                                <a class="blog__content--btn primary__btn" href="blog-details.html">Đọc thêm </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="blog__items">
-                            <div class="blog__thumbnail">
-                                <a class="blog__thumbnail--link" href="blog-details.html"><img class="blog__thumbnail--img" src="./view/assets/img/blog/blog2.png" alt="blog-img"></a>
-                            </div>
-                            <div class="blog__content">
-                                <span class="blog__content--meta">Ngày 03 tháng 2 năm 2023</span>
-                                <h3 class="blog__content--title"><a href="blog-details.html">Khám phá bộ sưu tập áo độc đáo, phong cách mới từ thương hiệu nổi tiếng</a></h3>
-                                <a class="blog__content--btn primary__btn" href="blog-details.html">Đọc thêm </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="blog__items">
-                            <div class="blog__thumbnail">
-                                <a class="blog__thumbnail--link" href="blog-details.html"><img class="blog__thumbnail--img" src="./view/assets/img/blog/blog3.png" alt="blog-img"></a>
-                            </div>
-                            <div class="blog__content">
-                                <span class="blog__content--meta">Ngày 03 tháng 2 năm 2023</span>
-                                <h3 class="blog__content--title"><a href="blog-details.html">Chọn lựa thông minh: Áo thời trang phản ánh cá tính riêng của bạn</a></h3>
-                                <a class="blog__content--btn primary__btn" href="blog-details.html">Đọc thêm </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="blog__items">
-                            <div class="blog__thumbnail">
-                                <a class="blog__thumbnail--link" href="blog-details.html"><img class="blog__thumbnail--img" src="./view/assets/img/blog/blog4.png" alt="blog-img"></a>
-                            </div>
-                            <div class="blog__content">
-                                <span class="blog__content--meta">Ngày 03 tháng 2 năm 2023</span>
-                                <h3 class="blog__content--title"><a href="blog-details.html">Ưu đãi hấp dẫn: Mua áo và nhận ngay những quà tặng thú vị!
-                                    </a></h3>
-                                <a class="blog__content--btn primary__btn" href="blog-details.html">Đọc thêm </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="blog__items">
-                            <div class="blog__thumbnail">
-                                <a class="blog__thumbnail--link" href="blog-details.html"><img class="blog__thumbnail--img" src="./view/assets/img/blog/blog2.png" alt="blog-img"></a>
-                            </div>
-                            <div class="blog__content">
-                                <span class="blog__content--meta">Ngày 03 tháng 2 năm 2023</span>
-                                <h3 class="blog__content--title"><a href="blog-details.html">Bức tranh thời trang mới: Những xu hướng áo hot nhất mùa này!</a></h3>
-                                <a class="blog__content--btn primary__btn" href="blog-details.html">Đọc thêm </a>
-                            </div>
-                        </div>
-                    </div>
+                    <?=$html_blog;?>
                 </div>
                 <div class="swiper__nav--btn swiper-button-next"></div>
                 <div class="swiper__nav--btn swiper-button-prev"></div>

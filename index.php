@@ -7,6 +7,8 @@
   include "model/global.php";
   include "model/sanpham.php";
   include "model/danhmuc.php";
+  include "model/dmuc-tintuc.php";
+  include "model/tintuc.php";
   include "model/user.php";
 
   include "view/header.php";
@@ -16,6 +18,7 @@
     $dssp_hot=get_hot(10);
     $dssp_best=get_best(10);
     $dssp_best2=get_best(10);
+    $dsblog=get_blog(6);
     include "view/home.php";
   } else {
     switch ($_GET['pg']) {
@@ -171,11 +174,35 @@
         include "view/checkout-4.php";
         break;
       case 'blog':
+        $dmtintuc=dmuc_all();
+        $kyw="";
+        $titlepage="";
+
+        if(!isset($_GET['idloai'])){
+          $idloai=0;
+        }else{
+            $idloai=$_GET['idloai'];
+            $titlepage=get_name_dmuc($idloai);
+        } 
+
+        if (isset($_POST["search"])) {
+          $kyw=$_POST["kyw"];
+          $titlepage="Kết quả tìm kiếm với từ khóa: ".$kyw;
+        }
+        $dsblog=get_dsblog($kyw, $idloai, 16);  
         include "view/blog.php";
         break;
       case 'blog-detail':
-        include "view/blog-details.php";
-        break;
+        if(isset($_GET['idblog'])&&($_GET["idblog"]>0)) {
+          $id=$_GET['idblog'];
+          $idloai=get_iddmuc($id);
+          $blogchitiet=get_blog_by_id($id);
+          $bloglienquan=get_blog_lienquan($idloai, $id, 2);
+          include "view/blog-details.php";
+        }else {
+            include "view/home.php";
+        }
+          break;
       case 'about':
         include "view/about.php";
         break;
