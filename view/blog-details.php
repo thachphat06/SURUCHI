@@ -1,3 +1,9 @@
+<?php
+    extract($blogchitiet);
+
+    $html_blog_lienquan=showblog_lq($bloglienquan);
+?>
+
 <main class="main__content_wrapper">
         
         <!-- Start breadcrumb section -->
@@ -22,24 +28,24 @@
         <section class="blog__details--section section--padding">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-xxl-9 col-xl-8 col-lg-8">
+                    <div class="col-xxl-12 col-xl-12 col-lg-12">
                         <div class="blog__details--wrapper">
                             <div class="entry__blog">
                                 <div class="blog__post--header mb-30">
-                                    <h2 class="post__header--title mb-15">Bức tranh thời trang mới: Những xu hướng áo hot nhất mùa này!</h2>
-                                    <p class="blog__post--meta">Đăng Bởi : thachphat / Ngày : 03/02/2023 <a class="blog__post--meta__link" href="blog-details.html"></a></p>                                     
+                                    <h2 class="post__header--title mb-15"><?=$title?></h2>
+                                    <p class="blog__post--meta">Đăng Bởi : <?=$author?> / Ngày : <?=$date?> <a class="blog__post--meta__link" href="blog-details.html"></a></p>                                     
                                 </div>
                                 <div class="blog__thumbnail mb-30">
-                                    <img class="blog__thumbnail--img border-radius-10" src="./view/assets/img/blog/blog-page-big1.png" alt="blog-img">
+                                    <img class="blog__thumbnail--img border-radius-10" src="./view/assets/img/blog/<?=$img?>" alt="blog-img">
                                 </div>
                                 <div class="blog__details--content">
-                                    <h3 class="blog__details--content__subtitle mb-25">Mùa thu đã gõ cửa với những đường nét thời trang mới, và chúng tôi đã tổng hợp những xu hướng áo đang làm mưa làm gió trong thế giới fashion.</h3>
-                                    <p class="blog__details--content__desc mb-20">Mùa thu này, áo sẽ trở nên tươi tắn với những gam màu sáng, nổi bật như đỏ rực, vàng tươi, và xanh neon. Những tông màu này không chỉ làm tôn lên vẻ ngoại hình mà còn giúp tạo nên sự sôi động, năng động cho bức tranh thời trang của bạn.</p>
-                                    <p class="blog__details--content__desc mb-30"> Xu hướng cắt may mới lạ và độc đáo đang là điểm nhấn của mùa này. Áo với những chi tiết cắt laser, nơ, và các đường may sáng tạo sẽ giúp bạn nổi bật giữa đám đông. Chất liệu như lụa, ren, và vải thoáng khí cũng được ưa chuộng, tạo nên sự thoải mái và quý phái.</p>
+                                    <!-- <h3 class="blog__details--content__subtitle mb-25">Mùa thu đã gõ cửa với những đường nét thời trang mới, và chúng tôi đã tổng hợp những xu hướng áo đang làm mưa làm gió trong thế giới fashion.</h3> -->
+                                    <p class="blog__details--content__desc mb-20"><?=$content?></p>
+                                    <!-- <p class="blog__details--content__desc mb-30"> Xu hướng cắt may mới lạ và độc đáo đang là điểm nhấn của mùa này. Áo với những chi tiết cắt laser, nơ, và các đường may sáng tạo sẽ giúp bạn nổi bật giữa đám đông. Chất liệu như lụa, ren, và vải thoáng khí cũng được ưa chuộng, tạo nên sự thoải mái và quý phái.</p>
                                     <blockquote class="blockquote__content bg__gray--color mb-30">
                                         <p class="blockquote__content--desc">Họa tiết họa tiết ngựa ngựa (animal print) không bao giờ lỗi mốt, và mùa này càng chứng minh điều đó. Áo với họa tiết da báo, da rắn, hay da zebra sẽ làm tăng thêm sự gợi cảm và cá tính cho phong cách của bạn.</p>
                                     </blockquote>
-                                    <p class="blog__details--content__desc">Áo phông kết hợp (layering) là một xu hướng không thể bỏ qua trong thời trang năm nay. Kết hợp áo len mỏng, áo polo, hoặc áo sơ mi dưới áo khoác bomber hay áo khoác denim sẽ tạo nên lớp lớp texture thú vị, giúp bạn trông ấn tượng và thời trang.</p>
+                                    <p class="blog__details--content__desc">Áo phông kết hợp (layering) là một xu hướng không thể bỏ qua trong thời trang năm nay. Kết hợp áo len mỏng, áo polo, hoặc áo sơ mi dưới áo khoác bomber hay áo khoác denim sẽ tạo nên lớp lớp texture thú vị, giúp bạn trông ấn tượng và thời trang.</p> -->
                                 </div>
                             </div>
                             <div class="blog__tags--social__media d-flex align-items-center justify-content-between">
@@ -95,29 +101,7 @@
                                     <h2 class="section__heading--maintitle">Những bài viết liên quan</h2>
                                 </div>
                                 <div class="row row-cols-md-2 row-cols-sm-2 row-cols-sm-u-2 row-cols-1 mb--n28">
-                                    <div class="col mb-28">
-                                        <div class="related__post--items">
-                                            <div class="related__post--thumb border-radius-10 mb-15">
-                                                <a class="display-block" href="blog-details.html"><img class="related__post--img display-block border-radius-10" src="./view/assets/img/blog/related-post1.png" alt="related-post"></a>
-                                            </div>
-                                            <div class="related__post--text">
-                                                <h3 class="related__post--title"><a class="related__post--title__link" href="blog-details.html">Khám phá bộ sưu tập áo độc đáo, phong cách mới từ thương hiệu nổi tiếng</a></h3>
-                                                <span class="related__post--deta">Ngày 03 tháng 2 năm 2023</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col mb-28">
-                                        <div class="related__post--items">
-                                            <div class="related__post--thumb border-radius-10 mb-15">
-                                                <a class="display-block" href="blog-details.html"><img class="related__post--img display-block border-radius-10" src="./view/assets/img/blog/related-post2.png" alt="related-post"></a>
-                                            </div>
-                                            <div class="related__post--text">
-                                                <h3 class="related__post--title"><a class="related__post--title__link" href="blog-details.html">Chọn lựa thông minh: Áo thời trang phản ánh cá tính riêng của bạn</a></h3>
-                                                <span class="related__post--deta">Ngày 03 tháng 2 năm 2023</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
+                                    <?=$html_blog_lienquan;?>
                                 </div>
                             </div>
                             <div class="comment__box">
@@ -201,7 +185,7 @@
                             </div> 
                         </div>
                     </div>
-                    <div class="col-xxl-3 col-xl-4 col-lg-4">
+                    <!-- <div class="col-xxl-3 col-xl-4 col-lg-4">
                         <div class="blog__sidebar--widget left widget__area">
                             <div class="single__widget widget__search widget__bg">
                                 <h2 class="widget__title h3">Tìm kiếm</h2>
@@ -304,7 +288,7 @@
                                 </ul>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </section>
