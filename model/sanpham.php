@@ -91,7 +91,7 @@ function showsp($dssp){
                             </div>
                         </div>
                         <div class="product__items--content">
-                            <h3 class="product__items--content__title h4"><a href="product-details.html">'.$name.'</a></h3>
+                            <h3 class="product__items--content__title h4"><a href="'.$link.'">'.$name.'</a></h3>
                             <div class="product__items--price">
                                 <span class="current__price">'.$gia.'</span>
                                 <span class="price__divided"></span>
@@ -193,7 +193,7 @@ function showsp_slide($dssp){
                             </div>
                         </div>
                         <div class="product__items--content">
-                            <h3 class="product__items--content__title h4"><a href="product-details.html">'.$name.'</a></h3>
+                            <h3 class="product__items--content__title h4"><a href="'.$link.'">'.$name.'</a></h3>
                             <div class="product__items--price">
                                 <span class="current__price">'.$gia.'</span>
                                 <span class="price__divided"></span>

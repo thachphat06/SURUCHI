@@ -44,7 +44,7 @@
             $linkdel="index.php?pg=delcart-box&ind=".$i;
             $html_cart.='<div class="minicart__product--items d-flex">
                             <div class="minicart__thumb">
-                                <a href="product-details.html"><img src="./view/assets/img/product/'.$img.'" alt="prduct-img"></a>
+                                <img src="./view/assets/img/product/'.$img.'" alt="prduct-img">
                             </div>
                             <div class="minicart__text">
                                 <h3 class="minicart__subtitle h4">'.$name.'</h3>
@@ -56,7 +56,7 @@
                                     <div class="quantity__box minicart__quantity">
                                         <button type="button"  class="quantity__value decrease" aria-label="quantity value" value="Decrease Value">-</button>
                                         <label>
-                                            <input type="number" class="quantity__number" value="'.$amount.'" data-counter />
+                                            <input type="number" class="quantity__number" min="1" value="'.$amount.'" data-counter />
                                         </label>
                                         <button type="button" class="quantity__value increase"  value="Increase Value">+</button>
                                     </div>
@@ -443,7 +443,7 @@
             </div>
             <div class="minicart__conditions text-center">
                 <input class="minicart__conditions--input" id="accept" type="checkbox">
-                <label class="minicart__conditions--label" for="accept">Tôi đồng ý với <a class="minicart__conditions--link" href="privacy-policy.html">Chính sách và quyền riêng tư</a></label>
+                <label class="minicart__conditions--label" for="accept">Tôi đồng ý với <a class="minicart__conditions--link" href="index.php?pg=privacy-policy">Chính sách và quyền riêng tư</a></label>
             </div>
             <div class="minicart__button d-flex justify-content-center">
                 <a class="primary__btn minicart__button--link" href="index.php?pg=cart">Xem giỏ hàng</a>

@@ -14,7 +14,7 @@
                         <div class="breadcrumb__content text-center">
                             <h1 class="breadcrumb__content--title text-white mb-25">Chi tiết sản phẩm</h1>
                             <ul class="breadcrumb__content--menu d-flex justify-content-center">
-                                <li class="breadcrumb__content--menu__items"><a class="text-white" href="index.html">Trang chủ</a></li>
+                                <li class="breadcrumb__content--menu__items"><a class="text-white" href="index.php">Trang chủ</a></li>
                                 <li class="breadcrumb__content--menu__items"><span class="text-white">Chi tiết sản phẩm</span></li>
                             </ul>
                         </div>
@@ -181,8 +181,8 @@
                                 <span class="product__items--rating__count--number">(24)</span>
                             </div>
                             <p class="product__details--info__desc mb-15"><?=$describe1?></p>
-                            <div class="product__variant">
-                                <form action="index.php?pg=addcart" method="post" class="product__variant--list quantity d-flex align-items-center mb-20"> 
+                            <form action="index.php?pg=addcart" method="post" class="product__variant">
+                                <div class="product__variant--list quantity d-flex align-items-center mb-20"> 
                                     <input type="hidden" name="id" value="<?=$id?>">
                                     <input type="hidden" name="name" value="<?=$name?>">
                                     <input type="hidden" name="img" value="<?=$img?>">
@@ -190,21 +190,21 @@
                                     <div class="quantity__box">
                                         <button type="button" class="quantity__value quickview__value--quantity decrease" aria-label="quantity value" value="Decrease Value">-</button>
                                         <label>
-                                            <input type="number" class="quantity__number quickview__value--number" name="amount" value="1" data-counter/>
+                                            <input type="number" class="quantity__number quickview__value--number" name="amount" min="1" value="1" data-counter/>
                                         </label>
                                         <button type="button" class="quantity__value quickview__value--quantity increase" aria-label="quantity value" value="Increase Value">+</button>
                                     </div>
                                     <button class="quickview__cart--btn primary__btn" type="submit" name="btnaddcart">Thêm vào giỏ hàng</button>  
-                                </form>
+                                </div>
                                 <div class="product__variant--list mb-15">
-                                    <button class="variant__buy--now__btn primary__btn" type="submit">Mua ngay</button>
+                                    <button class="variant__buy--now__btn primary__btn" type="submit" name="btnaddcart">Mua ngay</button>
                                 </div>
                                 <div class="product__details--info__meta">
                                     <p class="product__details--info__meta--list">
                                         <strong>Mã vạch:</strong>  <span><?=$id?></span>
                                     </p>
                                 </div>
-                            </div>
+                            </form>
                             <div class="quickview__social d-flex align-items-center mb-15">
                                 <label class="quickview__social--title">Chia sẻ xã hội:</label>
                                 <ul class="quickview__social--wrapper mt-0 d-flex">
