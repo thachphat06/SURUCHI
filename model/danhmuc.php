@@ -6,9 +6,14 @@ require_once 'pdo.php';
 //  * @param String $ten_danhmuc là tên loại
 //  * @throws PDOException lỗi thêm mới
 //  */
-// function danhmuc_insert($ten_danhmuc){
-//     $sql = "INSERT INTO danhmuc(ten_danhmuc) VALUES(?)";
-//     pdo_execute($sql, $ten_danhmuc);
+function danhmuc_insert($name,$img){
+    $sql = "INSERT INTO category(name,img) VALUES(?,?)";
+    pdo_execute($sql, $name, $img);
+}
+// function danhmuc_delete($id) {
+//     // Thực hiện việc xóa danh mục từ bảng category
+//     $sql = "DELETE FROM category WHERE id = ?".$id;
+//     pdo_execute($sql, [$id]);
 // }
 // /**
 //  * Cập nhật tên loại
@@ -25,17 +30,17 @@ require_once 'pdo.php';
 //  * @param mix $ma_danhmuc là mã loại hoặc mảng mã loại
 //  * @throws PDOException lỗi xóa
 //  */
-// function danhmuc_delete($ma_danhmuc){
-//     $sql = "DELETE FROM danhmuc WHERE ma_danhmuc=?";
-//     if(is_array($ma_danhmuc)){
-//         foreach ($ma_danhmuc as $ma) {
-//             pdo_execute($sql, $ma);
-//         }
-//     }
-//     else{
-//         pdo_execute($sql, $ma_danhmuc);
-//     }
-// }
+function danhmuc_delete($id){
+    $sql = "DELETE FROM category WHERE id=?";
+    // if(is_array($ma_danhmuc)){
+    //     foreach ($ma_danhmuc as $ma) {
+    //         pdo_execute($sql, $ma);
+    //     }
+    // }
+    // else{
+        pdo_execute($sql, $id);
+    // }
+}
 /**
  * Truy vấn tất cả các loại
  * @return array mảng loại truy vấn được
@@ -51,6 +56,7 @@ function get_name_dm($id) {
     $kq = pdo_query_one($sql);
     return $kq["name"];
 }
+
 // /**
 //  * Truy vấn một loại theo mã
 //  * @param int $ma_danhmuc là mã loại cần truy vấn

@@ -6,6 +6,10 @@
   } else{
       header('location: login.php');
   }
+  include "../model/danhmuc.php";
+  include "../model/global.php";
+
+
 
   include "view/header.php";
   if(!isset($_GET['pg'])){
@@ -19,8 +23,27 @@
         include "view/page-products-list.php";
         break;
       case 'categories':
+        $cataloglist = danhmuc_all();  
+        if (isset($_POST['btnadd'])) {
+            $name = $_POST['name'];
+            $img = $_FILES["img"]["name"];
+            danhmuc_insert($name,$img);
+            $tb = 'Tạo thành công';
+            header("Location: index.php");
+        }   
         include "view/page-categories.php";
         break;
+
+      case 'deletedm':
+        if(isset($_GET['id'])&&($_GET['id']>0)){
+          $id=$_GET['id'];
+          danhmuc_delete($id);
+        }
+        $cataloglist=danhmuc_all();
+        include "view/page-categories.php";
+      break;
+        include "view/updatedmform.php";
+      break;
       case 'orders':
         include "view/page-orders.php";
         break;
