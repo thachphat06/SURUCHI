@@ -1,6 +1,9 @@
 <?php
   session_start();
   ob_start();
+  if(!isset($_SESSION["giohang"])) {
+    $_SESSION["giohang"]=[];
+  }
   
   // nhúng kết nối csdl
   include "model/pdo.php";
@@ -135,6 +138,7 @@
       }
         break;
       case 'cart':
+        $dssp_new=get_new(10);
         if(isset($_GET['del'])&&($_GET['del']==1)) {
           unset($_SESSION["giohang"]);
           header('location: index.php?pg=cart');
@@ -143,22 +147,47 @@
         }
         break;
       case 'addcart':
-        if(isset($_POST["btnaddcart"])&&($_POST['btnaddcart'])) {
-          $id=$_POST['id'];
-          $name=$_POST["name"];
-          $img=$_POST["img"];
-          $amount=$_POST["amount"]; 
-          $price=$_POST["price"];
-          $thanhtien=(int)$amount * (int)$price;
-          $sp=["id"=>$id, "name"=>$name, "img"=>$img, "price"=>$price, "amount"=>$amount, "thanhtien"=>$thanhtien];
-          $_SESSION['giohang'][]=$sp;
+        if (isset($_POST["btnaddcart"])) {
+          $id = $_POST['id'];
+          $name = $_POST["name"];
+          $img = $_POST["img"];
+          $amount = $_POST["amount"];
+          $price = $_POST["price"];
+          $thanhtien = (int)$amount * (int)$price;
+          $sp = array("id" => $id, "name" => $name, "img" => $img, "price" => $price, "amount" => $amount, "thanhtien" => $thanhtien);
+
+          // Kiểm tra xem sản phẩm đã có trong giỏ hàng chưa
+          $productExists = false;
+          foreach ($_SESSION['giohang'] as &$item) {
+            // Nếu sản phẩm đã tồn tại, tăng số lượng
+              if ($item['id'] == $id) {
+                  $item['amount'] += $amount;
+                  $sp['thanhtien'] = (int)$sp['amount'] * (int)$price;
+                  $productExists = true;
+                  break;
+              }
+          }
+
+          if (!$productExists) {
+              // Nếu sản phẩm chưa có trong giỏ hàng, thêm mới
+              array_push($_SESSION['giohang'], $sp);
+          }
+          echo '<script>updateCartItemCount();</script>';
           header('location: index.php?pg=cart');
         }
+        // Trang PHP nơi bạn muốn thực hiện thêm sản phẩm vào giỏ hàng
+        include_once("./controller/AddToCart.php");
         break;
       case 'delcart':
         if(isset($_GET['ind'])&&($_GET['ind']>=0)) {
           array_splice($_SESSION['giohang'],$_GET['ind'],1);
           header('location: index.php?pg=cart');
+        }
+        break;
+      case 'delcart-box':
+        if(isset($_GET['ind'])&&($_GET['ind']>=0)) {
+          array_splice($_SESSION['giohang'],$_GET['ind'],1);
+          header('location: index.php');
         }
         break;
       case 'checkout':

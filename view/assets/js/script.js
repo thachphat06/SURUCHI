@@ -693,6 +693,7 @@ if (quantityWrapper) {
   });
 }
 
+
 // Modal JS
 const openEls = document.querySelectorAll("[data-open]");
 const closeEls = document.querySelectorAll("[data-close]");
@@ -869,3 +870,57 @@ function showPreview(input) {
   image.src = blobUrl;
 }
 
+
+// Thêm sản phẩm vào giỏ hàng và cập nhật số lượng
+function updateQuantity(cartItem, change) {
+  var currentAmount = parseInt(cartItem.find('.amount').val());
+  var newAmount = currentAmount + change;
+
+  if (newAmount < 1) {
+      newAmount = 1;
+  }
+
+  cartItem.find('.amount').val(newAmount);
+  updateTotalForProduct(cartItem);
+  updateCartTotal();
+}
+
+function updateTotalForProduct(cartItem) {
+  var price = parseFloat(cartItem.find('.price').text());
+  var amount = parseInt(cartItem.find('.amount').val());
+  var total = price * amount;
+  cartItem.find('.total').text(total.toFixed(2));
+}
+
+function updateCartTotal() {
+  var totalAmount = 0;
+
+  $('.cart-item').each(function () {
+      var total = parseFloat($(this).find('.total').text());
+      totalAmount += total;
+  });
+
+  $('#totalAmount').text(totalAmount.toFixed(2));
+}
+
+$(document).ready(function () {
+  $('btnaddcart').click(function () {
+      var id = $(this).data('product-id');
+      var amount = $(this).data('product-amount');
+      var price = $(this).data('product-price');
+
+      // Gọi Ajax để thêm vào giỏ hàng
+      $.ajax({
+          type: 'POST',
+          url: 'AddToCart.php',
+          data: {id: id, amount: amount, price: price},
+          success: function (response) {
+              // Xử lý phản hồi từ server (nếu cần)
+              console.log(response);
+          },
+          error: function (error) {
+              console.log(error);
+          }
+      });
+  });
+});

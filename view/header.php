@@ -32,6 +32,43 @@
                                 <span class="visually-hidden">Đăng Nhập</span>
                             </a>';
     }
+
+    $html_cart='';
+    if(isset($_SESSION['giohang'])&&is_array($_SESSION['giohang'])) {
+        $i=0;
+        $sum=0;
+        foreach ($_SESSION['giohang'] as $item) {
+            extract($item);
+            $tt= (int)$price* (int)$amount;
+            (int)$sum += (int)$price* (int)$amount;
+            $linkdel="index.php?pg=delcart-box&ind=".$i;
+            $html_cart.='<div class="minicart__product--items d-flex">
+                            <div class="minicart__thumb">
+                                <a href="product-details.html"><img src="./view/assets/img/product/'.$img.'" alt="prduct-img"></a>
+                            </div>
+                            <div class="minicart__text">
+                                <h3 class="minicart__subtitle h4">'.$name.'</h3>
+                                <div class="minicart__price">
+                                    <span class="current__price">'.number_format($price,0,",",".").'VNĐ</span>
+                                    <span class="old__price">'.number_format($price,0,",",".").'VNĐ</span>
+                                </div>
+                                <div class="minicart__text--footer d-flex align-items-center" data-product-id="'.$id.'" data-product-price="'.$price.'">
+                                    <div class="quantity__box minicart__quantity">
+                                        <button type="button"  class="quantity__value decrease" aria-label="quantity value" value="Decrease Value">-</button>
+                                        <label>
+                                            <input type="number" class="quantity__number" value="'.$amount.'" data-counter />
+                                        </label>
+                                        <button type="button" class="quantity__value increase"  value="Increase Value">+</button>
+                                    </div>
+                                    <a href="'.$linkdel.'">
+                                        <button class="minicart__product--remove">Xóa</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>';
+                        $i++; 
+        }
+    }
 ?>
 
 <!doctype html>
@@ -54,6 +91,8 @@
 
   <!-- Custom Style CSS -->
   <link rel="stylesheet" href="./view/assets/css/style.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 </head>
 
@@ -190,7 +229,7 @@
                                         </g>
                                     </svg>
                                     <span class="header__account--btn__text">Giỏ Hàng</span>   
-                                    <span class="items__count">02</span> 
+                                    <span class="items__count" id="cart-item-count"><?php echo count($_SESSION['giohang']);?></span> 
                                 </a>
                             </li>
                         </ul>
@@ -225,10 +264,6 @@
                                 </a>
                             </li>
                             <li class="header__account--items header__account2--items">
-                                <!-- <a class="header__account--btn" href="index.php?pg=signin-signup">
-                                    <svg xmlns="http://www.w3.org/2000/svg"  width="26.51" height="23.443" viewBox="0 0 512 512"><path d="M344 144c-3.92 52.87-44 96-88 96s-84.15-43.12-88-96c-4-55 35-96 88-96s92 42 88 96z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><path d="M256 304c-87 0-175.3 48-191.64 138.6C62.39 453.52 68.57 464 80 464h352c11.44 0 17.62-10.48 15.65-21.4C431.3 352 343 304 256 304z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/></svg>
-                                    <span class="visually-hidden">Đăng Nhập</span>
-                                </a> -->
                                 <?$html_account_scroll;?>
                             </li>
                             <li class="header__account--items header__account2--items">
@@ -242,7 +277,7 @@
                                           </g>
                                         </g>
                                     </svg>
-                                    <span class="items__count style2">02</span> 
+                                    <span class="items__count style2" id="cart-item-count"><?php echo count($_SESSION['giohang']);?></span> 
                                 </a>
                             </li>
                         </ul>
@@ -375,7 +410,7 @@
                             </svg> 
                         </span>
                         <span class="offcanvas__stikcy--toolbar__label">Giỏ hàng</span>
-                        <span class="items__count">3</span> 
+                        <span class="items__count" id="cart-item-count"><?php echo count($_SESSION['giohang']);?></span> 
                     </a>
                 </li>
             </ul>
@@ -394,61 +429,16 @@
                 <!-- <p class="minicart__header--desc">Clothing and fashion products are limited</p> -->
             </div>
             <div class="minicart__product">
-                <div class="minicart__product--items d-flex">
-                    <div class="minicart__thumb">
-                        <a href="product-details.html"><img src="./view/assets/img/product/product1.png" alt="prduct-img"></a>
-                    </div>
-                    <div class="minicart__text">
-                        <h3 class="minicart__subtitle h4"><a href="product-details.html">Váy cotton ngoại cỡ</a></h3>
-                        <span class="color__variant"><b>Màu:</b> Be</span>
-                        <div class="minicart__price">
-                            <span class="current__price">125.000VNĐ</span>
-                            <span class="old__price">140.000VNĐ</span>
-                        </div>
-                        <div class="minicart__text--footer d-flex align-items-center">
-                            <div class="quantity__box minicart__quantity">
-                                <button type="button"  class="quantity__value decrease" aria-label="quantity value" value="Decrease Value">-</button>
-                                <label>
-                                    <input type="number" class="quantity__number" value="1" data-counter />
-                                </label>
-                                <button type="button" class="quantity__value increase"  value="Increase Value">+</button>
-                            </div>
-                            <button class="minicart__product--remove">Xóa</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="minicart__product--items d-flex">
-                    <div class="minicart__thumb">
-                        <a href="product-details.html"><img src="./view/assets/img/product/product2.png" alt="prduct-img"></a>
-                    </div>
-                    <div class="minicart__text">
-                        <h3 class="minicart__subtitle h4"><a href="product-details.html">Áo khoác denim hình hộp</a></h3>
-                        <span class="color__variant"><b>Màu:</b> Xanh lá</span>
-                        <div class="minicart__price">
-                            <span class="current__price">115.000VNĐ</span>
-                            <span class="old__price">130.000VNĐ</span>
-                        </div>
-                        <div class="minicart__text--footer d-flex align-items-center">
-                            <div class="quantity__box minicart__quantity">
-                                <button type="button" class="quantity__value decrease" aria-label="quantity value" value="Decrease Value">-</button>
-                                <label>
-                                    <input type="number" class="quantity__number" value="1" data-counter />
-                                </label>
-                                <button type="button" class="quantity__value increase" aria-label="quantity value" value="Increase Value">+</button>
-                            </div>
-                            <button class="minicart__product--remove">Xóa</button>
-                        </div>
-                    </div>
-                </div>
+                <?=$html_cart;?>
             </div>
             <div class="minicart__amount">
                 <div class="minicart__amount_list d-flex justify-content-between">
                     <span>Tạm Tính:</span>
-                    <span><b>240.000VNĐ</b></span>
+                    <span id="totalAmount"><b><?=number_format($sum,0,",",".")?>VNĐ</b></span>
                 </div>
                 <div class="minicart__amount_list d-flex justify-content-between">
                     <span>Tổng:</span>
-                    <span><b>240.000VNĐ</b></span>
+                    <span id="totalAmount"><b><?=number_format($sum,0,",",".")?>VNĐ</b></span>
                 </div>
             </div>
             <div class="minicart__conditions text-center">
