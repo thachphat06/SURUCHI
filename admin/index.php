@@ -59,7 +59,7 @@
         $categorylist = danhmuc_all();
         include "view/page-form-product.php";
         break;
-      case 'form-update-product':
+      case 'page-update-product':
         if(isset($_GET['id'])&&($_GET['id']>0)){
           $id=$_GET['id'];
           $sp=get_sp_by_id($id);
@@ -133,25 +133,62 @@
         }   
         include "view/page-categories.php";
         break;
-
       case 'deletedm':
         $cataloglist=danhmuc_all();
         if(isset($_GET['id'])&&($_GET['id']>0)){
           $id=$_GET['id'];
-          //xóa hình trên host
           $img=IMG_PATH_ADMIN.get_img_dm($id);
-          if(file_exists($img)){
-            unlink(basename($img));
-            // var_dump(basename($img));
-          } 
-
-          danhmuc_delete($id);
-        }
+          if(is_file($img)){
+            unlink($img);
+          }
+          try {
+            danhmuc_delete($id);
+          } catch(\Throwable $th){
+            //throw $th;
+            echo"<h3 style='color:red; text-align:center' >Danh mục này là khóa ngoại! Không được quyền xóa!</h3>";
+          }
+        } 
+        //trở về trang dm
+        $cataloglist = danhmuc_all();  
         include "view/page-categories.php";
+        break;
       break;
-      case 'updatedmform':
-        $cataloglist=danhmuc_all();
-        include "view/updatedmform.php";
+      case 'updatedm':
+        //kiem tra va lay du lieu
+        if(isset($_POST['updatedm'])){
+          //lấy dữ liệu về
+          $id = $_POST["id"];
+          $name = $_POST["name"];
+
+          $img = $_FILES["img"]['name'];
+          if($img!=""){
+            //upload hình
+            $target_file = IMG_PATH_ADMIN.$img;
+            move_uploaded_file($_FILES["img"]["tmp_name"], $target_file);
+
+            //xóa hình cũ trên host
+            $old_img=IMG_PATH_ADMIN.$_POST['old_img'];
+            if(file_exists($old_img)) unlink($old_img);
+
+          } else {
+            $img="";
+          }
+          //update
+          danhmuc_update($name, $img, $id);
+        }
+
+        //show dm
+        $cataloglist = danhmuc_all();  
+        include "view/page-categories.php";
+        break;
+      case 'page-update-dm':
+        if(isset($_GET['id'])&&($_GET['id']>0)){
+          $id=$_GET['id'];
+          $dm=danhmuc_all();
+        } 
+        //trở về trang dm
+        $cataloglist = danhmuc_all();  
+        include "view/page-update-dm.php";
       break;
       case 'orders':
         include "view/page-orders.php";

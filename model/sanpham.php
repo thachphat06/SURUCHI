@@ -316,7 +316,7 @@ function showsp_admin($dssp){
                             <p>'.$describe1.'</p>
                         </div>
                         <div class="col-lg-1 col-sm-2 col-4 col-action text-end">
-                            <a href="index.php?pg=form-update-product&id='.$id.'" class="btn btn-sm font-sm rounded btn-brand">
+                            <a href="index.php?pg=page-update-product&id='.$id.'" class="btn btn-sm font-sm rounded btn-brand">
                                 <i class="material-icons md-edit"></i>Sửa</a>
                             <a href="index.php?pg=delproduct&id='.$id.'" class="btn btn-sm font-sm btn-light rounded">
                                 <i class="material-icons md-delete_forever"></i>Xóa

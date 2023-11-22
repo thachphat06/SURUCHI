@@ -21,10 +21,15 @@ function danhmuc_insert($name,$img){
 //  * @param String $ten_danhmuc là tên loại mới
 //  * @throws PDOException lỗi cập nhật
 //  */
-// function danhmuc_update($ma_danhmuc, $ten_danhmuc){
-//     $sql = "UPDATE danhmuc SET ten_danhmuc=? WHERE ma_danhmuc=?";
-//     pdo_execute($sql, $ten_danhmuc, $ma_danhmuc);
-// }
+function danhmuc_update($name, $img, $id){
+    if($img!=""){
+        $sql = "UPDATE category SET name=?, img=? WHERE id=?";
+        pdo_execute($sql, $name, $img, $id);
+    } else{
+        $sql = "UPDATE category SET name=? WHERE id=?";
+        pdo_execute($sql, $name, $id);
+    }
+}
 // /**
 //  * Xóa một hoặc nhiều loại
 //  * @param mix $ma_danhmuc là mã loại hoặc mảng mã loại
@@ -58,9 +63,16 @@ function get_name_dm($id) {
 }
 
 function get_img_dm($id) {
-    $sql = "SELECT img FROM category WHERE id=".$id;
-    $kq = pdo_query_one($sql);
-    return $kq["name"];
+    $sql = "SELECT img FROM category WHERE id=?";
+    $getimg = pdo_query_one($sql, $id);
+
+    // Kiểm tra xem có dữ liệu trả về hay không
+    if ($getimg !== false && is_array($getimg)) {
+        return $getimg['img'];
+    } else {
+        // Xử lý trường hợp không có dữ liệu
+        return 'Ảnh không tồn tại'; // Hoặc giá trị mặc định khác tùy vào yêu cầu của bạn
+    }
 }
 
 //ADMIN

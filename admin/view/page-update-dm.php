@@ -22,13 +22,17 @@
                         </tr>';
     }
 
-    $imgpath=IMG_PATH_ADMIN.$img;
-    if(is_file($imgpath)){
-        $img=$imgpath;
-        $old_img=basename($imgpath);    
-    } else {
-        $img='';
-    }
+    if(is_array($dm)&&(count($dm)>0)){
+        extract($dm);
+        $idupdate=$id;
+        $imgpath=IMG_PATH_ADMIN.$img;
+        if(is_file($imgpath)){
+          $img=$imgpath;
+          $old_img=basename($imgpath);
+        }else{
+          $img="";
+        }
+      }
     
 ?>
 
@@ -46,10 +50,10 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-md-3">
-                    <form action="index.php?pg=categories" method="POST" enctype="multipart/form-data">
+                    <form action="index.php?pg=updatedm" method="POST" enctype="multipart/form-data">
                         <div class="mb-4">
                             <label for="product_slug" class="form-label">Tên Danh mục</label>
-                            <input name="name" type="text" placeholder="Nhập tên danh mục" class="form-control" id="product_slug" />
+                            <input name="name" type="text" placeholder="Nhập tên danh mục" class="form-control" id="product_slug" value="<?=($name!="")?$name:"";?>"/>
                         </div>
                         <div class="card mb-4">
                             <div class="card-header">
@@ -57,13 +61,15 @@
                             </div>
                             <div class="card-body">
                                 <div class="input-upload">
-                                    <img src="assets/imgs/theme/upload.svg" alt="">
+                                    <img src="<?=$img?>" alt="">
                                     <input name="img" class="form-control" type="file">
                                 </div>  
                             </div>
                         </div>
                         <div class="d-grid">
-                            <button type="submit" name="btnadd" class="btn btn-primary">Cập nhật</button>
+                            <input type="hidden" name="id" value="<?=$idupdate?>">
+                            <input type="hidden" name="old_img" value="<?=$old_img?>">
+                            <button type="submit" name="updatedm" class="btn btn-primary">Cập nhật</button>
                         </div>
                     </form>
                 </div>

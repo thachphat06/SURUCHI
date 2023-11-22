@@ -3,7 +3,7 @@
     $catalog_html='';
     foreach ($cataloglist as $item) {
         extract($item);
-        $linkedit='<a class="dropdown-item" href="index.php?pg=updatedmform&id='.$id.'">Sửa Danh Mục</a>';
+        $linkedit='<a class="dropdown-item" href="index.php?pg=page-update-dm&id='.$id.'">Sửa Danh Mục</a>';
         $linkdel='<a class="dropdown-item text-danger" href="index.php?pg=deletedm&id='.$id.'">Xóa</a>';
         $catalog_html.='<tr>
                             <td>'.$id.'</td>    
