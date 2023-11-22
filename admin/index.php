@@ -9,8 +9,6 @@
   include "../model/danhmuc.php";
   include "../model/global.php";
 
-
-
   include "view/header.php";
   if(!isset($_GET['pg'])){
     include "view/home.php";
@@ -25,23 +23,39 @@
       case 'categories':
         $cataloglist = danhmuc_all();  
         if (isset($_POST['btnadd'])) {
-            $name = $_POST['name'];
-            $img = $_FILES["img"]["name"];
-            danhmuc_insert($name,$img);
-            $tb = 'Tạo thành công';
-            header("Location: index.php");
+          $name = $_POST['name'];
+          $img=$_FILES["img"]["name"];
+          $target_file = IMG_PATH_ADMIN.basename($img);
+          if($img!=""){
+            //upload hình
+            $target_file = IMG_PATH_ADMIN.$img;
+            move_uploaded_file($_FILES["img"]["tmp_name"], $target_file);
+          } else {
+            $img="";
+          }
+          danhmuc_insert($name, $img);
+          header("location: index.php?pg=categories");
         }   
         include "view/page-categories.php";
         break;
 
       case 'deletedm':
+        $cataloglist=danhmuc_all();
         if(isset($_GET['id'])&&($_GET['id']>0)){
           $id=$_GET['id'];
+          //xóa hình trên host
+          $img=IMG_PATH_ADMIN.get_img_dm($id);
+          if(file_exists($img)){
+            unlink(basename($img));
+            // var_dump(basename($img));
+          } 
+
           danhmuc_delete($id);
         }
-        $cataloglist=danhmuc_all();
         include "view/page-categories.php";
       break;
+      case 'updatedmform':
+        $cataloglist=danhmuc_all();
         include "view/updatedmform.php";
       break;
       case 'orders':

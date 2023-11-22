@@ -1,14 +1,13 @@
 <?php
     // cataloglist
     $catalog_html='';
-
     foreach ($cataloglist as $item) {
         extract($item);
         $linkedit='<a class="dropdown-item" href="index.php?pg=updatedmform&id='.$id.'">Sửa Danh Mục</a>';
         $linkdel='<a class="dropdown-item text-danger" href="index.php?pg=deletedm&id='.$id.'">Xóa</a>';
         $catalog_html.='<tr>
                             <td>'.$id.'</td>    
-                            <td><img  src="../view/assets/img/product/'.$img.'" style="width: 50px; alt="" ></td>
+                            <td><img  src="../uploads/'.$img.'" style="width: 50px; alt="" ></td>
                             <td><b>'.$name.'</b></td>
                             <td class="text-end">
                                 <div class="dropdown">
@@ -18,10 +17,18 @@
                                         '.$linkdel.'
                                     </div>
                                 </div>
-                                
                             </td>
                         </tr>';
     }
+
+    $imgpath=IMG_PATH_ADMIN.$img;
+    if(is_file($imgpath)){
+        $img=$imgpath;
+        $old_img=basename($imgpath);    
+    } else {
+        $img='';
+    }
+    
 ?>
 
 <section class="content-main">
@@ -39,7 +46,6 @@
             <div class="row">
                 <div class="col-md-3">
                     <form action="index.php?pg=categories" method="POST" enctype="multipart/form-data">
-                        
                         <div class="mb-4">
                             <label for="product_slug" class="form-label">Tên Danh mục</label>
                             <input name="name" type="text" placeholder="Nhập tên danh mục" class="form-control" id="product_slug" />
@@ -52,18 +58,12 @@
                                 <div class="input-upload">
                                     <img src="assets/imgs/theme/upload.svg" alt="">
                                     <input name="img" class="form-control" type="file">
-                                </div>
+                                </div>  
                             </div>
                         </div>
-                        
                         <div class="d-grid">
                             <button type="submit" name="btnadd" class="btn btn-primary">Tạo danh mục</button>
                         </div>
-                        <!-- <?php
-                            if(isset($tb)&&($tb!="")){
-                                echo $tb;
-                            }
-                        ?> -->
                     </form>
                 </div>
                 <div class="col-md-9">
@@ -79,7 +79,6 @@
                             </thead>
                             <tbody>
                                 <?=$catalog_html?>
-                                
                             </tbody>
                         </table>
                     </div>

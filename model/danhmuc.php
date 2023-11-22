@@ -47,7 +47,7 @@ function danhmuc_delete($id){
  * @throws PDOException lỗi truy vấn
  */
 function danhmuc_all(){
-    $sql = "SELECT * FROM category ORDER BY stt";
+    $sql = "SELECT * FROM category ORDER BY id";
     return pdo_query($sql);
 }
 
@@ -56,6 +56,13 @@ function get_name_dm($id) {
     $kq = pdo_query_one($sql);
     return $kq["name"];
 }
+
+function get_img_dm($id) {
+    $sql = "SELECT img FROM category WHERE id=".$id;
+    $kq = pdo_query_one($sql);
+    return $kq["name"];
+}
+
 
 // /**
 //  * Truy vấn một loại theo mã
