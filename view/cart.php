@@ -135,6 +135,7 @@
                                         <li><button class="cart__summary--footer__btn primary__btn cart" type="submit">Cập nhật giỏ hàng</button></li>
                                       <?php  
                             echo'<form action="index.php?pg=checkoutcart" method="post">
+                            
                             <input type="hidden" name="id" value="'.$id.'">
                             <input type="hidden" name="name" value="'.$name.'">
                             <input type="hidden" name="img" value="'.$img.'">
@@ -143,7 +144,7 @@
                                     <div class="quantity__box">
                                         <input type="hidden" class="quantity__number quickview__value--number" name="amount" value="'.$amount.'">
                                     </div>
-                                    <li><button class="cart__summary--footer__btn primary__btn checkout" type="submit" name="btncheckout" value="Thanh Toán">Thanh toán</button></li>
+                                    <li><button class="cart__summary--footer__btn primary__btn checkout" type="submit" name="btncheckout" value="Thanh Toán">Tiến hành thanh toán</button></li>
                                 </div>
                             </form>'
                             ?>

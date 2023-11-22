@@ -141,6 +141,7 @@ function showsp($dssp){
                             <ul class="product__items--action d-flex">
                                 <li class="product__items--action__list">
                                     <form action="index.php?pg=addcart" method="post"> 
+                                        
                                         <input type="hidden" name="id" value="'.$id.'">
                                         <input type="hidden" name="name" value="'.$name.'">
                                         <input type="hidden" name="img" value="'.$img.'">
@@ -243,6 +244,7 @@ function showsp_slide($dssp){
                             <ul class="product__items--action d-flex">
                                 <li class="product__items--action__list">
                                     <form action="index.php?pg=addcart" method="post"> 
+                                        
                                         <input type="hidden" name="id" value="'.$id.'">
                                         <input type="hidden" name="name" value="'.$name.'">
                                         <input type="hidden" name="img" value="'.$img.'">
