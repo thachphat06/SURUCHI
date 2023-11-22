@@ -1,3 +1,4 @@
+
 <!-- Start checkout page area -->
 <div class="checkout__page--area">
         <div class="container">
@@ -298,7 +299,7 @@
                             </div>
                             <div class="checkout__content--step__footer d-flex align-items-center">
                                 <a class="continue__shipping--btn primary__btn border-radius-5" href="index.php?pg=checkout-3">Tiếp tục</a>
-                                <a class="previous__link--content" href="index.php?pg=shop">Quay lại giỏ hàng</a>
+                                <a class="previous__link--content" href="index.php?pg=cart">Quay lại giỏ hàng</a>
                             </div>
                         </form>
                     </main>
@@ -306,61 +307,46 @@
                         <p class="copyright__content">Bản quyền © 2023 <a class="copyright__content--link text__primary" href="index.php">Suruchi .</a> Đã đăng ký Bản quyền.Thiết kế bởi team Suruchi</p>
                     </footer>
                 </div>
-                <aside class="checkout__sidebar sidebar">
-                    <div class="cart__table checkout__product--table">
-                        <table class="cart__table--inner">
-                            <tbody class="cart__table--body">
-                                <tr class="cart__table--body__items">
-                                    <td class="cart__table--body__list">
-                                        <div class="product__image two  d-flex align-items-center">
-                                            <div class="product__thumbnail border-radius-5">
-                                                <a href="product-details.html"><img class="border-radius-5" src="./view/assets/img/product/small-product7.png" alt="cart-product"></a>
-                                                <span class="product__thumbnail--quantity">1</span>
-                                            </div>
-                                            <div class="product__description">
-                                                <h3 class="product__description--name h4"><a href="product-details.html">Áo khoác blazer</a></h3>
-                                                <span class="product__description--variant">Màu: Xám</span>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="cart__table--body__list">
-                                        <span class="cart__price">200.00VND</span>
-                                    </td>
-                                </tr>
-                                <tr class="cart__table--body__items">
-                                    <td class="cart__table--body__list">
-                                        <div class="cart__product d-flex align-items-center">
-                                            <div class="product__thumbnail border-radius-5">
-                                                <a href="product-details.html"><img class="border-radius-5" src="./view/assets/img/product/small-product2.png" alt="cart-product"></a>
-                                                <span class="product__thumbnail--quantity">1</span>
-                                            </div>
-                                            <div class="product__description">
-                                                <h3 class="product__description--name h4"><a href="product-details.html">Áo thun form rộng trơn</a></h3>
-                                                <span class="product__description--variant">Màu: Đen</span>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="cart__table--body__list">
-                                        <span class="cart__price">200.00VND</span>
-                                    </td>
-                                </tr>
-                                <tr class="cart__table--body__items">
-                                    <td class="cart__table--body__list">
-                                        <div class="cart__product d-flex align-items-center">
-                                            <div class="product__thumbnail border-radius-5">
-                                                <a href="product-details.html"><img class="border-radius-5" src="./view/assets/img/product/small-product4.png" alt="cart-product"></a>
-                                                <span class="product__thumbnail--quantity">1</span>
-                                            </div>
-                                            <div class="product__description">
-                                                <h3 class="product__description--name h4"><a href="product-details.html">Áo thun ngắn tay trắng đục</a></h3>
-                                                <span class="product__description--variant">Màu: Trắng</span>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="cart__table--body__list">
-                                        <span class="cart__price">200.00VND</span>
-                                    </td>
-                                </tr>
+                <?php
+                    if(isset($_SESSION['giohang']) && is_array($_SESSION['giohang'])){
+                        $i=0;
+                        $sum=0;
+                        foreach ($_SESSION['giohang'] as $item) {
+                            extract($item);
+                            $tt= (int)$price* (int)$amount;
+                            (int)$sum += (int)$price* (int)$amount;
+                            $linkdel="index.php?pg=delcart&ind=".$i;
+                                                echo '
+                                                <aside class="checkout__sidebar sidebar">
+                                                        <div class="cart__table checkout__product--table">
+                                                            <table class="cart__table--inner">
+                                                                <tbody class="cart__table--body">
+                                                                    <tr class="cart__table--body__items">
+                                                                        <td class="cart__table--body__list">
+                                                                            <div class="product__image two  d-flex align-items-center">
+                                                                         
+                                                                                <div class="product__thumbnail border-radius-5">
+                                                                                    <a href="product-details.html"><img class="border-radius-5" src="./view/assets/img/product/'.$img.'" alt="cart-product"></a>
+                                                                                    <span class="product__thumbnail--quantity">'.$amount.'</span>
+                                                                                </div>
+                                                                                
+                                                                                <div class="product__description">
+                                                                                    <h3 class="product__description--name h4"><a href="product-details.html">'.$name.'</a></h3
+                                                                                </div>
+                                                                            </div>
+                                                                          
+                                                                        </td>
+                                                                        <td class="cart__table--body__list">
+                                                                            <span class="cart__price">'.number_format($tt,0,",",".").'VNĐ</span>
+                                                                        </td>
+                                                                    </tr>';
+                                                    $i++;
+                                                }
+                                            
+                                            }
+                                        ?>
+
+                              
                             </tbody>
                         </table> 
                     </div>
@@ -377,7 +363,7 @@
                             <tbody class="checkout__total--body">
                                 <tr class="checkout__total--items">
                                     <td class="checkout__total--title text-left">Tổng phụ </td>
-                                    <td class="checkout__total--amount text-right">600.00VND</td>
+                                    <td class="checkout__total--amount text-right"><?=number_format($sum,0,",",".")?>VNĐ</td>
                                 </tr>
                                 <tr class="checkout__total--items">
                                     <td class="checkout__total--title text-left">Vận chuyển</td>
@@ -387,11 +373,13 @@
                             <tfoot class="checkout__total--footer">
                                 <tr class="checkout__total--footer__items">
                                     <td class="checkout__total--footer__title checkout__total--footer__list text-left">Tổng cộng</td>
-                                    <td class="checkout__total--footer__amount checkout__total--footer__list text-right">600.00VND</td>
+                                    <td class="checkout__total--footer__amount checkout__total--footer__list text-right"><?=number_format($sum,0,",",".")?>VNĐ</td>
                                 </tr>
                             </tfoot>
+                            
                         </table>
                     </div>
+                    
                 </aside>
             </div>
         </div>

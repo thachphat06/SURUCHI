@@ -178,6 +178,23 @@
         // Trang PHP nơi bạn muốn thực hiện thêm sản phẩm vào giỏ hàng
         include_once("./controller/AddToCart.php");
         break;
+        case 'checkoutcart':
+          if(isset($_POST['btncheckout']) && ($_POST['btncheckout'])){
+            $id= $_POST['id'];
+            $name= $_POST['name'];
+            $img= $_POST['img'];
+            $price= $_POST['price'];
+            if(isset($_POST['amount']) && ($_POST['amount'] > 0)){
+              $amount = $_POST['amount'];
+          }else{
+              $amount = 1;
+          }
+            $sp=["id"=>$id,"name"=>$name,"img"=>$img,"price"=>$price,"amount"=>$amount];
+            $_SESSION['thanhtoan'][]=$sp;
+            header('Location: index.php?pg=checkout-2');
+          }
+          break;
+      
       case 'delcart':
         if(isset($_GET['ind'])&&($_GET['ind']>=0)) {
           array_splice($_SESSION['giohang'],$_GET['ind'],1);
