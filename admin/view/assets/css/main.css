@@ -1014,6 +1014,9 @@ textarea.form-control {
     min-height: 100px;
     border-radius: 4px;
 }
+textarea.form-control1 {
+    min-height: 200px;
+}
 
 /*search form*/
 

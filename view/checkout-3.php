@@ -28,7 +28,7 @@
                                                 <td class=" summary__table--list">
                                                     <div class="product__image two  d-flex align-items-center">
                                                         <div class="product__thumbnail border-radius-5">
-                                                            <a href="product-details.html"><img class="border-radius-5" src="./view/assets/img/product/small-product7.png" alt="cart-product"></a>
+                                                            <a href="product-details.html"><img class="border-radius-5" src="./uploads/small-product7.png" alt="cart-product"></a>
                                                             <span class="product__thumbnail--quantity">1</span>
                                                         </div>
                                                         <div class="product__description">
@@ -45,7 +45,7 @@
                                                 <td class=" summary__table--list">
                                                     <div class="cart__product d-flex align-items-center">
                                                         <div class="product__thumbnail border-radius-5">
-                                                            <a href="product-details.html"><img class="border-radius-5" src="./view/assets/img/product/small-product2.png" alt="cart-product"></a>
+                                                            <a href="product-details.html"><img class="border-radius-5" src="./uploads/small-product2.png" alt="cart-product"></a>
                                                             <span class="product__thumbnail--quantity">1</span>
                                                         </div>
                                                         <div class="product__description">
@@ -62,7 +62,7 @@
                                                 <td class=" summary__table--list">
                                                     <div class="cart__product d-flex align-items-center">
                                                         <div class="product__thumbnail border-radius-5">
-                                                            <a href="product-details.html"><img class="border-radius-5" src="./view/assets/img/product/small-product4.png" alt="cart-product"></a>
+                                                            <a href="product-details.html"><img class="border-radius-5" src="./uploads/small-product4.png" alt="cart-product"></a>
                                                             <span class="product__thumbnail--quantity">1</span>
                                                         </div>
                                                         <div class="product__description">
@@ -178,7 +178,7 @@
                                     <td class="cart__table--body__list">
                                         <div class="product__image two  d-flex align-items-center">
                                             <div class="product__thumbnail border-radius-5">
-                                                <a href="product-details.html"><img class="border-radius-5" src="./view/assets/img/product/small-product7.png" alt="cart-product"></a>
+                                                <a href="product-details.html"><img class="border-radius-5" src="./uploads/small-product7.png" alt="cart-product"></a>
                                                 <span class="product__thumbnail--quantity">1</span>
                                             </div>
                                             <div class="product__description">
@@ -195,7 +195,7 @@
                                     <td class="cart__table--body__list">
                                         <div class="cart__product d-flex align-items-center">
                                             <div class="product__thumbnail border-radius-5">
-                                                <a href="product-details.html"><img class="border-radius-5" src="./view/assets/img/product/small-product2.png" alt="cart-product"></a>
+                                                <a href="product-details.html"><img class="border-radius-5" src="./uploads/small-product2.png" alt="cart-product"></a>
                                                 <span class="product__thumbnail--quantity">1</span>
                                             </div>
                                             <div class="product__description">
@@ -212,7 +212,7 @@
                                     <td class="cart__table--body__list">
                                         <div class="cart__product d-flex align-items-center">
                                             <div class="product__thumbnail border-radius-5">
-                                                <a href="product-details.html"><img class="border-radius-5" src="./view/assets/img/product/small-product4.png" alt="cart-product"></a>
+                                                <a href="product-details.html"><img class="border-radius-5" src="./uploads/small-product4.png" alt="cart-product"></a>
                                                 <span class="product__thumbnail--quantity">1</span>
                                             </div>
                                             <div class="product__description">

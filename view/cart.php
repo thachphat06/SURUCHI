@@ -17,7 +17,7 @@
                                         </a>  
                                     </button>
                                     <div class="cart__thumbnail">
-                                        <a href="product-details.html"><img class="border-radius-5" src="./view/assets/img/product/'.$img.'" alt="cart-product"></a>
+                                        <a href="product-details.html"><img class="border-radius-5" src="./uploads/'.$img.'" alt="cart-product"></a>
                                     </div>
                                     <div class="cart__content">
                                         <h4 class="cart__content--title">'.$name.'</h4>

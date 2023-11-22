@@ -203,31 +203,31 @@
                                 <ul class="widget__categories--menu">
                                     <li class="widget__categories--menu__list">
                                         <label class="widget__categories--menu__label d-flex align-items-center">
-                                            <img class="widget__categories--menu__img" src="./view/assets/img/product/small-product1.png" alt="categories-img">
+                                            <img class="widget__categories--menu__img" src="./uploads/small-product1.png" alt="categories-img">
                                             <span class="widget__categories--menu__text">Áo khoác denim</span>
                                         </label>
                                     </li>
                                     <li class="widget__categories--menu__list">
                                         <label class="widget__categories--menu__label d-flex align-items-center">
-                                            <img class="widget__categories--menu__img" src="./view/assets/img/product/small-product2.png" alt="categories-img">
+                                            <img class="widget__categories--menu__img" src="./uploads/small-product2.png" alt="categories-img">
                                             <span class="widget__categories--menu__text">Áo form rộng</span>
                                         </label>
                                     </li>
                                     <li class="widget__categories--menu__list">
                                         <label class="widget__categories--menu__label d-flex align-items-center">
-                                            <img class="widget__categories--menu__img" src="./view/assets/img/product/small-product3.png" alt="categories-img">
+                                            <img class="widget__categories--menu__img" src="./uploads/small-product3.png" alt="categories-img">
                                             <span class="widget__categories--menu__text">Áo Sweater</span>
                                         </label>
                                     </li>
                                     <li class="widget__categories--menu__list">
                                         <label class="widget__categories--menu__label d-flex align-items-center">
-                                            <img class="widget__categories--menu__img" src="./view/assets/img/product/small-product4.png" alt="categories-img">
+                                            <img class="widget__categories--menu__img" src="./uploads/small-product4.png" alt="categories-img">
                                             <span class="widget__categories--menu__text">Áo ngắn tay</span>
                                         </label>
                                     </li>
                                     <li class="widget__categories--menu__list">
                                         <label class="widget__categories--menu__label d-flex align-items-center">
-                                            <img class="widget__categories--menu__img" src="./view/assets/img/product/small-product5.png" alt="categories-img">
+                                            <img class="widget__categories--menu__img" src="./uploads/small-product5.png" alt="categories-img">
                                             <span class="widget__categories--menu__text">Túi sách</span>
                                         </label>
                                     </li>
@@ -239,8 +239,8 @@
                                     <div class="product__items product__items--grid d-flex align-items-center">
                                         <div class="product__items--grid__thumbnail position__relative">
                                             <a class="product__items--link" href="blog-details.html">
-                                                <img class="product__grid--items__img product__primary--img" src="./view/assets/img/product/small-product2.png" alt="product-img">
-                                                <img class="product__grid--items__img product__secondary--img" src="./view/assets/img/product/small-product3.png" alt="product-img">
+                                                <img class="product__grid--items__img product__primary--img" src="./uploads/small-product2.png" alt="product-img">
+                                                <img class="product__grid--items__img product__secondary--img" src="./uploads/small-product3.png" alt="product-img">
                                             </a>
                                         </div>
                                         <div class="product__items--grid__content">
@@ -251,8 +251,8 @@
                                     <div class="product__items product__items--grid d-flex align-items-center">
                                         <div class="product__items--grid__thumbnail position__relative">
                                             <a class="product__items--link" href="blog-details.html">
-                                                <img class="product__grid--items__img product__primary--img" src="./view/assets/img/product/small-product1.png" alt="product-img">
-                                                <img class="product__grid--items__img product__secondary--img" src="./view/assets/img/product/small-product2.png" alt="product-img">
+                                                <img class="product__grid--items__img product__primary--img" src="./uploads/small-product1.png" alt="product-img">
+                                                <img class="product__grid--items__img product__secondary--img" src="./uploads/small-product2.png" alt="product-img">
                                             </a>
                                         </div>
                                         <div class="product__items--grid__content">
@@ -263,8 +263,8 @@
                                     <div class="product__items product__items--grid d-flex align-items-center">
                                         <div class="product__items--grid__thumbnail position__relative">
                                             <a class="product__items--link" href="blog-details.html">
-                                                <img class="product__grid--items__img product__primary--img" src="./view/assets/img/product/small-product5.png" alt="product-img">
-                                                <img class="product__grid--items__img product__secondary--img" src="./view/assets/img/product/small-product4.png" alt="product-img">
+                                                <img class="product__grid--items__img product__primary--img" src="./uploads/small-product5.png" alt="product-img">
+                                                <img class="product__grid--items__img product__secondary--img" src="./uploads/small-product4.png" alt="product-img">
                                             </a>
                                         </div>
                                         <div class="product__items--grid__content">

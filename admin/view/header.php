@@ -61,13 +61,13 @@
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a class="menu-link" href="index.php?pg=add-product"> <i class="icon material-icons md-add_box"></i>
-                        <span class="text">Thêm Sản Phẩm</span>
+                    <a class="menu-link" href="index.php?pg=sellers-list"> <i class="icon material-icons md-person"></i>
+                        <span class="text">Tài Khoản</span>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a class="menu-link" href="index.php?pg=sellers-list"> <i class="icon material-icons md-person"></i>
-                        <span class="text">Tài Khoản</span>
+                    <a class="menu-link" href="index.php?pg=blog-list"><i class="icon material-icons md-add_box"></i>
+                        <span class="text">Tin Tức</span>
                     </a>
                 </li>
                 <li class="menu-item">

@@ -16,7 +16,7 @@
                         <div class="product__items ">
                             <div class="product__items--thumbnail">
                                 <a class="product__items--link" href="'.$link.'">
-                                    <img class="product__items--img product__primary--img" src="./view/assets/img/product/'.$img.'" alt="product-img">
+                                    <img class="product__items--img product__primary--img" src="./uploads/'.$img.'" alt="product-img">
                                 </a>
                                 <div class="product__badge">
                                     <span class="product__badge--items sale">Trend</span>
@@ -117,7 +117,7 @@
                         <div class="product__items ">
                             <div class="product__items--thumbnail">
                                 <a class="product__items--link" href="'.$link.'">
-                                    <img class="product__items--img product__primary--img" src="./view/assets/img/product/'.$img.'" alt="product-img">
+                                    <img class="product__items--img product__primary--img" src="./uploads/'.$img.'" alt="product-img">
                                 </a>
                                 <div class="product__badge">
                                     <span class="product__badge--items sale">New</span>

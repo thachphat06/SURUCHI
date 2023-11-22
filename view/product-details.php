@@ -34,9 +34,9 @@
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide">
                                         <div class="product__media--preview__items">
-                                            <a class="product__media--preview__items--link glightbox" data-gallery="product-media-preview" href="./view/assets/img/product/<?=$img?>"><img class="product__media--preview__items--img" src="./view/assets/img/product/<?=$img?>" alt="product-media-img"></a>
+                                            <a class="product__media--preview__items--link glightbox" data-gallery="product-media-preview" href="./uploads/<?=$img?>"><img class="product__media--preview__items--img" src="./uploads/<?=$img?>" alt="product-media-img"></a>
                                             <div class="product__media--view__icon">
-                                                <a class="product__media--view__icon--link glightbox" href="./view/assets/img/product/<?=$img?>" data-gallery="product-media-preview">
+                                                <a class="product__media--view__icon--link glightbox" href="./uploads/<?=$img?>" data-gallery="product-media-preview">
                                                     <svg class="product__media--view__icon--svg" xmlns="http://www.w3.org/2000/svg" width="22.51" height="22.443" viewBox="0 0 512 512"><path d="M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"></path><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M338.29 338.29L448 448"></path></svg>
                                                 </a>
                                             </div>
@@ -44,9 +44,9 @@
                                     </div>
                                     <div class="swiper-slide">
                                         <div class="product__media--preview__items">
-                                            <a class="product__media--preview__items--link glightbox" data-gallery="product-media-preview" href="./view/assets/img/product/big-product1.jpg"><img class="product__media--preview__items--img" src="./view/assets/img/product/big-product1.jpg" alt="product-media-img"></a>
+                                            <a class="product__media--preview__items--link glightbox" data-gallery="product-media-preview" href="./uploads/big-product1.jpg"><img class="product__media--preview__items--img" src="./uploads/big-product1.jpg" alt="product-media-img"></a>
                                             <div class="product__media--view__icon">
-                                                <a class="product__media--view__icon--link glightbox" href="./view/assets/img/product/big-product1.jpg" data-gallery="product-media-preview">
+                                                <a class="product__media--view__icon--link glightbox" href="./uploads/big-product1.jpg" data-gallery="product-media-preview">
                                                     <svg class="product__media--view__icon--svg" xmlns="http://www.w3.org/2000/svg" width="22.51" height="22.443" viewBox="0 0 512 512"><path d="M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"></path><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M338.29 338.29L448 448"></path></svg>
                                                 </a>
                                             </div>
@@ -54,9 +54,9 @@
                                     </div>
                                     <div class="swiper-slide">
                                         <div class="product__media--preview__items">
-                                            <a class="product__media--preview__items--link glightbox" data-gallery="product-media-preview" href="./view/assets/img/product/big-product3.jpg"><img class="product__media--preview__items--img" src="./view/assets/img/product/big-product3.jpg" alt="product-media-img"></a>
+                                            <a class="product__media--preview__items--link glightbox" data-gallery="product-media-preview" href="./uploads/big-product3.jpg"><img class="product__media--preview__items--img" src="./uploads/big-product3.jpg" alt="product-media-img"></a>
                                             <div class="product__media--view__icon">
-                                                <a class="product__media--view__icon--link glightbox" href="./view/assets/img/product/big-product3.jpg" data-gallery="product-media-preview">
+                                                <a class="product__media--view__icon--link glightbox" href="./uploads/big-product3.jpg" data-gallery="product-media-preview">
                                                     <svg class="product__media--view__icon--svg" xmlns="http://www.w3.org/2000/svg" width="22.51" height="22.443" viewBox="0 0 512 512"><path d="M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"></path><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M338.29 338.29L448 448"></path></svg>
                                                 </a>
                                             </div>
@@ -64,9 +64,9 @@
                                     </div>
                                     <div class="swiper-slide">
                                         <div class="product__media--preview__items">
-                                            <a class="product__media--preview__items--link glightbox" data-gallery="product-media-preview" href="./view/assets/img/product/big-product4.jpg"><img class="product__media--preview__items--img" src="./view/assets/img/product/big-product4.jpg" alt="product-media-img"></a>
+                                            <a class="product__media--preview__items--link glightbox" data-gallery="product-media-preview" href="./uploads/big-product4.jpg"><img class="product__media--preview__items--img" src="./uploads/big-product4.jpg" alt="product-media-img"></a>
                                             <div class="product__media--view__icon">
-                                                <a class="product__media--view__icon--link glightbox" href="./view/assets/img/product/big-product4.jpg" data-gallery="product-media-preview">
+                                                <a class="product__media--view__icon--link glightbox" href="./uploads/big-product4.jpg" data-gallery="product-media-preview">
                                                     <svg class="product__media--view__icon--svg" xmlns="http://www.w3.org/2000/svg" width="22.51" height="22.443" viewBox="0 0 512 512"><path d="M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"></path><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M338.29 338.29L448 448"></path></svg>
                                                 </a>
                                             </div>
@@ -74,9 +74,9 @@
                                     </div>
                                     <div class="swiper-slide">
                                         <div class="product__media--preview__items">
-                                            <a class="product__media--preview__items--link glightbox" data-gallery="product-media-preview" href="./view/assets/img/product/big-product5.jpg"><img class="product__media--preview__items--img" src="./view/assets/img/product/big-product5.jpg" alt="product-media-img"></a>
+                                            <a class="product__media--preview__items--link glightbox" data-gallery="product-media-preview" href="./uploads/big-product5.jpg"><img class="product__media--preview__items--img" src="./uploads/big-product5.jpg" alt="product-media-img"></a>
                                             <div class="product__media--view__icon">
-                                                <a class="product__media--view__icon--link glightbox" href="./view/assets/img/product/big-product5.jpg" data-gallery="product-media-preview">
+                                                <a class="product__media--view__icon--link glightbox" href="./uploads/big-product5.jpg" data-gallery="product-media-preview">
                                                     <svg class="product__media--view__icon--svg" xmlns="http://www.w3.org/2000/svg" width="22.51" height="22.443" viewBox="0 0 512 512"><path d="M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"></path><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M338.29 338.29L448 448"></path></svg>
                                                 </a>
                                             </div>
@@ -84,9 +84,9 @@
                                     </div>
                                     <div class="swiper-slide">
                                         <div class="product__media--preview__items">
-                                            <a class="product__media--preview__items--link glightbox" data-gallery="product-media-preview" href="./view/assets/img/product/big-product6.jpg"><img class="product__media--preview__items--img" src="./view/assets/img/product/big-product6.jpg" alt="product-media-img"></a>
+                                            <a class="product__media--preview__items--link glightbox" data-gallery="product-media-preview" href="./uploads/big-product6.jpg"><img class="product__media--preview__items--img" src="./uploads/big-product6.jpg" alt="product-media-img"></a>
                                             <div class="product__media--view__icon">
-                                                <a class="product__media--view__icon--link glightbox" href="./view/assets/img/product/big-product6.jpg" data-gallery="product-media-preview">
+                                                <a class="product__media--view__icon--link glightbox" href="./uploads/big-product6.jpg" data-gallery="product-media-preview">
                                                     <svg class="product__media--view__icon--svg" xmlns="http://www.w3.org/2000/svg" width="22.51" height="22.443" viewBox="0 0 512 512"><path d="M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"></path><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M338.29 338.29L448 448"></path></svg>
                                                 </a>
                                             </div>
@@ -98,32 +98,32 @@
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide">
                                         <div class="product__media--nav__items">
-                                            <img class="product__media--nav__items--img" src="./view/assets/img/product/small-product7.png" alt="product-nav-img">
+                                            <img class="product__media--nav__items--img" src="./uploads/small-product7.png" alt="product-nav-img">
                                         </div>
                                     </div>
                                     <div class="swiper-slide">
                                         <div class="product__media--nav__items">
-                                            <img class="product__media--nav__items--img" src="./view/assets/img/product/small-product8.png" alt="product-nav-img">
+                                            <img class="product__media--nav__items--img" src="./uploads/small-product8.png" alt="product-nav-img">
                                         </div>
                                     </div>
                                     <div class="swiper-slide">
                                         <div class="product__media--nav__items">
-                                            <img class="product__media--nav__items--img" src="./view/assets/img/product/small-product9.png" alt="product-nav-img">
+                                            <img class="product__media--nav__items--img" src="./uploads/small-product9.png" alt="product-nav-img">
                                         </div>
                                     </div>
                                     <div class="swiper-slide">
                                         <div class="product__media--nav__items">
-                                            <img class="product__media--nav__items--img" src="./view/assets/img/product/small-product10.png" alt="product-nav-img">
+                                            <img class="product__media--nav__items--img" src="./uploads/small-product10.png" alt="product-nav-img">
                                         </div>
                                     </div>
                                     <div class="swiper-slide">
                                         <div class="product__media--nav__items">
-                                            <img class="product__media--nav__items--img" src="./view/assets/img/product/small-product11.png" alt="product-nav-img">
+                                            <img class="product__media--nav__items--img" src="./uploads/small-product11.png" alt="product-nav-img">
                                         </div>
                                     </div>
                                     <div class="swiper-slide">
                                         <div class="product__media--nav__items">
-                                            <img class="product__media--nav__items--img" src="./view/assets/img/product/small-product12.png" alt="product-nav-img">
+                                            <img class="product__media--nav__items--img" src="./uploads/small-product12.png" alt="product-nav-img">
                                         </div>
                                     </div>
                                 </div>

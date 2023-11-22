@@ -1,27 +1,25 @@
 <?php
 require_once 'pdo.php';
 
-// function hang_hoa_insert($ten_hh, $don_gia, $giam_gia, $hinh, $ma_loai, $dac_biet, $so_luot_xem, $ngay_nhap, $mo_ta){
-//     $sql = "INSERT INTO hang_hoa(ten_hh, don_gia, giam_gia, hinh, ma_loai, dac_biet, so_luot_xem, ngay_nhap, mo_ta) VALUES (?,?,?,?,?,?,?,?,?)";
-//     pdo_execute($sql, $ten_hh, $don_gia, $giam_gia, $hinh, $ma_loai, $dac_biet==1, $so_luot_xem, $ngay_nhap, $mo_ta);
-// }
+function sanpham_insert($name, $img, $price, $old_price, $describe1, $describe2, $iddm){
+    $sql = "INSERT INTO product(name, img, price, old_price, describe1, describe2, iddm) VALUES (?,?,?,?,?,?,?)";
+    pdo_execute($sql, $name, $img, $price, $old_price, $describe1, $describe2, $iddm);
+}
 
-// function hang_hoa_update($ma_hh, $ten_hh, $don_gia, $giam_gia, $hinh, $ma_loai, $dac_biet, $so_luot_xem, $ngay_nhap, $mo_ta){
-//     $sql = "UPDATE hang_hoa SET ten_hh=?,don_gia=?,giam_gia=?,hinh=?,ma_loai=?,dac_biet=?,so_luot_xem=?,ngay_nhap=?,mo_ta=? WHERE ma_hh=?";
-//     pdo_execute($sql, $ten_hh, $don_gia, $giam_gia, $hinh, $ma_loai, $dac_biet==1, $so_luot_xem, $ngay_nhap, $mo_ta, $ma_hh);
-// }
+function sanpham_update($name, $img, $price, $old_price, $describe1, $describe2, $iddm, $id){
+    if($img!=""){
+        $sql = "UPDATE product SET name=?, img=?, price=?, old_price=?, describe1=?, describe2=?,iddm=? WHERE id=?";
+        pdo_execute($sql, $name, $img, $price, $old_price, $describe1, $describe2, $iddm, $id);
+    } else{
+        $sql = "UPDATE product SET name=?, price=?, old_price=?, describe1=?, describe2=?,iddm=? WHERE id=?";
+        pdo_execute($sql, $name, $price, $old_price, $describe1, $describe2, $iddm, $id);
+    }
+}
 
-// function hang_hoa_delete($ma_hh){
-//     $sql = "DELETE FROM hang_hoa WHERE  ma_hh=?";
-//     if(is_array($ma_hh)){
-//         foreach ($ma_hh as $ma) {
-//             pdo_execute($sql, $ma);
-//         }
-//     }
-//     else{
-//         pdo_execute($sql, $ma_hh);
-//     }
-// }
+function sanpham_delete($id){
+    $sql = "DELETE FROM product WHERE  id=?";   
+    pdo_execute($sql, $id);
+}
 
 // function hang_hoa_select_all(){
 //     $sql = "SELECT * FROM hang_hoa";
@@ -55,6 +53,11 @@ function get_dssp_lienquan($iddm, $id, $limi){
     return pdo_query($sql, $iddm, $id);
 }
 
+function get_dssp_admin($limi){
+    $sql = " SELECT * FROM product order by id limit ".$limi;
+    return pdo_query($sql);
+}
+
 function get_best($limi){
     $sql = " SELECT * FROM product WHERE bestseller=1 order by id limit ".$limi;
     return pdo_query($sql);
@@ -84,7 +87,7 @@ function showsp($dssp){
                     <div class="product__items ">
                         <div class="product__items--thumbnail">
                             <a class="product__items--link" href="'.$link.'">
-                                <img class="product__items--img product__primary--img" src="./view/assets/img/product/'.$img.'" alt="product-img">
+                                <img class="product__items--img product__primary--img" src="./uploads/'.$img.'" alt="product-img">
                             </a>
                             <div class="product__badge">
                                 
@@ -186,7 +189,7 @@ function showsp_slide($dssp){
                     <div class="product__items ">
                         <div class="product__items--thumbnail">
                             <a class="product__items--link" href="'.$link.'">
-                                <img class="product__items--img product__primary--img" src="./view/assets/img/product/'.$img.'" alt="product-img">
+                                <img class="product__items--img product__primary--img" src="./uploads/'.$img.'" alt="product-img">
                             </a>
                             <div class="product__badge">
                                 
@@ -271,6 +274,72 @@ function showsp_slide($dssp){
                 </div>';
     }
     return $html_dssp;
+}
+
+//ADMIN
+
+function showsp_admin($dssp){
+    $html_dssp='';
+    $i=1;
+    foreach ($dssp as $sp) {
+    extract($sp);
+    if($price>0) {
+        $gia='<span class="current__price">'.number_format($price,0,",",".").'VNĐ</span>';
+        $gia_cu='<span class="old__price">'.number_format($old_price,0,",",".").'VNĐ</span>';
+    } else{
+        $gia='<span class="current__price">Đang cập nhật</span>';
+        $gia_cu='<span class="product__price"></span> <br>';
+    }
+    $link="index.php?pg=product-detail&idpro=".$id;
+    $html_dssp.='<article class="itemlist">
+                    <div class="row align-items-center">
+                        <div class="col-lg-1 col-quantity"> 
+                            <span>'.$i.'</span> 
+                        </div>
+                        <div class="col-lg-2 col-sm-4 col-8 flex-grow-1 col-name">
+                            <a class="itemside" href="#">
+                                <div class="left">
+                                    <img src="'.IMG_PATH_ADMIN.$img.'" class="img-sm img-thumbnail" alt="Item">
+                                </div>
+                                <div class="info">
+                                    <h6 class="mb-0">'.$name.'</h6>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-lg-1 col-sm-2 col-4 col-price"> 
+                            <span>'.number_format($price,0,",",".").'</span> 
+                        </div>
+                        <div class="col-lg-1 col-sm-2 col-4 col-old_price">
+                            <span><del>'.number_format($old_price,0,",",".").'</del></span> 
+                        </div>
+                        <div class="col-lg-5 col-sm-2 col-4 col-describe">
+                            <p>'.$describe1.'</p>
+                        </div>
+                        <div class="col-lg-1 col-sm-2 col-4 col-action text-end">
+                            <a href="index.php?pg=form-update-product&id='.$id.'" class="btn btn-sm font-sm rounded btn-brand">
+                                <i class="material-icons md-edit"></i>Sửa</a>
+                            <a href="index.php?pg=delproduct&id='.$id.'" class="btn btn-sm font-sm btn-light rounded">
+                                <i class="material-icons md-delete_forever"></i>Xóa
+                            </a>
+                        </div>
+                    </div>
+                </article>';
+                $i++;
+    }
+    return $html_dssp;
+}
+
+function get_img($id) {
+    $sql = "SELECT img FROM product WHERE id=?";
+    $getimg = pdo_query_one($sql, $id);
+
+    // Kiểm tra xem có dữ liệu trả về hay không
+    if ($getimg !== false && is_array($getimg)) {
+        return $getimg['img'];
+    } else {
+        // Xử lý trường hợp không có dữ liệu
+        return 'Ảnh không tồn tại'; // Hoặc giá trị mặc định khác tùy vào yêu cầu của bạn
+    }
 }
 
 // function hang_hoa_select_by_id($ma_hh){

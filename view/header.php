@@ -44,7 +44,7 @@
             $linkdel="index.php?pg=delcart-box&ind=".$i;
             $html_cart.='<div class="minicart__product--items d-flex">
                             <div class="minicart__thumb">
-                                <img src="./view/assets/img/product/'.$img.'" alt="prduct-img">
+                                <img src="./uploads/'.$img.'" alt="prduct-img">
                             </div>
                             <div class="minicart__text">
                                 <h3 class="minicart__subtitle h4">'.$name.'</h3>

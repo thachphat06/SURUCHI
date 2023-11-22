@@ -1,16 +1,28 @@
 <?php 
-    $iddm="";
+    if(is_array($sp)&&(count($sp)>0)){
+      extract($sp);
+      $idupdate=$id;
+      $imgpath=IMG_PATH_ADMIN.$img;
+      if(is_file($imgpath)){
+        $img=$imgpath;
+        $old_img=basename($imgpath);
+      }else{
+        $img="";
+      }
+    }
     $html_categorylist=showdm_admin($categorylist, $iddm);
 ?>
 
 <section class="content-main">
-    <form action="index.php?pg=addproduct" method="post" enctype="multipart/form-data">
+    <form action="index.php?pg=updateproduct" method="post" enctype="multipart/form-data">
         <div class="row">
             <div class="col-12">
                 <div class="content-header">
-                    <h2 class="content-title">Thêm sản phẩm mới</h2>
+                    <h2 class="content-title">Cập nhật sản phẩm</h2>
                     <div>
-                        <button type="submit" name="addproduct" class="btn btn-md rounded font-sm hover-up">Thêm sản phẩm</button>
+                      <input type="hidden" name="id" value="<?=$idupdate?>">
+                      <input type="hidden" name="old_img" value="<?=$old_img?>">
+                      <button type="submit" name="updateproduct" class="btn btn-md rounded font-sm hover-up">Cập nhật </button>
                     </div>
                 </div>
             </div>
@@ -22,31 +34,40 @@
                     <div class="card-body">
                         <div class="mb-4">
                             <label class="form-label">Tên Sản Phẩm</label>
-                            <input type="text" name="name" placeholder="Type here" class="form-control" id="product_name">
+                            <input type="text" name="name" placeholder="Type here" class="form-control" id="product_name" value="<?=($name!="")?$name:"";?>">
                         </div>
                         <div class="row">
                             <div class="col-lg-4">
                                 <div class="mb-4">
                                     <label class="form-label">Giá Gốc</label>
                                     <div class="row gx-2">
-                                        <input placeholder="VND" type="text" name="old_price" class="form-control">
+                                        <input placeholder="VND" type="text" name="old_price" class="form-control" value="<?=($old_price>0)?$old_price:0;?>">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-4">
                                 <div class="mb-4">
                                     <label class="form-label">Giá Đã Giảm</label>
-                                    <input placeholder="VND" type="text" name="price" class="form-control">
+                                    <input placeholder="VND" type="text" name="price" class="form-control" value="<?=($price>0)?$price:0;?>">
                                 </div>
                             </div>
                         </div>
                         <div class="mb-4">
-                            <label class="form-label" for="">Mô tả 1</label>
-                            <textarea name="describe1" id="" cols="30" rows="10" class="form-control"></textarea>
+                          <label class="form-label" for="describe1">Mô tả 1</label>
+                          <textarea name="describe1" id="describe1" cols="30" rows="10" class="form-control"></textarea>
+                          <script>
+                            var Describe1="<?=($describe1!="")?$describe1:"";?>"
+                            document.getElementById('describe1').value = Describe1;
+                          </script>
                         </div>
                         <div class="mb-4">
-                            <label class="form-label" for="">Mô tả 2</label>
-                            <textarea name="describe2" id="" cols="30" rows="10" class="form-control form-control1"></textarea>
+                          <label class="form-label" for="describe2">Mô tả 2</label>
+                          <textarea name="describe2" id="describe2" cols="30" rows="10" class="form-control form-control1"></textarea>  
+                          <script>
+                            // Sử dụng JavaScript để set giá trị cho thẻ textarea
+                            var Describe2="<?=($describe2!="")?$describe2:"";?>"
+                            document.getElementById('describe2').value = Describe2;
+                          </script>
                         </div>
                         <div class="mb-4">
                             <label class="form-label">Besteller</label>
@@ -56,7 +77,7 @@
                             <input type="checkbox" name="new" class="form-control1" id="product_new">
 
                             <label class="form-label">Hot</label>
-                            <input type="checkbox" name="hot" class="form-control1" id="product_hot">
+                            <input type="checkbox" name="new" class="form-control1" id="product_hot">
                         </div>
                     </div>
                 </div>
@@ -70,7 +91,7 @@
                     </div>
                     <div class="card-body">
                         <div class="input-upload">
-                            <img src="assets/imgs/theme/upload.svg" alt="">
+                            <img src="<?=$img?>" alt="">
                             <input class="form-control" type="file" name="img">
                         </div>
                     </div>

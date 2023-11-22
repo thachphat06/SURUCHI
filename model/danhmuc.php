@@ -63,6 +63,21 @@ function get_img_dm($id) {
     return $kq["name"];
 }
 
+//ADMIN
+function showdm_admin($dsdm, $iddm){
+    $html_dm='';
+    foreach ($dsdm as $dm) {
+        extract($dm);
+        if($id==$iddm){
+            $se="selected";
+        } else{
+            $se="";
+        } 
+        $html_dm.='<option value="'.$id.'" '.$se.'> '.$name.' </option>';
+    }
+    return $html_dm;
+}
+
 
 // /**
 //  * Truy vấn một loại theo mã

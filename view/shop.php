@@ -6,7 +6,7 @@
         $html_dm.='<li class="widget__categories--menu__list">
                         <a href="'.$link.'">
                             <label class="widget__categories--menu__label d-flex align-items-center">
-                            <img class="widget__categories--menu__img" src="./view/assets/img/product/'.$img.'" alt="categories-img">
+                            <img class="widget__categories--menu__img" src="./uploads/'.$img.'" alt="categories-img">
                             <span class="widget__categories--menu__text">'.$name.'</span>
                             </label>
                         </a>
@@ -176,8 +176,8 @@
                                                 <div class="product__items product__list--items d-flex">
                                                     <div class="product__items--thumbnail product__list--items__thumbnail">
                                                         <a class="product__items--link" href="product-details.html">
-                                                            <img class="product__items--img product__primary--img" src="./view/assets/img/product/product11.png" alt="product-img">
-                                                            <img class="product__items--img product__secondary--img" src="./view/assets/img/product/product10.png" alt="product-img">
+                                                            <img class="product__items--img product__primary--img" src="./uploads/product11.png" alt="product-img">
+                                                            <img class="product__items--img product__secondary--img" src="./uploads/product10.png" alt="product-img">
                                                         </a>
                                                         <div class="product__badge">
                                                             <span class="product__badge--items sale">Sale</span>
@@ -259,8 +259,8 @@
                                                 <div class="product__items product__list--items d-flex">
                                                     <div class="product__items--thumbnail product__list--items__thumbnail">
                                                         <a class="product__items--link" href="product-details.html">
-                                                            <img class="product__items--img product__primary--img" src="./view/assets/img/product/product1.png" alt="product-img">
-                                                            <img class="product__items--img product__secondary--img" src="./view/assets/img/product/product2.png" alt="product-img">
+                                                            <img class="product__items--img product__primary--img" src="./uploads/product1.png" alt="product-img">
+                                                            <img class="product__items--img product__secondary--img" src="./uploads/product2.png" alt="product-img">
                                                         </a>
                                                         <div class="product__badge">
                                                             <span class="product__badge--items sale">Sale</span>
@@ -342,8 +342,8 @@
                                                 <div class="product__items product__list--items d-flex">
                                                     <div class="product__items--thumbnail product__list--items__thumbnail">
                                                         <a class="product__items--link" href="product-details.html">
-                                                            <img class="product__items--img product__primary--img" src="./view/assets/img/product/product3.png" alt="product-img">
-                                                            <img class="product__items--img product__secondary--img" src="./view/assets/img/product/product4.png" alt="product-img">
+                                                            <img class="product__items--img product__primary--img" src="./uploads/product3.png" alt="product-img">
+                                                            <img class="product__items--img product__secondary--img" src="./uploads/product4.png" alt="product-img">
                                                         </a>
                                                         <div class="product__badge">
                                                             <span class="product__badge--items sale">Sale</span>
@@ -425,8 +425,8 @@
                                                 <div class="product__items product__list--items d-flex">
                                                     <div class="product__items--thumbnail product__list--items__thumbnail">
                                                         <a class="product__items--link" href="product-details.html">
-                                                            <img class="product__items--img product__primary--img" src="./view/assets/img/product/product5.png" alt="product-img">
-                                                            <img class="product__items--img product__secondary--img" src="./view/assets/img/product/product6.png" alt="product-img">
+                                                            <img class="product__items--img product__primary--img" src="./uploads/product5.png" alt="product-img">
+                                                            <img class="product__items--img product__secondary--img" src="./uploads/product6.png" alt="product-img">
                                                         </a>
                                                         <div class="product__badge">
                                                             <span class="product__badge--items sale">Sale</span>
@@ -508,8 +508,8 @@
                                                 <div class="product__items product__list--items d-flex">
                                                     <div class="product__items--thumbnail product__list--items__thumbnail">
                                                         <a class="product__items--link" href="product-details.html">
-                                                            <img class="product__items--img product__primary--img" src="./view/assets/img/product/product7.png" alt="product-img">
-                                                            <img class="product__items--img product__secondary--img" src="./view/assets/img/product/product8.png" alt="product-img">
+                                                            <img class="product__items--img product__primary--img" src="./uploads/product7.png" alt="product-img">
+                                                            <img class="product__items--img product__secondary--img" src="./uploads/product8.png" alt="product-img">
                                                         </a>
                                                         <div class="product__badge">
                                                             <span class="product__badge--items sale">Sale</span>
@@ -591,8 +591,8 @@
                                                 <div class="product__items product__list--items d-flex">
                                                     <div class="product__items--thumbnail product__list--items__thumbnail">
                                                         <a class="product__items--link" href="product-details.html">
-                                                            <img class="product__items--img product__primary--img" src="./view/assets/img/product/product9.png" alt="product-img">
-                                                            <img class="product__items--img product__secondary--img" src="./view/assets/img/product/product10.png" alt="product-img">
+                                                            <img class="product__items--img product__primary--img" src="./uploads/product9.png" alt="product-img">
+                                                            <img class="product__items--img product__secondary--img" src="./uploads/product10.png" alt="product-img">
                                                         </a>
                                                         <div class="product__badge">
                                                             <span class="product__badge--items sale">Sale</span>
