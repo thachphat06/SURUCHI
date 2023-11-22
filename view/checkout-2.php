@@ -1,3 +1,4 @@
+
 <!-- Start checkout page area -->
 <div class="checkout__page--area">
         <div class="container">
@@ -28,7 +29,7 @@
                                                 <td class=" summary__table--list">
                                                     <div class="product__image two  d-flex align-items-center">
                                                         <div class="product__thumbnail border-radius-5">
-                                                            <a href="product-details.html"><img class="border-radius-5" src="./uploads/small-product7.png" alt="cart-product"></a>
+                                                            <a href="product-details.html"><img class="border-radius-5" src="./view/assets/img/product/small-product7.png" alt="cart-product"></a>
                                                             <span class="product__thumbnail--quantity">1</span>
                                                         </div>
                                                         <div class="product__description">
@@ -45,7 +46,7 @@
                                                 <td class=" summary__table--list">
                                                     <div class="cart__product d-flex align-items-center">
                                                         <div class="product__thumbnail border-radius-5">
-                                                            <a href="product-details.html"><img class="border-radius-5" src="./uploads/small-product2.png" alt="cart-product"></a>
+                                                            <a href="product-details.html"><img class="border-radius-5" src="./view/assets/img/product/small-product2.png" alt="cart-product"></a>
                                                             <span class="product__thumbnail--quantity">1</span>
                                                         </div>
                                                         <div class="product__description">
@@ -62,7 +63,7 @@
                                                 <td class=" summary__table--list">
                                                     <div class="cart__product d-flex align-items-center">
                                                         <div class="product__thumbnail border-radius-5">
-                                                            <a href="product-details.html"><img class="border-radius-5" src="./uploads/small-product4.png" alt="cart-product"></a>
+                                                            <a href="product-details.html"><img class="border-radius-5" src="./view/assets/img/product/small-product4.png" alt="cart-product"></a>
                                                             <span class="product__thumbnail--quantity">1</span>
                                                         </div>
                                                         <div class="product__description">
@@ -129,8 +130,8 @@
                             </nav>
                     </header>
                     <main class="main__content_wrapper">
-                        <form action="#">
-                            <div class="checkout__content--step checkout__contact--information2 border-radius-5">
+                        
+                            <!-- <div class="checkout__content--step checkout__contact--information2 border-radius-5">
                                 <div class="checkout__review d-flex justify-content-between align-items-center">
                                     <div class="checkout__review--inner d-flex align-items-center">
                                         <label class="checkout__review--label">Liên hệ</label>
@@ -209,7 +210,8 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
+                    <form action="index.php?pg=checkout" method="post">
                             <div class="checkout__content--step section__shipping--address pt-10">
                                 <div class="section__header mb-25">
                                     <h3 class="section__header--title">Địa chỉ thanh toán</h3>
@@ -239,32 +241,32 @@
                                             <div class="col-lg-6 mb-12">
                                                 <div class="checkout__input--list ">
                                                     <label>
-                                                        <input class="checkout__input--field border-radius-5" placeholder="Tên (tùy chọn)"  type="text">
+                                                        <input class="checkout__input--field border-radius-5" placeholder="Họ và Tên" name="name" type="text">
                                                     </label>
                                                 </div>
                                             </div>
                                             <div class="col-lg-6 mb-12">
                                                 <div class="checkout__input--list">
                                                     <label>
-                                                        <input class="checkout__input--field border-radius-5" placeholder="Họ"  type="text">
+                                                        <input class="checkout__input--field border-radius-5" placeholder="SĐT"  name="sdt" type="text">
                                                     </label>
                                                 </div>
                                             </div>
                                             <div class="col-12 mb-12">
                                                 <div class="checkout__input--list">
                                                     <label>
-                                                        <input class="checkout__input--field border-radius-5" placeholder="Địa chỉ 1"  type="text">
+                                                        <input class="checkout__input--field border-radius-5" placeholder="Địa chỉ" name="address" type="text">
                                                     </label>
                                                 </div>
                                             </div>
                                             <div class="col-12 mb-12">
                                                 <div class="checkout__input--list">
                                                     <label>
-                                                        <input class="checkout__input--field border-radius-5" placeholder="Căn hộ, dãy phòng, v.v. (tùy chọn)"  type="text">
+                                                        <input class="checkout__input--field border-radius-5" placeholder="Email" name="email" type="text">
                                                     </label>
                                                 </div>
                                             </div>
-                                            <div class="col-12 mb-12">
+                                            <!-- <div class="col-12 mb-12">
                                                 <div class="checkout__input--list">
                                                     <label>
                                                         <input class="checkout__input--field border-radius-5" placeholder="Thành phố"  type="text">
@@ -284,85 +286,76 @@
                                                         <option value="7">Hàn Quốc</option>
                                                     </select>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                             <div class="col-lg-6 mb-12">
                                                 <div class="checkout__input--list">
-                                                    <label>
-                                                        <input class="checkout__input--field border-radius-5" placeholder="Mã bưu chính"  type="text">
-                                                    </label>
+                                               <label for="paypal">
+                                                <input type="radio" id="paypal" name="pttt" value="1">Thanh toán bằng tiền mặt
+                                                </label>
+                                                <br>
+                                                <label for="creditCard">
+                                                <input type="radio" id="creditCard" name="pttt" value="2">Thanh toán bằng thẻ tín dụng
+                                                </label>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            
                             <div class="checkout__content--step__footer d-flex align-items-center">
-                                <a class="continue__shipping--btn primary__btn border-radius-5" href="index.php?pg=checkout-3">Tiếp tục</a>
-                                <a class="previous__link--content" href="index.php?pg=shop">Quay lại giỏ hàng</a>
+                                <button class="checkout__discount--code__btn primary__btn border-radius-5" type="submit" name="dathang">Thanh Toán</button>
+                                <a class="previous__link--content" href="index.php?pg=cart">Quay lại giỏ hàng</a>
                             </div>
-                        </form>
+                
                     </main>
                     <footer class="main__footer checkout__footer">
                         <p class="copyright__content">Bản quyền © 2023 <a class="copyright__content--link text__primary" href="index.php">Suruchi .</a> Đã đăng ký Bản quyền.Thiết kế bởi team Suruchi</p>
                     </footer>
                 </div>
-                <aside class="checkout__sidebar sidebar">
-                    <div class="cart__table checkout__product--table">
-                        <table class="cart__table--inner">
-                            <tbody class="cart__table--body">
-                                <tr class="cart__table--body__items">
-                                    <td class="cart__table--body__list">
-                                        <div class="product__image two  d-flex align-items-center">
-                                            <div class="product__thumbnail border-radius-5">
-                                                <a href="product-details.html"><img class="border-radius-5" src="./uploads/small-product7.png" alt="cart-product"></a>
-                                                <span class="product__thumbnail--quantity">1</span>
-                                            </div>
-                                            <div class="product__description">
-                                                <h3 class="product__description--name h4"><a href="product-details.html">Áo khoác blazer</a></h3>
-                                                <span class="product__description--variant">Màu: Xám</span>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="cart__table--body__list">
-                                        <span class="cart__price">200.00VND</span>
-                                    </td>
-                                </tr>
-                                <tr class="cart__table--body__items">
-                                    <td class="cart__table--body__list">
-                                        <div class="cart__product d-flex align-items-center">
-                                            <div class="product__thumbnail border-radius-5">
-                                                <a href="product-details.html"><img class="border-radius-5" src="./uploads/small-product2.png" alt="cart-product"></a>
-                                                <span class="product__thumbnail--quantity">1</span>
-                                            </div>
-                                            <div class="product__description">
-                                                <h3 class="product__description--name h4"><a href="product-details.html">Áo thun form rộng trơn</a></h3>
-                                                <span class="product__description--variant">Màu: Đen</span>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="cart__table--body__list">
-                                        <span class="cart__price">200.00VND</span>
-                                    </td>
-                                </tr>
-                                <tr class="cart__table--body__items">
-                                    <td class="cart__table--body__list">
-                                        <div class="cart__product d-flex align-items-center">
-                                            <div class="product__thumbnail border-radius-5">
-                                                <a href="product-details.html"><img class="border-radius-5" src="./uploads/small-product4.png" alt="cart-product"></a>
-                                                <span class="product__thumbnail--quantity">1</span>
-                                            </div>
-                                            <div class="product__description">
-                                                <h3 class="product__description--name h4"><a href="product-details.html">Áo thun ngắn tay trắng đục</a></h3>
-                                                <span class="product__description--variant">Màu: Trắng</span>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="cart__table--body__list">
-                                        <span class="cart__price">200.00VND</span>
-                                    </td>
-                                </tr>
+                <?php
+                    if(isset($_SESSION['giohang']) && is_array($_SESSION['giohang'])){
+                        $i=0;
+                        $sum=0;
+                        foreach ($_SESSION['giohang'] as $item) {
+                            extract($item);
+                            $tt= (int)$price* (int)$amount;
+                            (int)$sum += (int)$price* (int)$amount;
+                            $linkdel="index.php?pg=delcart&ind=".$i;
+                                                echo '
+                                                <aside class="checkout__sidebar sidebar">
+                                                        <div class="cart__table checkout__product--table">
+                                                            <table class="cart__table--inner">
+                                                                <tbody class="cart__table--body">
+                                                                    <tr class="cart__table--body__items">
+                                                                        <td class="cart__table--body__list">
+                                                                            <div class="product__image two  d-flex align-items-center">
+                                                                         
+                                                                                <div class="product__thumbnail border-radius-5">
+                                                                                    <a href="product-details.html"><img class="border-radius-5" src="./view/assets/img/product/'.$img.'" alt="cart-product"></a>
+                                                                                    <span class="product__thumbnail--quantity">'.$amount.'</span>
+                                                                                </div>
+                                                                                
+                                                                                <div class="product__description">
+                                                                                    <h3 class="product__description--name h4"><a href="product-details.html">'.$name.'</a></h3
+                                                                                </div>
+                                                                            </div>
+                                                                          
+                                                                        </td>
+                                                                        <td class="cart__table--body__list">
+                                                                            <span class="cart__price">'.number_format($tt,0,",",".").'VNĐ</span>
+                                                                        </td>
+                                                                    </tr>';
+                                                    $i++;
+                                                }
+                                            
+                                            }
+                                        ?>
+
+                              
                             </tbody>
                         </table> 
+                        </form>
                     </div>
                     <div class="checkout__discount--code">
                         <form class="d-flex" action="#">
@@ -377,7 +370,7 @@
                             <tbody class="checkout__total--body">
                                 <tr class="checkout__total--items">
                                     <td class="checkout__total--title text-left">Tổng phụ </td>
-                                    <td class="checkout__total--amount text-right">600.00VND</td>
+                                    <td class="checkout__total--amount text-right"><?=number_format($sum,0,",",".")?>VNĐ</td>
                                 </tr>
                                 <tr class="checkout__total--items">
                                     <td class="checkout__total--title text-left">Vận chuyển</td>
@@ -387,11 +380,13 @@
                             <tfoot class="checkout__total--footer">
                                 <tr class="checkout__total--footer__items">
                                     <td class="checkout__total--footer__title checkout__total--footer__list text-left">Tổng cộng</td>
-                                    <td class="checkout__total--footer__amount checkout__total--footer__list text-right">600.00VND</td>
+                                    <td class="checkout__total--footer__amount checkout__total--footer__list text-right"><?=number_format($sum,0,",",".")?>VNĐ</td>
                                 </tr>
                             </tfoot>
+                            
                         </table>
                     </div>
+                    
                 </aside>
             </div>
         </div>

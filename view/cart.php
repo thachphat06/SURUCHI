@@ -133,7 +133,21 @@
                                     <p class="cart__summary--footer__desc">Vận chuyển và thuế được tính khi thanh toán</p>
                                     <ul class="d-flex justify-content-between">
                                         <li><button class="cart__summary--footer__btn primary__btn cart" type="submit">Cập nhật giỏ hàng</button></li>
-                                        <li><button class="cart__summary--footer__btn primary__btn checkout" type="submit" name="btncheckout" value="Thanh Toán">Thanh toán</button></li>
+                                      <?php  
+                            echo'<form action="index.php?pg=checkoutcart" method="post">
+                            <input type="hidden" name="id" value="'.$id.'">
+                            <input type="hidden" name="name" value="'.$name.'">
+                            <input type="hidden" name="img" value="'.$img.'">
+                            <input type="hidden" name="price" value="'.$price.'">
+                                <div class="product__variant--list quantity d-flex align-items-center mb-20">
+                                    <div class="quantity__box">
+                                        <input type="hidden" class="quantity__number quickview__value--number" name="amount" value="'.$amount.'">
+                                    </div>
+                                    <li><button class="cart__summary--footer__btn primary__btn checkout" type="submit" name="btncheckout" value="Thanh Toán">Thanh toán</button></li>
+                                </div>
+                            </form>'
+                            ?>
+                                        
                                     </ul>
                                 </div>
                             </div> 
