@@ -37,9 +37,6 @@
             <h2 class="content-title card-title">Danh mục </h2>
             <p>Thêm, chỉnh sửa hoặc xóa một danh mục</p>
         </div>
-        <div>
-            <input type="text" placeholder="Tìm kiếm danh mục" class="form-control bg-white">
-        </div>
     </div>
     <div class="card">
         <div class="card-body">

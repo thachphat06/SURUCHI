@@ -53,11 +53,6 @@ function get_dssp_lienquan($iddm, $id, $limi){
     return pdo_query($sql, $iddm, $id);
 }
 
-function get_dssp_admin($limi){
-    $sql = " SELECT * FROM product order by id limit ".$limi;
-    return pdo_query($sql);
-}
-
 function get_best($limi){
     $sql = " SELECT * FROM product WHERE bestseller=1 order by id limit ".$limi;
     return pdo_query($sql);
@@ -327,6 +322,19 @@ function showsp_admin($dssp){
                 $i++;
     }
     return $html_dssp;
+}
+
+function get_dssp_admin($kyw, $iddm, $limi){
+    $sql = "SELECT * FROM product WHERE 1";
+    if($iddm>0){
+        $sql .=" AND iddm=".$iddm;
+    }
+    if($kyw!=""){
+        $sql .=" AND name LIKE '%".$kyw."%'";
+    }
+
+    $sql .= " ORDER BY id DESC LIMIT ".$limi;
+    return pdo_query($sql);
 }
 
 function get_img($id) {
