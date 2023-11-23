@@ -40,21 +40,6 @@
                         <div class="col-lg-4 col-md-6 me-auto">
                             <input type="text" placeholder="Tìm..." class="form-control">
                         </div>
-                        <div class="col-lg-2 col-md-3 col-6">
-                            <select class="form-select">
-                                <option>Trạng thái</option>
-                                <option>Active</option>
-                                <option>Disabled</option>
-                                <option>Show all</option>
-                            </select>
-                        </div>
-                        <div class="col-lg-2 col-md-3 col-6">
-                            <select class="form-select">
-                                <option>Show 10</option>
-                                <option>Show 20</option>
-                                <option>Show 30</option>
-                            </select>
-                        </div>
                     </div>
                 </header>
                 <!-- card-header end// -->
