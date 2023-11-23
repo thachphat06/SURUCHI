@@ -13,6 +13,8 @@
   include "model/dmuc-tintuc.php";
   include "model/tintuc.php";
   include "model/user.php";
+  include "model/donhang.php";
+  include "model/giohang.php";
 
   include "view/header.php";
 
@@ -178,6 +180,23 @@
         // Trang PHP nơi bạn muốn thực hiện thêm sản phẩm vào giỏ hàng
         include_once("./controller/AddToCart.php");
         break;
+        case 'checkoutcart':
+          if(isset($_POST['btncheckout']) && ($_POST['btncheckout'])){
+            $id= $_POST['id'];
+            $name= $_POST['name'];
+            $img= $_POST['img'];
+            $price= $_POST['price'];
+            if(isset($_POST['amount']) && ($_POST['amount'] > 0)){
+              $amount = $_POST['amount'];
+          }else{
+              $amount = 1;
+          }
+            $sp=["id"=>$id,"name"=>$name,"img"=>$img,"price"=>$price,"amount"=>$amount];
+            $_SESSION['thanhtoan'][]=$sp;
+            header('Location: index.php?pg=checkout-2');
+          }
+          break;
+      
       case 'delcart':
         if(isset($_GET['ind'])&&($_GET['ind']>=0)) {
           array_splice($_SESSION['giohang'],$_GET['ind'],1);
@@ -194,7 +213,35 @@
         include "view/checkout.php";
         break;
       case 'checkout-2':
-        include "view/checkout-2.php";
+        if(isset($_POST['donhangsubmit'])){
+          $nguoidat_ten=$_POST['hoten'];
+          $nguoidat_tel=$_POST['sdt'];
+          $nguoidat_diachi=$_POST['diachi'];
+          $nguoidat_email=$_POST['email'];
+          // $pttt=$_POST['pttt'];
+          $pttt = isset($_POST['pttt']) ? $_POST['pttt'] : ''; // Kiểm tra và gán giá trị cho $pttt
+          $username="guest".rand(1,999);
+          $password="123456";
+          $iduser=user_insert_id($username, $password, $nguoidat_ten , $nguoidat_diachi, $nguoidat_email, $nguoidat_tel);
+          $mahd="Suruchi".$iduser."-".date("His-dmY");
+          $total=get_tongdonhang();
+          $ship=0;
+          if(isset($_SESSION['giatrivoucher'])){
+            $voucher=$_SESSION['giatrivoucher'];
+          }else{
+            $voucher=0;
+          }
+          
+          $tongthanhtoan=($total - $voucher) + $ship;
+          $idbill=bill_insert_id($mahd, $iduser, $nguoidat_ten, $nguoidat_email, $nguoidat_tel, $nguoidat_diachi, $total, $ship, $voucher, $tongthanhtoan, $pttt);
+          foreach ($_SESSION['giohang'] as $sp) {
+            extract($sp);
+            cart_insert($id , $price, $name, $img, $amount, $thanhtien, $idbill );
+          }
+          
+        }
+
+        include "view/checkout-3.php";
         break;
       case 'checkout-3':
         include "view/checkout-3.php";
