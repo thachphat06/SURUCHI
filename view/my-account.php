@@ -37,6 +37,11 @@
                             <li class="account__menu--list active"><a href="index.php?pg=my-account">Địa chỉ</a></li>
                             <li class="account__menu--list"><a href="index.php?pg=my-account-3">Thông tin mua hàng</a></li>
                             <li class="account__menu--list"><a href="index.php?pg=logout">Đăng xuất</a></li>
+                            <?php 
+                                if($role==1){
+                                    echo '<li class="account__menu--list"><a href="admin/index.php">Dành cho Admin</a></li>';
+                                }
+                            ?>
                         </ul>
                     </div>
                     <div class="account__wrapper">

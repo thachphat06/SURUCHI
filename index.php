@@ -109,18 +109,19 @@
       case 'shop':
         $dsdm=danhmuc_all();
         $kyw="";
+        $titledm="";
         $titlepage="";
 
         if(!isset($_GET['iddm'])){
           $iddm=0;
         }else{
             $iddm=$_GET['iddm'];
-            $titlepage=get_name_dm($iddm);
+            $titledm=get_name_dm($iddm);
         }  
 
         if (isset($_POST["search"])) {
           $kyw=$_POST["kyw"];
-          $titlepage="Kết quả tìm kiếm với từ khóa: ".$kyw;
+          $titlepage="Tìm kiếm sản phẩm: '$kyw'";
         }
         $dssp=get_dssp($kyw, $iddm, 16);
 

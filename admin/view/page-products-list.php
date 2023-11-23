@@ -16,7 +16,10 @@
             <div class="card mb-4">
                 <header class="card-header">
                     <div class="row align-items-center">
-                        <div class="col-md-3 col-12 me-auto mb-md-0 mb-3">
+                        <div class="col-lg-4 col-md-6 me-auto">
+                            <input type="text" placeholder="Tìm kiếm..." class="form-control">
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-6">
                             <select class="form-select">
                                 <option selected>Tất cả danh mục</option>
                                 <option>Electronics</option>
@@ -24,21 +27,35 @@
                                 <option>Automobile</option>
                             </select>
                         </div>
-                        <div class="col-md-2 col-6">
+                        <!-- <div class="col-md-2 col-6">
                             <input type="date" value="02.05.2022" class="form-control">
-                        </div>
-                        <div class="col-md-2 col-6">
+                        </div> -->
+                        <!-- <div class="col-md-2 col-6">
                             <select class="form-select">
                                 <option selected>Trạng thái</option>
                                 <option>Active</option>
                                 <option>Disabled</option>
                                 <option>Show all</option>
                             </select>
-                        </div>
+                        </div> -->
                     </div>
                 </header>
                 <!-- card-header end// -->
                 <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th width="9%">STT</th>
+                                    <th>Sản phẩm</th>
+                                    <th style="padding-left: 165px;">Giá</th>
+                                    <th style="padding-right: 40px;">Giá gốc</th>
+                                    <th style="padding-right: 280px;">Mô tả</th>
+                                    <th class="text-end"> Action </th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
                     <?=$html_productlist;?>
                 </div>
                 <!-- card-body end// -->

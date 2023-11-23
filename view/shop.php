@@ -12,8 +12,11 @@
                         </a>
                     </li>';
     }
-    if($titlepage!="") $title=$titlepage;
-    else $title="Cửa hàng";
+    if($titlepage!="") $title='<span style="font-size: 30px;">'.$titlepage.'</span> </br></br>';
+    else $title="";
+    
+    if($titledm!="") $title2=$titledm;
+    else $title2="Cửa hàng";
     
     $html_dssp=showsp($dssp);
 ?>
@@ -25,7 +28,7 @@
                 <div class="row row-cols-1">
                     <div class="col">
                         <div class="breadcrumb__content text-center">
-                            <h1 class="breadcrumb__content--title text-white mb-25"><?=$title?></h1>
+                            <h1 class="breadcrumb__content--title text-white mb-25"><?=$title2?></h1>
                             <ul class="breadcrumb__content--menu d-flex justify-content-center">
                                 <li class="breadcrumb__content--menu__items"><a class="text-white" href="index.html">Trang chủ</a></li>
                                 <li class="breadcrumb__content--menu__items"><span class="text-white">Cửa hàng</span></li>
@@ -160,6 +163,7 @@
                         </div>
                     </div>
                     <div class="col-xl-9 col-lg-8">
+                        <?=$title?>
                         <div class="shop__product--wrapper">
                             <div class="tab_content">
                                 <div id="product_grid" class="tab_pane active show">

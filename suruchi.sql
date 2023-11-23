@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 23, 2023 at 12:38 PM
+-- Generation Time: Nov 23, 2023 at 04:37 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -30,6 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `bill` (
   `id` int(9) NOT NULL,
   `mahd` varchar(50) NOT NULL,
+  `date` date NOT NULL,
   `nguoidat_ten` varchar(50) NOT NULL,
   `nguoidat_email` varchar(50) NOT NULL,
   `nguoidat_tel` varchar(20) NOT NULL,
@@ -43,6 +44,7 @@ CREATE TABLE `bill` (
   `voucher` int(6) NOT NULL DEFAULT 0,
   `tongthanhtoan` int(10) NOT NULL,
   `pttt` tinyint(1) NOT NULL COMMENT '0: COD; 1: ck; 2: ví điện tử',
+  `status` tinyint(2) NOT NULL DEFAULT 1 COMMENT '1: Waiting;\r\n2: Cofirm;\r\n3: Cancelled',
   `iduser` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -367,7 +369,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- Constraints for dumped tables
