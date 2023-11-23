@@ -238,10 +238,10 @@
             extract($sp);
             cart_insert($id , $price, $name, $img, $amount, $thanhtien, $idbill );
           }
-          
+          header('location: index.php?pg=checkout-3');
         }
 
-        include "view/checkout-3.php";
+        include "view/checkout-2.php";
         break;
       case 'checkout-3':
         include "view/checkout-3.php";
