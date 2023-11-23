@@ -71,7 +71,7 @@
                         <table class="table table-hover">
                             <thead>
                                 <tr>
-                                    <th>Mã</th>
+                                    <th>STT</th>
                                     <th>Ảnh danh mục</th>
                                     <th>Tên Danh Mục</th>
                                     <th class="text-end">Action</th>
