@@ -61,7 +61,7 @@
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a class="menu-link" href="index.php?pg=sellers-list"> <i class="icon material-icons md-person"></i>
+                    <a class="menu-link" href="index.php?pg=user-list"> <i class="icon material-icons md-person"></i>
                         <span class="text">Tài Khoản</span>
                     </a>
                 </li>

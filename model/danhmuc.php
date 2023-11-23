@@ -37,14 +37,7 @@ function danhmuc_update($name, $img, $id){
 //  */
 function danhmuc_delete($id){
     $sql = "DELETE FROM category WHERE id=?";
-    // if(is_array($ma_danhmuc)){
-    //     foreach ($ma_danhmuc as $ma) {
-    //         pdo_execute($sql, $ma);
-    //     }
-    // }
-    // else{
-        pdo_execute($sql, $id);
-    // }
+    pdo_execute($sql, $id);
 }
 /**
  * Truy vấn tất cả các loại

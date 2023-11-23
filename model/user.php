@@ -41,17 +41,10 @@ function get_user($id) {
 //     pdo_execute($sql, $mat_khau, $ho_ten, $email, $hinh, $kich_hoat==1, $vai_tro==1, $ma_kh);
 // }
 
-// function user_delete($ma_kh){
-//     $sql = "DELETE FROM users  WHERE ma_kh=?";
-//     if(is_array($ma_kh)){
-//         foreach ($ma_kh as $ma) {
-//             pdo_execute($sql, $ma);
-//         }
-//     }
-//     else{
-//         pdo_execute($sql, $ma_kh);
-//     }
-// }
+function user_delete($id){
+    $sql = "DELETE FROM users WHERE id=?";
+    pdo_execute($sql, $id);
+}
 
 // function user_select_all(){
 //     $sql = "SELECT * FROM users";
@@ -83,3 +76,16 @@ function loadall_user(){
     $listuser=pdo_query($sql);
     return $listuser;
 } 
+
+function get_img_user($id) {
+    $sql = "SELECT img FROM users WHERE id=?";
+    $getimg = pdo_query_one($sql, $id);
+
+    // Kiểm tra xem có dữ liệu trả về hay không
+    if ($getimg !== false && is_array($getimg)) {
+        return $getimg['img'];
+    } else {
+        // Xử lý trường hợp không có dữ liệu
+        return 'Ảnh không tồn tại'; // Hoặc giá trị mặc định khác tùy vào yêu cầu của bạn
+    }
+}

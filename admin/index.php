@@ -153,7 +153,6 @@
         $cataloglist = danhmuc_all();  
         include "view/page-categories.php";
         break;
-      break;
       case 'updatedm':
         //kiem tra va lay du lieu
         if(isset($_POST['updatedm'])){
@@ -197,9 +196,27 @@
       case 'orders-detail':
         include "view/page-orders-detail.php";
         break;
-      case 'sellers-list':
+      case 'user-list':
         $listuser=loadall_user();
-        include "view/page-sellers-list.php";
+        include "view/page-user-list.php";
+        break;
+      case 'deluser':
+        if(isset($_GET['id'])&&($_GET['id']>0)){
+          $id=$_GET['id'];
+          $img=IMG_PATH_ADMIN.get_img_user($id);
+          if(is_file($img)){
+            unlink($img);
+          }
+          try {
+            user_delete($id);
+          } catch(\Throwable $th){
+            //throw $th;
+            echo"<h3 style='color:red; text-align:center' >User này là khóa ngoại! Không được quyền xóa!</h3>";
+          }
+        } 
+        //trở về trang user
+        $listuser=loadall_user();
+        include "view/page-user-list.php";
         break;
       case 'page-review':
         include "view/page-review.php";

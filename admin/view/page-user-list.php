@@ -18,10 +18,10 @@
                         <td>
                             <a href="mailto:'.$email.'" class="__cf_email__">'.$email.'</a>
                         </td>
-                        <td><span class="badge rounded-pill alert-success">0377318275</span></td>
+                        <td><span class="badge rounded-pill alert-success">'.$sdt.'</span></td>
                         <td width="30%">'.$address.'</td>
                         <td class="text-end">
-                            <a href="#" class="btn btn-sm btn-brand rounded font-sm mt-15">Xóa</a>
+                            <a href="index.php?pg=deluser&id='.$id.'" class="btn btn-sm btn-brand rounded font-sm mt-15">Xóa</a>
                         </td>
                     </tr>';
     }
