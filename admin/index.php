@@ -8,6 +8,7 @@
   }
   include "../model/sanpham.php";
   include "../model/danhmuc.php";
+  include "../model/user.php";
   include "../model/global.php";
 
   include "view/header.php";
@@ -197,6 +198,7 @@
         include "view/page-orders-detail.php";
         break;
       case 'sellers-list':
+        $listuser=loadall_user();
         include "view/page-sellers-list.php";
         break;
       case 'page-review':

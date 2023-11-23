@@ -77,3 +77,9 @@ function get_user($id) {
 //     $sql = "UPDATE users SET mat_khau=? WHERE ma_kh=?";
 //     pdo_execute($sql, $mat_khau_moi, $ma_kh);
 // }
+
+function loadall_user(){
+    $sql = "select * from users";
+    $listuser=pdo_query($sql);
+    return $listuser;
+} 
