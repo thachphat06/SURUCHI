@@ -38,8 +38,8 @@
                                 <table class="account__table">
                                     <thead class="account__table--header">
                                         <tr class="account__table--header__child">
-                                            <th class="account__table--header__child--items">Sản phẩm</th>
-                                            <th class="account__table--header__child--items">Ngày</th>
+                                            <th class="account__table--header__child--items">Mã Đơn Hàng</th>
+                                            <th class="account__table--header__child--items">Ngày Mua</th>
                                             <th class="account__table--header__child--items">Tình trạng thanh toán</th>
                                             <th class="account__table--header__child--items">Tình trạng hoàn thành</th>
                                             <th class="account__table--header__child--items">Tổng tiền</th>
@@ -47,49 +47,7 @@
                                     </thead>
                                     <tbody class="account__table--body mobile__none">
                                         <tr class="account__table--body__child">
-                                            <td class="account__table--body__child--items">#2014</td>
-                                            <td class="account__table--body__child--items">11/11/2023</td>
-                                            <td class="account__table--body__child--items">Trả</td>
-                                            <td class="account__table--body__child--items">Hoàn Thành</td>
-                                            <td class="account__table--body__child--items">600.000VND</td>
-                                        </tr>
-                                        <tr class="account__table--body__child">
-                                            <td class="account__table--body__child--items">#2014</td>
-                                            <td class="account__table--body__child--items">11/11/2023</td>
-                                            <td class="account__table--body__child--items">Trả</td>
-                                            <td class="account__table--body__child--items">Hoàn Thành</td>
-                                            <td class="account__table--body__child--items">600.000VND</td>
-                                        </tr>
-                                        <tr class="account__table--body__child">
-                                            <td class="account__table--body__child--items">#2014</td>
-                                            <td class="account__table--body__child--items">11/11/2023</td>
-                                            <td class="account__table--body__child--items">Trả</td>
-                                            <td class="account__table--body__child--items">Hoàn Thành</td>
-                                            <td class="account__table--body__child--items">600.000VND</td>
-                                        </tr>
-                                        <tr class="account__table--body__child">
-                                            <td class="account__table--body__child--items">#2014</td>
-                                            <td class="account__table--body__child--items">11/11/2023</td>
-                                            <td class="account__table--body__child--items">Trả</td>
-                                            <td class="account__table--body__child--items">Hoàn Thành</td>
-                                            <td class="account__table--body__child--items">600.000VND</td>
-                                        </tr>
-                                        <tr class="account__table--body__child">
-                                            <td class="account__table--body__child--items">#2014</td>
-                                            <td class="account__table--body__child--items">11/11/2023</td>
-                                            <td class="account__table--body__child--items">Trả</td>
-                                            <td class="account__table--body__child--items">Hoàn Thành</td>
-                                            <td class="account__table--body__child--items">600.000VND</td>
-                                        </tr>
-                                        <tr class="account__table--body__child">
-                                            <td class="account__table--body__child--items">#2014</td>
-                                            <td class="account__table--body__child--items">11/11/2023</td>
-                                            <td class="account__table--body__child--items">Trả</td>
-                                            <td class="account__table--body__child--items">Hoàn Thành</td>
-                                            <td class="account__table--body__child--items">600.000VND</td>
-                                        </tr>
-                                        <tr class="account__table--body__child">
-                                            <td class="account__table--body__child--items">#2014</td>
+                                            <td class="account__table--body__child--items"><?=$mahd?></td>
                                             <td class="account__table--body__child--items">11/11/2023</td>
                                             <td class="account__table--body__child--items">Trả</td>
                                             <td class="account__table--body__child--items">Hoàn Thành</td>

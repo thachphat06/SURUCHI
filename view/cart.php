@@ -27,7 +27,7 @@
                             <td class="cart__table--body__list">
                                 <span class="cart__price">'.number_format($price,0,",",".").'VNĐ</span>
                             </td>
-                            <td class="cart__table--body__  list">
+                            <td class="cart__table--body__list">
                                 <div class="quantity__box">
                                     <button type="button" class="quantity__value quickview__value--quantity decrease" aria-label="quantity value" value="Decrease Value">-</button>
                                     <label>

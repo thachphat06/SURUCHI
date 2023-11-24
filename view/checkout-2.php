@@ -211,14 +211,14 @@
                                     </div>
                                 </div>
                             </div> -->
-                        <form action="index.php?pg=checkout-2" method="POST">
+                        <form action="index.php?pg=checkout-2" method="post">
                                 <div class="checkout__content--step section__shipping--address pt-10">
                                     <div class="section__header mb-25">
                                         <h3 class="section__header--title">Địa chỉ thanh toán</h3>
-                                        <p class="section__header--desc">Chọn địa chỉ phù hợp với thẻ hoặc phương thức thanh toán của bạn.</p>
+                                        <p class="section__header--desc">Bạn đã có tài khoản? <a style="color: red" href="index.php?pg=signin-signup">Đăng Nhập</a></p>
                                     </div>
                                     <div class="checkout__content--step__inner3 border-radius-5">
-                                        <div class="checkout__address--content__header">
+                                        <!-- <div class="checkout__address--content__header">
                                             <div class="shipping__contact--box__list">
                                                 <div class="shipping__radio--input">
                                                     <input class="shipping__radio--input__field" id="radiobox" name="checkmethod" type="radio">
@@ -235,7 +235,7 @@
                                                     <span class="shipping__radio--label__primary">Sử dụng địa chỉ thanh toán khác</span>
                                                 </label>
                                             </div>
-                                        </div>
+                                        </div> -->
                                         <div class="checkout__content--input__box--wrapper ">
                                             <div class="row">
                                                 <div class="col-lg-6 mb-12">
@@ -255,25 +255,25 @@
                                                 <div class="col-12 mb-12">
                                                     <div class="checkout__input--list">
                                                         <label>
-                                                            <input class="checkout__input--field border-radius-5" placeholder="Địa chỉ" name="diachi" type="text">
+                                                            <input class="checkout__input--field border-radius-5" placeholder="Địa chỉ" name="diachi" type="text" ">
                                                         </label>
                                                     </div>
                                                 </div>
                                                 <div class="col-12 mb-12">
                                                     <div class="checkout__input--list">
                                                         <label>
-                                                            <input class="checkout__input--field border-radius-5" placeholder="Email" name="email" type="text">
+                                                            <input class="checkout__input--field border-radius-5" placeholder="Email" name="email" type="text" ">
                                                         </label>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6 mb-12">
                                                     <div class="checkout__input--list">
                                                         <label for="paypal">
-                                                            <input type="radio" id="paypal" name="pttt" value="1">Thanh toán bằng tiền mặt
+                                                            <input type="radio" id="paypal" name="pttt" value="0">Thanh toán khi nhận hàng
                                                         </label>
                                                             <br>
                                                             <label for="creditCard">
-                                                        <input type="radio" id="creditCard" name="pttt" value="2">Thanh toán bằng thẻ tín dụng
+                                                        <input type="radio" id="creditCard" name="pttt" value="1">Thanh toán bằng thẻ tín dụng
                                                         </label>
                                                     </div>
                                                 </div>
@@ -314,6 +314,7 @@
                                 <p class="copyright__content">Bản quyền © 2023 <a class="copyright__content--link text__primary" href="index.php">Suruchi .</a> Đã đăng ký Bản quyền.Thiết kế bởi team Suruchi</p>
                             </footer>
                             </div>
+                            <aside class="checkout__sidebar sidebar">
                             <?php
                                 if(isset($_SESSION['giohang']) && is_array($_SESSION['giohang'])){
                                     $i=0;
@@ -324,7 +325,6 @@
                                         (int)$sum += (int)$price* (int)$amount;
                                         $linkdel="index.php?pg=delcart&ind=".$i;
                                                             echo '
-                                                            <aside class="checkout__sidebar sidebar">
                                                                     <div class="cart__table checkout__product--table">
                                                                         <table class="cart__table--inner">
                                                                             <tbody class="cart__table--body">
@@ -356,17 +356,13 @@
                                 
                                 </tbody>
                             </table> 
-                            
                             </div>
                             <div class="checkout__discount--code">
-                                <form class="d-flex" action="#" method="post">
                                     <label>
                                         <input class="checkout__discount--code__input--field border-radius-5" placeholder="Thẻ quà tặng hoặc mã giảm giá"  type="text">
                                     </label>
-                                    <button class="checkout__discount--code__btn primary__btn border-radius-5" type="submit" name="donhangsubmit" style="cusor:pointer">Thanh Toán</button>
-                                </form>
+                                    <button class="checkout__discount--code__btn primary__btn border-radius-5" type="submit" name="donhangsubmit" style="cursor:pointer">Thanh Toán</button>
                             </div>
-                            
                             <div class="checkout__total">
                             <table class="checkout__total--table">
                                 <tbody class="checkout__total--body">

@@ -102,7 +102,7 @@
           include "view/my-account.php";
         }
         break;
-      case 'my-account-2':
+      case 'my-account-2';
         include "view/my-account-2.php";
         break;
       case 'my-account-3':
@@ -212,40 +212,87 @@
       case 'checkout':
         include "view/checkout.php";
         break;
-      case 'checkout-2':
-        if(isset($_POST['donhangsubmit'])){
-          $nguoidat_ten=$_POST['hoten'];
-          $nguoidat_tel=$_POST['sdt'];
-          $nguoidat_diachi=$_POST['diachi'];
-          $nguoidat_email=$_POST['email'];
-          // $pttt=$_POST['pttt'];
-          $pttt = isset($_POST['pttt']) ? $_POST['pttt'] : ''; // Kiểm tra và gán giá trị cho $pttt
-          $username="guest".rand(1,999);
-          $password="123456";
-          $iduser=user_insert_id($username, $password, $nguoidat_ten , $nguoidat_diachi, $nguoidat_email, $nguoidat_tel);
-          $mahd="Suruchi".$iduser."-".date("His-dmY");
-          $total=get_tongdonhang();
-          $ship=0;
-          if(isset($_SESSION['giatrivoucher'])){
-            $voucher=$_SESSION['giatrivoucher'];
-          }else{
-            $voucher=0;
-          }
+      // case 'checkout-2':
+      //   if(isset($_POST['donhangsubmit'])){
+      //     $nguoidat_ten=$_POST['hoten'];
+      //     $nguoidat_tel=$_POST['sdt'];
+      //     $nguoidat_diachi=$_POST['diachi'];
+      //     $nguoidat_email=$_POST['email'];
+      //     // $pttt=$_POST['pttt'];
+      //     $pttt = isset($_POST['pttt']) ? $_POST['pttt'] : ''; 
+      //     $ngaymua = date("Y-m-d H:i:s");// Kiểm tra và gán giá trị cho $pttt
+      //     $username="guest".rand(1,999);
+      //     $password="123456";
+      //     $iduser=user_insert_id($username, $password, $nguoidat_ten , $nguoidat_diachi, $nguoidat_email, $nguoidat_tel);
+      //     $mahd="Suruchi".$iduser.
+      //     $total=get_tongdonhang();
+      //     $ship=0;
+      //     if(isset($_SESSION['giatrivoucher'])){
+      //       $voucher=$_SESSION['giatrivoucher'];
+      //     }else{
+      //       $voucher=0;
+      //     }
           
-          $tongthanhtoan=($total - $voucher) + $ship;
-          $idbill=bill_insert_id($mahd, $iduser, $nguoidat_ten, $nguoidat_email, $nguoidat_tel, $nguoidat_diachi, $total, $ship, $voucher, $tongthanhtoan, $pttt);
-          foreach ($_SESSION['giohang'] as $sp) {
-            extract($sp);
-            cart_insert($id , $price, $name, $img, $amount, $thanhtien, $idbill );
-          }
-          header('location: index.php?pg=checkout-3');
-        }
+      //     $tongthanhtoan=($total - $voucher) + $ship;
+      //     $idbill=bill_insert_id($mahd, $iduser, $nguoidat_ten, $nguoidat_email, $nguoidat_tel, $nguoidat_diachi, $total, $ship, $voucher, $tongthanhtoan, $pttt, $ngaymua);
+      //     foreach ($_SESSION['giohang'] as $sp) {
+      //       extract($sp);
+      //       cart_insert($id , $price, $name, $img, $amount, $thanhtien, $idbill );
+      //     }
+      //     header('location: index.php?pg=checkout-3&mahd='.$mahd);
+      //   }
 
+      //   include "view/checkout-2.php";
+      //   break;
+      case 'checkout-2':
+        if (isset($_SESSION['s_user'])){
+        if (isset($_POST['donhangsubmit'])) {
+            $nguoidat_ten = $_POST['hoten'];
+            $nguoidat_tel = $_POST['sdt'];
+            $nguoidat_diachi = $_POST['diachi'];
+            $nguoidat_email = $_POST['email'];
+            $pttt = isset($_POST['pttt']) ? $_POST['pttt'] : '';
+            $ngaymua = date("Y-m-d H:i:s");
+            $username = "guest".rand(1,999);
+            $password = "123456";
+            $iduser = user_insert_id($username, $password, $nguoidat_ten, $nguoidat_diachi, $nguoidat_email, $nguoidat_tel);
+            $mahd = "Suruchi" . $iduser;
+            $total = get_tongdonhang();
+            $ship = 0;
+            if (isset($_SESSION['giatrivoucher'])) {
+                $voucher = $_SESSION['giatrivoucher'];
+            } else {
+                $voucher = 0;
+            }
+            $tongthanhtoan = ($total - $voucher) + $ship;
+            $_SESSION['customer_info'] = array(
+                'hoten' => $nguoidat_ten,
+                'sdt' => $nguoidat_tel,
+                'diachi' => $nguoidat_diachi,
+                'email' => $nguoidat_email,
+            );
+    
+            $idbill = bill_insert_id($mahd, $iduser, $nguoidat_ten, $nguoidat_email, $nguoidat_tel, $nguoidat_diachi, $total, $ship, $voucher, $tongthanhtoan, $pttt, $ngaymua);
+            foreach ($_SESSION['giohang'] as $sp) {
+                extract($sp);
+                cart_insert($id, $price, $name, $img, $amount, $thanhtien, $idbill);
+            }
+            header('location: index.php?pg=checkout-3&mahd='.$mahd);
+        }
+      }else{
+        echo'Bạn cần đăng nhập để thanh toán !';
+      }
         include "view/checkout-2.php";
         break;
+
       case 'checkout-3':
-        include "view/checkout-3.php";
-        break;
+        if(isset($_SESSION['customer_info'])) {
+          // Lấy thông tin khách hàng từ session
+          $customer_info = $_SESSION['customer_info'];
+        }
+          include "view/checkout-3.php";
+      break;
+
       case 'checkout-4':
         include "view/checkout-4.php";
         break;
