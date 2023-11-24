@@ -53,13 +53,19 @@
         header('location: index.php');
         break;
       case 'adduser':
+        $tbdk="";
         // xác định giá trị input
         if(isset($_POST["register"])){
           $username=$_POST["username"];
           $password=$_POST["password"];
           $email=$_POST["email"];
-          //xử lý
-          user_insert($username, $password, $email);
+          // Xử lý
+          if (isUsernameExists($username)) {
+            $tbdk="Tài khoản đã tồn tại. Vui lòng chọn một tài khoản khác.";
+          } else {
+            user_insert($username, $password, $email);
+            $tbdk="Đăng ký thành công!";
+          }
         }
         include "view/login.php";
         break;
@@ -85,7 +91,7 @@
             //xóa hình cũ trên host
             $old_img=IMG_PATH_USER.$_POST['old_img'];
             if(file_exists($old_img)) unlink($old_img);
-            
+
           } else {
             $img="";
           }

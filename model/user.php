@@ -1,10 +1,23 @@
 <?php
 require_once 'pdo.php';
 
-function user_insert($username, $password, $email){
+function isUsernameExists($username) {
+    $sql = "SELECT * FROM users WHERE username = ?";
+    $result = pdo_query_one($sql, $username);
+
+    return $result !== false;
+}
+
+function user_insert($username, $password, $email) {
+    // Thực hiện quá trình đăng ký khi tài khoản không tồn tại
     $sql = "INSERT INTO users(username, password, email) VALUES (?, ?, ?)";
     pdo_execute($sql, $username, $password, $email);
 }
+
+// function user_insert($username, $password, $email){
+//     $sql = "INSERT INTO users(username, password, email) VALUES (?, ?, ?)";
+//     pdo_execute($sql, $username, $password, $email);
+// }
 
 function user_insert_id($username, $password, $name, $address, $sdt, $email){
     $sql = "INSERT INTO users(username, password, name, address, sdt, email) VALUES (?, ?, ?, ?, ?, ?)";
