@@ -14,9 +14,9 @@ function user_insert($username, $password, $email) {
     pdo_execute($sql, $username, $password, $email);
 }
 
-function user_insert_id($username, $password, $name, $address, $sdt, $email){
-    $sql = "INSERT INTO users(username, password, name, address, sdt, email) VALUES (?, ?, ?, ?, ?, ?)";
-    return pdo_execute_id($sql,$username, $password,  $name, $address, $sdt, $email);
+function user_insert_id( $username, $password, $name, $address, $email, $sdt ){
+    $sql = "INSERT INTO users(username,password, name, address, email, sdt) VALUES (?, ?, ?, ?, ?, ?)";
+    return pdo_execute_id($sql,  $username, $password, $name , $address, $email, $sdt);
 }
 
 function user_update($username, $password, $email, $name, $img, $address, $sdt, $role, $id) {
