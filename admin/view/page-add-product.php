@@ -22,31 +22,31 @@
                     <div class="card-body">
                         <div class="mb-4">
                             <label class="form-label">Tên Sản Phẩm</label>
-                            <input type="text" name="name" placeholder="Type here" class="form-control" id="product_name">
+                            <input type="text" name="name" placeholder="Type here" class="form-control" id="product_name" required>
                         </div>
                         <div class="row">
                             <div class="col-lg-4">
                                 <div class="mb-4">
                                     <label class="form-label">Giá Gốc</label>
                                     <div class="row gx-2">
-                                        <input placeholder="VND" type="text" name="old_price" class="form-control">
+                                        <input placeholder="VND" type="text" name="old_price" class="form-control" required>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-4">
                                 <div class="mb-4">
                                     <label class="form-label">Giá Đã Giảm</label>
-                                    <input placeholder="VND" type="text" name="price" class="form-control">
+                                    <input placeholder="VND" type="text" name="price" class="form-control" required>
                                 </div>
                             </div>
                         </div>
                         <div class="mb-4">
                             <label class="form-label" for="">Mô tả 1</label>
-                            <textarea name="describe1" id="" cols="30" rows="10" class="form-control"></textarea>
+                            <textarea name="describe1" id="" cols="30" rows="10" class="form-control" required></textarea>
                         </div>
                         <div class="mb-4">
                             <label class="form-label" for="">Mô tả 2</label>
-                            <textarea name="describe2" id="" cols="30" rows="10" class="form-control form-control1"></textarea>
+                            <textarea name="describe2" id="" cols="30" rows="10" class="form-control form-control1" required></textarea>
                         </div>
                         <div class="mb-4">
                             <label class="form-label">Bestseller</label>
@@ -71,7 +71,7 @@
                     <div class="card-body">
                         <div class="input-upload">
                             <img src="assets/imgs/theme/upload.svg" alt="">
-                            <input class="form-control" type="file" name="img">
+                            <input class="form-control" type="file" name="img" required>
                         </div>
                     </div>
                 </div>
@@ -85,6 +85,7 @@
                             <div class="col-sm-6 mb-3">
                                 <label class="form-label">Danh Mục</label>
                                 <select class="form-select" name="iddm">
+                                    <option value=""></option>
                                     <?=$html_categorylist;?>
                                 </select>
                             </div>

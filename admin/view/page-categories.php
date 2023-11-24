@@ -45,7 +45,7 @@
                     <form action="index.php?pg=categories" method="POST" enctype="multipart/form-data">
                         <div class="mb-4">
                             <label for="product_slug" class="form-label">Tên Danh mục</label>
-                            <input name="name" type="text" placeholder="Nhập tên danh mục" class="form-control" id="product_slug" />
+                            <input name="name" type="text" placeholder="Nhập tên danh mục" class="form-control" id="product_slug" required title="Vui lòng nhập tên danh mục">
                         </div>
                         <div class="card mb-4">
                             <div class="card-header">
@@ -54,7 +54,7 @@
                             <div class="card-body">
                                 <div class="input-upload">
                                     <img src="assets/imgs/theme/upload.svg" alt="">
-                                    <input name="img" class="form-control" type="file">
+                                    <input name="img" class="form-control" type="file" required title="Vui lòng tải ảnh lên">
                                 </div>  
                             </div>
                         </div>
