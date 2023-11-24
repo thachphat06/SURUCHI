@@ -9,6 +9,21 @@
       }else{
         $img="";
       }
+      if($bestseller==1){
+        $bestcheck='checked'; 
+      } else{
+        $bestcheck='';
+      } 
+      if($hot==1){
+        $hotcheck='checked'; 
+      } else{
+        $hotcheck='';
+      } 
+      if($new==1){
+        $newcheck='checked'; 
+      } else{
+        $newcheck='';
+      } 
     }
     $html_categorylist=showdm_admin($categorylist, $iddm);
 ?>
@@ -71,13 +86,13 @@
                         </div>
                         <div class="mb-4">
                             <label class="form-label">Besteller</label>
-                            <input type="checkbox" name="best" class="form-control1" id="product_bestseller">
+                            <input type="checkbox" name="bestseller" <?=$bestcheck?> class="form-control1" id="product_bestseller">
 
                             <label class="form-label">New</label>
-                            <input type="checkbox" name="new" class="form-control1" id="product_new">
+                            <input type="checkbox" name="new" <?=$newcheck?> class="form-control1" id="product_new">
 
                             <label class="form-label">Hot</label>
-                            <input type="checkbox" name="new" class="form-control1" id="product_hot">
+                            <input type="checkbox" name="hot" <?=$hotcheck?> class="form-control1" id="product_hot">
                         </div>
                     </div>
                 </div>

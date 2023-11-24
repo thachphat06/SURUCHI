@@ -22,7 +22,7 @@
         if(!isset($_GET['iddm'])){
           $iddm=0;
         }else{
-            $iddm=$_GET['iddm'];
+          $iddm=$_GET['iddm'];
         }
 
         if (isset($_POST["search"])) {
@@ -32,6 +32,9 @@
         include "view/page-products-list.php";
         break;
       case 'updateproduct':
+        $dsdm=danhmuc_all();
+        $kyw="";
+        $iddm="";
         //kiem tra va lay du lieu
         if(isset($_POST['updateproduct'])){
           //lấy dữ liệu về
@@ -40,14 +43,28 @@
           $old_price = $_POST["old_price"];
           $describe1 = $_POST["describe1"];
           $describe2 = $_POST["describe2"];
-          // $best = $_POST["best"];
-          // $hot = $_POST["hot"];
-          // $new = $_POST["new"];
           $iddm = $_POST["iddm"];
           $id = $_POST["id"];
-
+          if(isset($_POST['bestseller'])){
+            $bestseller = $_POST["bestseller"];
+            if($bestseller='checked') $bestseller=1; else $bestseller=0;
+          }else{
+            $bestseller=0;
+          }
+          if(isset($_POST['hot'])){
+            $hot = $_POST["hot"];
+            if($hot='checked') $hot=1; else $hot=0;
+          }else{
+            $hot=0;
+          }
+          if(isset($_POST['new'])){
+            $new = $_POST["new"];
+            if($new='checked') $new=1; else $new=0;
+          }else{
+            $new=0;
+          }
           $img = $_FILES["img"]['name'];
-          if($img!=""){
+          if($img!=""){ 
             //upload hình
             $target_file = IMG_PATH_ADMIN.$img;
             move_uploaded_file($_FILES["img"]["tmp_name"], $target_file);
@@ -60,16 +77,16 @@
             $img="";
           }
           //update
-          sanpham_update($name, $img, $price, $old_price, $describe1, $describe2, $iddm, $id);
+          sanpham_update($name, $img, $price, $old_price, $describe1, $describe2, $bestseller, $hot, $new, $iddm, $id);
         }
 
         //show dssp
-        $productlist=get_dssp_admin($kyw, $idd, 100); 
+        $productlist=get_dssp_admin($kyw, $iddm, 100); 
         include "view/page-products-list.php";
         break;
-      case 'form-add-product':
+      case 'page-add-product':
         $categorylist = danhmuc_all();
-        include "view/page-form-product.php";
+        include "view/page-add-product.php";
         break;
       case 'page-update-product':
         if(isset($_GET['id'])&&($_GET['id']>0)){
@@ -81,6 +98,9 @@
         include "view/page-update-product.php";
         break;
       case 'delproduct':
+        $dsdm=danhmuc_all();
+        $kyw="";
+        $iddm="";
         if(isset($_GET['id'])&&($_GET['id']>0)){
           $id=$_GET['id'];
           $img=IMG_PATH_ADMIN.get_img($id);
@@ -100,24 +120,40 @@
         break;
       case 'addproduct':
         if (isset($_POST['addproduct'])) {
+          $dsdm=danhmuc_all();
+          $kyw="";
           //lấy dữ liệu về
           $name = $_POST["name"];
           $price = $_POST["price"];
           $old_price = $_POST["old_price"];
           $describe1 = $_POST["describe1"];
           $describe2 = $_POST["describe2"];
-          // $best = $_POST["best"];
-          // $hot = $_POST["hot"];
-          // $new = $_POST["new"];
           $iddm = $_POST["iddm"];
+          if(isset($_POST['bestseller'])){
+            $bestseller = $_POST["bestseller"];
+            if($bestseller=1) $bestseller=1; else $bestseller=0;
+          }else{
+            $bestseller=0;
+          }
+          if(isset($_POST['hot'])){
+            $hot = $_POST["hot"];
+            if($hot=1) $hot=1; else $hot=0;
+          }else{
+            $hot=0;
+          }
+          if(isset($_POST['new'])){
+            $new = $_POST["new"];
+            if($new=1) $new=1; else $new=0;
+          }else{
+            $new=0;
+          }
           $img = $_FILES["img"]['name'];
-
           //upload hình
           $target_file = IMG_PATH_ADMIN.$img;
           move_uploaded_file($_FILES["img"]["tmp_name"], $target_file);
 
           //insert into
-          sanpham_insert($name, $img, $price, $old_price, $describe1, $describe2, $iddm);
+          sanpham_insert($name, $img, $price, $old_price, $describe1, $describe2, $bestseller, $hot, $new, $iddm);
 
           //trở về trang dssp
           $productlist=get_dssp_admin($kyw, $iddm, 100); 

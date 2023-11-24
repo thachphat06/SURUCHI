@@ -1,18 +1,18 @@
 <?php
 require_once 'pdo.php';
 
-function sanpham_insert($name, $img, $price, $old_price, $describe1, $describe2, $iddm){
-    $sql = "INSERT INTO product(name, img, price, old_price, describe1, describe2, iddm) VALUES (?,?,?,?,?,?,?)";
-    pdo_execute($sql, $name, $img, $price, $old_price, $describe1, $describe2, $iddm);
+function sanpham_insert($name, $img, $price, $old_price, $describe1, $describe2, $bestseller, $hot, $new, $iddm){
+    $sql = "INSERT INTO product(name, img, price, old_price, describe1, describe2, bestseller, hot, new, iddm) VALUES (?,?,?,?,?,?,?,?,?,?)";
+    pdo_execute($sql, $name, $img, $price, $old_price, $describe1, $describe2, $bestseller, $hot, $new, $iddm);
 }
 
-function sanpham_update($name, $img, $price, $old_price, $describe1, $describe2, $iddm, $id){
+function sanpham_update($name, $img, $price, $old_price, $describe1, $describe2, $bestseller, $hot, $new, $iddm, $id){
     if($img!=""){
-        $sql = "UPDATE product SET name=?, img=?, price=?, old_price=?, describe1=?, describe2=?,iddm=? WHERE id=?";
-        pdo_execute($sql, $name, $img, $price, $old_price, $describe1, $describe2, $iddm, $id);
+        $sql = "UPDATE product SET name=?, img=?, price=?, old_price=?, describe1=?, describe2=?, bestseller=?, hot=?, new=?, iddm=? WHERE id=?";
+        pdo_execute($sql, $name, $img, $price, $old_price, $describe1, $describe2, $bestseller, $hot, $new, $iddm, $id);
     } else{
-        $sql = "UPDATE product SET name=?, price=?, old_price=?, describe1=?, describe2=?,iddm=? WHERE id=?";
-        pdo_execute($sql, $name, $price, $old_price, $describe1, $describe2, $iddm, $id);
+        $sql = "UPDATE product SET name=?, price=?, old_price=?, describe1=?, describe2=?, bestseller=?, hot=?, new=?, iddm=? WHERE id=?";
+        pdo_execute($sql, $name, $price, $old_price, $describe1, $describe2, $bestseller, $hot, $new, $iddm, $id);
     }
 }
 
@@ -279,13 +279,27 @@ function showsp_admin($dssp){
     foreach ($dssp as $sp) {
     extract($sp);
     if($price>0) {
-        $gia='<span class="current__price">'.number_format($price,0,",",".").'VNĐ</span>';
-        $gia_cu='<span class="old__price">'.number_format($old_price,0,",",".").'VNĐ</span>';
+        $gia='<span>'.number_format($price,0,",",".").'</span>';
+        $gia_cu='<span>'.number_format($old_price,0,",",".").'</span>';
     } else{
-        $gia='<span class="current__price">Đang cập nhật</span>';
-        $gia_cu='<span class="product__price"></span> <br>';
+        $gia='<span>0</span>';
+        $gia_cu='<span>0</span> <br>';
     }
-    $link="index.php?pg=product-detail&idpro=".$id;
+    if($bestseller==1){
+        $bestcheck='checked'; 
+    } else{
+        $bestcheck='';
+    } 
+    if($hot==1){
+        $hotcheck='checked'; 
+    } else{
+        $hotcheck='';
+    } 
+    if($new==1){
+        $newcheck='checked'; 
+    } else{
+        $newcheck='';
+    } 
     $html_dssp.='<article class="itemlist">
                     <div class="row align-items-center">
                         <div class="col-lg-1 col-quantity"> 
@@ -302,10 +316,10 @@ function showsp_admin($dssp){
                             </a>
                         </div>
                         <div class="col-lg-1 col-sm-2 col-4 col-price"> 
-                            <span>'.number_format($price,0,",",".").'</span> 
+                            <span>'.$gia.'</span> 
                         </div>
                         <div class="col-lg-1 col-sm-2 col-4 col-old_price">
-                            <span><del>'.number_format($old_price,0,",",".").'</del></span> 
+                            <span><del>'.$gia_cu.'</del></span> 
                         </div>
                         <div class="col-lg-5 col-sm-2 col-4 col-describe">
                             <p>'.$describe1.'</p>
@@ -317,6 +331,9 @@ function showsp_admin($dssp){
                                 <i class="material-icons md-delete_forever"></i>Xóa
                             </a>
                         </div>
+                        <input hidden type="checkbox" name="best" '.$bestcheck.' class="form-control1" id="product_bestseller">
+                        <input hidden type="checkbox" name="new" '.$newcheck.' class="form-control1" id="product_new">
+                        <input hidden type="checkbox" name="hot" '.$hotcheck.' class="form-control1" id="product_hot">
                     </div>
                 </article>';
                 $i++;

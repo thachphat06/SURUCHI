@@ -21,7 +21,7 @@
             <h2 class="content-title card-title">Danh sách sản phẩm</h2>
         </div>
         <div>
-            <a href="index.php?pg=form-add-product" class="btn btn-primary btn-sm rounded">Thêm sản phẩm</a>
+            <a href="index.php?pg=page-add-product" class="btn btn-primary btn-sm rounded">Thêm sản phẩm</a>
         </div>
     </div>
     <div class="card mb-4">

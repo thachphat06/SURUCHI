@@ -36,19 +36,19 @@
           //xử lý: kiem tra
           $kq=checkuser($username, $password);
           if(is_array($kq)&&(count($kq))) {
-              $_SESSION['s_user']=$kq;
-              header('location: index.php');
+            $_SESSION['s_user']=$kq;
+            header('location: index.php');
           }else{
-              $tb="Tài khoản không tồn tại hoặc thông tin đăng nhập sai !";
-              $_SESSION['tb_dangnhap']=$tb;
-              header('location: index.php?pg=signin-signup');
+            $tb="Tài khoản không tồn tại hoặc thông tin đăng nhập sai !";
+            $_SESSION['tb_dangnhap']=$tb;
+            header('location: index.php?pg=signin-signup');
           }
           //xl
         }
         break;
       case 'logout':
         if(isset($_SESSION['s_user'])&&(count($_SESSION['s_user'])>0)) {
-            unset($_SESSION['s_user']);
+          unset($_SESSION['s_user']);
         }
         header('location: index.php');
         break;
@@ -85,7 +85,7 @@
             //xóa hình cũ trên host
             $old_img=IMG_PATH_USER.$_POST['old_img'];
             if(file_exists($old_img)) unlink($old_img);
-
+            
           } else {
             $img="";
           }
@@ -115,8 +115,8 @@
         if(!isset($_GET['iddm'])){
           $iddm=0;
         }else{
-            $iddm=$_GET['iddm'];
-            $titledm=get_name_dm($iddm);
+          $iddm=$_GET['iddm'];
+          $titledm=get_name_dm($iddm);
         }  
 
         if (isset($_POST["search"])) {
@@ -134,9 +134,9 @@
           $spchitiet=get_sp_by_id($id);
           $splienquan=get_dssp_lienquan($iddm, $id, 4);
           include "view/product-details.php";
-      }else {
+        }else {
           include "view/home.php";
-      }
+        }
         break;
       case 'cart':
         $dssp_new=get_new(10);
@@ -144,7 +144,7 @@
           unset($_SESSION["giohang"]);
           header('location: index.php?pg=cart');
         }else{
-            include "view/cart.php";
+          include "view/cart.php";
         }
         break;
       case 'addcart':
@@ -161,17 +161,17 @@
           $productExists = false;
           foreach ($_SESSION['giohang'] as &$item) {
             // Nếu sản phẩm đã tồn tại, tăng số lượng
-              if ($item['id'] == $id) {
-                  $item['amount'] += $amount;
-                  $sp['thanhtien'] = (int)$sp['amount'] * (int)$price;
-                  $productExists = true;
-                  break;
-              }
+            if ($item['id'] == $id) {
+                $item['amount'] += $amount;
+                $sp['thanhtien'] = (int)$sp['amount'] * (int)$price;
+                $productExists = true;
+                break;
+            }
           }
 
           if (!$productExists) {
-              // Nếu sản phẩm chưa có trong giỏ hàng, thêm mới
-              array_push($_SESSION['giohang'], $sp);
+            // Nếu sản phẩm chưa có trong giỏ hàng, thêm mới
+            array_push($_SESSION['giohang'], $sp);
           }
           echo '<script>updateCartItemCount();</script>';
           header('location: index.php?pg=cart');
@@ -211,8 +211,8 @@
         if(!isset($_GET['idloai'])){
           $idloai=0;
         }else{
-            $idloai=$_GET['idloai'];
-            $titlepage=get_name_dmuc($idloai);
+          $idloai=$_GET['idloai'];
+          $titlepage=get_name_dmuc($idloai);
         } 
 
         if (isset($_POST["search"])) {
@@ -230,7 +230,7 @@
           $bloglienquan=get_blog_lienquan($idloai, $id, 2);
           include "view/blog-details.php";
         }else {
-            include "view/home.php";
+          include "view/home.php";
         }
           break;
       case 'about':

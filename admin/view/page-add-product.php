@@ -49,8 +49,8 @@
                             <textarea name="describe2" id="" cols="30" rows="10" class="form-control form-control1"></textarea>
                         </div>
                         <div class="mb-4">
-                            <label class="form-label">Besteller</label>
-                            <input type="checkbox" name="best" class="form-control1" id="product_bestseller">
+                            <label class="form-label">Bestseller</label>
+                            <input type="checkbox" name="bestseller" class="form-control1" id="product_bestseller">
 
                             <label class="form-label">New</label>
                             <input type="checkbox" name="new" class="form-control1" id="product_new">
