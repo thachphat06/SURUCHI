@@ -25,6 +25,7 @@ function sanpham_delete($id){
 //     $sql = "SELECT * FROM hang_hoa";
 //     return pdo_query($sql);
 // }
+
 function get_iddm($id) {
     $sql = "SELECT iddm FROM product WHERE id=?";
     return pdo_query_value($sql, $id);

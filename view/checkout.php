@@ -1,3 +1,50 @@
+<?php
+    $html_cart="";
+    $html_cart_mobile="";
+    if(isset($_SESSION['giohang']) && is_array($_SESSION['giohang'])){
+        $i=0;
+        $sum=0;
+        foreach ($_SESSION['giohang'] as $item) {
+            extract($item);
+            $tt= (int)$price* (int)$amount;
+            (int)$sum += (int)$price* (int)$amount;
+            $linkdel="index.php?pg=delcart&ind=".$i;
+            $html_cart.='<tr class="cart__table--body__items">
+                            <td class="cart__table--body__list">
+                                <div class="product__image two  d-flex align-items-center">
+                                    <div class="product__thumbnail border-radius-5">
+                                        <img class="border-radius-5" src="./uploads/'.$img.'" alt="cart-product">
+                                        <span class="product__thumbnail--quantity">'.$amount.'</span>
+                                    </div>
+                                    <div class="product__description">
+                                        <h3 class="product__description--name h4">'.$name.'</h3>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="cart__table--body__list">
+                                <span class="cart__price">'.number_format($price,0,",",".").'VNĐ</span>
+                            </td>
+                        </tr>';
+            $html_cart_mobile.='<tr class=" summary__table--items">
+                                    <td class=" summary__table--list">
+                                        <div class="product__image two  d-flex align-items-center">
+                                            <div class="product__thumbnail border-radius-5">
+                                                <img class="border-radius-5" src="./uploads/'.$img.'"" alt="cart-product">
+                                                <span class="product__thumbnail--quantity">'.$amount.'</span>
+                                            </div>
+                                            <div class="product__description">
+                                                <h3 class="product__description--name h4">'.$name.'</h3>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class=" summary__table--list">
+                                        <span class="cart__price">'.number_format($price,0,",",".").'VNĐ</span>
+                                    </td>
+                                </tr>';
+            $i++;
+            }
+        }
+?>
 <!-- Start checkout page area -->
 <div class="checkout__page--area">
         <div class="container">
@@ -15,68 +62,18 @@
                                         <path d="M17.178 13.088H5.453c-.454 0-.91-.364-.91-.818L3.727 1.818H0V0h4.544c.455 0 .91.364.91.818l.09 1.272h13.45c.274 0 .547.09.73.364.18.182.27.454.18.727l-1.817 9.18c-.09.455-.455.728-.91.728zM6.27 11.27h10.09l1.454-7.362H5.634l.637 7.362zm.092 7.715c1.004 0 1.818-.813 1.818-1.817s-.814-1.818-1.818-1.818-1.818.814-1.818 1.818.814 1.817 1.818 1.817zm9.18 0c1.004 0 1.817-.813 1.817-1.817s-.814-1.818-1.818-1.818-1.818.814-1.818 1.818.814 1.817 1.818 1.817z" fill="currentColor"></path>
                                         </svg>
                                     </span>
-                                <span class="order__summary--toggle__text show">
-                                        <span>Show order summary</span>
-                                <svg width="11" height="6" xmlns="http://www.w3.org/2000/svg" class="order-summary-toggle__dropdown" fill="currentColor"><path d="M.504 1.813l4.358 3.845.496.438.496-.438 4.642-4.096L9.504.438 4.862 4.534h.992L1.496.69.504 1.812z"></path></svg>
-                                </span>
-                                <span class="order__summary--final__price">$227.70</span>
+                                    <span class="order__summary--toggle__text show">
+                                        <span>Hiển thị tóm tắt đơn hàng</span>
+                                        <svg width="11" height="6" xmlns="http://www.w3.org/2000/svg" class="order-summary-toggle__dropdown" fill="currentColor"><path d="M.504 1.813l4.358 3.845.496.438.496-.438 4.642-4.096L9.504.438 4.862 4.534h.992L1.496.69.504 1.812z"></path></svg>
+                                    </span>
+                                    <span class="order__summary--final__price"><?=number_format($price,0,",",".")?>VNĐ</span>
                                 </span>
                             </summary>
                             <div class="order__summary--section">
                                 <div class="cart__table checkout__product--table">
                                     <table class="summary__table">
                                         <tbody class="summary__table--body">
-                                            <tr class=" summary__table--items">
-                                                <td class=" summary__table--list">
-                                                    <div class="product__image two  d-flex align-items-center">
-                                                        <div class="product__thumbnail border-radius-5">
-                                                            <a href="product-details.html"><img class="border-radius-5" src="./view/assets/img/product/small-product7.png" alt="cart-product"></a>
-                                                            <span class="product__thumbnail--quantity">1</span>
-                                                        </div>
-                                                        <div class="product__description">
-                                                            <h3 class="product__description--name h4"><a href="product-details.html">Fresh-whole-fish</a></h3>
-                                                            <span class="product__description--variant">COLOR: Blue</span>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class=" summary__table--list">
-                                                    <span class="cart__price">£65.00</span>
-                                                </td>
-                                            </tr>
-                                            <tr class="summary__table--items">
-                                                <td class=" summary__table--list">
-                                                    <div class="cart__product d-flex align-items-center">
-                                                        <div class="product__thumbnail border-radius-5">
-                                                            <a href="product-details.html"><img class="border-radius-5" src="./view/assets/img/product/small-product2.png" alt="cart-product"></a>
-                                                            <span class="product__thumbnail--quantity">1</span>
-                                                        </div>
-                                                        <div class="product__description">
-                                                            <h3 class="product__description--name h4"><a href="product-details.html">Vegetable-healthy</a></h3>
-                                                            <span class="product__description--variant">COLOR: Green</span>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class=" summary__table--list">
-                                                    <span class="cart__price">£82.00</span>
-                                                </td>
-                                            </tr>
-                                            <tr class=" summary__table--items">
-                                                <td class=" summary__table--list">
-                                                    <div class="cart__product d-flex align-items-center">
-                                                        <div class="product__thumbnail border-radius-5">
-                                                            <a href="product-details.html"><img class="border-radius-5" src="./view/assets/img/product/small-product4.png" alt="cart-product"></a>
-                                                            <span class="product__thumbnail--quantity">1</span>
-                                                        </div>
-                                                        <div class="product__description">
-                                                            <h3 class="product__description--name h4"><a href="product-details.html">Raw-onions-surface</a></h3>
-                                                            <span class="product__description--variant">COLOR: White</span>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class=" summary__table--list">
-                                                    <span class="cart__price">£78.00</span>
-                                                </td>
-                                            </tr>
+                                            <?=$html_cart_mobile;?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -92,18 +89,18 @@
                                     <table class="checkout__total--table">
                                         <tbody class="checkout__total--body">
                                             <tr class="checkout__total--items">
-                                                <td class="checkout__total--title text-left">Tổng phụ </td>
-                                                <td class="checkout__total--amount text-right">$860.00</td>
+                                                <td class="checkout__total--title text-left">Tổng đơn hàng </td>
+                                                <td class="checkout__total--amount text-right"><?=number_format($sum,0,",",".")?>VNĐ</td>
                                             </tr>
                                             <tr class="checkout__total--items">
                                                 <td class="checkout__total--title text-left">Tiền Ship</td>
-                                                <td class="checkout__total--calculated__text text-right">Calculated at next step</td>
+                                                <td class="checkout__total--calculated__text text-right">Tính toán ở bước tiếp theo</td>
                                             </tr>
                                         </tbody>
                                         <tfoot class="checkout__total--footer">
                                             <tr class="checkout__total--footer__items">
                                                 <td class="checkout__total--footer__title checkout__total--footer__list text-left">Tổng tiền </td>
-                                                <td class="checkout__total--footer__amount checkout__total--footer__list text-right">$860.00</td>
+                                                <td class="checkout__total--footer__amount checkout__total--footer__list text-right"><?=number_format($sum,0,",",".")?>VNĐ</td>
                                             </tr>
                                         </tfoot>
                                     </table>
@@ -132,19 +129,16 @@
                         </nav>
                     </header>
                     <main class="main__content_wrapper">
-                        <form action="#">
+                        <form action="index.php?pg=checkout" method="post">
                             <div class="checkout__content--step section__contact--information">
                                 <div class="section__header checkout__section--header d-flex align-items-center justify-content-between mb-25">
                                     <h2 class="section__header--title h3">Thông tin liên lạc</h2>
-                                    <p class="layout__flex--item">
-                                        Bạn đã tạo tài khoản chưa?
-                                        <a class="layout__flex--item__link" href="login.html">Đăng nhập</a>
-                                    </p>
+                                    <?=$tbdn;?>
                                 </div>
                                 <div class="customer__information">
                                     <div class="checkout__email--phone mb-12">
                                         <label>
-                                            <input class="checkout__input--field border-radius-5" placeholder="Email hoặc số điện thoại"  type="text">
+                                            <input class="checkout__input--field border-radius-5" placeholder="Email hoặc số điện thoại"  type="text" name="email" required>
                                        </label>
                                     </div>
                                     <div class="checkout__checkbox">
@@ -164,46 +158,32 @@
                                         <div class="col-lg-6 mb-12">
                                             <div class="checkout__input--list ">
                                                 <label>
-                                                    <input class="checkout__input--field border-radius-5" placeholder="Tên (Tùy chọn)"  type="text">
+                                                    <input class="checkout__input--field border-radius-5" placeholder="Họ và tên"  type="text" name="name" required>
                                                 </label>
                                             </div>
                                         </div>
                                         <div class="col-lg-6 mb-12">
                                             <div class="checkout__input--list">
                                                 <label>
-                                                    <input class="checkout__input--field border-radius-5" placeholder="Họ"  type="text">
+                                                    <input class="checkout__input--field border-radius-5" placeholder="Số điện thoại"  type="text" name="sdt" required>
                                                 </label>
                                             </div>
                                         </div>
                                         <div class="col-12 mb-12">
                                             <div class="checkout__input--list">
                                                 <label>
-                                                    <input class="checkout__input--field border-radius-5" placeholder="Địa chỉ"  type="text">
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <!-- <div class="col-12 mb-12">
-                                            <div class="checkout__input--list">
-                                                <label>
-                                                    <input class="checkout__input--field border-radius-5" placeholder="Ghi chú"  type="text">
-                                                </label>
-                                            </div>
-                                        </div> -->
-                                        <div class="col-12 mb-12">
-                                            <div class="checkout__input--list">
-                                                <label>
-                                                    <input class="checkout__input--field border-radius-5" placeholder="Căn hộ, dãy phòng, v.v. (tùy chọn)"  type="text">
+                                                    <input class="checkout__input--field border-radius-5" placeholder="Địa chỉ"  type="text" name="address" required>
                                                 </label>
                                             </div>
                                         </div>
                                         <div class="col-12 mb-12">
                                             <div class="checkout__input--list">
                                                 <label>
-                                                    <input class="checkout__input--field border-radius-5" placeholder="Thành Phố"  type="text">
+                                                    <textarea class="reviews__comment--reply__textarea" placeholder="Ghi chú" name="note" id="" cols="30" rows="10"></textarea>
                                                 </label>
                                             </div>
                                         </div>
-                                        <div class="col-lg-6 mb-12">
+                                        <div class="col-lg-12 mb-12">
                                             <div class="checkout__input--list checkout__input--select select">
                                                 <label class="checkout__select--label" for="country">Quốc gia/ Khu vực</label>
                                                 <select class="checkout__input--select__field border-radius-5" id="country">
@@ -217,14 +197,19 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-lg-6 mb-12">
-                                            <div class="checkout__input--list">
-                                                <label>
-                                                    <input class="checkout__input--field border-radius-5" placeholder="Mã bưu điện"  type="text">
-                                                </label>
-                                            </div>
-                                        </div>
                                     </div>
+                                    <div class="checkout__checkbox">
+                                        <input class="checkout__checkbox--input" type="radio" id="paypal" name="pttt" value="1">
+                                        <span class="checkout__checkbox--checkmark"></span>
+                                        <label class="checkout__checkbox--label" for="paypal">
+                                        Thanh toán khi nhận hàng</label>
+                                    </div>
+                                    <div class="checkout__checkbox">
+                                        <input class="checkout__checkbox--input" type="radio" id="creditCard" name="pttt" value="1">
+                                        <span class="checkout__checkbox--checkmark"></span>
+                                        <label class="checkout__checkbox--label" for="creditCard">
+                                        Thanh toán bằng thẻ tín dụng</label>
+                                    </div> <br>
                                     <div class="checkout__checkbox">
                                         <input class="checkout__checkbox--input" id="check2" type="checkbox">
                                         <span class="checkout__checkbox--checkmark"></span>
@@ -234,8 +219,8 @@
                                 </div>
                             </div>
                             <div class="checkout__content--step__footer d-flex align-items-center">
-                                <a class="continue__shipping--btn primary__btn border-radius-5" href="checkout-2.html">Tiếp tục vận chuyển</a>
-                                <a class="previous__link--content" href="cart.html">Quay lại giỏ hàng</a>
+                                <button class="continue__shipping--btn primary__btn border-radius-5" type="submit" name="btnpay">Thanh toán</button>
+                                <a class="previous__link--content" href="index.php?pg=cart">Quay lại giỏ hàng</a>
                             </div>
                         </form>
                     </main>
@@ -247,57 +232,7 @@
                     <div class="cart__table checkout__product--table">
                         <table class="cart__table--inner">
                             <tbody class="cart__table--body">
-                                <tr class="cart__table--body__items">
-                                    <td class="cart__table--body__list">
-                                        <div class="product__image two  d-flex align-items-center">
-                                            <div class="product__thumbnail border-radius-5">
-                                                <a href="product-details.html"><img class="border-radius-5" src="./view/assets/img/product/small-product7.png" alt="cart-product"></a>
-                                                <span class="product__thumbnail--quantity">1</span>
-                                            </div>
-                                            <div class="product__description">
-                                                <h3 class="product__description--name h4"><a href="product-details.html">Áo khoác blazer</a></h3>
-                                                <span class="product__description--variant">COLOR: Blue</span>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="cart__table--body__list">
-                                        <span class="cart__price">200.00VND</span>
-                                    </td>
-                                </tr>
-                                <tr class="cart__table--body__items">
-                                    <td class="cart__table--body__list">
-                                        <div class="cart__product d-flex align-items-center">
-                                            <div class="product__thumbnail border-radius-5">
-                                                <a href="product-details.html"><img class="border-radius-5" src="./view/assets/img/product/small-product2.png" alt="cart-product"></a>
-                                                <span class="product__thumbnail--quantity">1</span>
-                                            </div>
-                                            <div class="product__description">
-                                                <h3 class="product__description--name h4"><a href="product-details.html">Áo thun form rộng trơn</a></h3>
-                                                <span class="product__description--variant">COLOR: Green</span>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="cart__table--body__list">
-                                        <span class="cart__price">200.00VND</span>
-                                    </td>
-                                </tr>
-                                <tr class="cart__table--body__items">
-                                    <td class="cart__table--body__list">
-                                        <div class="cart__product d-flex align-items-center">
-                                            <div class="product__thumbnail border-radius-5">
-                                                <a href="product-details.html"><img class="border-radius-5" src="./view/assets/img/product/small-product4.png" alt="cart-product"></a>
-                                                <span class="product__thumbnail--quantity">1</span>
-                                            </div>
-                                            <div class="product__description">
-                                                <h3 class="product__description--name h4"><a href="product-details.html">Áo thun ngắn tay trắng đục</a></h3>
-                                                <span class="product__description--variant">COLOR: White</span>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="cart__table--body__list">
-                                        <span class="cart__price">200.00VND</span>
-                                    </td>
-                                </tr>
+                                <?=$html_cart;?>
                             </tbody>
                         </table>
                     </div>
@@ -313,8 +248,10 @@
                         <table class="checkout__total--table">
                             <tbody class="checkout__total--body">
                                 <tr class="checkout__total--items">
-                                    <td class="checkout__total--title text-left">Tổng phụ </td>
-                                    <td class="checkout__total--amount text-right">600.00VND</td>
+                                    <td class="checkout__total--title text-left">Tổng đơn hàng </td>
+                                    <td class="checkout__total--amount text-right">
+                                        <?=number_format($sum,0,",",".")?>VNĐ
+                                    </td>
                                 </tr>
                                 <tr class="checkout__total--items">
                                     <td class="checkout__total--title text-left">Vận chuyển</td>
@@ -324,7 +261,9 @@
                             <tfoot class="checkout__total--footer">
                                 <tr class="checkout__total--footer__items">
                                     <td class="checkout__total--footer__title checkout__total--footer__list text-left">Tổng tiền </td>
-                                    <td class="checkout__total--footer__amount checkout__total--footer__list text-right">600.00VND</td>
+                                    <td class="checkout__total--footer__amount checkout__total--footer__list text-right">
+                                        <?=number_format($sum,0,",",".")?>VNĐ
+                                    </td>
                                 </tr>
                             </tfoot>
                         </table>

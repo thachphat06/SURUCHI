@@ -34,8 +34,8 @@
                     <div class="account__left--sidebar">
                         <h2 class="account__content--title h3 mb-20">Thông tin của tôi</h2>
                         <ul class="account__menu">
-                            <li class="account__menu--list active"><a href="index.php?pg=my-account">Địa chỉ</a></li>
-                            <li class="account__menu--list"><a href="index.php?pg=my-account-3">Thông tin mua hàng</a></li>
+                            <li class="account__menu--list active"><a href="index.php?pg=my-account">Tài khoản</a></li>
+                            <li class="account__menu--list"><a href="index.php?pg=my-account-3">Đơn hàng của tôi</a></li>
                             <li class="account__menu--list"><a href="index.php?pg=logout">Đăng xuất</a></li>
                             <?php 
                                 if($role==1){

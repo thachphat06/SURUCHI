@@ -8,6 +8,8 @@
   }
   include "../model/sanpham.php";
   include "../model/danhmuc.php";
+  include "../model/donhang.php";
+  include "../model/giohang.php";
   include "../model/user.php";
   include "../model/global.php";
 
@@ -238,10 +240,75 @@
         include "view/page-update-dm.php";
       break;
       case 'orders':
+        $orderlist=get_order();
         include "view/page-orders.php";
         break;
       case 'orders-detail':
-        include "view/page-orders-detail.php";
+        if(isset($_GET['id']) && ($_GET["id"] > 0)) {
+          $id = $_GET['id'];
+  
+          $ordercart = get_cart_by_id($id);
+          $orderdetail = get_order_by_id($id);
+          include "view/page-orders-detail.php";
+        }else {
+          include "view/home.php";
+        }
+        break;  
+      case 'order-pending':
+        if(isset($_GET['id']) && $_GET['id'] > 0) {
+          $id = $_GET['id'];
+          
+          // Lấy trạng thái từ cơ sở dữ liệu hoặc bất kỳ nguồn dữ liệu nào khác
+          $status = get_status($id);
+  
+          update_status($id, 1);
+          $orderlist=get_order();
+          include "view/page-orders.php";
+        } else {
+            include "view/home.php";
+        }
+        break;
+      case 'order-confirm':
+        if(isset($_GET['id']) && $_GET['id'] > 0) {
+            $id = $_GET['id'];
+            
+            // Lấy trạng thái từ cơ sở dữ liệu hoặc bất kỳ nguồn dữ liệu nào khác
+            $status = get_status($id);
+    
+            update_status($id, 2);
+            $orderlist=get_order();
+            include "view/page-orders.php";
+        } else {
+            include "view/home.php";
+        }
+        break;
+      case 'order-delivering':
+        if(isset($_GET['id']) && $_GET['id'] > 0) {
+          $id = $_GET['id'];
+          
+          // Lấy trạng thái từ cơ sở dữ liệu hoặc bất kỳ nguồn dữ liệu nào khác
+          $status = get_status($id);
+  
+          update_status($id, 3);
+          $orderlist=get_order();
+          include "view/page-orders.php";
+        } else {
+            include "view/home.php";
+        }
+        break;  
+      case 'order-complete':
+        if(isset($_GET['id']) && $_GET['id'] > 0) {
+          $id = $_GET['id'];
+          
+          // Lấy trạng thái từ cơ sở dữ liệu hoặc bất kỳ nguồn dữ liệu nào khác
+          $status = get_status($id);
+  
+          update_status($id, 4);
+          $orderlist=get_order();;
+          include "view/page-orders.php";
+        } else {
+            include "view/home.php";
+        }
         break;
       case 'user-list':
         $listuser=loadall_user();

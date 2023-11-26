@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 23, 2023 at 04:37 PM
+-- Generation Time: Nov 26, 2023 at 02:21 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -20,47 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `suruchi`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `bill`
---
-
-CREATE TABLE `bill` (
-  `id` int(9) NOT NULL,
-  `mahd` varchar(50) NOT NULL,
-  `date` date NOT NULL,
-  `nguoidat_ten` varchar(50) NOT NULL,
-  `nguoidat_email` varchar(50) NOT NULL,
-  `nguoidat_tel` varchar(20) NOT NULL,
-  `nguoidat_diachi` varchar(100) NOT NULL,
-  `nguoinhan_ten` varchar(50) DEFAULT NULL,
-  `nguoinhan_diachi` varchar(100) DEFAULT NULL,
-  `nguoinhan_tel` varchar(20) DEFAULT NULL,
-  `note` varchar(500) NOT NULL,
-  `total` int(9) NOT NULL,
-  `ship` int(6) NOT NULL DEFAULT 0,
-  `voucher` int(6) NOT NULL DEFAULT 0,
-  `tongthanhtoan` int(10) NOT NULL,
-  `pttt` tinyint(1) NOT NULL COMMENT '0: COD; 1: ck; 2: ví điện tử',
-  `status` tinyint(2) NOT NULL DEFAULT 1 COMMENT '1: Waiting;\r\n2: Cofirm;\r\n3: Cancelled',
-  `iduser` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `bill_detail`
---
-
-CREATE TABLE `bill_detail` (
-  `id` int(10) NOT NULL,
-  `idsp` int(10) NOT NULL,
-  `idbill` int(10) NOT NULL,
-  `quantity` int(10) NOT NULL,
-  `total` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -129,6 +88,25 @@ CREATE TABLE `cart` (
   `idbill` int(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`id`, `idpro`, `price`, `name`, `img`, `soluong`, `thanhtien`, `idbill`) VALUES
+(46, 24, 125000, 'Áo thun nam  Routine', 'pd15.jpg', 1, 125000, 24),
+(47, 6, 182000, 'Áo Len Tăm Cổ Vuông', 'pd6.jpg', 1, 182000, 24),
+(48, 9, 135000, 'Áo phông trắng freesize ', 'pd9.jpg', 1, 135000, 24),
+(49, 3, 209000, 'Áo kiểu tay dài ', 'pd3.jpg', 1, 209000, 25),
+(50, 6, 182000, 'Áo Len Tăm Cổ Vuông', 'pd6.jpg', 1, 182000, 25),
+(51, 21, 265000, 'Áo Jean Nam Nữ form rộng', 'pd22.jpg', 1, 265000, 25),
+(52, 22, 215000, 'Áo hoodie New York', 'pd23.jpg', 1, 215000, 26),
+(53, 16, 265000, 'Áo Khoác Cadigan Nữ Hồng ', 'pd17.jpg', 1, 265000, 27),
+(54, 9, 135000, 'Áo phông trắng freesize ', 'pd9.jpg', 1, 135000, 27),
+(55, 17, 220000, 'Áo len dài tay cún nhỏ ', 'pd18.jpg', 1, 220000, 28),
+(56, 2, 179000, 'Áo sơ mi thắt nơ ', 'pd2.jpg', 4, 716000, 28),
+(57, 19, 275000, 'Kẻ sọc Tweed Áo khoác', 'pd20.jpg', 1, 275000, 28),
+(58, 13, 112000, 'Áo Thun Nam Cổ Tròn ', 'pd13.jpg', 1, 112000, 28);
+
 -- --------------------------------------------------------
 
 --
@@ -164,6 +142,42 @@ CREATE TABLE `comment` (
   `content` varchar(500) NOT NULL,
   `date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders`
+--
+
+CREATE TABLE `orders` (
+  `id` int(9) NOT NULL,
+  `mahd` varchar(50) NOT NULL,
+  `date` date NOT NULL,
+  `time` time NOT NULL,
+  `nguoidat_ten` varchar(50) NOT NULL,
+  `nguoidat_email` varchar(50) NOT NULL,
+  `nguoidat_tel` varchar(20) NOT NULL,
+  `nguoidat_diachi` varchar(100) NOT NULL,
+  `note` varchar(500) NOT NULL,
+  `total` int(9) NOT NULL,
+  `ship` int(6) NOT NULL DEFAULT 30000,
+  `voucher` int(6) NOT NULL DEFAULT 0,
+  `tongthanhtoan` int(10) NOT NULL,
+  `pttt` tinyint(1) NOT NULL COMMENT '0: COD; 1: ck',
+  `status` tinyint(1) NOT NULL DEFAULT 1 COMMENT '1: Pending;\r\n2: Cofirm;\r\n3: Delivering;\r\n4: Complete;\r\n5: Cancelled',
+  `iduser` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `mahd`, `date`, `time`, `nguoidat_ten`, `nguoidat_email`, `nguoidat_tel`, `nguoidat_diachi`, `note`, `total`, `ship`, `voucher`, `tongthanhtoan`, `pttt`, `status`, `iduser`) VALUES
+(24, 'Suruchi51', '2023-11-26', '19:02:15', 'Nguyễn Hữu Nghĩa', 'nguyenhuunghia089@gmail.com', '0377318275', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'dsadssda', 442000, 30000, 0, 472000, 1, 2, 51),
+(25, 'Suruchi53', '2023-11-26', '20:12:24', 'Nguyễn Hữu Nghĩa', 'nguyenhuunghia089@gmail.com', '0377318275', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'sadsadsadsadasd', 656000, 30000, 0, 686000, 1, 3, 53),
+(26, 'Suruchi54', '2023-11-26', '20:12:40', 'Nguyễn Hữu Nghĩa', 'nguyenhuunghia089@gmail.com', '0377318275', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'dsdsdasdassa', 215000, 30000, 0, 245000, 1, 4, 54),
+(27, 'Suruchi55', '2023-11-26', '20:13:12', 'Nguyễn Hữu Nghĩa', 'nguyenhuunghia089@gmail.com', '0377318275', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'dsadasdas', 400000, 30000, 0, 430000, 1, 1, 55),
+(28, 'Suruchi56', '2023-11-26', '20:14:09', 'Nguyễn Hữu Nghĩa', 'nguyenhuunghia089@gmail.com', '0377318275', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'đâsdasda', 1323000, 30000, 0, 1353000, 1, 1, 56);
 
 -- --------------------------------------------------------
 
@@ -244,26 +258,43 @@ INSERT INTO `users` (`id`, `username`, `password`, `name`, `img`, `address`, `em
 (18, 'ngoctran', '123', '', 'avatar.png', NULL, 'tranntnps26576@fpt.edu.vn', NULL, 0),
 (19, 'huynh', '123', '', 'avatar.png', NULL, 'huynhnps27711@fpt.edu.vn', NULL, 0),
 (20, 'duong', '123', '', 'avatar.png', NULL, 'duongtmps27840@fpt.edu.vn', NULL, 0),
-(21, 'phat', '123', '', 'avatar.png', NULL, 'phathntps27741@fpt.edu.vn', NULL, 0);
+(21, 'phat', '123', '', 'avatar.png', NULL, 'phathntps27741@fpt.edu.vn', NULL, 0),
+(25, 'guest895', '123456', 'Nguyễn Hữu Nghĩa', 'avatar.png', '209 QL13, phường 26, Quận Bình Thạnh', 'nguyenhuunghia089@gmail.com', '0377318275', 0),
+(26, 'guest747', '123456', 'Nguyễn Hữu Nghĩa', 'avatar.png', '209 QL13, phường 26, Quận Bình Thạnh', 'nguyenhuunghia089@gmail.com', '0377318275', 0),
+(27, 'guest587', '123456', 'Nguyễn Hữu Nghĩa', 'avatar.png', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'nguyenhuunghia089@gmail.com', '0377318275', 0),
+(28, 'guest987', '123456', 'Nguyễn Hữu Nghĩa', 'avatar.png', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'nguyenhuunghia089@gmail.com', '0377318275', 0),
+(29, 'guest976', '123456', 'Nguyễn Hữu Nghĩa', 'avatar.png', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'nguyenhuunghia089@gmail.com', '0377318275', 0),
+(30, 'guest838', '123456', 'Nguyễn Hữu Nghĩa', 'avatar.png', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'nguyenhuunghia089@gmail.com', '0377318275', 0),
+(31, 'guest678', '123456', 'Nguyễn Hữu Nghĩa', 'avatar.png', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'nguyenhuunghia089@gmail.com', '0377318275', 0),
+(32, 'guest254', '123456', 'Nguyễn Hữu Nghĩa', 'avatar.png', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'nguyenhuunghia089@gmail.com', '0377318275', 0),
+(33, 'guest924', '123456', 'Nguyễn Hữu Nghĩa', 'avatar.png', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'nguyenhuunghia089@gmail.com', '0377318275', 0),
+(34, 'guest61', '123456', 'Nguyễn Hữu Nghĩa', 'avatar.png', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'nguyenhuunghia089@gmail.com', '0377318275', 0),
+(35, 'guest242', '123456', 'Nguyễn Hữu Nghĩa', 'avatar.png', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'nguyenhuunghia089@gmail.com', '0377318275', 0),
+(36, 'guest766', '123456', 'Nguyễn Hữu Nghĩa', 'avatar.png', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'nguyenhuunghia089@gmail.com', '0377318275', 0),
+(37, 'guest644', '123456', 'Nguyễn Hữu Nghĩa', 'avatar.png', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'nguyenhuunghia089@gmail.com', '0377318275', 0),
+(38, 'guest845', '123456', 'Nguyễn Hữu Nghĩa', 'avatar.png', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'nguyenhuunghia089@gmail.com', '0377318275', 0),
+(39, 'guest105', '123456', 'Nguyễn Hữu Nghĩa', 'avatar.png', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'nguyenhuunghia089@gmail.com', '0377318275', 0),
+(40, 'guest2', '123456', 'Nguyễn Hữu Nghĩa', 'avatar.png', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'nguyenhuunghia089@gmail.com', '0377318275', 0),
+(41, 'guest864', '123456', 'Nguyễn Hữu Nghĩa', 'avatar.png', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'nguyenhuunghia089@gmail.com', '0377318275', 0),
+(42, 'guest563', '123456', 'Nguyễn Hữu Nghĩa', 'avatar.png', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'nguyenhuunghia089@gmail.com', '0377318275', 0),
+(43, 'guest567', '123456', 'Nguyen Huu Nghia', 'avatar.png', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'nghianhps27599@fpt.edu.vn', '0123456789', 0),
+(44, 'guest660', '123456', 'Nguyễn Hữu Nghĩa', 'avatar.png', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'nguyenhuunghia089@gmail.com', '0377318275', 0),
+(45, 'guest65', '123456', 'Nguyễn Hữu Nghĩa', 'avatar.png', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'nguyenhuunghia089@gmail.com', '0377318275', 0),
+(46, 'guest774', '123456', 'Nguyễn Hữu Nghĩa', 'avatar.png', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'nguyenhuunghia089@gmail.com', '0377318275', 0),
+(47, 'guest273', '123456', 'Nguyễn Hữu Nghĩa', 'avatar.png', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'nguyenhuunghia089@gmail.com', '0377318275', 0),
+(48, 'guest553', '123456', 'Nguyễn Hữu Nghĩa', 'avatar.png', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'nguyenhuunghia089@gmail.com', '0377318275', 0),
+(49, 'guest778', '123456', 'Nguyễn Hữu Nghĩa', 'avatar.png', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'nguyenhuunghia089@gmail.com', '0377318275', 0),
+(50, 'guest337', '123456', 'Nguyễn Hữu Nghĩa', 'avatar.png', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'nguyenhuunghia089@gmail.com', '0377318275', 0),
+(51, 'guest461', '123456', 'Nguyễn Hữu Nghĩa', 'avatar.png', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'nguyenhuunghia089@gmail.com', '0377318275', 0),
+(52, '', '', '', 'avatar.png', NULL, '', NULL, 0),
+(53, 'guest830', '123456', 'Nguyễn Hữu Nghĩa', 'avatar.png', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'nguyenhuunghia089@gmail.com', '0377318275', 0),
+(54, 'guest781', '123456', 'Nguyễn Hữu Nghĩa', 'avatar.png', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'nguyenhuunghia089@gmail.com', '0377318275', 0),
+(55, 'guest439', '123456', 'Nguyễn Hữu Nghĩa', 'avatar.png', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'nguyenhuunghia089@gmail.com', '0377318275', 0),
+(56, 'guest994', '123456', 'Nguyễn Hữu Nghĩa', 'avatar.png', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'nguyenhuunghia089@gmail.com', '0377318275', 0);
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `bill`
---
-ALTER TABLE `bill`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_kh_hd` (`iduser`);
-
---
--- Indexes for table `bill_detail`
---
-ALTER TABLE `bill_detail`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_hd_hdct` (`idbill`),
-  ADD KEY `fk_sp_hdct` (`idsp`);
 
 --
 -- Indexes for table `blog`
@@ -301,6 +332,13 @@ ALTER TABLE `comment`
   ADD KEY `fk_sp_bl` (`idsp`);
 
 --
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_kh_hd` (`iduser`);
+
+--
 -- Indexes for table `product`
 --
 ALTER TABLE `product`
@@ -318,18 +356,6 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT for table `bill`
---
-ALTER TABLE `bill`
-  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `bill_detail`
---
-ALTER TABLE `bill_detail`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `blog`
 --
 ALTER TABLE `blog`
@@ -345,13 +371,13 @@ ALTER TABLE `blog_category`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `comment`
@@ -360,33 +386,26 @@ ALTER TABLE `comment`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+
+--
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `bill`
---
-ALTER TABLE `bill`
-  ADD CONSTRAINT `fk_kh_hd` FOREIGN KEY (`iduser`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
-
---
--- Constraints for table `bill_detail`
---
-ALTER TABLE `bill_detail`
-  ADD CONSTRAINT `fk_hd_hdct` FOREIGN KEY (`idbill`) REFERENCES `bill` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_sp_hdct` FOREIGN KEY (`idsp`) REFERENCES `product` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
 -- Constraints for table `blog`
@@ -398,7 +417,7 @@ ALTER TABLE `blog`
 -- Constraints for table `cart`
 --
 ALTER TABLE `cart`
-  ADD CONSTRAINT `fk_hd_cart` FOREIGN KEY (`idbill`) REFERENCES `bill` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_hd_cart` FOREIGN KEY (`idbill`) REFERENCES `orders` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_sp_cart` FOREIGN KEY (`idpro`) REFERENCES `product` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
@@ -407,6 +426,12 @@ ALTER TABLE `cart`
 ALTER TABLE `comment`
   ADD CONSTRAINT `fk_kh_bl` FOREIGN KEY (`iduser`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_sp_bl` FOREIGN KEY (`idsp`) REFERENCES `product` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
+
+--
+-- Constraints for table `orders`
+--
+ALTER TABLE `orders`
+  ADD CONSTRAINT `fk_kh_hd` FOREIGN KEY (`iduser`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
 -- Constraints for table `product`

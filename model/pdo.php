@@ -53,19 +53,18 @@ function pdo_execute_id($sql){
  * @return array mảng các bản ghi
  * @throws PDOException lỗi thực thi câu lệnh
  */
-function pdo_query($sql){
-    $sql_args = array_slice(func_get_args(), 1);
-    try{
+function pdo_query($sql, ...$params) {
+    try {
         $conn = pdo_get_connection();
         $stmt = $conn->prepare($sql);
-        $stmt->execute($sql_args);
-        $rows = $stmt->fetchAll();
-        return $rows;
-    }
-    catch(PDOException $e){
+        $stmt->execute($params);
+        // In ra câu truy vấn SQL (đối với mục đích debug)
+        // echo $stmt->queryString;
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $rows !== false ? $rows : [];
+    } catch (PDOException $e) {
         throw $e;
-    }
-    finally{
+    } finally {
         unset($conn);
     }
 }
@@ -92,6 +91,7 @@ function pdo_query_one($sql){
         unset($conn);
     }
 }
+
 /**
  * Thực thi câu lệnh sql truy vấn một giá trị
  * @param string $sql câu lệnh sql

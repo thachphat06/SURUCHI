@@ -31,4 +31,13 @@ function get_tongdonhang() {
 
     return $total;
 }
+
+function get_cart_by_id($id){
+    // Sử dụng prepared statement để tránh SQL injection
+    $sql = "SELECT c.*, p.name FROM cart c JOIN product p ON c.idpro = p.id WHERE c.idbill = ?";
+    $result = pdo_query($sql, $id);
+    return $result;
+}
+
+
 ?>  

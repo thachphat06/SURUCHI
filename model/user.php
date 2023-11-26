@@ -15,7 +15,7 @@ function user_insert($username, $password, $email) {
 }
 
 function user_insert_id( $username, $password, $name, $address, $email, $sdt ){
-    $sql = "INSERT INTO users(username,password, name, address, email, sdt) VALUES (?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO users(username, password, name, address, email, sdt) VALUES (?, ?, ?, ?, ?, ?)";
     return pdo_execute_id($sql,  $username, $password, $name , $address, $email, $sdt);
 }
 
