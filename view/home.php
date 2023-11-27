@@ -211,9 +211,9 @@
 <main class="main__content_wrapper">
     <!-- Start slider section -->
     <section class="hero__slider--section">
-        <div class="hero__slider--inner hero__slider--activation swiper">
+        <div class="hero__slider--inner swiper">
             <div class="hero__slider--wrapper swiper-wrapper">
-                <div class="swiper-slide ">
+                <div class="swiper-slide">
                     <div class="hero__slider--items home1__slider--bg">
                         <div class="container-fluid">
                             <div class="hero__slider--items__inner">
@@ -237,7 +237,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="swiper-slide ">
+                <!-- <div class="swiper-slide ">
                     <div class="hero__slider--items home1__slider--bg two">
                         <div class="container-fluid">
                             <div class="row">
@@ -285,10 +285,10 @@
                             
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
-            <div class="swiper__nav--btn swiper-button-next"></div>
-            <div class="swiper__nav--btn swiper-button-prev"></div>
+            <!-- <div class="swiper__nav--btn swiper-button-next"></div>
+            <div class="swiper__nav--btn swiper-button-prev"></div> -->
         </div>
     </section>
     <!-- End slider section -->

@@ -7,7 +7,8 @@
         2 => 'index.php?pg=order-confirm&id='.$id.'',
         3 => 'index.php?pg=order-delivering&id='.$id.'',
         4 => 'index.php?pg=order-complete&id='.$id.'',
-        5 => '#',
+        5 => 'index.php?pg=order-fail&id='.$id.'',
+        6 => '#',
     ];
     // Tạo tùy chọn cho mỗi trạng thái
     foreach ($statusOptions as $value => $link) {
@@ -26,7 +27,9 @@
             case 4:
                 return 'Complete';
             case 5:
-                return '';
+                return 'Delivery failed';
+            case 6:
+                return '...';
             default:
                 return 'Unknown status';
         }
@@ -48,6 +51,10 @@
         $tt2='Complete';
     } 
     if($status==5){
+        $tt='<span class="badge rounded-pill alert-warning">Delivery failed</span>';
+        $tt2='Delivery failed';
+    } 
+    if($status==6){
         $tt='<span class="badge rounded-pill alert-danger">Cancelled</span>';
         $tt2='Cancelled';
     } 

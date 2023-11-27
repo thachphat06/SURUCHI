@@ -4,14 +4,15 @@
         extract($order);
         if($status==1){
             $tt='<span class="badge rounded-pill alert-warning">Pending</span>';
-            $tt2='<a class="detail__filter--btn .second__btn href="javascript:void(0);" onclick="confirmCancellation('.$id.');">Hủy đơn hàng</a>';
+            $tt2='<a class="cancelled__filter--btn second__btn href="javascript:void(0);" onclick="confirmCancellation('.$id.');">Hủy đơn hàng</a>';
         } else{
             $tt2='';
         }
         if($status==2) $tt='<span class="badge rounded-pill alert-success">Confirm</span>';
         if($status==3) $tt='<span class="badge rounded-pill alert-success">Delivering</span>';
         if($status==4) $tt='<span class="badge rounded-pill alert-success">Complete</span>';
-        if($status==5) $tt='<span class="badge rounded-pill alert-danger">Cancelled</span>';
+        if($status==5) $tt='<span class="badge rounded-pill alert-warning">Delivery failed</span>';
+        if($status==6) $tt='<span class="badge rounded-pill alert-danger">Cancelled</span>';
         $html_orderlist.='<tr class="account__table--body__child">
                             <td class="account__table--body__child--items">#'.$mahd.'</td>
                             <td class="account__table--body__child--items">'.$date.'</td>
@@ -20,7 +21,7 @@
                             </td>
                             <td class="account__table--body__child--items">'.number_format($tongthanhtoan,0,",",".").'VNĐ</td>
                             <td class="account__table--body__child--items">
-                                <a href="index.php?pg=orders-detail&id='.$id.'" class="detail__filter--btn .second__btn">Chi tiết</a> <br>
+                                <a href="index.php?pg=orders-detail&id='.$id.'" class="detail__filter--btn second__btn">Chi tiết</a> <br>
                                 '.$tt2.'
                             </td>
                         </tr>';

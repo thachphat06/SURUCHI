@@ -42,7 +42,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="swiper-slide">
+                                    <!-- <div class="swiper-slide">
                                         <div class="product__media--preview__items">
                                             <a class="product__media--preview__items--link glightbox" data-gallery="product-media-preview" href="./uploads/big-product1.jpg"><img class="product__media--preview__items--img" src="./uploads/big-product1.jpg" alt="product-media-img"></a>
                                             <div class="product__media--view__icon">
@@ -91,12 +91,12 @@
                                                 </a>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                             <div class="product__media--nav swiper">
                                 <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
+                                    <!-- <div class="swiper-slide">
                                         <div class="product__media--nav__items">
                                             <img class="product__media--nav__items--img" src="./uploads/small-product7.png" alt="product-nav-img">
                                         </div>
@@ -125,7 +125,7 @@
                                         <div class="product__media--nav__items">
                                             <img class="product__media--nav__items--img" src="./uploads/small-product12.png" alt="product-nav-img">
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="swiper__nav--btn swiper-button-next"></div>
                                 <div class="swiper__nav--btn swiper-button-prev"></div>

@@ -6,7 +6,8 @@
         if($status==2) $tt='<span class="badge rounded-pill alert-success">Confirm</span>';
         if($status==3) $tt='<span class="badge rounded-pill alert-success">Delivering</span>';
         if($status==4) $tt='<span class="badge rounded-pill alert-success">Complete</span>';
-        if($status==5) $tt='<span class="badge rounded-pill alert-danger">Cancelled</span>';
+        if($status==5) $tt='<span class="badge rounded-pill alert-warning">Delivery failed</span>';
+        if($status==6) $tt='<span class="badge rounded-pill alert-danger">Cancelled</span>';
         $html_orderlist.='<tr>
                             <td>#'.$mahd.'</td>
                             <td><b>'.$nguoidat_ten.'</b></td>

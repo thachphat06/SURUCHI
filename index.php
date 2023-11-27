@@ -134,8 +134,8 @@
           $status = get_status($id);
 
           // Kiểm tra xem có phải đơn hàng đang ở trạng thái "Pending" hay không
-          update_status($id, 5);
-          $orderlist = get_order();
+          update_status($id, 6);
+          $orderlist = get_order_desc();
           include "view/my-account-3.php";
         }else {
           include "view/index.php";
@@ -197,10 +197,10 @@
           foreach ($_SESSION['giohang'] as &$item) {
             // Nếu sản phẩm đã tồn tại, tăng số lượng
             if ($item['id'] == $id) {
-                $item['amount'] += $amount;
-                $sp['thanhtien'] = (int)$sp['amount'] * (int)$price;
-                $productExists = true;
-                break;
+              $item['amount'] += $amount;
+              $sp['thanhtien'] = (int)$sp['amount'] * (int)$price;
+              $productExists = true;
+              break;
             }
           }
 

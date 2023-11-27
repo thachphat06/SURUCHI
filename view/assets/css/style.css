@@ -1533,6 +1533,25 @@ hr {
   color: var(--white-color);
 }
 
+.second__btn {
+  font-size: 1.4rem;
+  font-weight: var(--body-line-height);
+  line-height: 3.5rem;
+  display: inline-block;
+  height: 3.5rem;
+  padding: 0 1.8rem;
+  letter-spacing: 0.2px;
+  border-radius: 0.3rem;
+  background: var(--secondary-color);
+  color: var(--white-color);
+  border: 0;
+}
+
+.second__btn:hover {
+  background: var(--primary-color);
+  color: var(--white-color);
+}
+
 @media only screen and (min-width: 768px) {
   .primary__btn {
     font-size: 1.5rem;
@@ -9025,6 +9044,12 @@ input.quickview__value--number {
 }
 
 .detail__filter--btn {
+  height: 3rem;
+  line-height: 3rem;
+}
+
+.cancelled__filter--btn {
+  margin-top: 5px;
   height: 3rem;
   line-height: 3rem;
 }
