@@ -129,6 +129,19 @@
                         </nav>
                     </header>
                     <main class="main__content_wrapper">
+                        <?php
+                            if(isset($_SESSION['s_user']))   {
+                                $email=$_SESSION['s_user']['email'];
+                                $name=$_SESSION['s_user']['name'];
+                                $sdt=$_SESSION['s_user']['sdt'];
+                                $address=$_SESSION['s_user']['address'];
+                            }else{
+                                $email='';
+                                $name='';
+                                $sdt='';
+                                $address='';
+                            }                    
+                        ?>
                         <form action="index.php?pg=checkout" method="post">
                             <div class="checkout__content--step section__contact--information">
                                 <div class="section__header checkout__section--header d-flex align-items-center justify-content-between mb-25">
@@ -138,7 +151,7 @@
                                 <div class="customer__information">
                                     <div class="checkout__email--phone mb-12">
                                         <label>
-                                            <input class="checkout__input--field border-radius-5" placeholder="Email hoặc số điện thoại"  type="text" name="email" required>
+                                            <input class="checkout__input--field border-radius-5" placeholder="Email hoặc số điện thoại"  type="text" name="email" value="<?=$email?>" >
                                        </label>
                                     </div>
                                     <div class="checkout__checkbox">
@@ -158,21 +171,21 @@
                                         <div class="col-lg-6 mb-12">
                                             <div class="checkout__input--list ">
                                                 <label>
-                                                    <input class="checkout__input--field border-radius-5" placeholder="Họ và tên"  type="text" name="name" required>
+                                                    <input class="checkout__input--field border-radius-5" placeholder="Họ và tên"  type="text" name="name" value="<?=$name?>" required>
                                                 </label>
                                             </div>
                                         </div>
                                         <div class="col-lg-6 mb-12">
                                             <div class="checkout__input--list">
                                                 <label>
-                                                    <input class="checkout__input--field border-radius-5" placeholder="Số điện thoại"  type="text" name="sdt" required>
+                                                    <input class="checkout__input--field border-radius-5" placeholder="Số điện thoại"  type="text" name="sdt" value="<?=$sdt?>" required>
                                                 </label>
                                             </div>
                                         </div>
                                         <div class="col-12 mb-12">
                                             <div class="checkout__input--list">
                                                 <label>
-                                                    <input class="checkout__input--field border-radius-5" placeholder="Địa chỉ"  type="text" name="address" required>
+                                                    <input class="checkout__input--field border-radius-5" placeholder="Địa chỉ"  type="text" name="address" value="<?=$address?>" required>
                                                 </label>
                                             </div>
                                         </div>
@@ -199,7 +212,7 @@
                                         </div>
                                     </div>
                                     <div class="checkout__checkbox">
-                                        <input class="checkout__checkbox--input" type="radio" id="paypal" name="pttt" value="1">
+                                        <input class="checkout__checkbox--input" type="radio" id="paypal" name="pttt" value="0">
                                         <span class="checkout__checkbox--checkmark"></span>
                                         <label class="checkout__checkbox--label" for="paypal">
                                         Thanh toán khi nhận hàng</label>

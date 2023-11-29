@@ -39,7 +39,8 @@
           $kq=checkuser($username, $password);
           if(is_array($kq)&&(count($kq))) {
             $_SESSION['s_user']=$kq;
-            header('location: index.php');
+            // header('location: index.php');
+            header('location: index.php?pg=checkout');
           }else{
             $tb="Tài khoản không tồn tại hoặc thông tin đăng nhập sai !";
             $_SESSION['tb_dangnhap']=$tb;
