@@ -1,5 +1,11 @@
 <?php
   extract($orderdetail);
+    if($pttt=0){
+        $tbpt='Thanh toán khi nhận hàng';
+    }
+    if($pttt=1){
+        $tbpt='Thanh toán bằng thẻ tín dụng';
+    }
   extract($ordercart);
     $html_cartorder='';
     $html_cartorder_mobile='';
@@ -124,7 +130,7 @@
                                         <div class="customer__information--step">
                                             <h4 class="customer__information--subtitle h5">Phương pháp vận chuyển</h4>
                                             <ul>
-                                                <li><span class="customer__information--text">Vận chuyển nhanh</span></li>
+                                                <li><span class="customer__information--text"><?=$tbpt;?></span></li>
                                             </ul>
                                         </div>
                                     </div>

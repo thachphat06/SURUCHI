@@ -8,15 +8,18 @@ function isUsernameExists($username) {
     return $result !== false;
 }
 
+function isPasswordExists($password) {
+    $sql = "SELECT * FROM users WHERE password = ?";
+    $result = pdo_query_one($sql, $password);
+    
+    return $result !== false;
+}
+
+
 function user_insert($username, $password, $email) {
     // Thực hiện quá trình đăng ký khi tài khoản không tồn tại
     $sql = "INSERT INTO users(username, password, email) VALUES (?, ?, ?)";
     pdo_execute($sql, $username, $password, $email);
-}
-
-function user_insert_id( $username, $password, $name, $address, $email, $sdt ){
-    $sql = "INSERT INTO users(username, password, name, address, email, sdt) VALUES (?, ?, ?, ?, ?, ?)";
-    return pdo_execute_id($sql,  $username, $password, $name , $address, $email, $sdt);
 }
 
 function user_update($username, $password, $email, $name, $img, $address, $sdt, $role, $id) {
@@ -96,4 +99,14 @@ function get_img_user($id) {
         // Xử lý trường hợp không có dữ liệu
         return 'Ảnh không tồn tại'; // Hoặc giá trị mặc định khác tùy vào yêu cầu của bạn
     }
+}
+
+function change_password($username, $newpassword){
+    $sql = "UPDATE users SET password=? WHERE username=?";
+    pdo_execute($sql, $newpassword, $username);
+}
+
+function update_role($id, $role) {
+    $sql = "UPDATE users SET role = ? WHERE id = ?";
+    pdo_execute($sql, $role, $id);
 }

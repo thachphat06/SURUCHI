@@ -56,14 +56,14 @@
                                 <div class="mb-4">
                                     <label class="form-label">Giá Gốc</label>
                                     <div class="row gx-2">
-                                        <input placeholder="VND" type="text" name="old_price" class="form-control" value="<?=($old_price>0)?$old_price:0;?>">
+                                        <input placeholder="VND" type="number" name="old_price" class="form-control form-input-number" value="<?=($old_price>0)?$old_price:0;?>">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-4">
                                 <div class="mb-4">
                                     <label class="form-label">Giá Đã Giảm</label>
-                                    <input placeholder="VND" type="text" name="price" class="form-control" value="<?=($price>0)?$price:0;?>">
+                                    <input placeholder="VND" type="number" name="price" class="form-control form-input-number" value="<?=($price>0)?$price:0;?>">
                                 </div>
                             </div>
                         </div>

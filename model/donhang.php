@@ -9,8 +9,9 @@ function get_order(){
     $sql = "SELECT * FROM orders ORDER BY id";
     return pdo_query($sql);
 }
-function get_order_desc(){
-    $sql = "SELECT * FROM orders ORDER BY id DESC";
+
+function get_orders_by_user($iduser) {
+    $sql = "SELECT * FROM orders WHERE iduser = $iduser ORDER BY id DESC";
     return pdo_query($sql);
 }
 
@@ -35,3 +36,4 @@ function update_status($id, $status) {
     $sql = "UPDATE orders SET status = ? WHERE id = ?";
     pdo_execute($sql, $status, $id);
 }
+

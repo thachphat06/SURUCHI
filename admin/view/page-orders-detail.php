@@ -1,5 +1,11 @@
 <?php
     extract($orderdetail);
+    if($pttt=0){
+        $tbpt='Thanh toán khi nhận hàng';
+    }
+    if($pttt=1){
+        $tbpt='Thanh toán bằng thẻ tín dụng';
+    }
     $select="";
     // Mảng chứa các trạng thái và đường link tương ứng
     $statusOptions = [
@@ -100,7 +106,7 @@
                                 <!-- <option selected>Thay đổi trạng thái</option> -->
                                 <?=$select;?>
                             </select>
-                            <button type="submit" name="updatestatus" class="btn btn-primary">Save</button>
+                            <!-- <button type="submit" name="updatestatus" class="btn btn-primary">Save</button> -->
                             <a class="btn btn-secondary print ms-2" href="#"><i class="icon material-icons md-print"></i></a>
                         </div>
                     </form>
@@ -133,7 +139,7 @@
                                 <h6 class="mb-1">Thông tin đặt hàng</h6>
                                 <p class="mb-1">
                                     Vận chuyển: Giao hàng nhanh <br> 
-                                    Phương thức thanh toán: Thanh toán khi nhận hàng <br> 
+                                    Phương thức thanh toán: <?=$tbpt?> <br> 
                                     Tình trạng: <?=$tt2;?>
                                 </p>
                                 <!-- <a href="#">Download info</a> -->

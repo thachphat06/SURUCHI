@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 26, 2023 at 02:21 PM
+-- Generation Time: Nov 29, 2023 at 02:32 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -32,7 +32,7 @@ CREATE TABLE `blog` (
   `author` varchar(100) NOT NULL,
   `date` date NOT NULL,
   `title` varchar(100) NOT NULL,
-  `content` varchar(5000) NOT NULL,
+  `content` text NOT NULL,
   `img` varchar(200) NOT NULL,
   `view` int(10) NOT NULL,
   `idloai` int(10) NOT NULL
@@ -85,7 +85,7 @@ CREATE TABLE `cart` (
   `img` varchar(200) NOT NULL,
   `soluong` int(3) NOT NULL,
   `thanhtien` int(6) NOT NULL,
-  `idbill` int(6) NOT NULL
+  `idbill` int(9) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -93,19 +93,11 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`id`, `idpro`, `price`, `name`, `img`, `soluong`, `thanhtien`, `idbill`) VALUES
-(46, 24, 125000, 'Áo thun nam  Routine', 'pd15.jpg', 1, 125000, 24),
-(47, 6, 182000, 'Áo Len Tăm Cổ Vuông', 'pd6.jpg', 1, 182000, 24),
-(48, 9, 135000, 'Áo phông trắng freesize ', 'pd9.jpg', 1, 135000, 24),
-(49, 3, 209000, 'Áo kiểu tay dài ', 'pd3.jpg', 1, 209000, 25),
-(50, 6, 182000, 'Áo Len Tăm Cổ Vuông', 'pd6.jpg', 1, 182000, 25),
-(51, 21, 265000, 'Áo Jean Nam Nữ form rộng', 'pd22.jpg', 1, 265000, 25),
-(52, 22, 215000, 'Áo hoodie New York', 'pd23.jpg', 1, 215000, 26),
-(53, 16, 265000, 'Áo Khoác Cadigan Nữ Hồng ', 'pd17.jpg', 1, 265000, 27),
-(54, 9, 135000, 'Áo phông trắng freesize ', 'pd9.jpg', 1, 135000, 27),
-(55, 17, 220000, 'Áo len dài tay cún nhỏ ', 'pd18.jpg', 1, 220000, 28),
-(56, 2, 179000, 'Áo sơ mi thắt nơ ', 'pd2.jpg', 4, 716000, 28),
-(57, 19, 275000, 'Kẻ sọc Tweed Áo khoác', 'pd20.jpg', 1, 275000, 28),
-(58, 13, 112000, 'Áo Thun Nam Cổ Tròn ', 'pd13.jpg', 1, 112000, 28);
+(67, 24, 125000, 'Áo thun nam  Routine', 'pd15.jpg', 1, 125000, 36),
+(68, 7, 177000, 'Áo kiểu trễ vai xanh', 'pd7.jpg', 1, 177000, 37),
+(69, 15, 145000, 'Áo thun nam nữ Unisex', 'pd16.jpg', 1, 145000, 37),
+(70, 15, 145000, 'Áo thun nam nữ Unisex', 'pd16.jpg', 1, 145000, 38),
+(71, 24, 125000, 'Áo thun nam  Routine', 'pd15.jpg', 1, 125000, 39);
 
 -- --------------------------------------------------------
 
@@ -137,10 +129,12 @@ INSERT INTO `category` (`id`, `name`, `img`, `stt`) VALUES
 
 CREATE TABLE `comment` (
   `id` int(10) NOT NULL,
-  `iduser` int(10) NOT NULL,
-  `idsp` int(10) NOT NULL,
-  `content` varchar(500) NOT NULL,
-  `date` date NOT NULL
+  `iduser` int(11) NOT NULL,
+  `idpro` int(10) NOT NULL,
+  `content` text NOT NULL,
+  `date` date NOT NULL,
+  `time` time NOT NULL,
+  `rating` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -164,7 +158,7 @@ CREATE TABLE `orders` (
   `voucher` int(6) NOT NULL DEFAULT 0,
   `tongthanhtoan` int(10) NOT NULL,
   `pttt` tinyint(1) NOT NULL COMMENT '0: COD; 1: ck',
-  `status` tinyint(1) NOT NULL DEFAULT 1 COMMENT '1: Pending;\r\n2: Cofirm;\r\n3: Delivering;\r\n4: Complete;\r\n5: Cancelled',
+  `status` tinyint(1) NOT NULL DEFAULT 1 COMMENT '1: Pending;\r\n2: Cofirm;\r\n3: Delivering;\r\n4: Complete;\r\n5: Delivering fail;\r\n6: Cancelled',
   `iduser` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -173,11 +167,10 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `mahd`, `date`, `time`, `nguoidat_ten`, `nguoidat_email`, `nguoidat_tel`, `nguoidat_diachi`, `note`, `total`, `ship`, `voucher`, `tongthanhtoan`, `pttt`, `status`, `iduser`) VALUES
-(24, 'Suruchi51', '2023-11-26', '19:02:15', 'Nguyễn Hữu Nghĩa', 'nguyenhuunghia089@gmail.com', '0377318275', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'dsadssda', 442000, 30000, 0, 472000, 1, 2, 51),
-(25, 'Suruchi53', '2023-11-26', '20:12:24', 'Nguyễn Hữu Nghĩa', 'nguyenhuunghia089@gmail.com', '0377318275', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'sadsadsadsadasd', 656000, 30000, 0, 686000, 1, 3, 53),
-(26, 'Suruchi54', '2023-11-26', '20:12:40', 'Nguyễn Hữu Nghĩa', 'nguyenhuunghia089@gmail.com', '0377318275', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'dsdsdasdassa', 215000, 30000, 0, 245000, 1, 4, 54),
-(27, 'Suruchi55', '2023-11-26', '20:13:12', 'Nguyễn Hữu Nghĩa', 'nguyenhuunghia089@gmail.com', '0377318275', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'dsadasdas', 400000, 30000, 0, 430000, 1, 1, 55),
-(28, 'Suruchi56', '2023-11-26', '20:14:09', 'Nguyễn Hữu Nghĩa', 'nguyenhuunghia089@gmail.com', '0377318275', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'đâsdasda', 1323000, 30000, 0, 1353000, 1, 1, 56);
+(36, 'Suruchi52', '2023-11-29', '18:02:41', 'Nguyễn Hữu Nghĩa', 'nguyenhuunghia089@gmail.com', '0377318275', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'ghjkhjk', 125000, 30000, 0, 155000, 1, 4, 14),
+(37, 'Suruchi871', '2023-11-29', '19:34:08', 'Nguyễn Hữu Nghĩa', 'nguyenhuunghia089@gmail.com', '0377318275', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'fdsfds', 322000, 30000, 0, 352000, 1, 4, 14),
+(38, 'Suruchi868', '2023-11-29', '20:00:40', 'Nguyễn Hữu Nghĩa', 'nguyenhuunghia089@gmail.com', '0377318275', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'fdfdsf', 145000, 30000, 0, 175000, 1, 4, 14),
+(39, 'Suruchi540', '2023-11-29', '20:02:56', 'Nguyễn Hữu Nghĩa', 'nguyenhuunghia089@gmail.com', '0377318275', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'dsds', 125000, 30000, 0, 155000, 1, 4, 14);
 
 -- --------------------------------------------------------
 
@@ -191,8 +184,8 @@ CREATE TABLE `product` (
   `price` int(10) NOT NULL DEFAULT 0,
   `old_price` int(10) NOT NULL DEFAULT 0,
   `img` varchar(200) NOT NULL,
-  `describe1` varchar(1000) NOT NULL,
-  `describe2` varchar(1000) NOT NULL,
+  `describe1` text NOT NULL,
+  `describe2` text NOT NULL,
   `view` int(10) NOT NULL,
   `bestseller` tinyint(1) NOT NULL DEFAULT 0,
   `new` tinyint(1) NOT NULL DEFAULT 0,
@@ -237,7 +230,7 @@ INSERT INTO `product` (`id`, `name`, `price`, `old_price`, `img`, `describe1`, `
 --
 
 CREATE TABLE `users` (
-  `id` int(6) NOT NULL,
+  `id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
   `name` varchar(50) NOT NULL,
@@ -253,44 +246,12 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `name`, `img`, `address`, `email`, `sdt`, `role`) VALUES
-(14, 'nghia', '123', 'Nguyễn Hữu Nghĩa', 'avatar.png', '209 QL13, phường 26, Q.Bình Thạnh, TP.HCM', 'nguyenhuunghia089@gmail.com', '0377318275', 1),
-(17, 'minhthu', '123', '', 'avatar.png', '', 'thuptmps27457@fpt.edu.vn', '', 0),
-(18, 'ngoctran', '123', '', 'avatar.png', NULL, 'tranntnps26576@fpt.edu.vn', NULL, 0),
-(19, 'huynh', '123', '', 'avatar.png', NULL, 'huynhnps27711@fpt.edu.vn', NULL, 0),
-(20, 'duong', '123', '', 'avatar.png', NULL, 'duongtmps27840@fpt.edu.vn', NULL, 0),
-(21, 'phat', '123', '', 'avatar.png', NULL, 'phathntps27741@fpt.edu.vn', NULL, 0),
-(25, 'guest895', '123456', 'Nguyễn Hữu Nghĩa', 'avatar.png', '209 QL13, phường 26, Quận Bình Thạnh', 'nguyenhuunghia089@gmail.com', '0377318275', 0),
-(26, 'guest747', '123456', 'Nguyễn Hữu Nghĩa', 'avatar.png', '209 QL13, phường 26, Quận Bình Thạnh', 'nguyenhuunghia089@gmail.com', '0377318275', 0),
-(27, 'guest587', '123456', 'Nguyễn Hữu Nghĩa', 'avatar.png', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'nguyenhuunghia089@gmail.com', '0377318275', 0),
-(28, 'guest987', '123456', 'Nguyễn Hữu Nghĩa', 'avatar.png', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'nguyenhuunghia089@gmail.com', '0377318275', 0),
-(29, 'guest976', '123456', 'Nguyễn Hữu Nghĩa', 'avatar.png', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'nguyenhuunghia089@gmail.com', '0377318275', 0),
-(30, 'guest838', '123456', 'Nguyễn Hữu Nghĩa', 'avatar.png', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'nguyenhuunghia089@gmail.com', '0377318275', 0),
-(31, 'guest678', '123456', 'Nguyễn Hữu Nghĩa', 'avatar.png', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'nguyenhuunghia089@gmail.com', '0377318275', 0),
-(32, 'guest254', '123456', 'Nguyễn Hữu Nghĩa', 'avatar.png', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'nguyenhuunghia089@gmail.com', '0377318275', 0),
-(33, 'guest924', '123456', 'Nguyễn Hữu Nghĩa', 'avatar.png', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'nguyenhuunghia089@gmail.com', '0377318275', 0),
-(34, 'guest61', '123456', 'Nguyễn Hữu Nghĩa', 'avatar.png', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'nguyenhuunghia089@gmail.com', '0377318275', 0),
-(35, 'guest242', '123456', 'Nguyễn Hữu Nghĩa', 'avatar.png', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'nguyenhuunghia089@gmail.com', '0377318275', 0),
-(36, 'guest766', '123456', 'Nguyễn Hữu Nghĩa', 'avatar.png', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'nguyenhuunghia089@gmail.com', '0377318275', 0),
-(37, 'guest644', '123456', 'Nguyễn Hữu Nghĩa', 'avatar.png', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'nguyenhuunghia089@gmail.com', '0377318275', 0),
-(38, 'guest845', '123456', 'Nguyễn Hữu Nghĩa', 'avatar.png', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'nguyenhuunghia089@gmail.com', '0377318275', 0),
-(39, 'guest105', '123456', 'Nguyễn Hữu Nghĩa', 'avatar.png', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'nguyenhuunghia089@gmail.com', '0377318275', 0),
-(40, 'guest2', '123456', 'Nguyễn Hữu Nghĩa', 'avatar.png', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'nguyenhuunghia089@gmail.com', '0377318275', 0),
-(41, 'guest864', '123456', 'Nguyễn Hữu Nghĩa', 'avatar.png', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'nguyenhuunghia089@gmail.com', '0377318275', 0),
-(42, 'guest563', '123456', 'Nguyễn Hữu Nghĩa', 'avatar.png', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'nguyenhuunghia089@gmail.com', '0377318275', 0),
-(43, 'guest567', '123456', 'Nguyen Huu Nghia', 'avatar.png', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'nghianhps27599@fpt.edu.vn', '0123456789', 0),
-(44, 'guest660', '123456', 'Nguyễn Hữu Nghĩa', 'avatar.png', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'nguyenhuunghia089@gmail.com', '0377318275', 0),
-(45, 'guest65', '123456', 'Nguyễn Hữu Nghĩa', 'avatar.png', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'nguyenhuunghia089@gmail.com', '0377318275', 0),
-(46, 'guest774', '123456', 'Nguyễn Hữu Nghĩa', 'avatar.png', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'nguyenhuunghia089@gmail.com', '0377318275', 0),
-(47, 'guest273', '123456', 'Nguyễn Hữu Nghĩa', 'avatar.png', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'nguyenhuunghia089@gmail.com', '0377318275', 0),
-(48, 'guest553', '123456', 'Nguyễn Hữu Nghĩa', 'avatar.png', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'nguyenhuunghia089@gmail.com', '0377318275', 0),
-(49, 'guest778', '123456', 'Nguyễn Hữu Nghĩa', 'avatar.png', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'nguyenhuunghia089@gmail.com', '0377318275', 0),
-(50, 'guest337', '123456', 'Nguyễn Hữu Nghĩa', 'avatar.png', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'nguyenhuunghia089@gmail.com', '0377318275', 0),
-(51, 'guest461', '123456', 'Nguyễn Hữu Nghĩa', 'avatar.png', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'nguyenhuunghia089@gmail.com', '0377318275', 0),
-(52, '', '', '', 'avatar.png', NULL, '', NULL, 0),
-(53, 'guest830', '123456', 'Nguyễn Hữu Nghĩa', 'avatar.png', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'nguyenhuunghia089@gmail.com', '0377318275', 0),
-(54, 'guest781', '123456', 'Nguyễn Hữu Nghĩa', 'avatar.png', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'nguyenhuunghia089@gmail.com', '0377318275', 0),
-(55, 'guest439', '123456', 'Nguyễn Hữu Nghĩa', 'avatar.png', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'nguyenhuunghia089@gmail.com', '0377318275', 0),
-(56, 'guest994', '123456', 'Nguyễn Hữu Nghĩa', 'avatar.png', 'Đường Số 13, Tân Hưng Thuận, Quận 12, Hồ Chí Minh', 'nguyenhuunghia089@gmail.com', '0377318275', 0);
+(14, 'nghia', '123', 'Nguyễn Hữu Nghĩa', 'Minions-1657511850-1187-1657511889.jpg', '209 QL13, phường 26, Q.Bình Thạnh, TP.HCM', 'nguyenhuunghia089@gmail.com', '0377318275', 1),
+(17, 'minhthu', '123', 'Phan Thị Minh Thư', 'imager_65419.jpg', '', 'thuptmps27457@fpt.edu.vn', '', 1),
+(18, 'ngoctran', '123', '', 'avatar.png', NULL, 'tranntnps26576@fpt.edu.vn', NULL, 1),
+(19, 'huynh', '123', '', 'avatar.png', NULL, 'huynhnps27711@fpt.edu.vn', NULL, 1),
+(20, 'duong', '123', '', 'avatar.png', NULL, 'duongtmps27840@fpt.edu.vn', NULL, 1),
+(21, 'phat', '123', '', 'avatar.png', NULL, 'phathntps27741@fpt.edu.vn', NULL, 1);
 
 --
 -- Indexes for dumped tables
@@ -329,7 +290,7 @@ ALTER TABLE `category`
 ALTER TABLE `comment`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_kh_bl` (`iduser`),
-  ADD KEY `fk_sp_bl` (`idsp`);
+  ADD KEY `fk_sp_bl` (`idpro`);
 
 --
 -- Indexes for table `orders`
@@ -371,7 +332,7 @@ ALTER TABLE `blog_category`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
 -- AUTO_INCREMENT for table `category`
@@ -383,25 +344,25 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- Constraints for dumped tables
@@ -424,8 +385,8 @@ ALTER TABLE `cart`
 -- Constraints for table `comment`
 --
 ALTER TABLE `comment`
-  ADD CONSTRAINT `fk_kh_bl` FOREIGN KEY (`iduser`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_sp_bl` FOREIGN KEY (`idsp`) REFERENCES `product` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_kh_bl` FOREIGN KEY (`iduser`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `fk_sp_bl` FOREIGN KEY (`idpro`) REFERENCES `product` (`id`);
 
 --
 -- Constraints for table `orders`

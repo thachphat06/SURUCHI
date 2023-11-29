@@ -20,6 +20,30 @@
     include "view/home.php";
   }else{
     switch ($_GET['pg']){
+      case 'update-role':
+        if(isset($_GET['id']) && $_GET['id'] > 0) {
+          $id = $_GET['id'];
+
+          update_role($id, 1);
+          
+          $listuser=loadall_user();
+          include "view/page-user-list.php";
+        }else {
+          include "view/home.php";
+        }
+        break;
+      case 'abort-role':
+        if(isset($_GET['id']) && $_GET['id'] > 0) {
+          $id = $_GET['id'];
+
+          update_role($id, 0);
+          $listuser=loadall_user();
+
+          include "view/page-user-list.php";
+        }else {
+          include "view/home.php";
+        }
+        break;
       case 'products-list':
         $dsdm=danhmuc_all();
         $kyw="";
@@ -240,7 +264,7 @@
         //trở về trang dm
         $cataloglist = danhmuc_all();  
         include "view/page-update-dm.php";
-      break;
+        break;
       case 'orders':
         $orderlist=get_order();
         include "view/page-orders.php";

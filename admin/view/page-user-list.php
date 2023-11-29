@@ -2,6 +2,12 @@
     $html_userlist="";
     foreach($listuser as $users){
     extract($users);
+    if($role==1){
+        $html_role='<a class="dropdown-item" href="index.php?pg=abort-role&id='.$id.'">Hủy quyền Admin</a>';
+    }
+    if($role==0){
+        $html_role='<a class="dropdown-item" href="index.php?pg=update-role&id='.$id.'">Cấp quyền Admin</a>';
+    }
     $html_userlist.='<tr>
                         <td width="23%">
                             <a href="#" class="itemside">
@@ -21,7 +27,13 @@
                         <td><span class="badge rounded-pill alert-success">'.$sdt.'</span></td>
                         <td width="30%">'.$address.'</td>
                         <td class="text-end">
-                            <a href="index.php?pg=deluser&id='.$id.'" class="btn btn-sm btn-brand rounded font-sm mt-15">Xóa</a>
+                            <div class="dropdown">
+                                <a href="#" data-bs-toggle="dropdown" class="btn btn-light rounded btn-sm font-sm"> <i class="material-icons md-more_horiz"></i> </a>
+                                <div class="dropdown-menu">
+                                    '.$html_role.'
+                                    <a class="dropdown-item text-danger" href="index.php?pg=deluser&id='.$id.'">Xóa</a>
+                                </div>
+                            </div>
                         </td>
                     </tr>';
     }
@@ -30,9 +42,6 @@
 <section class="content-main">
             <div class="content-header">
                 <h2 class="content-title">Danh Sách Khách Hàng</h2>
-                <div>
-                    <a href="#" class="btn btn-primary"><i class="material-icons md-plus"></i>Thêm Tài Khoản</a>
-                </div>
             </div>
             <div class="card mb-4">
                 <header class="card-header">

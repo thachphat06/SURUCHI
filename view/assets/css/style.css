@@ -354,8 +354,9 @@ input[type="number"] {
 }
 
 img {
+  object-fit: cover;
   max-width: 100%;
-  height: auto;
+  /* height: auto; */
 }
 
 span {
@@ -4546,6 +4547,29 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .rating__list--icon {
   color: var(--yellow-color);
+}
+
+.rating__list1 {
+  margin-right: 0.5rem;
+}
+
+@media only screen and (min-width: 768px) {
+  .rating__list1 {
+    margin-right: 0.8rem;
+  }
+}
+
+.rating__list1:last-child {
+  margin-right: 0;
+}
+
+.rating__list1 {
+  cursor: pointer;
+  color: #c4c4c4;
+}
+
+.rating__list-active{
+  color: #ffc107;
 }
 
 .product__badge {
@@ -9689,6 +9713,12 @@ input.quickview__value--number {
 
 .reviews__comment--thumb {
   width: 100px;
+}
+.reviews__comment--thumb img{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 @media only screen and (max-width: 575px) {
