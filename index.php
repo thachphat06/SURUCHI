@@ -62,23 +62,47 @@
         }
         header('location: index.php');
         break;
-      case 'adduser':
-        $tbdk="";
-        // xác định giá trị input
-        if(isset($_POST["register"])){
-          $username=$_POST["username"];
-          $password=$_POST["password"];
-          $email=$_POST["email"];
-          // Xử lý
-          if (isUsernameExists($username)) {
-            $tbdk="Tài khoản đã tồn tại. Vui lòng chọn một tài khoản khác.";
-          } else {
-            user_insert($username, $password, $email);
-            $tbdk="Đăng ký thành công!";
+        case 'adduser':
+          $tbdk = "";
+      
+          // Xác định nếu biểu mẫu đã được gửi đi
+          if (isset($_POST["register"])) {
+              // Lấy giá trị từ input
+              $username = $_POST["username"];
+              $password = $_POST["password"];
+              $repassword = $_POST["repassword"];
+              $email = $_POST["email"];
+      
+              // Kiểm tra xem các trường có được điền đầy đủ không
+              if (empty($username) || empty($password) || empty($email) || empty($repassword)) {
+                  $tbdk = "Vui lòng điền đầy đủ thông tin đăng ký.";
+              } else {
+                  // Kiểm tra xem tài khoản đã tồn tại hay chưa
+                  if (isUsernameExists($username)) {
+                      $tbdk = "Tài khoản đã tồn tại. Vui lòng chọn một tài khoản khác.";
+                  } else {
+                      // Kiểm tra xem địa chỉ email hợp lệ
+                      if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                          $tbdk = "Địa chỉ email không hợp lệ.";
+                      } else {
+                          // Kiểm tra xem mật khẩu và nhập lại mật khẩu khớp nhau
+                          if ($password != $repassword) {
+                              $tbdk = "Mật khẩu nhập lại không khớp.";
+                          } else {
+                              // Thực hiện thêm người dùng vào cơ sở dữ liệu
+                              user_insert($username, $password, $email);
+                              $tbdk = "Đăng ký thành công!";
+                          }
+                      }
+                  }
+              }
           }
-        }
-        include "view/login.php";
-        break;
+      
+          // Bạn có thể thay đổi đường dẫn tới file view nếu cần thiết
+          include "view/login.php";
+          break;
+      
+      
       case 'updateuser':
         // xác định giá trị input
         if(isset($_POST["update"])) {
