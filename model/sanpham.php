@@ -311,7 +311,7 @@ function showsp_admin($dssp){
     $html_dssp.='<article class="itemlist">
                     <div class="row align-items-center">
                         <div class="col-lg-1 col-quantity"> 
-                            <span>'.$i.'</span> 
+                            <span>'.$id.'</span> 
                         </div>
                         <div class="col-lg-2 col-sm-4 col-8 flex-grow-1 col-name">
                             <a class="itemside" href="#">
@@ -349,16 +349,41 @@ function showsp_admin($dssp){
     return $html_dssp;
 }
 
-function get_dssp_admin($kyw, $iddm, $limi){
+function hien_thi_so_trang($productlist, $soluongsp){
+    $tong_sp=count($productlist);
+    $sotrang= ceil($tong_sp/$soluongsp);
+    $html_sotrang="";
+    
+    for ($i=1; $i <= $sotrang ; $i++) { 
+        $html_sotrang.='<li class="page-item active">
+                        <a class="page-link" href="index.php?pg=products-list&page='.$i.'">'.$i.'</a>
+                        </li>';
+    }
+    return $html_sotrang;
+}
+
+function get_dssp_admin($kyw, $iddm, $page, $soluongsp){
+
+    // if(($page="")||($page=0)) $page=1;
+    $batdau = ($page - 1) * $soluongsp;
+
     $sql = "SELECT * FROM product WHERE 1";
     if($iddm>0){
         $sql .=" AND iddm=".$iddm;
     }
     if($kyw!=""){
         $sql .=" AND name LIKE '%".$kyw."%'";
+        $sql .=" ORDER BY id ASC ";
+        $sql .=" LIMIT ".$batdau.",".$soluongsp;
     }
 
-    $sql .= " ORDER BY id DESC LIMIT ".$limi;
+    $sql .= " ORDER BY id ASC ";
+    $sql .= " LIMIT ".$batdau.",".$soluongsp;
+    return pdo_query($sql);
+}
+
+function get_dssp_all(){
+    $sql = " SELECT * FROM product ORDER BY id ASC ";
     return pdo_query($sql);
 }
 
