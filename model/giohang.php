@@ -6,6 +6,11 @@ function cart_insert($idpro , $price, $name, $img, $soluong, $thanhtien, $idbill
     pdo_execute($sql, $idpro , $price, $name, $img, $soluong, $thanhtien, $idbill);
 }
 
+function update_quantity_product($idpro, $soluong){
+    $sql = "UPDATE cart SET soluong=? WHERE id=?";
+    pdo_execute($sql, $soluong, $idpro);
+}
+
 // function get_tongdonhang(){
 //     $sum=0;
 //     foreach ($_SESSION['giohang'] as $sp) {

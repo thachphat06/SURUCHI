@@ -24,7 +24,7 @@ function comment_delete($ma_bl){
 // }
 
 function comment_select_all($iduser, $idpro){
-    $sql = "SELECT c.*, u.name, u.img
+    $sql = "SELECT c.*, u.name, u.img, u.username
             FROM comment c
             JOIN users u ON c.iduser = u.id
             WHERE c.iduser = ? AND c.idpro = ?
