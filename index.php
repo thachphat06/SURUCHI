@@ -219,8 +219,15 @@
           $kyw=$_POST["kyw"];
           $titlepage="Tìm kiếm sản phẩm: '$kyw'";
         }
-        $dssp=get_dssp($kyw, $iddm, 16);
-
+        if(!isset($_GET['page'])){
+          $pg=1;
+        }else{
+          $pg=$_GET['page'];
+        }
+        $sosp=16;
+        $dssp=get_dssp($kyw, $iddm, $pg, $sosp);
+        $tongsp=get_dssp_all();
+        $hienthist=hien_thi_st($tongsp, $sosp);
         include "view/shop.php";
         break;
       case 'product-detail':

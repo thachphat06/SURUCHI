@@ -30,17 +30,34 @@ function get_iddm($id) {
     $sql = "SELECT iddm FROM product WHERE id=?";
     return pdo_query_value($sql, $id);
 }
+function hien_thi_st($dssp, $sosp){
+    $tongsp=count($dssp);
+    $strang= ceil($tongsp/$sosp);
+    $html_strang="";
+    
+    for ($i=1; $i <= $strang ; $i++) { 
+        $html_strang.='<li class="pagination__list">
+                        <a href="index.php?pg=shop&page='.$i.'" class="pagination__item pagination__item--current">'.$i.'</a>
+                    </li>';
+    }
+    return $html_strang;
+}
 
-function get_dssp($kyw, $iddm, $limi){
+
+function get_dssp($kyw, $iddm, $pg, $sosp){    
+    $begin = ($pg - 1) * $sosp;
     $sql = "SELECT * FROM product WHERE 1";
     if($iddm>0){
         $sql .=" AND iddm=".$iddm;
     }
     if($kyw!=""){
         $sql .=" AND name LIKE '%".$kyw."%'";
+        $sql .=" ORDER BY id ASC ";
+        $sql .=" LIMIT ".$begin.",".$sosp;
     }
 
-    $sql .= " ORDER BY id DESC LIMIT ".$limi;
+    $sql .= " ORDER BY id ASC ";
+    $sql .= " LIMIT ".$begin.",".$sosp;
     return pdo_query($sql);
 }
 
