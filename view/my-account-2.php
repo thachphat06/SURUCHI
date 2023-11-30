@@ -75,6 +75,9 @@
                                   <input type="hidden" name="old_img" value="<?=$old_img?>">
                               </div>
                               <button class="account__details--footer__btn" name="update" type="submit">Cập nhật</button>
+                                <a href="index.php?pg=change-pw" >
+                                    <button class="account__details--footer__btn" type="button">Đổi mật khẩu</button>
+                                </a>
                             </div>
                         </form>
                     </div>

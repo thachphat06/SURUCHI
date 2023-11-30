@@ -6,6 +6,12 @@
         $sum=0;
         $fee=0;
         $ship=30000;
+        if($pttt=0){
+            $tbpt='Thanh toán khi nhận hàng';
+        }
+        if($pttt=1){
+            $tbpt='Thanh toán bằng thẻ tín dụng';
+        }
         foreach ($_SESSION['giohang'] as $item) {
             extract($item);
             $tt= (int)$price* (int)$amount;
@@ -146,7 +152,7 @@
                                         <div class="customer__information--step">
                                             <h4 class="customer__information--subtitle h5">Phương pháp vận chuyển</h4>
                                             <ul>
-                                                <li><span class="customer__information--text">Vận chuyển nhanh</span></li>
+                                                <li><span class="customer__information--text">Giao hàng nhanh</span></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -154,7 +160,7 @@
                                         <div class="customer__information--step">
                                             <h4 class="customer__information--subtitle h5">Phương thức thanh toán</h4>
                                             <ul>
-                                                <li><span class="customer__information--text">Thanh toán khi nhận hàng</span></li>
+                                                <li><span class="customer__information--text"><?=$tbpt;?></span></li>
                                             </ul>
                                         </div>
                                     </div>

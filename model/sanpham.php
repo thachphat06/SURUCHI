@@ -44,6 +44,11 @@ function get_dssp($kyw, $iddm, $limi){
     return pdo_query($sql);
 }
 
+function product_all(){
+    $sql = "SELECT * FROM product ORDER BY id";
+    return pdo_query($sql);
+}
+
 function get_sp_by_id($id){
     $sql = "SELECT * FROM product WHERE id=?";
     return pdo_query_one($sql, $id);

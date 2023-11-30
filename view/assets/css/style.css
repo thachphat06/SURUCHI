@@ -354,8 +354,9 @@ input[type="number"] {
 }
 
 img {
+  object-fit: cover;
   max-width: 100%;
-  height: auto;
+  /* height: auto; */
 }
 
 span {
@@ -1529,6 +1530,25 @@ hr {
 }
 
 .primary__btn:hover {
+  background: var(--primary-color);
+  color: var(--white-color);
+}
+
+.second__btn {
+  font-size: 1.4rem;
+  font-weight: var(--body-line-height);
+  line-height: 3.5rem;
+  display: inline-block;
+  height: 3.5rem;
+  padding: 0 1.8rem;
+  letter-spacing: 0.2px;
+  border-radius: 0.3rem;
+  background: var(--secondary-color);
+  color: var(--white-color);
+  border: 0;
+}
+
+.second__btn:hover {
   background: var(--primary-color);
   color: var(--white-color);
 }
@@ -4527,6 +4547,29 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .rating__list--icon {
   color: var(--yellow-color);
+}
+
+.rating__list1 {
+  margin-right: 0.5rem;
+}
+
+@media only screen and (min-width: 768px) {
+  .rating__list1 {
+    margin-right: 0.8rem;
+  }
+}
+
+.rating__list1:last-child {
+  margin-right: 0;
+}
+
+.rating__list1 {
+  cursor: pointer;
+  color: #c4c4c4;
+}
+
+.rating__list-active{
+  color: #ffc107;
 }
 
 .product__badge {
@@ -9029,6 +9072,12 @@ input.quickview__value--number {
   line-height: 3rem;
 }
 
+.cancelled__filter--btn {
+  margin-top: 5px;
+  height: 3rem;
+  line-height: 3rem;
+}
+
 .price__divider {
   font-size: 2rem;
   padding: 2.5rem 1rem 0;
@@ -9664,6 +9713,12 @@ input.quickview__value--number {
 
 .reviews__comment--thumb {
   width: 100px;
+}
+.reviews__comment--thumb img{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 @media only screen and (max-width: 575px) {

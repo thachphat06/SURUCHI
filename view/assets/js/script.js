@@ -924,3 +924,49 @@ $(document).ready(function () {
       });
   });
 });
+
+
+/* Star Rating */ 
+const starContainer = document.getElementById("starRating");
+// Select all elements with the "i" tag and store them in a NodeList called "stars"
+const stars = starContainer.querySelectorAll(".rating__list1"); 
+// console.log(stars);
+// Loop through the "stars" NodeList
+stars.forEach((star, index1) => {
+// Add an event listener that runs a function when the "click" event is triggered
+star.addEventListener("click", () => {
+    // Loop through the "stars" NodeList Again
+    stars.forEach((star, index2) => {
+    // Add the "active" class to the clicked star and any stars with a lower index
+    // and remove the "active" class from any stars with a higher index
+    index1 >= index2 ? star.classList.add("rating__list-active") : star.classList.remove("rating__list-active");
+    });
+});
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+var starRating = document.getElementById('starRating');
+var hiddenRatingInput = document.getElementById('hiddenRatingInput');
+
+// Xử lý sự kiện khi người dùng chọn một đánh giá sao
+starRating.addEventListener('click', function (event) {
+    var selectedRating = event.target.closest('.rating__list1');
+
+    if (selectedRating) {
+        var ratingValue = selectedRating.getAttribute('data-rating');
+        hiddenRatingInput.value = ratingValue;
+
+        // Đánh dấu các sao đã chọn (có thể thêm hiệu ứng CSS ở đây)
+        resetStarRating();
+        selectedRating.classList.add('selected');
+    }
+});
+
+// Reset trạng thái của các sao
+function resetStarRating() {
+    var allStars = document.querySelectorAll('.rating__list1');
+    allStars.forEach(function (star) {
+        star.classList.remove('selected');
+    });
+}
+});

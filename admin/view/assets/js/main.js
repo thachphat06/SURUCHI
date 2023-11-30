@@ -18,3 +18,11 @@
         e("body").toggleClass("dark")
     })
 }(jQuery);
+
+var inputNumber = document.querySelector('.form-input-number');
+    inputNumber.addEventListener('keydown', function(e){
+        const key = e.key
+        if (key == 'e' || key == 'E' || key == '-' || key == '+') {
+            e.preventDefault()
+        }
+    });

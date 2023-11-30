@@ -211,9 +211,9 @@
 <main class="main__content_wrapper">
     <!-- Start slider section -->
     <section class="hero__slider--section">
-        <div class="hero__slider--inner hero__slider--activation swiper">
+        <div class="hero__slider--inner swiper">
             <div class="hero__slider--wrapper swiper-wrapper">
-                <div class="swiper-slide ">
+                <div class="swiper-slide">
                     <div class="hero__slider--items home1__slider--bg">
                         <div class="container-fluid">
                             <div class="hero__slider--items__inner">
@@ -237,7 +237,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="swiper-slide ">
+                <!-- <div class="swiper-slide ">
                     <div class="hero__slider--items home1__slider--bg two">
                         <div class="container-fluid">
                             <div class="row">
@@ -285,10 +285,10 @@
                             
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
-            <div class="swiper__nav--btn swiper-button-next"></div>
-            <div class="swiper__nav--btn swiper-button-prev"></div>
+            <!-- <div class="swiper__nav--btn swiper-button-next"></div>
+            <div class="swiper__nav--btn swiper-button-prev"></div> -->
         </div>
     </section>
     <!-- End slider section -->
@@ -412,7 +412,7 @@
                             <span class="deals__banner--content__subtitle text__secondary">Hãy nhanh tay để được giảm giá 25%</span>
                             <h2 class="deals__banner--content__maintitle">Ưu đãi trong ngày</h2>
                             <p class="deals__banner--content__desc">"Chương trình sale 25% trong ngày! Hãy nhanh tay <br> mua sắm để nhận ưu đãi hấp dẫn này!"</p>
-                            <div class="deals__banner--countdown d-flex" data-countdown="Sep 30, 2022 00:00:00"></div>
+                            <!-- <div class="deals__banner--countdown d-flex" data-countdown="Sep 30, 2022 00:00:00"></div> -->
                             <a class="primary__btn" href="index.php?pg=shop">Mua Ngay
                                 <svg class="primary__btn--arrow__icon" xmlns="http://www.w3.org/2000/svg" width="20.2" height="12.2" viewBox="0 0 6.2 6.2">
                                 <path d="M7.1,4l-.546.546L8.716,6.713H4v.775H8.716L6.554,9.654,7.1,10.2,9.233,8.067,10.2,7.1Z" transform="translate(-4 -4)" fill="currentColor"></path>

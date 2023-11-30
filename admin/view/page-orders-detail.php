@@ -1,5 +1,11 @@
 <?php
     extract($orderdetail);
+    if($pttt=0){
+        $tbpt='Thanh toán khi nhận hàng';
+    }
+    if($pttt=1){
+        $tbpt='Thanh toán bằng thẻ tín dụng';
+    }
     $select="";
     // Mảng chứa các trạng thái và đường link tương ứng
     $statusOptions = [
@@ -7,7 +13,8 @@
         2 => 'index.php?pg=order-confirm&id='.$id.'',
         3 => 'index.php?pg=order-delivering&id='.$id.'',
         4 => 'index.php?pg=order-complete&id='.$id.'',
-        5 => '#',
+        5 => 'index.php?pg=order-fail&id='.$id.'',
+        6 => '#',
     ];
     // Tạo tùy chọn cho mỗi trạng thái
     foreach ($statusOptions as $value => $link) {
@@ -26,7 +33,9 @@
             case 4:
                 return 'Complete';
             case 5:
-                return '';
+                return 'Delivery failed';
+            case 6:
+                return '...';
             default:
                 return 'Unknown status';
         }
@@ -48,6 +57,10 @@
         $tt2='Complete';
     } 
     if($status==5){
+        $tt='<span class="badge rounded-pill alert-warning">Delivery failed</span>';
+        $tt2='Delivery failed';
+    } 
+    if($status==6){
         $tt='<span class="badge rounded-pill alert-danger">Cancelled</span>';
         $tt2='Cancelled';
     } 
@@ -93,7 +106,7 @@
                                 <!-- <option selected>Thay đổi trạng thái</option> -->
                                 <?=$select;?>
                             </select>
-                            <button type="submit" name="updatestatus" class="btn btn-primary">Save</button>
+                            <!-- <button type="submit" name="updatestatus" class="btn btn-primary">Save</button> -->
                             <a class="btn btn-secondary print ms-2" href="#"><i class="icon material-icons md-print"></i></a>
                         </div>
                     </form>
@@ -126,7 +139,7 @@
                                 <h6 class="mb-1">Thông tin đặt hàng</h6>
                                 <p class="mb-1">
                                     Vận chuyển: Giao hàng nhanh <br> 
-                                    Phương thức thanh toán: Thanh toán khi nhận hàng <br> 
+                                    Phương thức thanh toán: <?=$tbpt?> <br> 
                                     Tình trạng: <?=$tt2;?>
                                 </p>
                                 <!-- <a href="#">Download info</a> -->

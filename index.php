@@ -10,6 +10,7 @@
   include "model/global.php";
   include "model/sanpham.php";
   include "model/danhmuc.php";
+  include "model/binhluan.php";
   include "model/donhang.php";
   include "model/giohang.php";
   include "model/tintuc.php";
@@ -28,9 +29,11 @@
   } else {
     switch ($_GET['pg']) {
       case 'signin-signup':
+        $tbdk="";
         include "view/login.php";
         break;
       case 'signin':
+        $tbdk="";
         //input
         if(isset($_POST["login"])) {
           $username=$_POST["username"];
@@ -39,8 +42,12 @@
           $kq=checkuser($username, $password);
           if(is_array($kq)&&(count($kq))) {
             $_SESSION['s_user']=$kq;
-            // header('location: index.php');
-            header('location: index.php?pg=checkout');
+            // if($_SESSION['page']=="product-details"){
+            //   // header('location: index.php?pg=product-detail&idpro='.$_SESSION['idpro'].'#cmt');
+            // } else {
+            //   header('location: index.php');
+            // }
+            header('location: index.php');
           }else{
             $tb="Tài khoản không tồn tại hoặc thông tin đăng nhập sai !";
             $_SESSION['tb_dangnhap']=$tb;
@@ -109,17 +116,44 @@
           include "view/my-account.php";
         }
         break;
+      case 'change-pw':
+        $tbpw="";
+        if(isset($_POST['change_pw'])){
+          $username = $_POST['username'];
+          $password = $_POST['pw'];
+          $newpassword = $_POST['newpw'];
+          $repassword = $_POST['repw'];
+          
+          // Kiểm tra xác thực mật khẩu và thực hiện đổi mật khẩu
+          if (isPasswordExists($password)) {
+            if ($newpassword === $repassword) {
+              change_password($username, $newpassword);
+              $tbpw = "Đổi mật khẩu thành công!";
+            }else {
+              $tbpw = "Mật khẩu mới không trùng khớp!";
+            }
+          }else {
+            $tbpw = "Mật khẩu hiện tại không chính xác!";
+          }  
+        }
+        include "view/change-pw.php";
+        break;  
       case 'my-account-2';
         include "view/my-account-2.php";
         break;
       case 'my-account-3':
-        $orderlist=get_order_desc();
+        if(isset($_SESSION['s_user'])) {
+          $iduser = $_SESSION['s_user']['id'];
+        }
+        $orderlist=get_orders_by_user($iduser);
         include "view/my-account-3.php";
         break;
       case 'orders-detail':
         if(isset($_GET['id']) && ($_GET["id"] > 0)) {
           $id = $_GET['id'];
-  
+          if(isset($_SESSION['s_user'])) {
+            $iduser = $_SESSION['s_user']['id'];
+          }
           $ordercart = get_cart_by_id($id);
           $orderdetail = get_order_by_id($id);
           include "view/order-detail.php";
@@ -130,13 +164,15 @@
       case 'order-cancelled':
         if(isset($_GET['id']) && $_GET['id'] > 0) {
           $id = $_GET['id'];
-          
+          if(isset($_SESSION['s_user'])) {
+            $iduser = $_SESSION['s_user']['id'];
+          }
           // Lấy trạng thái từ cơ sở dữ liệu hoặc bất kỳ nguồn dữ liệu nào khác
           $status = get_status($id);
 
           // Kiểm tra xem có phải đơn hàng đang ở trạng thái "Pending" hay không
-          update_status($id, 5);
-          $orderlist = get_order();
+          update_status($id, 6);
+          $orderlist = get_orders_by_user($iduser);
           include "view/my-account-3.php";
         }else {
           include "view/index.php";
@@ -164,14 +200,39 @@
         include "view/shop.php";
         break;
       case 'product-detail':
+        $iduser="";
         if(isset($_GET['idpro'])&&($_GET["idpro"]>0)) {
           $id=$_GET['idpro'];
           $iddm=get_iddm($id);
           $spchitiet=get_sp_by_id($id);
           $splienquan=get_dssp_lienquan($iddm, $id, 4);
+          if(isset($_SESSION['s_user'])) {
+            $iduser = $_SESSION['s_user']['id'];
+          }
+          $commentlist = comment_select_all($iduser, $id);
           include "view/product-details.php";
         }else {
           include "view/home.php";
+        }
+        break;
+      case 'process-comment':
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+          // Kiểm tra xem các trường cần thiết có tồn tại không
+          if (isset($_POST['idpro'], $_SESSION['s_user']['id'], $_POST['content'])) {
+              $idpro = $_POST['idpro'];
+              $iduser = $_SESSION['s_user']['id'];
+              $content = $_POST['content'];
+              $rating = $_POST['rating'];
+              // Lấy ngày và giờ hiện tại
+              var_dump($rating);
+              $date = date('Y-m-d');
+              $time = date('H:i:s');
+              // Thực hiện chèn bình luận
+              comment_insert($iduser, $idpro, $content, $date, $time, $rating);
+              // Chuyển hướng sau khi thêm bình luận
+              header("Location: index.php?pg=product-detail&idpro=$idpro");
+              exit();
+          }
         }
         break;
       case 'cart':
@@ -198,10 +259,10 @@
           foreach ($_SESSION['giohang'] as &$item) {
             // Nếu sản phẩm đã tồn tại, tăng số lượng
             if ($item['id'] == $id) {
-                $item['amount'] += $amount;
-                $sp['thanhtien'] = (int)$sp['amount'] * (int)$price;
-                $productExists = true;
-                break;
+              $item['amount'] += $amount;
+              $sp['thanhtien'] = (int)$sp['amount'] * (int)$price;
+              $productExists = true;
+              break;
             }
           }
 
@@ -257,10 +318,8 @@
             $datetime = new DateTime($formatted_date);
             $date = $datetime->format('Y-m-d');
             $time = $datetime->format('H:i:s');
-            $username = "guest".rand(1,999);
-            $password = "123456";
-            $iduser = user_insert_id($username, $password, $nguoidat_ten, $nguoidat_diachi, $nguoidat_email, $nguoidat_tel, $note);
-            $mahd = "Suruchi" . $iduser;
+            $iduser = $_SESSION['s_user']['id'];
+            $mahd = "Suruchi".rand(1,999);
             $total = get_tongdonhang();
             $ship = 30000;
             if (isset($_SESSION['giatrivoucher'])) {

@@ -29,14 +29,14 @@
                                 <div class="mb-4">
                                     <label class="form-label">Giá Gốc</label>
                                     <div class="row gx-2">
-                                        <input placeholder="VND" type="text" name="old_price" class="form-control" required>
+                                        <input placeholder="VND" type="number" name="old_price" class="form-control form-input-number" required>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-4">
                                 <div class="mb-4">
                                     <label class="form-label">Giá Đã Giảm</label>
-                                    <input placeholder="VND" type="text" name="price" class="form-control" required>
+                                    <input placeholder="VND" type="number" name="price" class="form-control form-input-number" required>
                                 </div>
                             </div>
                         </div>
