@@ -1,7 +1,6 @@
 <?php
     extract($spchitiet);
     $imgpro=$img;
-    $namepro=$name;
     $html_dssp_lienquan=showsp_slide($splienquan);
     
     if (isset($_GET['idpro'])) {
@@ -16,11 +15,6 @@
     foreach ($commentlist as $item) {
         $imguser = $item['img'];
         $nameuser = $item['name'];
-        if($nameuser==''){
-            $nameuser = $item['username'];
-        }else{
-            $nameuser = $item['name'];
-        }
         extract($item);
 
         // Khởi tạo lại chuỗi HTML cho đánh giá sao
@@ -184,7 +178,7 @@
                 </div>   
                 <div class="col">
                     <div class="product__details--info">
-                        <h2 class="product__details--info__title mb-15"><?=$namepro?></h2>
+                        <h2 class="product__details--info__title mb-15"><?=$name?></h2>
                         <div class="product__details--info__price mb-10">
                             <span class="current__price"><?=number_format($price,0,",",".")?>VNĐ</span>
                             <span class="price__divided"></span>

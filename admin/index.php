@@ -11,6 +11,8 @@
   include "../model/donhang.php";
   include "../model/giohang.php";
   include "../model/user.php";
+  include "../model/tintuc.php";
+  include "../model/dmuc-tintuc.php";
   include "../model/global.php";
 
   include "view/header.php";
@@ -372,10 +374,123 @@
         $listuser=loadall_user();
         include "view/page-user-list.php";
         break;
-      case 'page-review':
-        include "view/page-review.php";
-        break;
+      
+      case 'page-blog-list':
+        $dsdm = dmuc_all();
+        $kyw = "";
+        if (!isset($_GET['iddm'])) {
+          $iddm = 0;
+        } else {
+          $iddm = $_GET['iddm'];
+        }
   
+        if (isset($_POST["search"])) {
+          $kyw = $_POST["kyw"];
+        }
+        $bloglist = get_dsblog($kyw, $iddm, 100);
+        include "view/page-blog-list.php";
+        break;
+      case 'addblog':
+        $tintuclist = dmuc_all();
+        include "view/page-add-blog.php";
+        break;
+      case 'page-add-blog':
+        if (isset($_POST['addblog'])) {
+          $dsdm = dmuc_all();
+          $kyw = "";
+          //Lấy dữ liệu về
+          $author = $_POST['author'];
+          $date = $_POST['date'];
+          $title = $_POST['title'];
+          $content = $_POST['content'];
+          $iddm = $_POST['iddm'];
+          $img = $_FILES['img']['name'];
+          //upload hình
+          $target_file = IMG_PATH_ADMIN . $img;
+          move_uploaded_file($_FILES["img"]["tmp_name"], $target_file);
+  
+          //Insert into
+          blog_insert($author, $date, $title, $content, $img, $iddm);
+          // Chuyển hướng người dùng sau khi thêm tin tức
+          header("Location: index.php?pg=page-blog-list");
+          exit(); //
+  
+          // //trở về trang dstt
+          // $bloglist = get_dsblog($kyw, $iddm, 100);
+          // include "view/page-blog-list.php";
+        } else {
+          $tintuclist = dmuc_all();
+          include "view/page-add-blog.php";
+        }
+        break;
+      case 'delblog':
+        $dsdm = danhmuc_all();
+        $kyw = "";
+        $iddm = "";
+        if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+          $id = $_GET['id'];
+          $img = IMG_PATH_ADMIN . get_img($id);
+          if (is_file($img)) {
+            unlink($img);
+          }
+          try {
+            blog_delete($id);
+          } catch (\Throwable $th) {
+            //throw $th;
+            echo "<h3 style='color:red; text-align:center' >Tin tức đặc biệt! Không được quyền xóa!</h3>";
+          }
+        }
+        //trở về trang dstt
+        $bloglist = get_dsblog($kyw, $iddm, 100);
+        include "view/page-blog-list.php";
+        break;
+      case 'page-update-blog':
+        if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+          $id = $_GET['id'];
+          $tt = get_tt_by_id($id);
+        }
+        //trở về trang dstt
+        $tintuclist = dmuc_all();
+        include "view/page-update-blog.php";
+        break;
+      case 'updateblog':
+        $dsdm = danhmuc_all();
+        $kyw = "";
+        $iddm = "";
+        //kiểm tra và lấy dữ liệu
+        if(isset($_POST['updateblog'])){
+          $author = $_POST['author'];
+          $date = $_POST['date'];
+          $title = $_POST['title'];
+          $content = $_POST['content'];
+          $iddm = $_POST['iddm'];
+          $id = $_POST['id'];
+          $img = $_FILES['img']['name'];
+          if ($img != "") {
+            //upload hình
+            $target_file = IMG_PATH_ADMIN . $img;
+            move_uploaded_file($_FILES["img"]["tmp_name"], $target_file);
+  
+            //xóa hình cũ trên host
+            $old_img = IMG_PATH_ADMIN . $_POST['old_img'];
+            if (file_exists($old_img))
+              unlink($old_img);
+  
+          } else {
+            $img = "";
+          }
+          //Insert into
+          blog_update($author, $date, $title, $content, $img, $id);
+          
+        }
+        //
+  
+        //
+  
+        //trở về trang dstt
+        $bloglist = get_dsblog($kyw, $iddm, 100);
+        include "view/page-blog-list.php";
+        break;
       default:
         include "view/home.php";
         break;

@@ -66,7 +66,7 @@
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a class="menu-link" href="index.php?pg=blog-list"><i class="icon material-icons md-add_box"></i>
+                    <a class="menu-link" href="index.php?pg=page-blog-list"><i class="icon material-icons md-add_box"></i>
                         <span class="text">Tin Tức</span>
                     </a>
                 </li>
