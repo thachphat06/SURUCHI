@@ -14,6 +14,7 @@
   include "../model/tintuc.php";
   include "../model/dmuc-tintuc.php";
   include "../model/global.php";
+  include "../model/binhluan.php";
 
   include "view/header.php";
   if(!isset($_GET['pg'])){
@@ -120,7 +121,7 @@
         }
 
         //show dssp
-        $productlist=get_dssp_admin($kyw, $iddm, 100); 
+        $productlist=get_dssp_admin($kyw, $iddm, $page, $soluongsp); 
         include "view/page-products-list.php";
         break;
       case 'page-add-product':
@@ -154,7 +155,7 @@
           }
         }  
         //trở về trang dssp
-        $productlist=get_dssp_admin($kyw, $iddm, 100); 
+        $productlist=get_dssp_admin($kyw, $iddm, $page, $soluongsp); 
         include "view/page-products-list.php";
         break;
       case 'addproduct':
@@ -195,7 +196,7 @@
           sanpham_insert($name, $img, $price, $old_price, $describe1, $describe2, $bestseller, $hot, $new, $iddm);
 
           //trở về trang dssp
-          $productlist=get_dssp_admin($kyw, $iddm, 100); 
+          $productlist=get_dssp_admin($kyw, $iddm, $page, $soluongsp); 
           include "view/page-products-list.php";
         } else {
           $categorylist=danhmuc_all();
@@ -383,7 +384,6 @@
         $listuser=loadall_user();
         include "view/page-user-list.php";
         break;
-      
       case 'page-blog-list':
         $dsdm = dmuc_all();
         $kyw = "";
@@ -500,6 +500,20 @@
         $bloglist = get_dsblog($kyw, $iddm, 100);
         include "view/page-blog-list.php";
         break;
+      case 'page-review':
+        $comment_list = comment_select_all();
+        include "view/page-review.php";
+        break;
+        case 'delcomment':
+          if(isset($_GET['id']) && ($_GET['id'] > 0)){
+              $id = $_GET['id'];
+                comment_delete($id);
+                  } 
+          // Redirect back to comments page
+          $comment_list = comment_select_all();
+          include "view/page-review.php";
+          break;
+      
       default:
         include "view/home.php";
         break;

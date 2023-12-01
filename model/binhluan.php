@@ -6,15 +6,15 @@ function comment_insert($iduser, $idpro, $content, $date, $time, $rating) {
     pdo_execute($sql, $iduser, $idpro, $content, $date, $time, $rating);
 }
 
-function comment_delete($ma_bl){
-    $sql = "DELETE FROM comment WHERE ma_bl=?";
-    if(is_array($ma_bl)){
-        foreach ($ma_bl as $ma) {
+function comment_delete($id){
+    $sql = "DELETE FROM comment WHERE id=?";
+    if(is_array($id)){
+        foreach ($id as $ma) {
             pdo_execute($sql, $ma);
         }
     }
     else{
-        pdo_execute($sql, $ma_bl);
+        pdo_execute($sql, $id);
     }
 }
 
@@ -23,8 +23,8 @@ function comment_delete($ma_bl){
 //     return pdo_query($sql);
 // }
 
-function comment_select_all($iduser, $idpro){
-    $sql = "SELECT c.*, u.name, u.img, u.username
+function comment_select_by_id($iduser, $idpro){
+    $sql = "SELECT c.*, u.name, u.img
             FROM comment c
             JOIN users u ON c.iduser = u.id
             WHERE c.iduser = ? AND c.idpro = ?
@@ -32,6 +32,15 @@ function comment_select_all($iduser, $idpro){
     return pdo_query($sql, $iduser, $idpro);
 }
 
+function comment_select_all(){
+    $sql = "SELECT comment.*, users.id AS user_id, users.name AS user_name, users.img AS user_img, product.name AS product_name
+            FROM comment
+            INNER JOIN users ON comment.iduser = users.id
+            INNER JOIN product ON comment.idpro = product.id
+            ORDER BY comment.id DESC";
+
+    return pdo_query($sql);
+}
 // function binh_luan_select_by_id($ma_bl){
 //     $sql = "SELECT * FROM binh_luan WHERE ma_bl=?";
 //     return pdo_query_one($sql, $ma_bl);

@@ -240,7 +240,7 @@
           if(isset($_SESSION['s_user'])) {
             $iduser = $_SESSION['s_user']['id'];
           }
-          $commentlist = comment_select_all($iduser, $id);
+          $commentlist = comment_select_by_id($iduser, $id);
           include "view/product-details.php";
         }else {
           include "view/home.php";
