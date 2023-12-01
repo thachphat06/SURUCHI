@@ -12,6 +12,7 @@
   include "../model/giohang.php";
   include "../model/user.php";
   include "../model/global.php";
+  include "../model/binhluan.php";
 
   include "view/header.php";
   if(!isset($_GET['pg'])){
@@ -373,9 +374,19 @@
         include "view/page-user-list.php";
         break;
       case 'page-review':
+        $comment_list = comment_select_all();
         include "view/page-review.php";
         break;
-  
+        case 'delcomment':
+          if(isset($_GET['id']) && ($_GET['id'] > 0)){
+              $id = $_GET['id'];
+                comment_delete($id);
+                  } 
+          // Redirect back to comments page
+          $comment_list = comment_select_all();
+          include "view/page-review.php";
+          break;
+      
       default:
         include "view/home.php";
         break;

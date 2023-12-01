@@ -1,3 +1,30 @@
+<?php
+    $html_cmt="";
+    foreach($comment_list as $binhluan) {
+        extract($binhluan);
+        $html_cmt.=' <tr>
+        <td>
+            <a href="#" class="itemside">
+                <div class="left">
+                    <img src="../uploads/'.$user_img.'" class="img-sm img-avatar" alt="Userpic">
+                </div>
+                <div class="info pl-3">
+                    <h6 class="mb-0 title">'.$user_name.'</h6>
+                    <small class="text-muted">Seller ID: '.$user_id.'</small>
+                </div>
+            </a>
+        </td>
+        <td>'.$product_name.'</td>
+        <td width="35%">
+          '.$content.'
+        </td>
+        <td>'.$date.'</td>
+        <td class="text-end">
+        <a class="dropdown-item text-danger" href="index.php?pg=delcomment&id='.$id.'">Xóa</a>
+        </td>
+    </tr>';
+    }
+?>
 <section class="content-main">
     <div class="content-header">
         <h2 class="content-title">Bình luận từ khách hàng</h2>
@@ -20,216 +47,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>
-                                <a href="#" class="itemside">
-                                    <div class="left">
-                                        <img src="./view/assets/imgs/people/avatar1.jpg" class="img-sm img-avatar" alt="Userpic">
-                                    </div>
-                                    <div class="info pl-3">
-                                        <h6 class="mb-0 title">Eleanor Pena</h6>
-                                        <small class="text-muted">Seller ID: #439</small>
-                                    </div>
-                                </a>
-                            </td>
-                            <td>Áo thun nam nữ Unisex</td>
-                            <td width="35%">
-                                Sản phẩm khá tốt, chất liệu ổn, đã mua ở đây 5 lần và vẫn rất hài lòng!!
-                            </td>
-                            <td>08/07/2022</td>
-                            <td class="text-end">
-                                <a href="#" class="btn btn-sm btn-brand rounded font-sm mt-14">Xóa</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <a href="#" class="itemside">
-                                    <div class="left">
-                                        <img src="./view/assets/imgs/people/avatar2.jpg" class="img-sm img-avatar" alt="Userpic">
-                                    </div>
-                                    <div class="info pl-3">
-                                        <h6 class="mb-0 title">Mary Monasa</h6>
-                                        <small class="text-muted">Seller ID: #129</small>
-                                    </div>
-                                </a>
-                            </td>
-                            <td>Áo thun nam nữ Unisex</td>
-                            <td width="35%">
-                                Sản phẩm khá tốt, chất liệu ổn, đã mua ở đây 5 lần và vẫn rất hài lòng!!
-                            </td>
-                            <td>08/07/2022</td>
-                            <td class="text-end">
-                                <a href="#" class="btn btn-sm btn-brand rounded font-sm mt-14">Xóa</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <a href="#" class="itemside">
-                                    <div class="left">
-                                        <img src="./view/assets/imgs/people/avatar3.jpg" class="img-sm img-avatar" alt="Userpic">
-                                    </div>
-                                    <div class="info pl-3">
-                                        <h6 class="mb-0 title">Jonatan Ive</h6>
-                                        <small class="text-muted">Seller ID: #400</small>
-                                    </div>
-                                </a>
-                            </td>
-                            <td>Áo thun nam nữ Unisex</td>
-                            <td width="35%">
-                                Sản phẩm khá tốt, chất liệu ổn, đã mua ở đây 5 lần và vẫn rất hài lòng!!
-                            </td>
-                            <td>08/07/2022</td>
-                            <td class="text-end">
-                                <a href="#" class="btn btn-sm btn-brand rounded font-sm mt-14">Xóa</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <a href="#" class="itemside">
-                                    <div class="left">
-                                        <img src="./view/assets/imgs/people/avatar4.jpg" class="img-sm img-avatar" alt="Userpic">
-                                    </div>
-                                    <div class="info pl-3">
-                                        <h6 class="mb-0 title">Eleanor Pena</h6>
-                                        <small class="text-muted">Seller ID: #439</small>
-                                    </div>
-                                </a>
-                            </td>
-                            <td>Áo thun nam nữ Unisex</td>
-                            <td width="35%">
-                                Sản phẩm khá tốt, chất liệu ổn, đã mua ở đây 5 lần và vẫn rất hài lòng!!
-                            </td>
-                            <td>08/07/2022</td>
-                            <td class="text-end">
-                                <a href="#" class="btn btn-sm btn-brand rounded font-sm mt-14">Xóa</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <a href="#" class="itemside">
-                                    <div class="left">
-                                        <img src="./view/assets/imgs/people/avatar1.jpg" class="img-sm img-avatar" alt="Userpic">
-                                    </div>
-                                    <div class="info pl-3">
-                                        <h6 class="mb-0 title">Albert Pushkin</h6>
-                                        <small class="text-muted">Seller ID: #439</small>
-                                    </div>
-                                </a>
-                            </td>
-                            <td>Áo thun nam nữ Unisex</td>
-                            <td width="35%">
-                                Sản phẩm khá tốt, chất liệu ổn, đã mua ở đây 5 lần và vẫn rất hài lòng!!
-                            </td>
-                            <td>08/07/2022</td>
-                            <td class="text-end">
-                                <a href="#" class="btn btn-sm btn-brand rounded font-sm mt-14">Xóa</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <a href="#" class="itemside">
-                                    <div class="left">
-                                        <img src="./view/assets/imgs/people/avatar2.jpg" class="img-sm img-avatar" alt="Userpic">
-                                    </div>
-                                    <div class="info pl-3">
-                                        <h6 class="mb-0 title">Alexandra Pena</h6>
-                                        <small class="text-muted">Seller ID: #439</small>
-                                    </div>
-                                </a>
-                            </td>
-                            <td>Áo thun nam nữ Unisex</td>
-                            <td width="35%">
-                                Sản phẩm khá tốt, chất liệu ổn, đã mua ở đây 5 lần và vẫn rất hài lòng!!
-                            </td>
-                            <td>08/07/2022</td>
-                            <td class="text-end">
-                                <a href="#" class="btn btn-sm btn-brand rounded font-sm mt-14">Xóa</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <a href="#" class="itemside">
-                                    <div class="left">
-                                        <img src="./view/assets/imgs/people/avatar3.jpg" class="img-sm img-avatar" alt="Userpic">
-                                    </div>
-                                    <div class="info pl-3">
-                                        <h6 class="mb-0 title">Eleanor Pena</h6>
-                                        <small class="text-muted">Seller ID: #439</small>
-                                    </div>
-                                </a>
-                            </td>
-                            <td>Áo thun nam nữ Unisex</td>
-                            <td width="35%">
-                                Sản phẩm khá tốt, chất liệu ổn, đã mua ở đây 5 lần và vẫn rất hài lòng!!
-                            </td>
-                            <td>08/07/2022</td>
-                            <td class="text-end">
-                                <a href="#" class="btn btn-sm btn-brand rounded font-sm mt-14">Xóa</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <a href="#" class="itemside">
-                                    <div class="left">
-                                        <img src="./view/assets/imgs/people/avatar4.jpg" class="img-sm img-avatar" alt="Userpic">
-                                    </div>
-                                    <div class="info pl-3">
-                                        <h6 class="mb-0 title">Alex Pushkina</h6>
-                                        <small class="text-muted">Seller ID: #439</small>
-                                    </div>
-                                </a>
-                            </td>
-                            <td>Áo thun nam nữ Unisex</td>
-                            <td width="35%">
-                                Sản phẩm khá tốt, chất liệu ổn, đã mua ở đây 5 lần và vẫn rất hài lòng!!
-                            </td>
-                            <td>08/07/2022</td>
-                            <td class="text-end">
-                                <a href="#" class="btn btn-sm btn-brand rounded font-sm mt-14">Xóa</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <a href="#" class="itemside">
-                                    <div class="left">
-                                        <img src="./view/assets/imgs/people/avatar1.jpg" class="img-sm img-avatar" alt="Userpic">
-                                    </div>
-                                    <div class="info pl-3">
-                                        <h6 class="mb-0 title">Eleanor Pena</h6>
-                                        <small class="text-muted">Seller ID: #439</small>
-                                    </div>
-                                </a>
-                            </td>
-                            <td>Áo thun nam nữ Unisex</td>
-                            <td width="35%">
-                                Sản phẩm khá tốt, chất liệu ổn, đã mua ở đây 5 lần và vẫn rất hài lòng!!
-                            </td>
-                            <td>08/07/2022</td>
-                            <td class="text-end">
-                                <a href="#" class="btn btn-sm btn-brand rounded font-sm mt-14">Xóa</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <a href="#" class="itemside">
-                                    <div class="left">
-                                        <img src="./view/assets/imgs/people/avatar2.jpg" class="img-sm img-avatar" alt="Userpic">
-                                    </div>
-                                    <div class="info pl-3">
-                                        <h6 class="mb-0 title">Eleanor Pena</h6>
-                                        <small class="text-muted">Seller ID: #439</small>
-                                    </div>
-                                </a>
-                            </td>
-                            <td>Áo thun nam nữ Unisex</td>
-                            <td width="35%">
-                                Sản phẩm khá tốt, chất liệu ổn, đã mua ở đây 5 lần và vẫn rất hài lòng!!
-                            </td>
-                            <td>08/07/2022</td>
-                            <td class="text-end">
-                                <a href="#" class="btn btn-sm btn-brand rounded font-sm mt-14">Xóa</a>
-                            </td>
-                        </tr>
+                       <?=$html_cmt;?>
                     </tbody>
                 </table>
                 <!-- table-responsive.// -->
