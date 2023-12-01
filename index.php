@@ -121,27 +121,30 @@
       
               // Kiểm tra xem các trường có được điền đầy đủ không
               if (empty($username) || empty($password) || empty($email) || empty($repassword)) {
-                  $tbdk = "Vui lòng điền đầy đủ thông tin đăng ký.";
-              } else {
-                  // Kiểm tra xem tài khoản đã tồn tại hay chưa
-                  if (isUsernameExists($username)) {
-                      $tbdk = "Tài khoản đã tồn tại. Vui lòng chọn một tài khoản khác.";
-                  } else {
-                      // Kiểm tra xem địa chỉ email hợp lệ
-                      if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                          $tbdk = "Địa chỉ email không hợp lệ.";
-                      } else {
-                          // Kiểm tra xem mật khẩu và nhập lại mật khẩu khớp nhau
-                          if ($password != $repassword) {
-                              $tbdk = "Mật khẩu nhập lại không khớp.";
-                          } else {
-                              // Thực hiện thêm người dùng vào cơ sở dữ liệu
-                              user_insert($username, $password, $email);
-                              $tbdk = "Đăng ký thành công!";
-                          }
-                      }
-                  }
-              }
+                $tbdk = "Vui lòng điền đầy đủ thông tin đăng ký.";
+            } elseif (strlen($username) < 6 || strlen($password) < 6) {
+                $tbdk = "Tài khoản và mật khẩu phải chứa ít nhất 6 ký tự.";
+            } else {
+                // Kiểm tra xem tài khoản đã tồn tại hay chưa
+                if (isUsernameExists($username)) {
+                    $tbdk = "Tài khoản đã tồn tại. Vui lòng chọn một tài khoản khác.";
+                } else {
+                    // Kiểm tra xem địa chỉ email hợp lệ
+                    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                        $tbdk = "Địa chỉ email không hợp lệ.";
+                    } else {
+                        // Kiểm tra xem mật khẩu và nhập lại mật khẩu khớp nhau
+                        if ($password != $repassword) {
+                            $tbdk = "Mật khẩu nhập lại không khớp.";
+                        } else {
+                            // Thực hiện thêm người dùng vào cơ sở dữ liệu
+                            user_insert($username, $password, $email);
+                            $tbdk = "Đăng ký thành công!";
+                        }
+                    }
+                }
+            }
+            
           }
       
           // Bạn có thể thay đổi đường dẫn tới file view nếu cần thiết

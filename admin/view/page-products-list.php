@@ -91,7 +91,11 @@
         <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-start">                
                 <?php
-                    echo $hienthisotrang;
+                    if (!isset($hienthisotrang)) {
+                        $hienthisotrang = '';
+                    }else{
+                        echo $hienthisotrang;
+                    }
                 ?>
                 <!-- <li class="page-item active"><a class="page-link" href="index.php?pg=products-list&page=1">01</a></li>
                 <li class="page-item"><a class="page-link" href="index.php?pg=products-list&page=2">02</a></li>

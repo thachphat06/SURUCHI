@@ -398,6 +398,18 @@ function get_dssp_admin($kyw, $iddm, $page, $soluongsp){
     $sql .= " LIMIT ".$batdau.",".$soluongsp;
     return pdo_query($sql);
 }
+// function get_dssp_admin($kyw, $iddm, $soluongsp){
+//     $sql = "SELECT * FROM product WHERE 1";
+//     if($iddm>0){
+//         $sql .=" AND iddm=".$iddm;
+//     }
+//     if($kyw!=""){
+//         $sql .=" AND name LIKE '%".$kyw."%'";
+//     }
+
+//     $sql .= " ORDER BY id DESC LIMIT ".$soluongsp;
+//     return pdo_query($sql);
+// }
 
 function get_dssp_all(){
     $sql = " SELECT * FROM product ORDER BY id ASC ";
