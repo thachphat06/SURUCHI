@@ -74,7 +74,7 @@
                                     <input class="account__login--input" name="email" placeholder="Email của bạn" type="text">
                                     <input class="account__login--input" name="password" placeholder="Mật khẩu" type="password">
                                     <input class="account__login--input" name="repassword" placeholder="Xác nhận mật khẩu" type="password">
-                                    <?=$tbdk;?><br>
+                                    <span style="color: red;"><?=$tbdk;?></span><br>
                                     <button class="account__login--btn primary__btn mb-10" name="register" type="submit">Đăng Ký</button>
                                     <div class="account__login--remember position__relative">
                                         <input class="checkout__checkbox--input" id="check2" type="checkbox">
@@ -139,3 +139,6 @@
     <!-- End shipping section -->
 
 </main>
+<script>
+
+</script>

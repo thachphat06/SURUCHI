@@ -58,7 +58,16 @@
         if (isset($_POST["search"])) {
           $kyw=$_POST["kyw"];
         }
-        $productlist=get_dssp_admin($kyw, $iddm, 100); 
+        if(!isset($_GET['page'])){
+          $page=1;
+        }else{
+          $page=$_GET['page'];
+        }
+        $soluongsp=8;
+
+        $productlist=get_dssp_admin($kyw, $iddm, $page, $soluongsp); 
+        $tongsosp=get_dssp_all();
+        $hienthisotrang=hien_thi_so_trang($tongsosp, $soluongsp);
         include "view/page-products-list.php";
         break;
       case 'updateproduct':

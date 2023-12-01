@@ -1,3 +1,28 @@
+<style>
+    .pagination {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 20px 0;
+    }
+
+    .page-item {
+        margin: 0 5px;
+    }
+
+    .page-link {
+        padding: 10px;
+        text-decoration: none;
+        background-color: #f0f0f0;
+        color: #333;
+        border-radius: 5px;
+    }
+
+    .page-item.active .page-link {
+        background-color: #007bff;
+        color: #fff;
+    }
+</style>
 <?php
     $html_dm='';
     foreach ($dsdm as $dm) {
@@ -64,13 +89,16 @@
     <!-- card en    d// -->
     <div class="pagination-area mt-30 mb-50">
         <nav aria-label="Page navigation example">
-            <ul class="pagination justify-content-start">
-                <li class="page-item active"><a class="page-link" href="#">01</a></li>
-                <li class="page-item"><a class="page-link" href="#">02</a></li>
+            <ul class="pagination justify-content-start">                
+                <?php
+                    echo $hienthisotrang;
+                ?>
+                <!-- <li class="page-item active"><a class="page-link" href="index.php?pg=products-list&page=1">01</a></li>
+                <li class="page-item"><a class="page-link" href="index.php?pg=products-list&page=2">02</a></li>
                 <li class="page-item"><a class="page-link" href="#">03</a></li>
                 <li class="page-item"><a class="page-link dot" href="#">...</a></li>
                 <li class="page-item"><a class="page-link" href="#">16</a></li>
-                <li class="page-item"><a class="page-link" href="#"><i class="material-icons md-chevron_right"></i></a></li>
+                <li class="page-item"><a class="page-link" href="#"><i class="material-icons md-chevron_right"></i></a></li> -->
             </ul>
         </nav>
     </div>
