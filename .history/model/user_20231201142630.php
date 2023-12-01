@@ -101,11 +101,6 @@ function user_delete($id){
 //     pdo_execute($sql, $mat_khau_moi, $ma_kh);
 // }
 
-function user_change_password($rs_pwf, $iduser){
-    $sql = "UPDATE users SET password=? WHERE id=?";
-    pdo_execute($sql, $rs_pwf, $iduser);
-}
-
 function loadall_user(){
     $sql = "select * from users";
     $listuser=pdo_query($sql);

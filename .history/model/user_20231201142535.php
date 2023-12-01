@@ -22,12 +22,6 @@ function user_insert($username, $password, $email) {
     pdo_execute($sql, $username, $password, $email);
 }
 
-function user_insert_id($username, $password, $name, $address, $email, $sdt)
-{
-    $sql = "INSERT INTO users(username, password, name, address, email, sdt) VALUES (?, ?, ?, ?, ?, ?)";
-    return pdo_execute_id($sql,  $username, $password, $name, $address, $email, $sdt);
-}
-
 function user_update($username, $password, $email, $name, $img, $address, $sdt, $role, $id) {
     if($img!="") {
         $sql = "UPDATE users SET username=?, password=?, email=?, name=?, img=?, address=?, sdt=?, role=? WHERE id=?";
@@ -36,17 +30,6 @@ function user_update($username, $password, $email, $name, $img, $address, $sdt, 
         $sql = "UPDATE users SET username=?, password=?, email=?, name=?, address=?, sdt=?, role=? WHERE id=?";
         pdo_execute($sql, $username, $password, $email, $name, $address, $sdt, $role, $id);
     }
-}
-
-
-function checkuser($username, $password) {
-    $sql = "SELECT * FROM users WHERE username=? AND password=?";
-    return pdo_query_one($sql, $username, $password);
-    // if (is_array($kq)&&(count($kq))) {
-    //     return $kq["id"];
-    // } else {
-    //     return 0;
-    // }
 }
 
 function checkmail($usr, $Mailer)
@@ -59,6 +42,16 @@ function checkpass()
 {
     $sql = "SELECT * FROM users ";
     return pdo_query_one($sql);
+}
+
+function checkuser($username, $password) {
+    $sql = "SELECT * FROM users WHERE username=? AND password=?";
+    return pdo_query_one($sql, $username, $password);
+    // if (is_array($kq)&&(count($kq))) {
+    //     return $kq["id"];
+    // } else {
+    //     return 0;
+    // }
 }
 
 function get_user($id) {
@@ -100,11 +93,6 @@ function user_delete($id){
 //     $sql = "UPDATE users SET mat_khau=? WHERE ma_kh=?";
 //     pdo_execute($sql, $mat_khau_moi, $ma_kh);
 // }
-
-function user_change_password($rs_pwf, $iduser){
-    $sql = "UPDATE users SET password=? WHERE id=?";
-    pdo_execute($sql, $rs_pwf, $iduser);
-}
 
 function loadall_user(){
     $sql = "select * from users";

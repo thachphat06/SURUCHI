@@ -34,40 +34,7 @@
         $tbdk="";
         include "view/login.php";
         break;
-        case 'forgot-password':
-          $tb_mail = '';
-          if (isset($_POST['guiemail'], $_POST['fg_usr'], $_POST['fg_mail'])) {
-            $usr = $_POST['fg_usr'];
-            $Mailer = $_POST['fg_mail'];
-            $checkmail = checkmail($usr, $Mailer);
-    
-            if ($checkmail && is_array($checkmail)) {
-              $_SESSION['reset_user_id'] = $checkmail['id'];
-              //Nội dung mail là link dẩn tới trang thay đổi password và có username của user muốn thay đổi pass
-              $context = "http://localhost/suruchi/index.php?pg=reset-pass&id=" . $checkmail['id'];
-              $link_text = '<a href="' . $context . '">Thay doi mat khau moi !</a>';
-              sendMail($Mailer, "Mat khau moi", $link_text);
-    
-              // Thành công thì thông báo user kiểm tra mail
-              $tb_mail = '<p class="h4" style="color: green;">Đã gửi mail! Vui lòng kiểm tra mail của bạn.</p>';
-            } else {
-              $tb_mail = '<p class="h4" style="color: red;">Username và Email không khớp với bất kỳ mail nào!</p>';
-            }
-          }
-    
-          include "view/forgot-password.php";
-          break;
-        case 'reset-pass':
-          $iduser = $_GET['id'];
-          if (isset($_POST['guipwd'])) {
-            $rs_pwf = $_POST['rs_pwd'];
-            $rs_cfp = $_POST['rs_cfp'];
-            if (($_POST['rs_pwd']) == ($_POST['rs_cfp'])) {
-              user_change_password($rs_pwf, $iduser);
-            }
-          }
-          include "view/reset_pass.php";
-          break;
+        
       case 'signin':
         $tbdk="";
         //input
@@ -98,47 +65,23 @@
         }
         header('location: index.php');
         break;
-        case 'adduser':
-          $tbdk = "";
-      
-          // Xác định nếu biểu mẫu đã được gửi đi
-          if (isset($_POST["register"])) {
-              // Lấy giá trị từ input
-              $username = $_POST["username"];
-              $password = $_POST["password"];
-              $repassword = $_POST["repassword"];
-              $email = $_POST["email"];
-      
-              // Kiểm tra xem các trường có được điền đầy đủ không
-              if (empty($username) || empty($password) || empty($email) || empty($repassword)) {
-                  $tbdk = "Vui lòng điền đầy đủ thông tin đăng ký.";
-              } else {
-                  // Kiểm tra xem tài khoản đã tồn tại hay chưa
-                  if (isUsernameExists($username)) {
-                      $tbdk = "Tài khoản đã tồn tại. Vui lòng chọn một tài khoản khác.";
-                  } else {
-                      // Kiểm tra xem địa chỉ email hợp lệ
-                      if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                          $tbdk = "Địa chỉ email không hợp lệ.";
-                      } else {
-                          // Kiểm tra xem mật khẩu và nhập lại mật khẩu khớp nhau
-                          if ($password != $repassword) {
-                              $tbdk = "Mật khẩu nhập lại không khớp.";
-                          } else {
-                              // Thực hiện thêm người dùng vào cơ sở dữ liệu
-                              user_insert($username, $password, $email);
-                              $tbdk = "Đăng ký thành công!";
-                          }
-                      }
-                  }
-              }
+      case 'adduser':
+        $tbdk="";
+        // xác định giá trị input
+        if(isset($_POST["register"])){
+          $username=$_POST["username"];
+          $password=$_POST["password"];
+          $email=$_POST["email"];
+          // Xử lý
+          if (isUsernameExists($username)) {
+            $tbdk="Tài khoản đã tồn tại. Vui lòng chọn một tài khoản khác.";
+          } else {
+            user_insert($username, $password, $email);
+            $tbdk="Đăng ký thành công!";
           }
-      
-          // Bạn có thể thay đổi đường dẫn tới file view nếu cần thiết
-          include "view/login.php";
-          break;
-      
-      
+        }
+        include "view/login.php";
+        break;
       case 'updateuser':
         // xác định giá trị input
         if(isset($_POST["update"])) {
@@ -255,15 +198,8 @@
           $kyw=$_POST["kyw"];
           $titlepage="Tìm kiếm sản phẩm: '$kyw'";
         }
-        if(!isset($_GET['page'])){
-          $pg=1;
-        }else{
-          $pg=$_GET['page'];
-        }
-        $sosp=16;
-        $dssp=get_dssp($kyw, $iddm, $pg, $sosp);
-        $tongsp=get_dssp_all();
-        $hienthist=hien_thi_st($tongsp, $sosp);
+        $dssp=get_dssp($kyw, $iddm, 16);
+
         include "view/shop.php";
         break;
       case 'product-detail':
@@ -276,7 +212,7 @@
           if(isset($_SESSION['s_user'])) {
             $iduser = $_SESSION['s_user']['id'];
           }
-          $commentlist = comment_select_by_id($iduser, $id);
+          $commentlist = comment_select_all($iduser, $id);
           include "view/product-details.php";
         }else {
           include "view/home.php";

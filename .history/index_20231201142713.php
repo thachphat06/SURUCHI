@@ -98,47 +98,23 @@
         }
         header('location: index.php');
         break;
-        case 'adduser':
-          $tbdk = "";
-      
-          // Xác định nếu biểu mẫu đã được gửi đi
-          if (isset($_POST["register"])) {
-              // Lấy giá trị từ input
-              $username = $_POST["username"];
-              $password = $_POST["password"];
-              $repassword = $_POST["repassword"];
-              $email = $_POST["email"];
-      
-              // Kiểm tra xem các trường có được điền đầy đủ không
-              if (empty($username) || empty($password) || empty($email) || empty($repassword)) {
-                  $tbdk = "Vui lòng điền đầy đủ thông tin đăng ký.";
-              } else {
-                  // Kiểm tra xem tài khoản đã tồn tại hay chưa
-                  if (isUsernameExists($username)) {
-                      $tbdk = "Tài khoản đã tồn tại. Vui lòng chọn một tài khoản khác.";
-                  } else {
-                      // Kiểm tra xem địa chỉ email hợp lệ
-                      if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                          $tbdk = "Địa chỉ email không hợp lệ.";
-                      } else {
-                          // Kiểm tra xem mật khẩu và nhập lại mật khẩu khớp nhau
-                          if ($password != $repassword) {
-                              $tbdk = "Mật khẩu nhập lại không khớp.";
-                          } else {
-                              // Thực hiện thêm người dùng vào cơ sở dữ liệu
-                              user_insert($username, $password, $email);
-                              $tbdk = "Đăng ký thành công!";
-                          }
-                      }
-                  }
-              }
+      case 'adduser':
+        $tbdk="";
+        // xác định giá trị input
+        if(isset($_POST["register"])){
+          $username=$_POST["username"];
+          $password=$_POST["password"];
+          $email=$_POST["email"];
+          // Xử lý
+          if (isUsernameExists($username)) {
+            $tbdk="Tài khoản đã tồn tại. Vui lòng chọn một tài khoản khác.";
+          } else {
+            user_insert($username, $password, $email);
+            $tbdk="Đăng ký thành công!";
           }
-      
-          // Bạn có thể thay đổi đường dẫn tới file view nếu cần thiết
-          include "view/login.php";
-          break;
-      
-      
+        }
+        include "view/login.php";
+        break;
       case 'updateuser':
         // xác định giá trị input
         if(isset($_POST["update"])) {
@@ -255,15 +231,8 @@
           $kyw=$_POST["kyw"];
           $titlepage="Tìm kiếm sản phẩm: '$kyw'";
         }
-        if(!isset($_GET['page'])){
-          $pg=1;
-        }else{
-          $pg=$_GET['page'];
-        }
-        $sosp=16;
-        $dssp=get_dssp($kyw, $iddm, $pg, $sosp);
-        $tongsp=get_dssp_all();
-        $hienthist=hien_thi_st($tongsp, $sosp);
+        $dssp=get_dssp($kyw, $iddm, 16);
+
         include "view/shop.php";
         break;
       case 'product-detail':
@@ -276,7 +245,7 @@
           if(isset($_SESSION['s_user'])) {
             $iduser = $_SESSION['s_user']['id'];
           }
-          $commentlist = comment_select_by_id($iduser, $id);
+          $commentlist = comment_select_all($iduser, $id);
           include "view/product-details.php";
         }else {
           include "view/home.php";
