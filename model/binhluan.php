@@ -23,13 +23,13 @@ function comment_delete($id){
 //     return pdo_query($sql);
 // }
 
-function comment_select_by_id($iduser, $idpro){
+function comment_select_by_idpro($idpro){
     $sql = "SELECT c.*, u.name, u.img
             FROM comment c
             JOIN users u ON c.iduser = u.id
-            WHERE c.iduser = ? AND c.idpro = ?
+            WHERE c.idpro = ?
             ORDER BY c.id DESC";
-    return pdo_query($sql, $iduser, $idpro);
+    return pdo_query($sql, $idpro);
 }
 
 function comment_select_all(){
@@ -50,9 +50,9 @@ function binh_luan_exist($ma_bl){
     $sql = "SELECT count(*) FROM binh_luan WHERE ma_bl=?";
     return pdo_query_value($sql, $ma_bl) > 0;
 }
-function count_comments($iduser, $idpro) {
-    $sql = "SELECT COUNT(*) as total_comments FROM comment WHERE iduser = ? AND idpro = ?";
-    $result = pdo_query_one($sql, $iduser, $idpro);
+function count_comments_by_idpro($idpro) {
+    $sql = "SELECT COUNT(*) as total_comments FROM comment WHERE idpro = ?";
+    $result = pdo_query_one($sql, $idpro);
     // Trả về số lượng bình luận hoặc 0 nếu có lỗi
     return ($result && isset($result['total_comments'])) ? $result['total_comments'] : 0;
 }

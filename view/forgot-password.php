@@ -1,5 +1,4 @@
 <main class="main__content_wrapper">
-
     <!-- Start breadcrumb section -->
     <section class="breadcrumb__section breadcrumb__bg">
         <div class="container">
@@ -33,20 +32,18 @@
                                     <input class="account__login--input" placeholder="Username của bạn" type="text" name="fg_usr" value="<?= isset($usr) ? $usr : '' ?>">
                                     <input class="account__login--input" placeholder="Email của bạn" type="text" name="fg_mail" value="<?= isset($Mailer) ? $Mailer : '' ?>">
                                     <div class="account__login--remember__forgot mb-15 d-flex justify-content-between align-items-center">
-                                        <?= $tb_mail; ?>
+                                        <?=$tb_mail;?>
                                     </div>
                                     <div class="form-group">
                                         <input type="submit" value="Gửi xác nhận" class="account__login--btn primary__btn" name="guiemail">
                                     </div>
                                 </div>
-                                </from>
+                            </from>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
     <!-- End shipping section -->
-
 </main>

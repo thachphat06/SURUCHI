@@ -1,20 +1,19 @@
 <?php
-$iddm = "";
-$idupdate = "";
-$old_img = "";
-if (isset($tt) && is_array($tt) && count($tt) > 0) {
-    extract($tt);
-    $idupdate = $id;
-    $imgpath = IMG_PATH_ADMIN . $img;
-    if (is_file($imgpath)) {
-        $img = $imgpath;
-        $old_img = basename($imgpath);
-        // $img='<img src="'.$imgpath.'" width="80px"';
-    } else {
-        $img = "";
+    $iddm = "";
+    $idupdate = "";
+    $old_img = "";
+    if (isset($tt) && is_array($tt) && count($tt) > 0) {
+        extract($tt);
+        $idupdate = $id;
+        $imgpath = IMG_PATH_ADMIN.$img;
+        if (is_file($imgpath)) {
+            $img = $imgpath;
+            $old_img = basename($imgpath);
+        } else {
+            $img = "";
+        }
     }
-}
-$html_tintuclist = showdmtt_admin($tintuclist, $iddm);
+    $html_tintuclist = showdmtt_admin($tintuclist, $iddm);
 ?>
 <section class="content-main">
     <form action="index.php?pg=updateblog" method="post" enctype="multipart/form-data">
@@ -23,8 +22,8 @@ $html_tintuclist = showdmtt_admin($tintuclist, $iddm);
                 <div class="content-header">
                     <h2 class="content-title">Cập nhật tin tức</h2>
                     <div>
-                        <input type="hidden" name="id" value="<?= $idupdate ?>">
-                        <input type="hidden" name="old_img" value="<?= $old_img ?>">
+                        <input type="hidden" name="id" value="<?=$idupdate?>">
+                        <input type="hidden" name="old_img" value="<?=$old_img?>">
                         <button type="submit" name="updateblog" class="btn btn-md rounded font-sm hover-up">Cập nhật
                         </button>
                     </div>
@@ -39,29 +38,28 @@ $html_tintuclist = showdmtt_admin($tintuclist, $iddm);
                         <div class="mb-4">
                             <label class="form-label">Tên tác giả</label>
                             <input type="text" name="author"
-                                value="<?= (isset($author) && $author != "") ? $author : ""; ?>" placeholder="Type here"
+                                value="<?=(isset($author) && $author != "") ? $author : "";?>" placeholder="Type here"
                                 class="form-control" id="author_name" required>
                         </div>
 
                         <div class="mb-4">
                             <label class="form-label" for="publish_date">Ngày đăng</label>
-                            <input type="date" name="date" value="<?= ($date != "") ? $date : ""; ?>"
+                            <input type="date" name="date" value="<?= ($date != "") ? $date : "";?>"
                                 class="form-control" id="publish_date" required>
                         </div>
                         <div class="mb-4">
                             <label class="form-label" for="">Tiêu đề</label>
-                            <textarea name="title" id="" cols="30" rows="10" class="form-control" required></textarea>
+                            <textarea name="title" id="title" cols="30" rows="10" class="form-control" required></textarea>
                             <script>
-                                var title = "<?= ($title != "") ? $title : ""; ?>"
+                                var title = "<?=($title != "") ? $title : "";?>"
                                 document.getElementById('title').value = title;
                             </script>
                         </div>
                         <div class="mb-4">
                             <label class="form-label" for="">Nội dung</label>
-                            <textarea name="content" id="" cols="30" rows="10" class="form-control form-control1"
-                                required></textarea>
+                            <textarea name="content" id="content" cols="30" rows="10" class="form-control form-control1" required></textarea>
                             <script>
-                                var content = "<?= ($content != "") ? $content : ""; ?>"
+                                var content = "<?=($content != "") ? $content : "";?>"
                                 document.getElementById('content').value = content;
                             </script>
                         </div>
@@ -77,7 +75,7 @@ $html_tintuclist = showdmtt_admin($tintuclist, $iddm);
                     </div>
                     <div class="card-body">
                         <div class="input-upload">
-                            <img src="<?= $img ?>" alt="">
+                            <img src="../uploads/<?=$img?>" alt="">
                             <input class="form-control" type="file" name="img" required>
                         </div>
                     </div>
@@ -93,7 +91,7 @@ $html_tintuclist = showdmtt_admin($tintuclist, $iddm);
                                 <label class="form-label">Danh Mục</label>
                                 <select class="form-select" name="iddm">
                                     <option value=""></option>
-                                    <?= $html_tintuclist; ?>
+                                    <?=$html_tintuclist;?>
                                 </select>
                             </div>
                         </div>

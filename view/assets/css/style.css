@@ -13111,4 +13111,9 @@ details > summary::-webkit-details-marker {
   background-color: #ffe8d0;
   border-color: #fedcb9;
 }
+
+.forgot-pass{
+  margin: 0 auto;
+  width: 50%;
+}
 /*# sourceMappingURL=style.css.map */

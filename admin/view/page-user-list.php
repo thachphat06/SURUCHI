@@ -1,5 +1,6 @@
 <?php
     $html_userlist="";
+    $html_role="";
     foreach($listuser as $users){
     extract($users);
     if($role==1){
@@ -40,50 +41,50 @@
 ?>
 
 <section class="content-main">
-            <div class="content-header">
-                <h2 class="content-title">Danh Sách Khách Hàng</h2>
-            </div>
-            <div class="card mb-4">
-                <header class="card-header">
-                    <div class="row gx-3">
-                        <div class="col-lg-4 col-md-6 me-auto">
-                            <input type="text" placeholder="Tìm..." class="form-control">
-                        </div>
-                    </div>
-                </header>
-                <!-- card-header end// -->
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th>Tài Khoản</th>
-                                    <th>Email</th>
-                                    <th>SDT</th>
-                                    <th>Địa Chỉ</th>
-                                    <th class="text-end"> Action </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?=$html_userlist;?>
-                            </tbody>
-                        </table>
-                        <!-- table-responsive.// -->
-                    </div>
+    <div class="content-header">
+        <h2 class="content-title">Danh Sách Khách Hàng</h2>
+    </div>
+    <div class="card mb-4">
+        <header class="card-header">
+            <div class="row gx-3">
+                <div class="col-lg-4 col-md-6 me-auto">
+                    <input type="text" placeholder="Tìm..." class="form-control">
                 </div>
-                <!-- card-body end// -->
             </div>
-            <!-- card end// -->
-            <div class="pagination-area mt-15 mb-50">
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination justify-content-start">
-                        <li class="page-item active"><a class="page-link" href="#">01</a></li>
-                        <li class="page-item"><a class="page-link" href="#">02</a></li>
-                        <li class="page-item"><a class="page-link" href="#">03</a></li>
-                        <li class="page-item"><a class="page-link dot" href="#">...</a></li>
-                        <li class="page-item"><a class="page-link" href="#">16</a></li>
-                        <li class="page-item"><a class="page-link" href="#"><i class="material-icons md-chevron_right"></i></a></li>
-                    </ul>
-                </nav>
+        </header>
+        <!-- card-header end// -->
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Tài Khoản</th>
+                            <th>Email</th>
+                            <th>SDT</th>
+                            <th>Địa Chỉ</th>
+                            <th class="text-end"> Action </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?=$html_userlist;?>
+                    </tbody>
+                </table>
+                <!-- table-responsive.// -->
             </div>
-        </section>
+        </div>
+        <!-- card-body end// -->
+    </div>
+    <!-- card end// -->
+    <div class="pagination-area mt-15 mb-50">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-start">
+                <li class="page-item active"><a class="page-link" href="#">01</a></li>
+                <li class="page-item"><a class="page-link" href="#">02</a></li>
+                <li class="page-item"><a class="page-link" href="#">03</a></li>
+                <li class="page-item"><a class="page-link dot" href="#">...</a></li>
+                <li class="page-item"><a class="page-link" href="#">16</a></li>
+                <li class="page-item"><a class="page-link" href="#"><i class="material-icons md-chevron_right"></i></a></li>
+            </ul>
+        </nav>
+    </div>
+</section>

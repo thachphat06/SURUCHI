@@ -1,9 +1,9 @@
 <?php
     require_once 'pdo.php';
 
-function cart_insert($idpro , $price, $name, $img, $soluong, $thanhtien, $idbill ){
+function cart_insert($idpro, $price, $name, $img, $soluong, $thanhtien, $idbill ){
     $sql = "INSERT INTO cart(idpro, price, name, img, soluong, thanhtien, idbill) VALUES (?, ?, ?, ?, ?, ?, ?)";
-    pdo_execute($sql, $idpro , $price, $name, $img, $soluong, $thanhtien, $idbill);
+    pdo_execute($sql,$idpro, $price, $name, $img, $soluong, $thanhtien, $idbill);
 }
 
 function update_quantity_product($idpro, $soluong){

@@ -27,6 +27,7 @@
     $dssp_best=get_best(10);
     $dssp_best2=get_best(10);
     $dsblog=get_blog(6);
+    $comment_list = comment_select_all();
     include "view/home.php";
   } else {
     switch ($_GET['pg']) {
@@ -34,40 +35,49 @@
         $tbdk="";
         include "view/login.php";
         break;
-        case 'forgot-password':
-          $tb_mail = '';
-          if (isset($_POST['guiemail'], $_POST['fg_usr'], $_POST['fg_mail'])) {
-            $usr = $_POST['fg_usr'];
-            $Mailer = $_POST['fg_mail'];
-            $checkmail = checkmail($usr, $Mailer);
-    
-            if ($checkmail && is_array($checkmail)) {
-              $_SESSION['reset_user_id'] = $checkmail['id'];
-              //Nội dung mail là link dẩn tới trang thay đổi password và có username của user muốn thay đổi pass
-              $context = "http://localhost/suruchi/index.php?pg=reset-pass&id=" . $checkmail['id'];
-              $link_text = '<a href="' . $context . '">Thay doi mat khau moi !</a>';
-              sendMail($Mailer, "Mat khau moi", $link_text);
-    
-              // Thành công thì thông báo user kiểm tra mail
-              $tb_mail = '<p class="h4" style="color: green;">Đã gửi mail! Vui lòng kiểm tra mail của bạn.</p>';
-            } else {
-              $tb_mail = '<p class="h4" style="color: red;">Username và Email không khớp với bất kỳ mail nào!</p>';
-            }
+      case 'forgot-password':
+        $tb_mail = '';
+        if (isset($_POST['guiemail'], $_POST['fg_usr'], $_POST['fg_mail'])) {
+          $usr = $_POST['fg_usr'];
+          $Mailer = $_POST['fg_mail'];
+          $checkmail = checkmail($usr, $Mailer);
+  
+          if ($checkmail && is_array($checkmail)) {
+            $_SESSION['reset_user_id'] = $checkmail['id'];
+            //Nội dung mail là link dẩn tới trang thay đổi password và có username của user muốn thay đổi pass
+            $context = "http://localhost/suruchi/index.php?pg=reset-pass&id=".$checkmail['id'];
+            $link_text = '<div style="border: 1px solid #dadce0;border-radius:8px;padding:20px 30px;width: 40%;margin: 0px auto;" align="center">
+                            <img src="https://lh3.googleusercontent.com/CBDv24siAwX6vHlA4gqFH0p5U98Nb0_jWnOoWQoaoUrgT3kwqg5jKAcFxeBiSUkYFZ8j=s157" alt="logo" style="width: 190px;padding-bottom: 20px;padding-top: 5px;">
+                            <div style="font-family: Google Sans,Roboto,RobotoDraft,Helvetica,Arial,sans-serif;border-bottom:thin solid #dadce0;color:rgba(0,0,0,0.87);line-height:32px;padding-bottom:24px;text-align:center;">
+                                <h1 style="font-size:24px">Đổi mật khẩu mới</h1>
+                            </div>
+                            <div style="font-family:Roboto-Regular,Helvetica,Arial,sans-serif;font-size:14px;color:rgba(0,0,0,0.87);line-height:20px;padding-top:20px;text-align:left">
+                                <span style="display: block;text-align: center;width: 360px;margin: 0 auto;font-size: 18px;line-height: 1.3;" >Bấm vào đường dẫn để tiếp tục tiến hành thay đổi mật khẩu của bạn</span>
+                                <a href="'.$context.'" style="display: block;width: 100px;margin: 0 auto;line-height: 30px;border-radius: 0.3rem;background: #ee2761;color: #fff;border: 0;text-align: center;text-decoration: none;margin-top: 20px;">TẠI ĐÂY</a>
+                            </div>
+                        </div>';
+            sendMail($Mailer, "Mat khau moi", $link_text);
+  
+            // Thành công thì thông báo user kiểm tra mail
+            $tb_mail = '<p class="h4" style="color: green;">Đã gửi mail! Vui lòng kiểm tra mail của bạn.</p>';
+          } else {
+            $tb_mail = '<p class="h4" style="color: red;">Username và Email không khớp với bất kỳ mail nào!</p>';
           }
-    
-          include "view/forgot-password.php";
-          break;
-        case 'reset-pass':
-          $iduser = $_GET['id'];
-          if (isset($_POST['guipwd'])) {
-            $rs_pwf = $_POST['rs_pwd'];
-            $rs_cfp = $_POST['rs_cfp'];
-            if (($_POST['rs_pwd']) == ($_POST['rs_cfp'])) {
-              user_change_password($rs_pwf, $iduser);
-            }
+        }
+  
+        include "view/forgot-password.php";
+        break;
+      case 'reset-pass':
+        $iduser = $_GET['id'];
+        if (isset($_POST['guipwd'])) {
+          $rs_pwf = $_POST['rs_pwd'];
+          $rs_cfp = $_POST['rs_cfp'];
+          if (($_POST['rs_pwd']) == ($_POST['rs_cfp'])) {
+            user_change_password($rs_pwf, $iduser);
           }
-          include "view/reset_pass.php";
-          break;
+        }
+        include "view/reset_pass.php";
+        break;
       case 'signin':
         $tbdk="";
         //input
@@ -276,7 +286,7 @@
           if(isset($_SESSION['s_user'])) {
             $iduser = $_SESSION['s_user']['id'];
           }
-          $commentlist = comment_select_by_id($iduser, $id);
+          $commentlist = comment_select_by_idpro($id);
           include "view/product-details.php";
         }else {
           include "view/home.php";
@@ -291,9 +301,8 @@
               $content = $_POST['content'];
               $rating = $_POST['rating'];
               // Lấy ngày và giờ hiện tại
-              var_dump($rating);
               $date = date('Y-m-d');
-              $time = date('H:i:s');
+              $time = time('H:i:s');
               // Thực hiện chèn bình luận
               comment_insert($iduser, $idpro, $content, $date, $time, $rating);
               // Chuyển hướng sau khi thêm bình luận
@@ -345,10 +354,10 @@
         break;
       case 'checkoutcart':
         if(isset($_POST['btncheckout']) && ($_POST['btncheckout'])){
-          $id= $_POST['id'];
-          $name= $_POST['name'];
-          $img= $_POST['img'];
-          $price= $_POST['price'];
+          $id = $_POST['id'];
+          $name = $_POST['name'];
+          $img = $_POST['img'];
+          $price = $_POST['price'];
           if(isset($_POST['amount']) && ($_POST['amount'] > 0)){
             $amount = $_POST['amount'];
           }else{
@@ -382,7 +391,7 @@
             $note = $_POST['note'];
             $pttt = isset($_POST['pttt']) ? $_POST['pttt'] : '';
             date_default_timezone_set('Asia/Ho_Chi_Minh');
-            $datetime = new DateTime($formatted_date);
+            $datetime = new DateTime();
             $date = $datetime->format('Y-m-d');
             $time = $datetime->format('H:i:s');
             $iduser = $_SESSION['s_user']['id'];
@@ -406,6 +415,7 @@
               extract($sp);
               cart_insert($id, $price, $name, $img, $amount, $thanhtien, $idbill);
             }
+
             header('location: index.php?pg=checkout-2&mahd='.$mahd);
           }
         }else{
@@ -421,10 +431,7 @@
           // Lấy thông tin khách hàng từ session
           $customer_info = $_SESSION['customer_info'];
         }
-          include "view/checkout-2.php";
-      break;
-      case 'checkout-4':
-        include "view/checkout-4.php";
+        include "view/checkout-2.php";
         break;
       case 'blog':
         $dmtintuc=dmuc_all();
@@ -465,9 +472,6 @@
         
       case 'privacy-policy':
         include "view/privacy-policy.php";
-        break;
-      case '404':
-        include "view/404.php";
         break;
   
       default:
