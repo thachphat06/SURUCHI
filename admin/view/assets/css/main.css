@@ -4760,4 +4760,22 @@ body.dark .dropdown-menu .dropdown-item.text-danger {
     -webkit-line-clamp: 2;
     text-overflow: ellipsis;
 }
+
+.rating__list {
+    margin-right: 0.2rem;
+}
+  
+@media only screen and (min-width: 768px) {
+    .rating__list {
+        margin-right: 0.2rem;
+    }
+}
+
+.rating__list:last-child {
+    margin-right: 0;
+}
+
+.rating__list--icon {
+    color: #ffc107;
+}
 /*# sourceMappingURL=main.css.map */
