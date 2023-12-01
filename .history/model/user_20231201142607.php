@@ -39,6 +39,7 @@ function user_update($username, $password, $email, $name, $img, $address, $sdt, 
 }
 
 
+
 function checkuser($username, $password) {
     $sql = "SELECT * FROM users WHERE username=? AND password=?";
     return pdo_query_one($sql, $username, $password);
@@ -100,11 +101,6 @@ function user_delete($id){
 //     $sql = "UPDATE users SET mat_khau=? WHERE ma_kh=?";
 //     pdo_execute($sql, $mat_khau_moi, $ma_kh);
 // }
-
-function user_change_password($rs_pwf, $iduser){
-    $sql = "UPDATE users SET password=? WHERE id=?";
-    pdo_execute($sql, $rs_pwf, $iduser);
-}
 
 function loadall_user(){
     $sql = "select * from users";

@@ -34,40 +34,7 @@
         $tbdk="";
         include "view/login.php";
         break;
-        case 'forgot-password':
-          $tb_mail = '';
-          if (isset($_POST['guiemail'], $_POST['fg_usr'], $_POST['fg_mail'])) {
-            $usr = $_POST['fg_usr'];
-            $Mailer = $_POST['fg_mail'];
-            $checkmail = checkmail($usr, $Mailer);
-    
-            if ($checkmail && is_array($checkmail)) {
-              $_SESSION['reset_user_id'] = $checkmail['id'];
-              //Nội dung mail là link dẩn tới trang thay đổi password và có username của user muốn thay đổi pass
-              $context = "http://localhost/suruchi/index.php?pg=reset-pass&id=" . $checkmail['id'];
-              $link_text = '<a href="' . $context . '">Thay doi mat khau moi !</a>';
-              sendMail($Mailer, "Mat khau moi", $link_text);
-    
-              // Thành công thì thông báo user kiểm tra mail
-              $tb_mail = '<p class="h4" style="color: green;">Đã gửi mail! Vui lòng kiểm tra mail của bạn.</p>';
-            } else {
-              $tb_mail = '<p class="h4" style="color: red;">Username và Email không khớp với bất kỳ mail nào!</p>';
-            }
-          }
-    
-          include "view/forgot-password.php";
-          break;
-        case 'reset-pass':
-          $iduser = $_GET['id'];
-          if (isset($_POST['guipwd'])) {
-            $rs_pwf = $_POST['rs_pwd'];
-            $rs_cfp = $_POST['rs_cfp'];
-            if (($_POST['rs_pwd']) == ($_POST['rs_cfp'])) {
-              user_change_password($rs_pwf, $iduser);
-            }
-          }
-          include "view/reset_pass.php";
-          break;
+        
       case 'signin':
         $tbdk="";
         //input
