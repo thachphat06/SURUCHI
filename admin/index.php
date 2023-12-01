@@ -118,7 +118,10 @@
         }
 
         //show dssp
-        $productlist=get_dssp_admin($kyw, $iddm, 100); 
+        $soluongsp = 8;
+        $productlist = get_dssp_admin($kyw, $iddm, 1, $soluongsp);
+        $tongsosp=get_dssp_all();
+        $hienthisotrang=hien_thi_so_trang($tongsosp, $soluongsp);
         include "view/page-products-list.php";
         break;
       case 'page-add-product':
@@ -152,7 +155,10 @@
           }
         }  
         //trở về trang dssp
-        $productlist=get_dssp_admin($kyw, $iddm, 100); 
+        $soluongsp = 8;
+        $productlist = get_dssp_admin($kyw, $iddm, 1, $soluongsp);
+        $tongsosp=get_dssp_all();
+        $hienthisotrang=hien_thi_so_trang($tongsosp, $soluongsp);
         include "view/page-products-list.php";
         break;
       case 'addproduct':
@@ -193,7 +199,10 @@
           sanpham_insert($name, $img, $price, $old_price, $describe1, $describe2, $bestseller, $hot, $new, $iddm);
 
           //trở về trang dssp
-          $productlist=get_dssp_admin($kyw, $iddm, 100); 
+          $soluongsp = 8;
+          $productlist = get_dssp_admin($kyw, $iddm, 1, $soluongsp);
+          $tongsosp=get_dssp_all();
+          $hienthisotrang=hien_thi_so_trang($tongsosp, $soluongsp);
           include "view/page-products-list.php";
         } else {
           $categorylist=danhmuc_all();
