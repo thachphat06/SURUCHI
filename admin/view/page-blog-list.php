@@ -68,17 +68,3 @@
         </nav>
     </div>
 </section>
-
-<script>
-    // Lấy phần tử select
-    var select = document.getElementById("mySelect");
-
-    // Thêm sự kiện onchange để mở liên kết khi chọn một option
-    select.addEventListener("change", function () {
-        // Lấy giá trị của option được chọn
-        var selectedValue = select.value;
-
-        // Chuyển hướng trang
-        window.location.href = selectedValue;
-    });
-</script>

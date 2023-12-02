@@ -8,9 +8,7 @@
             $se="";
         }
         $link='index.php?pg=products-list&iddm='.$id;
-        $html_dm.='<li class="widget__categories--menu__list">
-                        <option value="'.$link.'" '.$se.'>'.$name.'</option>
-                    </li>';
+        $html_dm.='<option value="'.$link.'" '.$se.'>'.$name.'</option>';
     } 
     $html_productlist=showsp_admin($productlist);
 ?>
@@ -76,17 +74,3 @@
         </nav>
     </div>
 </section>
-
-<script>
-    // Lấy phần tử select
-    var select = document.getElementById("mySelect");
-
-    // Thêm sự kiện onchange để mở liên kết khi chọn một option
-    select.addEventListener("change", function () {
-        // Lấy giá trị của option được chọn
-        var selectedValue = select.value;
-
-        // Chuyển hướng trang
-        window.location.href = selectedValue;
-    });
-</script>

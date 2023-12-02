@@ -10,11 +10,27 @@ function get_order_home(){
     return pdo_query($sql);
 }
 
-function get_order($kyw) {
+function get_order_all($kyw) {
     $sql = "SELECT * FROM orders WHERE 1";
 
     if ($kyw != "") {
         $sql .= " AND mahd LIKE '%" . $kyw . "%'";
+    }
+
+    $sql .= " ORDER BY id";
+
+    return pdo_query($sql);
+}
+
+function get_order($kyw, $status) {
+    $sql = "SELECT * FROM orders WHERE 1";
+
+    if ($kyw != "") {
+        $sql .= " AND mahd LIKE '%" . $kyw . "%'";
+    }
+
+    if ($status !== null) {
+        $sql .= " AND status = " . $status;
     }
 
     $sql .= " ORDER BY id";
@@ -43,4 +59,3 @@ function update_status($id, $status) {
     $sql = "UPDATE orders SET status = ? WHERE id = ?";
     pdo_execute($sql, $status, $id);
 }
-

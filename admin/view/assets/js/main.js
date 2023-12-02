@@ -18,6 +18,7 @@
         e("body").toggleClass("dark")
     })
 
+    //Chặn e - + cho input number
     $(document).ready(function(){
         $('.form-input-number').on('keydown', function(e){
             const key = e.key;
@@ -26,13 +27,19 @@
             }
         });
     });
+
+
+    $(document).ready(function () {
+        // Lấy phần tử select bằng jQuery
+        var $select = $("#mySelect");
+    
+        // Thêm sự kiện onchange để mở liên kết khi chọn một option
+        $select.on("change", function () {
+            // Lấy giá trị của option được chọn
+            var selectedValue = $select.val();
+    
+            // Chuyển hướng trang
+            window.location.href = selectedValue;
+        });
+    });
 }(jQuery);
-
-
-// var inputNumber = document.querySelector('.form-input-number');
-//     inputNumber.addEventListener('keydown', function(e){
-//         const key = e.key
-//         if (key == 'e' || key == 'E' || key == '-' || key == '+') {
-//             e.preventDefault()
-//         }
-//     });

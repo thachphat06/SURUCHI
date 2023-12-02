@@ -303,11 +303,23 @@
         include "view/page-update-dm.php";
         break;
       case 'orders':
+        if(!isset($_GET['status'])){
+          $status=0;
+        }else{
+          $status=$_GET['status'];
+        }
         $kyw="";
         if (isset($_POST["search"])) {
           $kyw=$_POST["kyw"];
         }
-        $orderlist=get_order($kyw);
+        if($status==1) $orderlist=get_order($kyw, $status);
+        elseif($status==2) $orderlist=get_order($kyw, $status);
+        elseif($status==3) $orderlist=get_order($kyw, $status);
+        elseif($status==4) $orderlist=get_order($kyw, $status);
+        elseif($status==5) $orderlist=get_order($kyw, $status);
+        elseif($status==6) $orderlist=get_order($kyw, $status);
+        else $orderlist=get_order_all($kyw);
+        
         include "view/page-orders.php";
         break;
       case 'orders-detail':
@@ -331,7 +343,7 @@
           if (isset($_POST["search"])) {
             $kyw=$_POST["kyw"];
           }
-          $orderlist=get_order($kyw);
+          $orderlist=get_order_all($kyw);
           include "view/page-orders.php";
         }else {
           include "view/home.php";
@@ -347,7 +359,7 @@
           if (isset($_POST["search"])) {
             $kyw=$_POST["kyw"];
           }
-          $orderlist=get_order($kyw);
+          $orderlist=get_order_all($kyw);
           include "view/page-orders.php";
         }else {
           include "view/home.php";
@@ -363,7 +375,7 @@
           if (isset($_POST["search"])) {
             $kyw=$_POST["kyw"];
           }
-          $orderlist=get_order($kyw);
+          $orderlist=get_order_all($kyw);
           include "view/page-orders.php";
         }else {
           include "view/home.php";
@@ -379,7 +391,7 @@
           if (isset($_POST["search"])) {
             $kyw=$_POST["kyw"];
           }
-          $orderlist=get_order($kyw);
+          $orderlist=get_order_all($kyw);
           include "view/page-orders.php";
         }else {
           include "view/home.php";
@@ -395,7 +407,7 @@
           if (isset($_POST["search"])) {
             $kyw=$_POST["kyw"];
           }
-          $orderlist=get_order($kyw);
+          $orderlist=get_order_all($kyw);
           include "view/page-orders.php";
         }else {
           include "view/home.php";
