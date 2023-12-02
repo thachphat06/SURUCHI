@@ -48,7 +48,10 @@
         <header class="card-header">
             <div class="row gx-3">
                 <div class="col-lg-4 col-md-6 me-auto">
-                    <input type="text" placeholder="Tìm..." class="form-control">
+                    <form action="index.php?pg=user-list" method="post">
+                        <input type="text" name="kyw" placeholder="Tìm..." class="form-control">
+                        <button hidden class="btn btn-light bg btn-fix" type="submit" name="search"> <i class="material-icons md-search"></i></button>
+                    </form>
                 </div>
             </div>
         </header>

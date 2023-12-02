@@ -18,11 +18,6 @@ function comment_delete($id){
     }
 }
 
-// function comment_select_all(){
-//     $sql = "SELECT * FROM comment ORDER BY id DESC";
-//     return pdo_query($sql);
-// }
-
 function comment_select_by_idpro($idpro){
     $sql = "SELECT c.*, u.name, u.img
             FROM comment c
@@ -41,10 +36,6 @@ function comment_select_all(){
 
     return pdo_query($sql);
 }
-// function binh_luan_select_by_id($ma_bl){
-//     $sql = "SELECT * FROM binh_luan WHERE ma_bl=?";
-//     return pdo_query_one($sql, $ma_bl);
-// }
 
 function binh_luan_exist($ma_bl){
     $sql = "SELECT count(*) FROM binh_luan WHERE ma_bl=?";
@@ -56,8 +47,3 @@ function count_comments_by_idpro($idpro) {
     // Trả về số lượng bình luận hoặc 0 nếu có lỗi
     return ($result && isset($result['total_comments'])) ? $result['total_comments'] : 0;
 }
-//-------------------------------//
-// function binh_luan_select_by_hang_hoa($ma_hh){
-//     $sql = "SELECT b.*, h.ten_hh FROM binh_luan b JOIN hang_hoa h ON h.ma_hh=b.ma_hh WHERE b.ma_hh=? ORDER BY ngay_bl DESC";
-//     return pdo_query($sql, $ma_hh);
-// }

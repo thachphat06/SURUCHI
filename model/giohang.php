@@ -11,15 +11,6 @@ function update_quantity_product($idpro, $soluong){
     pdo_execute($sql, $soluong, $idpro);
 }
 
-// function get_tongdonhang(){
-//     $sum=0;
-//     foreach ($_SESSION['giohang'] as $sp) {
-//         extract($sp);
-//         $tt= (int)$price* (int)$amount;
-//         $sum += $stt;
-//     }
-//     return $sum;
-// }
 function get_tongdonhang() {
     // Ghi code để tính tổng đơn hàng của bạn ở đây
     // Ví dụ:

@@ -13,10 +13,14 @@
                 $_SESSION['s_user']=$user;
                 header('location: index.php');
             } else{ 
-                $tb="Tài khoản này không có quyền đăng nhập trang quản trị";
+                $tb = "Tài khoản này không có quyền đăng nhập trang quản trị";
             }
         } else{
-            $tb="Tài khoản này không tồn tại. Hoặc đã nhầm !";
+            if(empty($uname) || empty($pass)){
+                $tb = "Vui lòng điền đầy đủ thông tin !"; 
+            } else{
+                $tb = "Tài khoản này không tồn tại. Hoặc đã nhầm !";
+            }
         }
     }
 ?>

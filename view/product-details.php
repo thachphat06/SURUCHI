@@ -1,5 +1,6 @@
 <?php
     extract($spchitiet);
+    // die(print_r($spchitiet, true));
     $html_dssp_lienquan=showsp_slide($splienquan);
     
     if (isset($_GET['idpro'])) {
@@ -9,8 +10,6 @@
     $total_comments = count_comments_by_idpro($idpro);
     $html_dsbl = "";
     foreach ($commentlist as $item) {
-        extract($item);
-
         // Khởi tạo lại chuỗi HTML cho đánh giá sao
         $html_rating = '<ul class="rating d-flex" data-commentid="'.$item['id'].'">';
         for ($i = 1; $i <= 5; $i++) {

@@ -17,12 +17,22 @@
     e(".darkmode").on("click", function() {
         e("body").toggleClass("dark")
     })
+
+    $(document).ready(function(){
+        $('.form-input-number').on('keydown', function(e){
+            const key = e.key;
+            if (key === 'e' || key === 'E' || key === '-' || key === '+') {
+                e.preventDefault();
+            }
+        });
+    });
 }(jQuery);
 
-var inputNumber = document.querySelector('.form-input-number');
-    inputNumber.addEventListener('keydown', function(e){
-        const key = e.key
-        if (key == 'e' || key == 'E' || key == '-' || key == '+') {
-            e.preventDefault()
-        }
-    });
+
+// var inputNumber = document.querySelector('.form-input-number');
+//     inputNumber.addEventListener('keydown', function(e){
+//         const key = e.key
+//         if (key == 'e' || key == 'E' || key == '-' || key == '+') {
+//             e.preventDefault()
+//         }
+//     });

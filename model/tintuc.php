@@ -25,20 +25,17 @@ function get_tt_by_id($id){
     return pdo_query_one($sql, $id);
 }
 
-function get_iddmuc($id)
-{
+function get_iddmuc($id){
     $sql = "SELECT idloai FROM blog WHERE id=?";
     return pdo_query_value($sql, $id);
 }
 
-function get_blog($limi)
-{
+function get_blog($limi){
     $sql = " SELECT * FROM blog ORDER BY id limit " . $limi;
     return pdo_query($sql);
 }
 
-function get_dsblog($kyw, $idloai, $limi)
-{
+function get_dsblog($kyw, $idloai, $limi){
     $sql = "SELECT * FROM blog WHERE 1";
     if ($idloai > 0) {
         $sql .= " AND idloai=" . $idloai;
@@ -51,20 +48,17 @@ function get_dsblog($kyw, $idloai, $limi)
     return pdo_query($sql);
 }
 
-function get_blog_by_id($id)
-{
+function get_blog_by_id($id){
     $sql = "SELECT * FROM blog WHERE id=?";
     return pdo_query_one($sql, $id);
 }
 
-function get_blog_lienquan($idloai, $id, $limi)
-{
+function get_blog_lienquan($idloai, $id, $limi){
     $sql = "SELECT * FROM blog WHERE $idloai=? AND id<>? ORDER BY view DESC limit  " . $limi;
     return pdo_query($sql, $idloai, $id);
 }
 
-function showblog($dsblog)
-{
+function showblog($dsblog){
     $html_dsblog = '';
     foreach ($dsblog as $blog) {
         extract($blog);
@@ -86,8 +80,7 @@ function showblog($dsblog)
     return $html_dsblog;
 }
 
-function showblog_slide($dsblog)
-{
+function showblog_slide($dsblog){
     $html_dsblog = '';
     foreach ($dsblog as $blog) {
         extract($blog);
@@ -109,8 +102,7 @@ function showblog_slide($dsblog)
     return $html_dsblog;
 }
 
-function showblog_lq($dsblog)
-{
+function showblog_lq($dsblog){
     $html_dsblog = '';
     foreach ($dsblog as $blog) {
         extract($blog);

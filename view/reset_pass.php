@@ -32,6 +32,7 @@
                                 <div class="account__login--inner">
                                     <input class="account__login--input" placeholder="Mật khẩu mới" type="password" name="rs_pwd">
                                     <input class="account__login--input" placeholder="Xác nhận mật khẩu" type="password" name="rs_cfp">
+                                    <?=$tbpw;?>
                                     <div class="form-group">
                                         <input type="submit" value="Đổi mật khẩu" class="account__login--btn primary__btn" name="guipwd">
                                     </div>

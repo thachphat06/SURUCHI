@@ -1,6 +1,6 @@
 <?php
-    $iddm="";
-    $html_tintuclist=showdmtt_admin($tintuclist, $iddm);
+    $idloai="";
+    $html_tintuclist=showdmtt_admin($tintuclist, $idloai);
 ?>
 <section class="content-main">
     <form action="index.php?pg=page-add-blog" method="post" enctype="multipart/form-data">
@@ -64,7 +64,7 @@
                         <div class="row gx-2">
                             <div class="col-sm-12 mb-3">
                                 <label class="form-label">Danh Mục</label>
-                                <select class="form-select" name="iddm">
+                                <select class="form-select" name="idloai">
                                 <option value=""></option>
                                 <?=$html_tintuclist;?>
                                 </select>

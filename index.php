@@ -64,16 +64,23 @@
             $tb_mail = '<p class="h4" style="color: red;">Username và Email không khớp với bất kỳ mail nào!</p>';
           }
         }
-  
         include "view/forgot-password.php";
         break;
       case 'reset-pass':
         $iduser = $_GET['id'];
+        $tbpw="";
         if (isset($_POST['guipwd'])) {
           $rs_pwf = $_POST['rs_pwd'];
           $rs_cfp = $_POST['rs_cfp'];
-          if (($_POST['rs_pwd']) == ($_POST['rs_cfp'])) {
-            user_change_password($rs_pwf, $iduser);
+          if (empty($rs_pwf) || empty($rs_cfp)) {
+            $tbpw='<p class="h4" style="color: red;">Vui lòng điền đầy đủ thông tin đăng ký.</p>';
+          } elseif(strlen($rs_pwf) < 6 || strlen($rs_cfp) < 6) {
+            $tbpw='<p class="h4" style="color: red;">Tài khoản và mật khẩu phải chứa ít nhất 6 ký tự.</p>';
+          }else{
+            if (($_POST['rs_pwd']) == ($_POST['rs_cfp'])) {
+              user_change_password($rs_pwf, $iduser);
+            } 
+            $tbpw='<p class="h4" style="color: green;">Đổi mật khẩu thành công !</p>';
           }
         }
         include "view/reset_pass.php";
@@ -88,14 +95,14 @@
           $kq=checkuser($username, $password);
           if(is_array($kq)&&(count($kq))) {
             $_SESSION['s_user']=$kq;
-            // if($_SESSION['page']=="product-details"){
-            //   // header('location: index.php?pg=product-detail&idpro='.$_SESSION['idpro'].'#cmt');
-            // } else {
-            //   header('location: index.php');
-            // }
             header('location: index.php');
-          }else{
-            $tb="Tài khoản không tồn tại hoặc thông tin đăng nhập sai !";
+          } 
+          else{
+            if(empty($username) || empty($password)){
+              $tb = "Vui lòng điền đầy đủ thông tin !"; 
+            } else{
+              $tb="Tài khoản không tồn tại hoặc thông tin đăng nhập sai !";
+            }
             $_SESSION['tb_dangnhap']=$tb;
             header('location: index.php?pg=signin-signup');
           }
@@ -108,80 +115,80 @@
         }
         header('location: index.php');
         break;
-        case 'adduser':
-          $tbdk = "";
-      
-          // Xác định nếu biểu mẫu đã được gửi đi
-          if (isset($_POST["register"])) {
-              // Lấy giá trị từ input
-              $username = $_POST["username"];
-              $password = $_POST["password"];
-              $repassword = $_POST["repassword"];
-              $email = $_POST["email"];
-      
-              // Kiểm tra xem các trường có được điền đầy đủ không
-              if (empty($username) || empty($password) || empty($email) || empty($repassword)) {
-                $tbdk = "Vui lòng điền đầy đủ thông tin đăng ký.";
-            } elseif (strlen($username) < 6 || strlen($password) < 6) {
-                $tbdk = "Tài khoản và mật khẩu phải chứa ít nhất 6 ký tự.";
+      case 'adduser':
+        $tbdk = "";
+        // Xác định nếu biểu mẫu đã được gửi đi
+        if (isset($_POST["register"])) {
+            // Lấy giá trị từ input
+            $username = $_POST["username"];
+            $password = $_POST["password"];
+            $repassword = $_POST["repassword"];
+            $email = $_POST["email"];
+            // Kiểm tra xem các trường có được điền đầy đủ không
+            if (empty($username) || empty($password) || empty($email) || empty($repassword)) {
+              $tbdk = "Vui lòng điền đầy đủ thông tin đăng ký.";
+            } elseif (strlen($password) < 6) {
+                $tbdk = "Mật khẩu phải chứa ít nhất 6 ký tự.";
             } else {
-                // Kiểm tra xem tài khoản đã tồn tại hay chưa
-                if (isUsernameExists($username)) {
-                    $tbdk = "Tài khoản đã tồn tại. Vui lòng chọn một tài khoản khác.";
-                } else {
-                    // Kiểm tra xem địa chỉ email hợp lệ
-                    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                        $tbdk = "Địa chỉ email không hợp lệ.";
-                    } else {
-                        // Kiểm tra xem mật khẩu và nhập lại mật khẩu khớp nhau
-                        if ($password != $repassword) {
-                            $tbdk = "Mật khẩu nhập lại không khớp.";
-                        } else {
-                            // Thực hiện thêm người dùng vào cơ sở dữ liệu
-                            user_insert($username, $password, $email);
-                            $tbdk = "Đăng ký thành công!";
-                        }
-                    }
-                }
-            }
-            
+              // Kiểm tra xem tài khoản đã tồn tại hay chưa
+              if (isUsernameExists($username)) {
+                  $tbdk = "Tài khoản đã tồn tại. Vui lòng chọn một tài khoản khác.";
+              } else {
+                  // Kiểm tra xem địa chỉ email hợp lệ
+                  if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                      $tbdk = "Địa chỉ email không hợp lệ.";
+                  } else {
+                      // Kiểm tra xem mật khẩu và nhập lại mật khẩu khớp nhau
+                      if ($password != $repassword) {
+                          $tbdk = "Mật khẩu nhập lại không khớp.";
+                      } else {
+                          // Thực hiện thêm người dùng vào cơ sở dữ liệu
+                          user_insert($username, $password, $email);
+                          $tbdk = "Đăng ký thành công!";
+                      }
+                  }
+              }
           }
-      
-          // Bạn có thể thay đổi đường dẫn tới file view nếu cần thiết
-          include "view/login.php";
-          break;
-      
-      
+        }
+        // Bạn có thể thay đổi đường dẫn tới file view nếu cần thiết
+        include "view/login.php";
+        break;
       case 'updateuser':
-        // xác định giá trị input
+        // Xác định giá trị input
         if(isset($_POST["update"])) {
-          $username=$_POST["username"];
-          // $password=$_POST["password"];
-          $email=$_POST["email"];
-          $name=$_POST["name"];
-          $address=$_POST["address"];
-          $sdt=$_POST["sdt"];
-          $id=$_POST["id"];
-          $role=0;
-
-          $img=$_FILES["img"]["name"];
-          $target_file = IMG_PATH_USER.basename($img);
-          if($img!=""){
-            //upload hình
-            $target_file = IMG_PATH_USER.$img;
-            move_uploaded_file($_FILES["img"]["tmp_name"], $target_file);
-            
-            //xóa hình cũ trên host
-            $old_img=IMG_PATH_USER.$_POST['old_img'];
-            if(file_exists($old_img)) unlink($old_img);
-
-          } else {
-            $img="";
-          }
-            //xử lý
-          user_update($username, $password, $email, $name, $img, $address, $sdt, $role, $id);
-
-          include "view/my-account.php";
+            $username = $_POST["username"];
+            // $password = $_POST["password"];
+            $email = $_POST["email"];
+            $name = $_POST["name"];
+            $address = $_POST["address"];
+            $sdt = $_POST["sdt"];
+            $id = $_POST["id"];
+            $role = 0;
+    
+            $img = $_FILES["img"]["name"];
+    
+            // Đường dẫn ảnh mặc định
+            $defaultImagePath = "avatar.png";
+    
+            if ($img != "") {
+                // Upload hình mới
+                $target_file = IMG_PATH_USER . $img;
+                move_uploaded_file($_FILES["img"]["tmp_name"], $target_file);
+    
+                // Xóa hình cũ trên host nếu nó không phải là ảnh mặc định
+                $old_img = IMG_PATH_USER . $_POST['old_img'];
+                if ($old_img != $defaultImagePath && file_exists($old_img)) {
+                    unlink($old_img);
+                }
+            } else {
+                // Sử dụng ảnh cũ nếu không có hình mới
+                $target_file = IMG_PATH_USER . $_POST['old_img'];
+                $img=$target_file;
+            }
+            // Xử lý
+            user_update($username, $password, $email, $name, $img, $address, $sdt, $role, $id);
+    
+            include "view/my-account.php";
         }
         break;
       case 'my-account':
@@ -286,9 +293,6 @@
           $iddm=get_iddm($id);
           $spchitiet=get_sp_by_id($id);
           $splienquan=get_dssp_lienquan($iddm, $id, 4);
-          if(isset($_SESSION['s_user'])) {
-            $iduser = $_SESSION['s_user']['id'];
-          }
           $commentlist = comment_select_by_idpro($id);
           include "view/product-details.php";
         }else {
@@ -305,7 +309,7 @@
               $rating = $_POST['rating'];
               // Lấy ngày và giờ hiện tại
               $date = date('Y-m-d');
-              $time = time('H:i:s');
+              $time = date('H:i:s');
               // Thực hiện chèn bình luận
               comment_insert($iduser, $idpro, $content, $date, $time, $rating);
               // Chuyển hướng sau khi thêm bình luận

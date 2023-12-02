@@ -1,14 +1,14 @@
 <?php
-    $html_dm='';
-    foreach ($dsdm as $dm) {
-        extract($dm);
-        if($id==$iddm){
+    $html_loai='';
+    foreach ($dsloai as $loai) {
+        extract($loai);
+        if($id==$idloai){
             $se="selected";
         } else{
             $se="";
         }
-        $link='index.php?pg=blog-list&iddm='.$id;
-        $html_dm.='<li class="widget__categories--menu__list">
+        $link='index.php?pg=page-blog-list&idloai='.$id;
+        $html_loai.='<li class="widget__categories--menu__list">
                         <option value="'.$link.'" '.$se.'>'.$name.'</option>
                     </li>';
     } 
@@ -26,16 +26,10 @@
     <div class="card mb-4">
         <header class="card-header">
             <div class="row align-items-center">
-                <div class="col-lg-4 col-md-6 me-auto">
-                    <form action="index.php?pg=page-blog-list" method="post">
-                        <input type="text" name="kyw" placeholder="Tìm kiếm..." class="form-control">
-                        <button hidden class="btn btn-light bg btn-fix" type="submit" name="search"> <i class="material-icons md-search"></i></button>
-                    </form>
-                </div>
                 <div class="col-lg-3 col-md-3 col-6">
                     <select class="form-select" id="mySelect">
                         <option value="index.php?pg=page-blog-list" selected>Tất cả tin tức</option>
-                        <?=$html_dm;?>
+                        <?=$html_loai;?>
                     </select>
                 </div>
             </div>
@@ -74,3 +68,17 @@
         </nav>
     </div>
 </section>
+
+<script>
+    // Lấy phần tử select
+    var select = document.getElementById("mySelect");
+
+    // Thêm sự kiện onchange để mở liên kết khi chọn một option
+    select.addEventListener("change", function () {
+        // Lấy giá trị của option được chọn
+        var selectedValue = select.value;
+
+        // Chuyển hướng trang
+        window.location.href = selectedValue;
+    });
+</script>

@@ -82,25 +82,3 @@ function showdm_admin($dsdm, $iddm){
     }
     return $html_dm;
 }
-
-
-// /**
-//  * Truy vấn một loại theo mã
-//  * @param int $ma_danhmuc là mã loại cần truy vấn
-//  * @return array mảng chứa thông tin của một loại
-//  * @throws PDOException lỗi truy vấn
-//  */
-// function danhmuc_select_by_id($ma_danhmuc){
-//     $sql = "SELECT * FROM danhmuc WHERE ma_danhmuc=?";
-//     return pdo_query_one($sql, $ma_danhmuc);
-// }
-// /**
-//  * Kiểm tra sự tồn tại của một loại
-//  * @param int $ma_danhmuc là mã loại cần kiểm tra
-//  * @return boolean có tồn tại hay không
-//  * @throws PDOException lỗi truy vấn
-//  */
-// function danhmuc_exist($ma_danhmuc){
-//     $sql = "SELECT count(*) FROM danhmuc WHERE ma_danhmuc=?";
-//     return pdo_query_value($sql, $ma_danhmuc) > 0;
-// }

@@ -1,5 +1,5 @@
 <?php
-    $iddm = "";
+    $idloai = "";
     $idupdate = "";
     $old_img = "";
     if (isset($tt) && is_array($tt) && count($tt) > 0) {
@@ -13,7 +13,7 @@
             $img = "";
         }
     }
-    $html_tintuclist = showdmtt_admin($tintuclist, $iddm);
+    $html_tintuclist = showdmtt_admin($tintuclist, $idloai);
 ?>
 <section class="content-main">
     <form action="index.php?pg=updateblog" method="post" enctype="multipart/form-data">
@@ -48,7 +48,7 @@
                                 class="form-control" id="publish_date" required>
                         </div>
                         <div class="mb-4">
-                            <label class="form-label" for="">Tiêu đề</label>
+                            <label class="form-label" for="title">Tiêu đề</label>
                             <textarea name="title" id="title" cols="30" rows="10" class="form-control" required></textarea>
                             <script>
                                 var title = "<?=($title != "") ? $title : "";?>"
@@ -56,8 +56,8 @@
                             </script>
                         </div>
                         <div class="mb-4">
-                            <label class="form-label" for="">Nội dung</label>
-                            <textarea name="content" id="content" cols="30" rows="10" class="form-control form-control1" required></textarea>
+                            <label class="form-label" for="content">Nội dung</label>
+                            <textarea name="content" id="content" cols="30" rows="10" class="form-control form-control1" style="font-size: 17px;" required></textarea>
                             <script>
                                 var content = "<?=($content != "") ? $content : "";?>"
                                 document.getElementById('content').value = content;
@@ -89,7 +89,7 @@
                         <div class="row gx-2">
                             <div class="col-sm-12 mb-3">
                                 <label class="form-label">Danh Mục</label>
-                                <select class="form-select" name="iddm">
+                                <select class="form-select" name="idloai">
                                     <option value=""></option>
                                     <?=$html_tintuclist;?>
                                 </select>

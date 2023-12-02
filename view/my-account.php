@@ -47,9 +47,7 @@
                     <div class="account__wrapper">
                         <div class="account__content">
                             <h3 class="account__content--title mb-20">Thông tin tài khoản</h3>
-                            <!-- <button class="new__address--btn primary__btn mb-25" type="button">Thêm địa chỉ mới</button> -->
                             <div class="account__details two">
-                                <!-- <h4 class="account__details--title">Mặc định</h4> -->
                                 <p class="account__details--desc">
                                     <div class="upload-image">
                                         <div class="image-container">
@@ -67,13 +65,11 @@
                                     <strong style="color: #000">Số điện thoại:</strong>
                                     <?=$sdt?>
                                 </p>
-                                <!-- <a class="account__details--link" href="my-account-2.html">Xem địa chỉ(1)</a> -->
                             </div>
                             <div class="account__details--footer d-flex">
                                 <a href="index.php?pg=my-account-2">
                                     <button class="account__details--footer__btn" type="button">Cập nhật thông tin</button>
                                 </a>
-                                <!-- <button class="account__details--footer__btn" type="button">Xóa</button> -->
                             </div>
                         </div>
                     </div>

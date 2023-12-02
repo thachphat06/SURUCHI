@@ -1,10 +1,17 @@
 <?php
   session_start();
   ob_start();
-  if(isset($_SESSION['s_user'])&&(is_array($_SESSION['s_user']))&&(count($_SESSION['s_user'])>0)) {
-      $admin=$_SESSION['s_user'];
-  } else{
+  if(isset($_SESSION['s_user']) && is_array($_SESSION['s_user']) && count($_SESSION['s_user']) > 0) {
+    $admin = $_SESSION['s_user'];
+    if(isset($admin['role']) && $admin['role'] == 1) {
+        // Người dùng có role == 1, cho phép truy cập
+    } else {
+        header('location: login.php');
+        exit();
+    }
+  } else {
       header('location: login.php');
+      exit();
   }
   include "../model/sanpham.php";
   include "../model/danhmuc.php";
@@ -18,8 +25,10 @@
 
   include "view/header.php";
   if(!isset($_GET['pg'])){
-    $orderlist=get_order();
+    $orderlist=get_order_home();
     $count_product=product_all();
+    
+    $userlist=load_user_role();
     include "view/home.php";
   }else{
     switch ($_GET['pg']){
@@ -28,8 +37,11 @@
           $id = $_GET['id'];
 
           update_role($id, 1);
-          
-          $listuser=loadall_user();
+          $kyw="";
+          if (isset($_POST["search"])) {
+            $kyw=$_POST["kyw"];
+          }
+          $listuser=loadall_user($kyw);
           include "view/page-user-list.php";
         }else {
           include "view/home.php";
@@ -40,7 +52,11 @@
           $id = $_GET['id'];
 
           update_role($id, 0);
-          $listuser=loadall_user();
+          $kyw="";
+          if (isset($_POST["search"])) {
+            $kyw=$_POST["kyw"];
+          }
+          $listuser=loadall_user($kyw);
 
           include "view/page-user-list.php";
         }else {
@@ -287,7 +303,11 @@
         include "view/page-update-dm.php";
         break;
       case 'orders':
-        $orderlist=get_order();
+        $kyw="";
+        if (isset($_POST["search"])) {
+          $kyw=$_POST["kyw"];
+        }
+        $orderlist=get_order($kyw);
         include "view/page-orders.php";
         break;
       case 'orders-detail':
@@ -304,12 +324,14 @@
       case 'order-pending':
         if(isset($_GET['id']) && $_GET['id'] > 0) {
           $id = $_GET['id'];
-          
           // Lấy trạng thái từ cơ sở dữ liệu hoặc bất kỳ nguồn dữ liệu nào khác
           $status = get_status($id);
-  
           update_status($id, 1);
-          $orderlist=get_order();
+          $kyw="";
+          if (isset($_POST["search"])) {
+            $kyw=$_POST["kyw"];
+          }
+          $orderlist=get_order($kyw);
           include "view/page-orders.php";
         }else {
           include "view/home.php";
@@ -318,12 +340,14 @@
       case 'order-confirm':
         if(isset($_GET['id']) && $_GET['id'] > 0) {
           $id = $_GET['id'];
-          
           // Lấy trạng thái từ cơ sở dữ liệu hoặc bất kỳ nguồn dữ liệu nào khác
           $status = get_status($id);
-  
           update_status($id, 2);
-          $orderlist=get_order();
+          $kyw="";
+          if (isset($_POST["search"])) {
+            $kyw=$_POST["kyw"];
+          }
+          $orderlist=get_order($kyw);
           include "view/page-orders.php";
         }else {
           include "view/home.php";
@@ -332,12 +356,14 @@
       case 'order-delivering':
         if(isset($_GET['id']) && $_GET['id'] > 0) {
           $id = $_GET['id'];
-          
           // Lấy trạng thái từ cơ sở dữ liệu hoặc bất kỳ nguồn dữ liệu nào khác
           $status = get_status($id);
-  
           update_status($id, 3);
-          $orderlist=get_order();
+          $kyw="";
+          if (isset($_POST["search"])) {
+            $kyw=$_POST["kyw"];
+          }
+          $orderlist=get_order($kyw);
           include "view/page-orders.php";
         }else {
           include "view/home.php";
@@ -346,12 +372,14 @@
       case 'order-complete':
         if(isset($_GET['id']) && $_GET['id'] > 0) {
           $id = $_GET['id'];
-          
           // Lấy trạng thái từ cơ sở dữ liệu hoặc bất kỳ nguồn dữ liệu nào khác
           $status = get_status($id);
-  
           update_status($id, 4);
-          $orderlist=get_order();
+          $kyw="";
+          if (isset($_POST["search"])) {
+            $kyw=$_POST["kyw"];
+          }
+          $orderlist=get_order($kyw);
           include "view/page-orders.php";
         }else {
           include "view/home.php";
@@ -360,19 +388,25 @@
       case 'order-fail':
         if(isset($_GET['id']) && $_GET['id'] > 0) {
           $id = $_GET['id'];
-          
           // Lấy trạng thái từ cơ sở dữ liệu hoặc bất kỳ nguồn dữ liệu nào khác
           $status = get_status($id);
-  
           update_status($id, 5);
-          $orderlist=get_order();
+          $kyw="";
+          if (isset($_POST["search"])) {
+            $kyw=$_POST["kyw"];
+          }
+          $orderlist=get_order($kyw);
           include "view/page-orders.php";
         }else {
           include "view/home.php";
         }
         break;
       case 'user-list':
-        $listuser=loadall_user();
+        $kyw="";
+        if (isset($_POST["search"])) {
+          $kyw=$_POST["kyw"];
+        }
+        $listuser=loadall_user($kyw);
         include "view/page-user-list.php";
         break;
       case 'deluser':
@@ -390,22 +424,26 @@
           }
         } 
         //trở về trang user
-        $listuser=loadall_user();
+        $kyw="";
+        if (isset($_POST["search"])) {
+          $kyw=$_POST["kyw"];
+        }
+        $listuser=loadall_user($kyw);
         include "view/page-user-list.php";
         break;
       case 'page-blog-list':
-        $dsdm = dmuc_all();
+        $dsloai = dmuc_all();
         $kyw = "";
-        if (!isset($_GET['iddm'])) {
-          $iddm = 0;
+        if (!isset($_GET['idloai'])) {
+          $idloai = 0;
         } else {
-          $iddm = $_GET['iddm'];
+          $idloai = $_GET['idloai'];
         }
   
         if (isset($_POST["search"])) {
           $kyw = $_POST["kyw"];
         }
-        $bloglist = get_dsblog($kyw, $iddm, 100);
+        $bloglist = get_dsblog($kyw, $idloai, 100);
         include "view/page-blog-list.php";
         break;
       case 'addblog':
@@ -414,21 +452,21 @@
         break;
       case 'page-add-blog':
         if (isset($_POST['addblog'])) {
-          $dsdm = dmuc_all();
+          $dsloai = dmuc_all();
           $kyw = "";
           //Lấy dữ liệu về
           $author = $_POST['author'];
           $date = $_POST['date'];
           $title = $_POST['title'];
           $content = $_POST['content'];
-          $iddm = $_POST['iddm'];
+          $idloai = $_POST['idloai'];
           $img = $_FILES['img']['name'];
           //upload hình
           $target_file = IMG_PATH_ADMIN . $img;
           move_uploaded_file($_FILES["img"]["tmp_name"], $target_file);
   
           //Insert into
-          blog_insert($author, $date, $title, $content, $img, $iddm);
+          blog_insert($author, $date, $title, $content, $img, $idloai);
           // Chuyển hướng người dùng sau khi thêm tin tức
           header("Location: index.php?pg=page-blog-list");
           exit(); //
@@ -442,9 +480,9 @@
         }
         break;
       case 'delblog':
-        $dsdm = danhmuc_all();
+        $dsloai = dmuc_all();
         $kyw = "";
-        $iddm = "";
+        $idloai = "";
         if (isset($_GET['id']) && ($_GET['id'] > 0)) {
           $id = $_GET['id'];
           $img = IMG_PATH_ADMIN . get_img($id);
@@ -459,7 +497,7 @@
           }
         }
         //trở về trang dstt
-        $bloglist = get_dsblog($kyw, $iddm, 100);
+        $bloglist = get_dsblog($kyw, $idloai, 100);
         include "view/page-blog-list.php";
         break;
       case 'page-update-blog':
@@ -472,16 +510,16 @@
         include "view/page-update-blog.php";
         break;
       case 'updateblog':
-        $dsdm = danhmuc_all();
+        $dsloai = danhmuc_all();
         $kyw = "";
-        $iddm = "";
+        $idloai = "";
         //kiểm tra và lấy dữ liệu
         if(isset($_POST['updateblog'])){
           $author = $_POST['author'];
           $date = $_POST['date'];
           $title = $_POST['title'];
           $content = $_POST['content'];
-          $iddm = $_POST['iddm'];
+          $idloai = $_POST['idloai'];
           $id = $_POST['id'];
           $img = $_FILES['img']['name'];
           if ($img != "") {
@@ -498,15 +536,10 @@
             $img = "";
           }
           //Insert into
-          blog_update($author, $date, $title, $content, $img, $id);
-          
+          blog_update($author, $date, $title, $content, $img, $idloai);
         }
-        //
-  
-        //
-  
         //trở về trang dstt
-        $bloglist = get_dsblog($kyw, $iddm, 100);
+        $bloglist = get_dsblog($kyw, $idloai, 100);
         include "view/page-blog-list.php";
         break;
       case 'page-review':

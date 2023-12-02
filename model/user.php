@@ -15,7 +15,6 @@ function isPasswordExists($password) {
     return $result !== false;
 }
 
-
 function user_insert($username, $password, $email) {
     // Thực hiện quá trình đăng ký khi tài khoản không tồn tại
     $sql = "INSERT INTO users(username, password, email) VALUES (?, ?, ?)";
@@ -42,21 +41,14 @@ function user_update($username, $password, $email, $name, $img, $address, $sdt, 
 function checkuser($username, $password) {
     $sql = "SELECT * FROM users WHERE username=? AND password=?";
     return pdo_query_one($sql, $username, $password);
-    // if (is_array($kq)&&(count($kq))) {
-    //     return $kq["id"];
-    // } else {
-    //     return 0;
-    // }
 }
 
-function checkmail($usr, $Mailer)
-{
+function checkmail($usr, $Mailer){
     $sql = "SELECT * FROM users WHERE username=? AND email=? ";
     return pdo_query_one($sql, $usr, $Mailer);
 }
 
-function checkpass()
-{
+function checkpass(){
     $sql = "SELECT * FROM users ";
     return pdo_query_one($sql);
 }
@@ -66,50 +58,32 @@ function get_user($id) {
     return pdo_query_one($sql, $id);
 }
 
-// function user_update($ma_kh, $mat_khau, $ho_ten, $email, $hinh, $kich_hoat, $vai_tro){
-//     $sql = "UPDATE users SET mat_khau=?,ho_ten=?,email=?,hinh=?,kich_hoat=?,vai_tro=? WHERE ma_kh=?";
-//     pdo_execute($sql, $mat_khau, $ho_ten, $email, $hinh, $kich_hoat==1, $vai_tro==1, $ma_kh);
-// }
-
 function user_delete($id){
     $sql = "DELETE FROM users WHERE id=?";
     pdo_execute($sql, $id);
 }
-
-// function user_select_all(){
-//     $sql = "SELECT * FROM users";
-//     return pdo_query($sql);
-// }
-
-// function user_select_by_id($ma_kh){
-//     $sql = "SELECT * FROM users WHERE ma_kh=?";
-//     return pdo_query_one($sql, $ma_kh);
-// }
-
-// function user_exist($ma_kh){
-//     $sql = "SELECT count(*) FROM users WHERE $ma_kh=?";
-//     return pdo_query_value($sql, $ma_kh) > 0;
-// }
-
-// function user_select_by_role($vai_tro){
-//     $sql = "SELECT * FROM users WHERE vai_tro=?";
-//     return pdo_query($sql, $vai_tro);
-// }
-
-// function user_change_password($ma_kh, $mat_khau_moi){
-//     $sql = "UPDATE users SET mat_khau=? WHERE ma_kh=?";
-//     pdo_execute($sql, $mat_khau_moi, $ma_kh);
-// }
 
 function user_change_password($rs_pwf, $iduser){
     $sql = "UPDATE users SET password=? WHERE id=?";
     pdo_execute($sql, $rs_pwf, $iduser);
 }
 
-function loadall_user(){
-    $sql = "select * from users";
-    $listuser=pdo_query($sql);
-    return $listuser;
+function loadall_user($kyw) {
+    $sql = "SELECT * FROM users WHERE 1";
+
+    if ($kyw != "") {
+        $sql .= " AND username LIKE '%" . $kyw . "%'";
+    }
+
+    $sql .= " ORDER BY id";
+
+    return pdo_query($sql);
+}
+
+function load_user_role(){
+    $sql = "SELECT * FROM users WHERE role = 1 ORDER BY id DESC";
+    $userlist = pdo_query($sql);
+    return $userlist;
 } 
 
 function get_img_user($id) {
