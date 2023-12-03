@@ -40,6 +40,17 @@ function hien_thi_cmt($comment_list, $soluong_cmt){
     return $html_st_cmt;
 }
 
+function comment_select_all_home(){
+    $sql = "SELECT comment.*, users.id AS user_id, users.name AS user_name, users.img AS user_img, product.name AS product_name
+            FROM comment
+            INNER JOIN users ON comment.iduser = users.id
+            INNER JOIN product ON comment.idpro = product.id
+            WHERE comment.rating = 5
+            ORDER BY comment.id DESC";
+
+    return pdo_query($sql);
+}
+
 function comment_select_all($page, $soluong_cmt) {
     $batdau = ($page - 1) * $soluong_cmt;
     $sql = "SELECT comment.*, users.id AS user_id, users.name AS user_name, users.img AS user_img, product.name AS product_name

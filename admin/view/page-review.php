@@ -28,11 +28,14 @@
             </a>
         </td>
         <td>'.$product_name.'</td>
-        <td width="25%">
+        <td width="24%">
           '.$content.'
         </td>
         <td width="15%">'.$html_rating.'</td>
-        <td>'.$date.'</td>
+        <td>    
+            '.$date.' <br>
+            <span style="font-weight: bold;">'.$time.'</span>
+        </td>
         <td class="text-end">
             <a class="btn btn-sm btn-brand rounded font-sm mt-14" href="index.php?pg=delcomment&id='.$id.'">Xóa</a>
         </td>

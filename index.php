@@ -27,7 +27,7 @@
     $dssp_best=get_best(10);
     $dssp_best2=get_best(10);
     $dsblog=get_blog(6);
-    $comment_list = comment_select_all();
+    $comment_list = comment_select_all_home();
     include "view/home.php";
   } else {
     switch ($_GET['pg']) {
@@ -153,44 +153,38 @@
         // Bạn có thể thay đổi đường dẫn tới file view nếu cần thiết
         include "view/login.php";
         break;
-      case 'updateuser':
-        // Xác định giá trị input
-        if(isset($_POST["update"])) {
-            $username = $_POST["username"];
-            // $password = $_POST["password"];
-            $email = $_POST["email"];
-            $name = $_POST["name"];
-            $address = $_POST["address"];
-            $sdt = $_POST["sdt"];
-            $id = $_POST["id"];
-            $role = 0;
-    
-            $img = $_FILES["img"]["name"];
-    
-            // Đường dẫn ảnh mặc định
-            $defaultImagePath = "avatar.png";
-    
-            if ($img != "") {
-                // Upload hình mới
-                $target_file = IMG_PATH_USER . $img;
-                move_uploaded_file($_FILES["img"]["tmp_name"], $target_file);
-    
-                // Xóa hình cũ trên host nếu nó không phải là ảnh mặc định
-                $old_img = IMG_PATH_USER . $_POST['old_img'];
-                if ($old_img != $defaultImagePath && file_exists($old_img)) {
-                    unlink($old_img);
-                }
+        case 'updateuser':
+          // xác định giá trị input
+          if(isset($_POST["update"])) {
+            $username=$_POST["username"];
+            // $password=$_POST["password"];
+            $email=$_POST["email"];
+            $name=$_POST["name"];
+            $address=$_POST["address"];
+            $sdt=$_POST["sdt"];
+            $id=$_POST["id"];
+            $role=0;
+  
+            $img=$_FILES["img"]["name"];
+            $target_file = IMG_PATH_USER.basename($img);
+            if($img!=""){
+              //upload hình
+              $target_file = IMG_PATH_USER.$img;
+              move_uploaded_file($_FILES["img"]["tmp_name"], $target_file);
+              
+              //xóa hình cũ trên host
+              $old_img=IMG_PATH_USER.$_POST['old_img'];
+              if(file_exists($old_img)) unlink($old_img);
+  
             } else {
-                // Sử dụng ảnh cũ nếu không có hình mới
-                $target_file = IMG_PATH_USER . $_POST['old_img'];
-                $img=$target_file;
+              $img="";
             }
-            // Xử lý
+              //xử lý
             user_update($username, $password, $email, $name, $img, $address, $sdt, $role, $id);
-    
+  
             include "view/my-account.php";
-        }
-        break;
+          }
+          break;  
       case 'my-account':
         if(isset($_SESSION['s_user'])&&(count($_SESSION['s_user'])>0)) {
           include "view/my-account.php";
