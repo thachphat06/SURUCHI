@@ -347,9 +347,9 @@ function showsp_admin($dssp){
                                 <i class="material-icons md-delete_forever"></i>Xóa
                             </a>
                         </div>
-                        <input hidden type="checkbox" name="best" '.$bestcheck.' class="form-control1" id="product_bestseller">
-                        <input hidden type="checkbox" name="new" '.$newcheck.' class="form-control1" id="product_new">
-                        <input hidden type="checkbox" name="hot" '.$hotcheck.' class="form-control1" id="product_hot">
+                        <input hidden type="checkbox" name="best" '.$bestcheck.' class="form-control1">
+                        <input hidden type="checkbox" name="new" '.$newcheck.' class="form-control1">
+                        <input hidden type="checkbox" name="hot" '.$hotcheck.' class="form-control1">
                     </div>
                 </article>';
                 $i++;
