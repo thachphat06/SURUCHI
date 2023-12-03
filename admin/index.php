@@ -41,12 +41,21 @@
           if (isset($_POST["search"])) {
             $kyw=$_POST["kyw"];
           }
-          $listuser=loadall_user($kyw);
+          if(!isset($_GET['page'])){
+            $page=1;
+          }else{
+            $page=$_GET['page'];
+          }
+          $soluong_user=4;
+          $listuser=loadall_user($kyw, $page, $soluong_user);
+          $tongso_user= get_user_all();
+          $hienthi_user= hien_thi_user($tongso_user, $soluong_user);
           include "view/page-user-list.php";
         }else {
           include "view/home.php";
         }
         break;
+
       case 'abort-role':
         if(isset($_GET['id']) && $_GET['id'] > 0) {
           $id = $_GET['id'];
@@ -56,7 +65,15 @@
           if (isset($_POST["search"])) {
             $kyw=$_POST["kyw"];
           }
-          $listuser=loadall_user($kyw);
+          if(!isset($_GET['page'])){
+            $page=1;
+          }else{
+            $page=$_GET['page'];
+          }
+          $soluong_user=4;
+          $listuser=loadall_user($kyw, $page, $soluong_user);
+          $tongso_user= get_user_all();
+          $hienthi_user= hien_thi_user($tongso_user, $soluong_user);
 
           include "view/page-user-list.php";
         }else {
@@ -312,14 +329,40 @@
         if (isset($_POST["search"])) {
           $kyw=$_POST["kyw"];
         }
-        if($status==1) $orderlist=get_order($kyw, $status);
-        elseif($status==2) $orderlist=get_order($kyw, $status);
-        elseif($status==3) $orderlist=get_order($kyw, $status);
-        elseif($status==4) $orderlist=get_order($kyw, $status);
-        elseif($status==5) $orderlist=get_order($kyw, $status);
-        elseif($status==6) $orderlist=get_order($kyw, $status);
-        else $orderlist=get_order_all($kyw);
-        
+        if(!isset($_GET['page'])){
+          $page=1;
+        }else{
+          $page=$_GET['page'];
+        }
+        if($status==1){
+          $orderlist=get_order($kyw, $status);
+          $hienthiother="";
+        } 
+        elseif($status==2) {
+          $orderlist=get_order($kyw, $status);
+          $hienthiother="";
+        }
+        elseif($status==3){
+          $orderlist=get_order($kyw, $status);
+          $hienthiother="";
+        } 
+        elseif($status==4){
+          $orderlist=get_order($kyw, $status);
+          $hienthiother="";
+        } 
+        elseif($status==5){
+          $orderlist=get_order($kyw, $status);
+          $hienthiother="";
+        } 
+        elseif($status==6){
+          $orderlist=get_order($kyw, $status);
+          $hienthiother="";
+        } 
+        else {
+          $orderlist=get_order_all($kyw, $page, 8); 
+          $tongother= get_other_all();
+          $hienthiother= hien_thi_other($tongother, 8);
+        }
         include "view/page-orders.php";
         break;
       case 'orders-detail':
@@ -343,7 +386,14 @@
           if (isset($_POST["search"])) {
             $kyw=$_POST["kyw"];
           }
-          $orderlist=get_order_all($kyw);
+          if(!isset($_GET['page'])){
+            $page=1;
+          }else{
+            $page=$_GET['page'];
+          }
+          $orderlist=get_order_all($kyw, $page, 8); 
+          $tongother= get_other_all();
+          $hienthiother= hien_thi_other($tongother, 8);
           include "view/page-orders.php";
         }else {
           include "view/home.php";
@@ -359,7 +409,14 @@
           if (isset($_POST["search"])) {
             $kyw=$_POST["kyw"];
           }
-          $orderlist=get_order_all($kyw);
+          if(!isset($_GET['page'])){
+            $page=1;
+          }else{
+            $page=$_GET['page'];
+          }
+          $orderlist=get_order_all($kyw, $page, 8); 
+          $tongother= get_other_all();
+          $hienthiother= hien_thi_other($tongother, 8);
           include "view/page-orders.php";
         }else {
           include "view/home.php";
@@ -375,12 +432,19 @@
           if (isset($_POST["search"])) {
             $kyw=$_POST["kyw"];
           }
-          $orderlist=get_order_all($kyw);
+          if(!isset($_GET['page'])){
+            $page=1;
+          }else{
+            $page=$_GET['page'];
+          }
+          $orderlist=get_order_all($kyw, $page, 8); 
+          $tongother= get_other_all();
+          $hienthiother= hien_thi_other($tongother, 8);
           include "view/page-orders.php";
         }else {
           include "view/home.php";
         }
-        break;  
+        break;
       case 'order-complete':
         if(isset($_GET['id']) && $_GET['id'] > 0) {
           $id = $_GET['id'];
@@ -391,7 +455,14 @@
           if (isset($_POST["search"])) {
             $kyw=$_POST["kyw"];
           }
-          $orderlist=get_order_all($kyw);
+          if(!isset($_GET['page'])){
+            $page=1;
+          }else{
+            $page=$_GET['page'];
+          }
+          $orderlist=get_order_all($kyw, $page, 8); 
+          $tongother= get_other_all();
+          $hienthiother= hien_thi_other($tongother, 8);
           include "view/page-orders.php";
         }else {
           include "view/home.php";
@@ -407,7 +478,14 @@
           if (isset($_POST["search"])) {
             $kyw=$_POST["kyw"];
           }
-          $orderlist=get_order_all($kyw);
+          if(!isset($_GET['page'])){
+            $page=1;
+          }else{
+            $page=$_GET['page'];
+          }
+          $orderlist=get_order_all($kyw, $page, 8); 
+          $tongother= get_other_all();
+          $hienthiother= hien_thi_other($tongother, 8);
           include "view/page-orders.php";
         }else {
           include "view/home.php";
@@ -418,7 +496,15 @@
         if (isset($_POST["search"])) {
           $kyw=$_POST["kyw"];
         }
-        $listuser=loadall_user($kyw);
+        if(!isset($_GET['page'])){
+          $page=1;
+        }else{
+          $page=$_GET['page'];
+        }
+        $soluong_user=6;
+        $listuser=loadall_user($kyw, $page, $soluong_user);
+        $tongso_user= get_user_all();
+        $hienthi_user= hien_thi_user($tongso_user, $soluong_user);
         include "view/page-user-list.php";
         break;
       case 'deluser':
@@ -440,7 +526,15 @@
         if (isset($_POST["search"])) {
           $kyw=$_POST["kyw"];
         }
-        $listuser=loadall_user($kyw);
+        if(!isset($_GET['page'])){
+          $page=1;
+        }else{
+          $page=$_GET['page'];
+        }
+        $soluong_user=6;
+        $listuser=loadall_user($kyw, $page, $soluong_user);
+        $tongso_user= get_user_all();
+        $hienthi_user= hien_thi_user($tongso_user, $soluong_user);
         include "view/page-user-list.php";
         break;
       case 'page-blog-list':
@@ -455,7 +549,15 @@
         if (isset($_POST["search"])) {
           $kyw = $_POST["kyw"];
         }
-        $bloglist = get_dsblog($kyw, $idloai, 100);
+        if(!isset($_GET['page'])){
+          $page=1;
+        }else{
+          $page=$_GET['page'];
+        }
+        $soluong_tintuc=6;
+        $bloglist = get_dsblog_admin($kyw, $idloai, $page, $soluong_tintuc);
+        $tong_so_tin_tuc=get_tintuc_all();
+        $hien_thi_tin_tuc=hien_thi_tin_tuc($tong_so_tin_tuc, $soluong_tintuc);
         include "view/page-blog-list.php";
         break;
       case 'addblog':
@@ -482,10 +584,6 @@
           // Chuyển hướng người dùng sau khi thêm tin tức
           header("Location: index.php?pg=page-blog-list");
           exit(); //
-  
-          // //trở về trang dstt
-          // $bloglist = get_dsblog($kyw, $iddm, 100);
-          // include "view/page-blog-list.php";
         } else {
           $tintuclist = dmuc_all();
           include "view/page-add-blog.php";
@@ -509,7 +607,15 @@
           }
         }
         //trở về trang dstt
-        $bloglist = get_dsblog($kyw, $idloai, 100);
+        if(!isset($_GET['page'])){
+          $page=1;
+        }else{
+          $page=$_GET['page'];
+        }
+        $soluong_tintuc=6;
+        $bloglist = get_dsblog_admin($kyw, $idloai, $page, $soluong_tintuc);
+        $tong_so_tin_tuc=get_tintuc_all();
+        $hien_thi_tin_tuc=hien_thi_tin_tuc($tong_so_tin_tuc, $soluong_tintuc);
         include "view/page-blog-list.php";
         break;
       case 'page-update-blog':
@@ -543,7 +649,6 @@
             $old_img = IMG_PATH_ADMIN . $_POST['old_img'];
             if (file_exists($old_img))
               unlink($old_img);
-  
           } else {
             $img = "";
           }
@@ -551,11 +656,27 @@
           blog_update($author, $date, $title, $content, $img, $idloai);
         }
         //trở về trang dstt
-        $bloglist = get_dsblog($kyw, $idloai, 100);
+        if(!isset($_GET['page'])){
+          $page=1;
+        }else{
+          $page=$_GET['page'];
+        }
+        $soluong_tintuc=6;
+        $bloglist = get_dsblog_admin($kyw, $idloai, $page, $soluong_tintuc);
+        $tong_so_tin_tuc=get_tintuc_all();
+        $hien_thi_tin_tuc=hien_thi_tin_tuc($tong_so_tin_tuc, $soluong_tintuc);
         include "view/page-blog-list.php";
         break;
       case 'page-review':
-        $comment_list = comment_select_all();
+        if(!isset($_GET['page'])){
+          $page=1;
+        }else{
+          $page=$_GET['page'];
+        }
+        $soluong_cmt=6;
+        $comment_list = comment_select_all($page, $soluong_cmt);
+        $tongso_cmt= get_cmt_all();
+        $hienthi_cmt= hien_thi_cmt($tongso_cmt, $soluong_cmt);
         include "view/page-review.php";
         break;
       case 'delcomment':
@@ -564,7 +685,15 @@
           comment_delete($id);
         } 
         // Redirect back to comments page
-        $comment_list = comment_select_all();
+        if(!isset($_GET['page'])){
+          $page=1;
+        }else{
+          $page=$_GET['page'];
+        }
+        $soluong_cmt=6;
+        $comment_list = comment_select_all($page, $soluong_cmt);
+        $tongso_cmt= get_cmt_all();
+        $hienthi_cmt= hien_thi_cmt($tongso_cmt, $soluong_cmt);
         include "view/page-review.php";
         break;
       

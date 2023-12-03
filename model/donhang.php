@@ -10,15 +10,33 @@ function get_order_home(){
     return pdo_query($sql);
 }
 
-function get_order_all($kyw) {
+function hien_thi_other($orderlist, $soluongother){
+    $tong_other= count($orderlist);
+    $so_trang_other = ceil($tong_other/$soluongother);
+    $html_stother="";
+    for ($i=1; $i <= $so_trang_other ; $i++){
+        $html_stother .='<li class="page-item active">
+                            <a class="page-link" href="index.php?pg=orders&page='.$i.'">'.$i.'</a>
+                        </li>';
+    }
+    return $html_stother;
+}
+
+function get_order_all($kyw, $page, $soluongother) {
+    $batdau = ($page - 1) * $soluongother;
     $sql = "SELECT * FROM orders WHERE 1";
 
     if ($kyw != "") {
         $sql .= " AND mahd LIKE '%" . $kyw . "%'";
     }
 
-    $sql .= " ORDER BY id";
+    $sql .= " ORDER BY id ASC LIMIT " . $batdau . "," . $soluongother;
 
+    return pdo_query($sql);
+}
+
+function get_other_all(){
+    $sql = " SELECT * FROM orders ORDER BY id ASC ";
     return pdo_query($sql);
 }
 
@@ -37,6 +55,7 @@ function get_order($kyw, $status) {
 
     return pdo_query($sql);
 }
+
 
 function get_orders_by_user($iduser) {
     $sql = "SELECT * FROM orders WHERE iduser = $iduser ORDER BY id DESC";
@@ -58,4 +77,4 @@ function get_status($id){
 function update_status($id, $status) {
     $sql = "UPDATE orders SET status = ? WHERE id = ?";
     pdo_execute($sql, $status, $id);
-}
+}   

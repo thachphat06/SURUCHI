@@ -68,14 +68,15 @@ function user_change_password($rs_pwf, $iduser){
     pdo_execute($sql, $rs_pwf, $iduser);
 }
 
-function loadall_user($kyw) {
+function loadall_user($kyw, $page, $soluong_user) {
+    $batdau = ($page - 1) * $soluong_user;
     $sql = "SELECT * FROM users WHERE 1";
 
     if ($kyw != "") {
         $sql .= " AND username LIKE '%" . $kyw . "%'";
     }
 
-    $sql .= " ORDER BY id";
+    $sql .= " ORDER BY id ASC LIMIT " . $batdau . "," . $soluong_user;
 
     return pdo_query($sql);
 }
@@ -108,3 +109,21 @@ function update_role($id, $role) {
     $sql = "UPDATE users SET role = ? WHERE id = ?";
     pdo_execute($sql, $role, $id);
 }
+
+function hien_thi_user($listuser, $soluong_user){
+    $tong_user = count($listuser);
+    $sotrang_user= ceil($tong_user/ $soluong_user);
+    $html_sotrang_user="";
+    for ($i=1; $i <= $sotrang_user ; $i++){
+        $html_sotrang_user.='<li class="page-item active">
+                                <a class="page-link" href="index.php?pg=user-list&page='.$i.'">'.$i.'</a>
+                            </li>';
+    }
+    return $html_sotrang_user;
+}
+function get_user_all(){
+    $sql = " SELECT * FROM users ORDER BY id ASC ";
+    return pdo_query($sql);
+}
+
+

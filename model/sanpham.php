@@ -46,12 +46,8 @@ function get_dssp($kyw, $iddm, $pg, $sosp){
     }
     if($kyw!=""){
         $sql .=" AND name LIKE '%".$kyw."%'";
-        $sql .=" ORDER BY id ASC ";
-        $sql .=" LIMIT ".$begin.",".$sosp;
     }
-
-    $sql .= " ORDER BY id ASC ";
-    $sql .= " LIMIT ".$begin.",".$sosp;
+    $sql .= " ORDER BY id ASC LIMIT " . $begin . "," . $sosp;
     return pdo_query($sql);
 }
 
@@ -375,36 +371,19 @@ function hien_thi_so_trang($productlist, $soluongsp){
 }
 
 function get_dssp_admin($kyw, $iddm, $page, $soluongsp){
-
-    // if(($page="")||($page=0)) $page=1;
     $batdau = ($page - 1) * $soluongsp;
-
     $sql = "SELECT * FROM product WHERE 1";
+
     if($iddm>0){
         $sql .=" AND iddm=".$iddm;
     }
     if($kyw!=""){
         $sql .=" AND name LIKE '%".$kyw."%'";
-        $sql .=" ORDER BY id ASC ";
-        $sql .=" LIMIT ".$batdau.",".$soluongsp;
     }
 
-    $sql .= " ORDER BY id ASC ";
-    $sql .= " LIMIT ".$batdau.",".$soluongsp;
+    $sql .= " ORDER BY id ASC LIMIT " . $batdau . "," . $soluongsp;
     return pdo_query($sql);
 }
-// function get_dssp_admin($kyw, $iddm, $soluongsp){
-//     $sql = "SELECT * FROM product WHERE 1";
-//     if($iddm>0){
-//         $sql .=" AND iddm=".$iddm;
-//     }
-//     if($kyw!=""){
-//         $sql .=" AND name LIKE '%".$kyw."%'";
-//     }
-
-//     $sql .= " ORDER BY id DESC LIMIT ".$soluongsp;
-//     return pdo_query($sql);
-// }
 
 function get_dssp_all(){
     $sql = " SELECT * FROM product ORDER BY id ASC ";

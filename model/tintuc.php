@@ -35,16 +35,66 @@ function get_blog($limi){
     return pdo_query($sql);
 }
 
-function get_dsblog($kyw, $idloai, $limi){
+function hienthitintuc($dsblog, $so_tintuc){
+    $tongtintuc=count($dsblog);
+    $trangtintuc= ceil($tongtintuc/$so_tintuc);
+    $html_tintuc="";
+    
+    for ($i=1; $i <= $trangtintuc ; $i++) { 
+        $html_tintuc.='<li class="pagination__list">
+                        <a href="index.php?pg=blog&page='.$i.'" class="pagination__item pagination__item--current">'.$i.'</a>
+                    </li>';
+    }
+    return $html_tintuc;
+}
+
+function get_tintuc_all(){
+    $sql = " SELECT * FROM blog ORDER BY id ASC ";
+    return pdo_query($sql);
+}
+
+function get_dsblog($kyw, $idloai, $pg, $so_tintuc){
+    $begin = ($pg - 1) * $so_tintuc;
     $sql = "SELECT * FROM blog WHERE 1";
     if ($idloai > 0) {
         $sql .= " AND idloai=" . $idloai;
     }
     if ($kyw != "") {
         $sql .= " AND name LIKE '%" . $kyw . "%'";
+        $sql .=" ORDER BY id ASC ";
+        $sql .=" LIMIT ".$begin.",".$so_tintuc;
     }
 
-    $sql .= " ORDER BY id ASC LIMIT " . $limi;
+    $sql .=" ORDER BY id ASC ";
+        $sql .=" LIMIT ".$begin.",".$so_tintuc;
+    return pdo_query($sql);
+}
+
+function hien_thi_tin_tuc($bloglist, $soluong_tintuc){
+    $tong_tt=count($bloglist);
+    $so_trang_tin_tuc= ceil($tong_tt/ $soluong_tintuc);
+    $html_sotrang_tintuc="";
+
+    for ($i=1; $i <= $so_trang_tin_tuc ; $i++) {
+        $html_sotrang_tintuc.='<li class="page-item active"><a class="page-link" href="index.php?pg=page-blog-list&page='.$i.'">'.$i.'</a></li>';
+    }
+    return $html_sotrang_tintuc;
+}
+
+function get_dsblog_admin($kyw, $idloai, $page, $soluong_tintuc){
+    $begin = ($page - 1) * $soluong_tintuc;
+    $sql = "SELECT * FROM blog WHERE 1";
+    if ($idloai > 0) {
+        $sql .= " AND idloai=" . $idloai;
+    }
+    if ($kyw != "") {
+        $sql .= " AND name LIKE '%" . $kyw . "%'";
+        $sql .=" ORDER BY id ASC ";
+        $sql .=" LIMIT ".$begin.",".$soluong_tintuc;
+    }
+
+    $sql .=" ORDER BY id ASC ";
+        $sql .=" LIMIT ".$begin.",".$soluong_tintuc;
     return pdo_query($sql);
 }
 

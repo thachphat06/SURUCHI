@@ -63,13 +63,7 @@
     <div class="pagination-area mt-30 mb-50">
         <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-start">                
-                <?php
-                    if (!isset($hienthisotrang)) {
-                        $hienthisotrang = '';
-                    }else{
-                        echo $hienthisotrang;
-                    }
-                ?>
+                <?php echo $hienthisotrang;?>
             </ul>
         </nav>
     </div>

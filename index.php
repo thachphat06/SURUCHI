@@ -456,7 +456,15 @@
           $kyw=$_POST["kyw"];
           $titlepage="Kết quả tìm kiếm với từ khóa: ".$kyw;
         }
-        $dsblog=get_dsblog($kyw, $idloai, 16);  
+        if(!isset($_GET['page'])){
+          $pg=1;
+        }else{
+          $pg=$_GET['page'];
+        }
+        $so_tintuc=4;
+        $dsblog=get_dsblog($kyw, $idloai, $pg, $so_tintuc);
+        $tong_tintuc= get_tintuc_all();
+        $hienthitintuc=hienthitintuc($tong_tintuc, $so_tintuc);
         include "view/blog.php";
         break;
       case 'blog-detail':
