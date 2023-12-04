@@ -215,7 +215,7 @@
                                     </span>
                                 </li>
                             </ul>
-                            <span class="product__items--rating__count--number">(24)</span>
+                            <span class="product__items--rating__count--number">(<?=$total_comments;?>)</span>
                         </div>
                         <p class="product__details--info__desc mb-15"><?=$describe1?></p>
                         <form action="index.php?pg=addcart" method="post" class="product__variant">

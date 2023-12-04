@@ -81,8 +81,8 @@ function loadall_user($kyw, $page, $soluong_user) {
     return pdo_query($sql);
 }
 
-function load_user_role(){
-    $sql = "SELECT * FROM users WHERE role = 1 ORDER BY id DESC";
+function load_user($limi){
+    $sql = "SELECT * FROM users ORDER BY id DESC limit ".$limi;
     $userlist = pdo_query($sql);
     return $userlist;
 } 

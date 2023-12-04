@@ -2,43 +2,63 @@
     $revenue=0;
     $count_order=0;
     $total_products = 0;
+    $total_users = 0;
     foreach ($orderlist as $order) {
-        extract($order);
-        if($status==4){
-            $revenue += $total;
+        if($order['status']==4){
+            $revenue += $order['total'];
         }
-        if($status == 1 || $status == 2){
+        if($order['status'] == 1 || $order['status'] == 2){
             $count_order++;
         }
     }
+    $html_order='';
+    foreach ($orderlimit as $item) {
+        if($item['status']==1) $tt='<span class="badge rounded-pill alert-warning">Pending</span>';
+        if($item['status']==2) $tt='<span class="badge rounded-pill alert-success">Confirm</span>';
+        if($item['status']==3) $tt='<span class="badge rounded-pill alert-success">Delivering</span>';
+        if($item['status']==4) $tt='<span class="badge rounded-pill alert-success">Complete</span>';
+        if($item['status']==5) $tt='<span class="badge rounded-pill alert-warning">Delivery failed</span>';
+        if($item['status']==6) $tt='<span class="badge rounded-pill alert-danger">Cancelled</span>';
+        $html_order.='<tr>
+                        <td width="20%">#'.$item['mahd'].'</td>
+                        <td width="30%"><b>'.$item['nguoidat_ten'].'</b></td>
+                        <td width="20%">'.number_format($item['tongthanhtoan'],0,",",".").'VNĐ</td>
+                        <td>'.$tt.'</td>
+                        <td class="text-end">'.$item['date'].'</td>
+                    </tr> ';
+    }
 
     foreach ($count_product as $item) {
-        extract($item);
         $total_products += 1;
     }
 
-    $html_userlist = '';
-    $count = 0;
+    foreach ($count_user as $item) {
+        $total_users += 1;
+    }
 
+    $html_userlist = '';
     foreach ($userlist as $item) {
         extract($item);
-
-        $html_userlist .= '<div class="d-flex align-items-center justify-content-between mb-4">
-                                <div class="d-flex align-items-center">
-                                    <img src="../uploads/'.$img.'" alt="" class="avatar">
-                                    <div>
-                                        <h6>'.$name.'</h6>
+        $html_userlist .= '<tr>
+                            <td width="25%">
+                                <a href="#" class="itemside">
+                                    <div class="left">
+                                        <img src="../uploads/'.$img.'" class="img-sm img-avatar" alt="Userpic">
                                     </div>
-                                </div>
-                            </div>';
-
-        // Tăng biến đếm sau mỗi lần lặp
-        $count++;
-
-        // Kiểm tra nếu biến đếm đạt đến 3, thoát khỏi vòng lặp
-        if ($count === 6) {
-            break;
-        }
+                                    <div class="info pl-3">
+                                        <h6 class="mb-0 title">'.$username.'</h6>
+                                        <small class="text-muted">'.$name.'</small>
+                                        <small class="text-muted">Seller ID: #'.$id.'</small>
+                                    </div>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="mailto:'.$email.'" class="__cf_email__">'.$email.'</a>
+                            </td>
+                            <td><span class="badge rounded-pill alert-success">'.$sdt.'</span></td>
+                            <td width="30%">'.$address.'</td>
+                        </tr>';
+        
     }
 ?>
 
@@ -93,154 +113,61 @@
         <div class="col-lg-3">
             <div class="card card-body mb-4">
                 <article class="icontext">
-                    <span class="icon icon-sm rounded-circle bg-info-light"><i class="text-info material-icons md-shopping_basket"></i></span>
+                    <span class="icon icon-sm rounded-circle bg-info-light"><i class="text-info material-icons md-person"></i></span>
                     <div class="text">
-                        <h6 class="mb-1 card-title">Thu nhập hàng tháng</h6> <span><?=number_format($revenue,0,",",".")?> VNĐ</span>
-                        <span class="text-sm">
-                            Dựa trên giờ địa phương của bạn.
-                        </span>
+                        <h6 class="mb-1 card-title">Số người dùng</h6> <span><?=$total_users?></span>
                     </div>
                 </article>
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-xl-8 col-lg-12">
-            <div class="card mb-4">
-                <article class="card-body">
-                    <h5 class="card-title">Thống kê bán hàng</h5>
-                    <canvas id="myChart" height="120px"></canvas>
-                </article>
-            </div>
-            <div class="row">
-                <div class="col-lg-5">
-                    <div class="card mb-4">
-                        <article class="card-body">
-                            <h5 class="card-title">Thành viên mới</h5>
-                            <div class="new-member-list">
-                                <?=$html_userlist;?>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-                <div class="col-lg-7">
-                    <div class="card mb-4">
-                        <article class="card-body">
-                            <h5 class="card-title">Hoạt động gần đây</h5>
-                            <ul class="verti-timeline list-unstyled font-sm">
-                                <li class="event-list">
-                                    <div class="event-timeline-dot">
-                                        <i class="material-icons md-play_circle_outline font-xxl"></i>
-                                    </div>
-                                    <div class="media">
-                                        <div class="me-3">
-                                            <h6><span>Today</span> <i class="material-icons md-trending_flat text-brand ml-15 d-inline-block"></i></h6>
-                                        </div>
-                                        <div class="media-body">
-                                            <div>
-                                                Lorem ipsum dolor sit amet consectetur
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="event-list active">
-                                    <div class="event-timeline-dot">
-                                        <i class="material-icons md-play_circle_outline font-xxl animation-fade-right"></i>
-                                    </div>
-                                    <div class="media">
-                                        <div class="me-3">
-                                            <h6><span>17 May</span> <i class="material-icons md-trending_flat text-brand ml-15 d-inline-block"></i></h6>
-                                        </div>
-                                        <div class="media-body">
-                                            <div>
-                                                Debitis nesciunt voluptatum dicta reprehenderit
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="event-list">
-                                    <div class="event-timeline-dot">
-                                        <i class="material-icons md-play_circle_outline font-xxl"></i>
-                                    </div>
-                                    <div class="media">
-                                        <div class="me-3">
-                                            <h6><span>13 May</span> <i class="material-icons md-trending_flat text-brand ml-15 d-inline-block"></i></h6>
-                                        </div>
-                                        <div class="media-body">
-                                            <div>
-                                                Accusamus voluptatibus voluptas.
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="event-list">
-                                    <div class="event-timeline-dot">
-                                        <i class="material-icons md-play_circle_outline font-xxl"></i>
-                                    </div>
-                                    <div class="media">
-                                        <div class="me-3">
-                                            <h6><span>05 April</span> <i class="material-icons md-trending_flat text-brand ml-15 d-inline-block"></i></h6>
-                                        </div>
-                                        <div class="media-body">
-                                            <div>
-                                                At vero eos et accusamus et iusto odio dignissi
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="event-list">
-                                    <div class="event-timeline-dot">
-                                        <i class="material-icons md-play_circle_outline font-xxl"></i>
-                                    </div>
-                                    <div class="media">
-                                        <div class="me-3">
-                                            <h6><span>26 Mar</span> <i class="material-icons md-trending_flat text-brand ml-15 d-inline-block"></i></h6>
-                                        </div>
-                                        <div class="media-body">
-                                            <div>
-                                                Responded to need “Volunteer Activities
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </article>
-                    </div>
-                </div>
+    <div class="card mb-4">
+        <header class="card-header">
+            <h4 class="card-title">Người dùng mới </h4>
+        </header>
+        <!-- card-header end// -->
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Tài Khoản</th>
+                            <th>Email</th>
+                            <th>SDT</th>
+                            <th>Địa Chỉ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?=$html_userlist;?>
+                    </tbody>
+                </table>
+                <!-- table-responsive.// -->
             </div>
         </div>
-        <div class="col-xl-4 col-lg-12">
-            <div class="card mb-4">
-                <article class="card-body">
-                    <h5 class="card-title">Cơ sở doanh thu theo khu vực</h5>
-                    <canvas id="myChart2" height="217"></canvas>
-                </article>
+        <!-- card-body end// -->
+    </div>
+    <div class="card mb-4">
+        <header class="card-header">
+            <h4 class="card-title">Đơn hàng mới nhất</h4>
+        </header>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Tên Khách Hàng</th>
+                            <th>Tổng Tiền</th>
+                            <th>Trạng Thái</th>
+                            <th>Ngày Đặt Hàng</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?=$html_order;?>
+                    </tbody>
+                </table>
             </div>
-            <div class="card mb-4">
-                <article class="card-body">
-                    <h5 class="card-title">Kênh tiếp thị</h5>
-                    <span class="text-muted font-xs">Facebook</span>
-                    <div class="progress mb-3">
-                        <div class="progress-bar" role="progressbar" style="width: 15%">15%</div>
-                    </div>
-                    <span class="text-muted font-xs">Instagram</span>
-                    <div class="progress mb-3">
-                        <div class="progress-bar" role="progressbar" style="width: 65%">65% </div>
-                    </div>
-                    <span class="text-muted font-xs">Google</span>
-                    <div class="progress mb-3">
-                        <div class="progress-bar" role="progressbar" style="width: 51%"> 51% </div>
-                    </div>
-                    <span class="text-muted font-xs">Twitter</span>
-                    <div class="progress mb-3">
-                        <div class="progress-bar" role="progressbar" style="width: 80%"> 80%</div>
-                    </div>
-                    <span class="text-muted font-xs">Other</span>
-                    <div class="progress mb-3">
-                        <div class="progress-bar" role="progressbar" style="width: 80%"> 80%</div>
-                    </div>
-                </article>
-            </div>
+            <!-- table-responsive //end -->
         </div>
     </div>
 </section>

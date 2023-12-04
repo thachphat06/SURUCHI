@@ -60,7 +60,7 @@
                         <li class="account__menu--list"><a href="index.php?pg=logout">Đăng xuất</a></li>
                         <?php 
                             if($role==1){
-                                echo '<li class="account__menu--list"><a href="admin/index.php">Dành cho Admin</a></li>';
+                                echo '<li class="account__menu--list"><a href="admin/index.php" target="_blank">Dành cho Admin</a></li>';
                             }
                         ?>
                     </ul>

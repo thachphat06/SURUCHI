@@ -26,9 +26,11 @@
   include "view/header.php";
   if(!isset($_GET['pg'])){
     $orderlist=get_order_home();
+    $orderlimit=get_order_limi(5);
     $count_product=product_all();
+    $count_user=get_user_all();
     
-    $userlist=load_user_role();
+    $userlist=load_user(5);
     include "view/home.php";
   }else{
     switch ($_GET['pg']){

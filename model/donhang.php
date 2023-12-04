@@ -5,6 +5,11 @@ function order_insert_id($mahd, $iduser, $nguoidat_ten, $nguoidat_email, $nguoid
     return pdo_execute_id($sql, $mahd, $iduser, $nguoidat_ten, $nguoidat_email, $nguoidat_tel, $nguoidat_diachi, $note, $total, $ship, $voucher, $tongthanhtoan, $pttt, $date, $time);
 }
 
+function get_order_limi($limi){
+    $sql = "SELECT * FROM orders ORDER BY id DESC limit ".$limi;
+    return pdo_query($sql);
+}
+
 function get_order_home(){
     $sql = "SELECT * FROM orders ORDER BY id";
     return pdo_query($sql);
