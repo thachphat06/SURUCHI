@@ -970,3 +970,15 @@ function resetStarRating() {
     });
 }
 });
+
+//Chặn e - + cho input number
+document.addEventListener('DOMContentLoaded', function () {
+  var inputNumber = document.querySelector('.form-input-number');
+
+  inputNumber.addEventListener('keydown', function (e) {
+      var key = e.key;
+      if (key === 'e' || key === 'E' || key === '-' || key === '+') {
+          e.preventDefault();
+      }
+  });
+});

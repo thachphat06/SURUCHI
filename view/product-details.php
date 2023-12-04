@@ -227,7 +227,7 @@
                                 <div class="quantity__box">
                                     <button type="button" class="quantity__value quickview__value--quantity decrease" aria-label="quantity value" value="Decrease Value">-</button>
                                     <label>
-                                        <input type="number" class="quantity__number quickview__value--number" name="amount" min="1" value="1" data-counter/>
+                                        <input type="number" class="quantity__number quickview__value--number form-input-number" name="amount" min="1" max="50" value="1" data-counter/>
                                     </label>
                                     <button type="button" class="quantity__value quickview__value--quantity increase" aria-label="quantity value" value="Increase Value">+</button>
                                 </div>

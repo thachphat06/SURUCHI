@@ -57,7 +57,7 @@
                                     <div class="quantity__box minicart__quantity">
                                         <button type="button"  class="quantity__value decrease" aria-label="quantity value" value="Decrease Value">-</button>
                                         <label>
-                                            <input type="number" class="quantity__number" min="1" value="'.$amount.'" data-counter />
+                                            <input type="number" class="quantity__number form-input-number" min="1" max="50" value="'.$amount.'" data-counter />
                                         </label>
                                         <button type="button" class="quantity__value increase"  value="Increase Value">+</button>
                                     </div>
