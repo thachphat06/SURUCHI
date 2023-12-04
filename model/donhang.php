@@ -5,10 +5,57 @@ function order_insert_id($mahd, $iduser, $nguoidat_ten, $nguoidat_email, $nguoid
     return pdo_execute_id($sql, $mahd, $iduser, $nguoidat_ten, $nguoidat_email, $nguoidat_tel, $nguoidat_diachi, $note, $total, $ship, $voucher, $tongthanhtoan, $pttt, $date, $time);
 }
 
-function get_order(){
+function get_order_home(){
     $sql = "SELECT * FROM orders ORDER BY id";
     return pdo_query($sql);
 }
+
+function hien_thi_other($orderlist, $soluongother){
+    $tong_other= count($orderlist);
+    $so_trang_other = ceil($tong_other/$soluongother);
+    $html_stother="";
+    for ($i=1; $i <= $so_trang_other ; $i++){
+        $html_stother .='<li class="page-item active">
+                            <a class="page-link" href="index.php?pg=orders&page='.$i.'">'.$i.'</a>
+                        </li>';
+    }
+    return $html_stother;
+}
+
+function get_order_all($kyw, $page, $soluongother) {
+    $batdau = ($page - 1) * $soluongother;
+    $sql = "SELECT * FROM orders WHERE 1";
+
+    if ($kyw != "") {
+        $sql .= " AND mahd LIKE '%" . $kyw . "%'";
+    }
+
+    $sql .= " ORDER BY id ASC LIMIT " . $batdau . "," . $soluongother;
+
+    return pdo_query($sql);
+}
+
+function get_other_all(){
+    $sql = " SELECT * FROM orders ORDER BY id ASC ";
+    return pdo_query($sql);
+}
+
+function get_order($kyw, $status) {
+    $sql = "SELECT * FROM orders WHERE 1";
+
+    if ($kyw != "") {
+        $sql .= " AND mahd LIKE '%" . $kyw . "%'";
+    }
+
+    if ($status !== null) {
+        $sql .= " AND status = " . $status;
+    }
+
+    $sql .= " ORDER BY id";
+
+    return pdo_query($sql);
+}
+
 
 function get_orders_by_user($iduser) {
     $sql = "SELECT * FROM orders WHERE iduser = $iduser ORDER BY id DESC";
@@ -27,13 +74,7 @@ function get_status($id){
     return $kq["status"];
 }
 
-// function get_status($id){
-//     $sql = "SELECT status FROM orders WHERE id=".$id;
-//     return pdo_query($sql);
-// }
-
 function update_status($id, $status) {
     $sql = "UPDATE orders SET status = ? WHERE id = ?";
     pdo_execute($sql, $status, $id);
-}
-
+}   

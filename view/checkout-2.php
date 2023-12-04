@@ -118,60 +118,59 @@
                     </details>
                 </header>
                 <main class="main__content_wrapper">
-                    <form action="#">
-                        <div class="checkout__content--step section__shipping--address pt-0">
-                            <div class="section__header checkout__header--style3 position__relative mb-25">
-                                <span class="checkout__order--number">Đơn hàng: <b><?=(isset($_GET['mahd']))?$_GET['mahd']:"";?></b></span>
-                                <h2 class="section__header--title h3">Cảm ơn bạn đã gửi</h2>
-                                <div class="checkout__submission--icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="25.995" height="25.979" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M416 128L192 384l-96-96"/></svg>
-                                </div>
+                    <div class="checkout__content--step section__shipping--address pt-0">
+                        <div class="section__header checkout__header--style3 position__relative mb-25">
+                            <span class="checkout__order--number">Đơn hàng: <b><?=(isset($_GET['mahd']))?$_GET['mahd']:"";?></b></span>
+                            <h2 class="section__header--title h3">Cảm ơn bạn đã gửi</h2>
+                            <div class="checkout__submission--icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25.995" height="25.979" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M416 128L192 384l-96-96"/></svg>
                             </div>
-                            <div class="order__confirmed--area border-radius-5 mb-15">
-                                <h3 class="order__confirmed--title h4">Đơn hàng của bạn đã được xác nhận</h3>
-                                <p class="order__confirmed--desc">Bạn sẽ sớm nhận được email xác nhận kèm theo số đơn đặt hàng của bạn</p>
-                            </div>
-                            <div class="customer__information--area border-radius-5">
-                                <h3 class="customer__information--title h4">Thông tin khách hàng</h3>
-                                <div class="customer__information--inner d-flex">
-                                    <div class="customer__information--list">
-                                        <div class="customer__information--step">
-                                            <h4 class="customer__information--subtitle h5">Thông tin liên lạc</h4>
-                                            <ul>
-                                              <li><a class="customer__information--text__link" href="#">Họ Tên:<?=$customer_info['name']?> </a></li>
-                                              <li><a class="customer__information--text__link" href="#">Email: <?=$customer_info['email']?></a></li>
-                                              <li><a class="customer__information--text__link" href="#">SĐT: <?=$customer_info['sdt']?></a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="customer__information--step">
-                                            <h4 class="customer__information--subtitle h5">Địa chỉ giao hàng</h4>
-                                            <ul>
-                                              <li><span class="customer__information--text"><?=$customer_info['address']?></span></li>
-                                            </ul>
-                                        </div>
-                                        <div class="customer__information--step">
-                                            <h4 class="customer__information--subtitle h5">Phương pháp vận chuyển</h4>
-                                            <ul>
-                                                <li><span class="customer__information--text">Giao hàng nhanh</span></li>
-                                            </ul>
-                                        </div>
+                        </div>
+                        <div class="order__confirmed--area border-radius-5 mb-15">
+                            <h3 class="order__confirmed--title h4">Đơn hàng của bạn đã được xác nhận</h3>
+                            <p class="order__confirmed--desc">Bạn sẽ sớm nhận được email xác nhận kèm theo số đơn đặt hàng của bạn</p>
+                        </div>
+                        <div class="customer__information--area border-radius-5">
+                            <h3 class="customer__information--title h4">Thông tin khách hàng</h3>
+                            <div class="customer__information--inner d-flex">
+                                <div class="customer__information--list">
+                                    <div class="customer__information--step">
+                                        <h4 class="customer__information--subtitle h5">Thông tin liên lạc</h4>
+                                        <ul>
+                                            <li><a class="customer__information--text__link" href="#">Họ Tên:<?=$customer_info['name']?> </a></li>
+                                            <li><a class="customer__information--text__link" href="#">Email: <?=$customer_info['email']?></a></li>
+                                            <li><a class="customer__information--text__link" href="#">SĐT: <?=$customer_info['sdt']?></a></li>
+                                        </ul>
                                     </div>
-                                    <div class="customer__information--list">
-                                        <div class="customer__information--step">
-                                            <h4 class="customer__information--subtitle h5">Phương thức thanh toán</h4>
-                                            <ul>
-                                                <li><span class="customer__information--text"><?=$tbpt;?></span></li>
-                                            </ul>
-                                        </div>
+                                    <div class="customer__information--step">
+                                        <h4 class="customer__information--subtitle h5">Địa chỉ giao hàng</h4>
+                                        <ul>
+                                            <li><span class="customer__information--text"><?=$customer_info['address']?></span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="customer__information--step">
+                                        <h4 class="customer__information--subtitle h5">Phương pháp vận chuyển</h4>
+                                        <ul>
+                                            <li><span class="customer__information--text">Giao hàng nhanh</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="customer__information--list">
+                                    <div class="customer__information--step">
+                                        <h4 class="customer__information--subtitle h5">Phương thức thanh toán</h4>
+                                        <ul>
+                                            <li><span class="customer__information--text"><?=$tbpt;?></span></li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="checkout__content--step__footer d-flex align-items-center">
-                          <a class="previous__link--content" href="index.php?pg=shop">Tiếp tục mua sắm</a>
-                          <a class="previous__link--content" href="index.php?pg=my-account-3">Lịch sử mua hàng</a>
-                        </div>
-                    </form>
+                    </div>
+                    <div class="checkout__content--step__footer d-flex align-items-center">
+                        <a class="continue__shipping--btn primary__btn border-radius-5" href="index.php?pg=shop">Tiếp tục mua sắm</a>
+                        <a class="previous__link--content" href="index.php?pg=my-account-3">Lịch sử mua hàng</a>
+                        <button id="download-pdf" class="continue__shipping--btn primary__btn border-radius-5" style="margin-left: 185px">Xuất hóa đơn</button>
+                    </div>
                 </main>
                 <footer class="main__footer checkout__footer">
                     <p class="copyright__content">Bản quyền © 2023 <a class="copyright__content--link text__primary" href="index.php">Suruchi</a> . Đã đăng ký Bản quyền.Thiết kế bởi Suruchi</p>
@@ -210,3 +209,25 @@
     </div>
 </div>
 <!-- End checkout page area -->
+
+<script src="https://rawgit.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
+
+<script>
+    document.getElementById('download-pdf').addEventListener('click', function () {
+        var element = document.querySelector('.container');
+        
+        // Tạo tùy chọn cho quá trình chuyển đổi sang PDF
+        var options = {
+            margin: 10,
+            filename: 'don-hang.pdf',
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { scale: 1 },
+            jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+            // Đặt vị trí bắt đầu in
+            y: 0
+        };
+
+        // Gọi hàm html2pdf và tạo file PDF
+        html2pdf(element, options);
+    });
+</script>

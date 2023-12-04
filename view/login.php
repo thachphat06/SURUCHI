@@ -1,4 +1,4 @@
-<main class="main__content_wrapper">
+<main class="main__content_wrapper">  
     <!-- Start breadcrumb section -->
     <section class="breadcrumb__section breadcrumb__bg">
         <div class="container">
@@ -46,7 +46,7 @@
                                             <span class="checkout__checkbox--checkmark"></span>
                                             <label class="checkout__checkbox--label login__remember--label" for="check1">Ghi nhớ mật khẩu</label>
                                         </div>
-                                        <a class="account__login--forgot" href="#">Quên mật khẩu</a>
+                                        <a class="account__login--forgot" href="index.php?pg=forgot-password">Quên mật khẩu</a>
                                     </div>
                                     <button class="account__login--btn primary__btn" name="login" type="submit">Đăng Nhập</button>
                                     <div class="account__login--divide">
@@ -74,7 +74,7 @@
                                     <input class="account__login--input" name="email" placeholder="Email của bạn" type="text">
                                     <input class="account__login--input" name="password" placeholder="Mật khẩu" type="password">
                                     <input class="account__login--input" name="repassword" placeholder="Xác nhận mật khẩu" type="password">
-                                    <?=$tbdk;?><br>
+                                    <span style="color: red;"><?=$tbdk;?></span><br>
                                     <button class="account__login--btn primary__btn mb-10" name="register" type="submit">Đăng Ký</button>
                                     <div class="account__login--remember position__relative">
                                         <input class="checkout__checkbox--input" id="check2" type="checkbox">
@@ -84,11 +84,10 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
-            
         </div>     
     </div>
     <!-- End login section  -->
@@ -137,5 +136,7 @@
         </div>
     </section>
     <!-- End shipping section -->
-
 </main>
+<script>
+
+</script>

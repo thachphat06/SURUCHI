@@ -1,22 +1,15 @@
 <?php
     extract($spchitiet);
-    $imgpro=$img;
+    // die(print_r($spchitiet, true));
     $html_dssp_lienquan=showsp_slide($splienquan);
     
     if (isset($_GET['idpro'])) {
         $idpro = $_GET['idpro'];
     }
-    if(isset($_SESSION['s_user'])) {
-        $iduser = $_SESSION['s_user']['id'];
-    }
-
-    $total_comments = count_comments($iduser, $idpro);
+    
+    $total_comments = count_comments_by_idpro($idpro);
     $html_dsbl = "";
     foreach ($commentlist as $item) {
-        $imguser = $item['img'];
-        $nameuser = $item['name'];
-        extract($item);
-
         // Khởi tạo lại chuỗi HTML cho đánh giá sao
         $html_rating = '<ul class="rating d-flex" data-commentid="'.$item['id'].'">';
         for ($i = 1; $i <= 5; $i++) {
@@ -32,12 +25,12 @@
         $html_rating .= '</ul>';
         $html_dsbl .= '<div class="reviews__comment--list d-flex">
                             <div class="reviews__comment--thumb">
-                                <img src="./uploads/'.$imguser.'" alt="comment-thumb">
+                                <img src="./uploads/'.$item['img'].'" alt="comment-thumb">
                             </div>
                             <div class="reviews__comment--content">
                                 <div class="reviews__comment--top d-flex justify-content-between">
                                     <div class="reviews__comment--top__left">
-                                        <h3 class="reviews__comment--content__title h4">'.$nameuser.'</h3>
+                                        <h3 class="reviews__comment--content__title h4">'.$item['name'].'</h3>
                                         '.$html_rating.'
                                     </div>
                                     <span class="reviews__comment--content__date">'.$item['date'].'</span>
@@ -78,9 +71,9 @@
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
                                     <div class="product__media--preview__items">
-                                        <a class="product__media--preview__items--link glightbox" data-gallery="product-media-preview" href="./uploads/<?=$imgpro?>"><img class="product__media--preview__items--img" src="./uploads/<?=$imgpro?>" alt="product-media-img"></a>
+                                        <a class="product__media--preview__items--link glightbox" data-gallery="product-media-preview" href="./uploads/<?=$img?>"><img class="product__media--preview__items--img" src="./uploads/<?=$img?>" alt="product-media-img"></a>
                                         <div class="product__media--view__icon">
-                                            <a class="product__media--view__icon--link glightbox" href="./uploads/<?=$imgpro?>" data-gallery="product-media-preview">
+                                            <a class="product__media--view__icon--link glightbox" href="./uploads/<?=$img?>" data-gallery="product-media-preview">
                                                 <svg class="product__media--view__icon--svg" xmlns="http://www.w3.org/2000/svg" width="22.51" height="22.443" viewBox="0 0 512 512"><path d="M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"></path><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M338.29 338.29L448 448"></path></svg>
                                             </a>
                                         </div>

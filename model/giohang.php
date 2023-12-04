@@ -1,20 +1,16 @@
 <?php
     require_once 'pdo.php';
 
-function cart_insert($idpro , $price, $name, $img, $soluong, $thanhtien, $idbill ){
+function cart_insert($idpro, $price, $name, $img, $soluong, $thanhtien, $idbill ){
     $sql = "INSERT INTO cart(idpro, price, name, img, soluong, thanhtien, idbill) VALUES (?, ?, ?, ?, ?, ?, ?)";
-    pdo_execute($sql, $idpro , $price, $name, $img, $soluong, $thanhtien, $idbill);
+    pdo_execute($sql,$idpro, $price, $name, $img, $soluong, $thanhtien, $idbill);
 }
 
-// function get_tongdonhang(){
-//     $sum=0;
-//     foreach ($_SESSION['giohang'] as $sp) {
-//         extract($sp);
-//         $tt= (int)$price* (int)$amount;
-//         $sum += $stt;
-//     }
-//     return $sum;
-// }
+function update_quantity_product($idpro, $soluong){
+    $sql = "UPDATE cart SET soluong=? WHERE id=?";
+    pdo_execute($sql, $soluong, $idpro);
+}
+
 function get_tongdonhang() {
     // Ghi code để tính tổng đơn hàng của bạn ở đây
     // Ví dụ:

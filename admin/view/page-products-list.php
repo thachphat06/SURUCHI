@@ -8,9 +8,7 @@
             $se="";
         }
         $link='index.php?pg=products-list&iddm='.$id;
-        $html_dm.='<li class="widget__categories--menu__list">
-                        <option value="'.$link.'" '.$se.'>'.$name.'</option>
-                    </li>';
+        $html_dm.='<option value="'.$link.'" '.$se.'>'.$name.'</option>';
     } 
     $html_productlist=showsp_admin($productlist);
 ?>
@@ -64,28 +62,9 @@
     <!-- card en    d// -->
     <div class="pagination-area mt-30 mb-50">
         <nav aria-label="Page navigation example">
-            <ul class="pagination justify-content-start">
-                <li class="page-item active"><a class="page-link" href="#">01</a></li>
-                <li class="page-item"><a class="page-link" href="#">02</a></li>
-                <li class="page-item"><a class="page-link" href="#">03</a></li>
-                <li class="page-item"><a class="page-link dot" href="#">...</a></li>
-                <li class="page-item"><a class="page-link" href="#">16</a></li>
-                <li class="page-item"><a class="page-link" href="#"><i class="material-icons md-chevron_right"></i></a></li>
+            <ul class="pagination justify-content-start">                
+                <?php echo $hienthisotrang;?>
             </ul>
         </nav>
     </div>
 </section>
-
-<script>
-    // Lấy phần tử select
-    var select = document.getElementById("mySelect");
-
-    // Thêm sự kiện onchange để mở liên kết khi chọn một option
-    select.addEventListener("change", function () {
-        // Lấy giá trị của option được chọn
-        var selectedValue = select.value;
-
-        // Chuyển hướng trang
-        window.location.href = selectedValue;
-    });
-</script>

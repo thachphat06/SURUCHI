@@ -1,22 +1,34 @@
 <?php
   session_start();
   ob_start();
-  if(isset($_SESSION['s_user'])&&(is_array($_SESSION['s_user']))&&(count($_SESSION['s_user'])>0)) {
-      $admin=$_SESSION['s_user'];
-  } else{
+  if(isset($_SESSION['s_user']) && is_array($_SESSION['s_user']) && count($_SESSION['s_user']) > 0) {
+    $admin = $_SESSION['s_user'];
+    if(isset($admin['role']) && $admin['role'] == 1) {
+        // Người dùng có role == 1, cho phép truy cập
+    } else {
+        header('location: login.php');
+        exit();
+    }
+  } else {
       header('location: login.php');
+      exit();
   }
   include "../model/sanpham.php";
   include "../model/danhmuc.php";
   include "../model/donhang.php";
   include "../model/giohang.php";
   include "../model/user.php";
+  include "../model/tintuc.php";
+  include "../model/dmuc-tintuc.php";
   include "../model/global.php";
+  include "../model/binhluan.php";
 
   include "view/header.php";
   if(!isset($_GET['pg'])){
-    $orderlist=get_order();
+    $orderlist=get_order_home();
     $count_product=product_all();
+    
+    $userlist=load_user_role();
     include "view/home.php";
   }else{
     switch ($_GET['pg']){
@@ -25,19 +37,43 @@
           $id = $_GET['id'];
 
           update_role($id, 1);
-          
-          $listuser=loadall_user();
+          $kyw="";
+          if (isset($_POST["search"])) {
+            $kyw=$_POST["kyw"];
+          }
+          if(!isset($_GET['page'])){
+            $page=1;
+          }else{
+            $page=$_GET['page'];
+          }
+          $soluong_user=4;
+          $listuser=loadall_user($kyw, $page, $soluong_user);
+          $tongso_user= get_user_all();
+          $hienthi_user= hien_thi_user($tongso_user, $soluong_user);
           include "view/page-user-list.php";
         }else {
           include "view/home.php";
         }
         break;
+
       case 'abort-role':
         if(isset($_GET['id']) && $_GET['id'] > 0) {
           $id = $_GET['id'];
 
           update_role($id, 0);
-          $listuser=loadall_user();
+          $kyw="";
+          if (isset($_POST["search"])) {
+            $kyw=$_POST["kyw"];
+          }
+          if(!isset($_GET['page'])){
+            $page=1;
+          }else{
+            $page=$_GET['page'];
+          }
+          $soluong_user=4;
+          $listuser=loadall_user($kyw, $page, $soluong_user);
+          $tongso_user= get_user_all();
+          $hienthi_user= hien_thi_user($tongso_user, $soluong_user);
 
           include "view/page-user-list.php";
         }else {
@@ -56,7 +92,16 @@
         if (isset($_POST["search"])) {
           $kyw=$_POST["kyw"];
         }
-        $productlist=get_dssp_admin($kyw, $iddm, 100); 
+        if(!isset($_GET['page'])){
+          $page=1;
+        }else{
+          $page=$_GET['page'];
+        }
+        $soluongsp=8;
+
+        $productlist=get_dssp_admin($kyw, $iddm, $page, $soluongsp); 
+        $tongsosp=get_dssp_all();
+        $hienthisotrang=hien_thi_so_trang($tongsosp, $soluongsp);
         include "view/page-products-list.php";
         break;
       case 'updateproduct':
@@ -109,7 +154,10 @@
         }
 
         //show dssp
-        $productlist=get_dssp_admin($kyw, $iddm, 100); 
+        $soluongsp = 8;
+        $productlist = get_dssp_admin($kyw, $iddm, 1, $soluongsp);
+        $tongsosp=get_dssp_all();
+        $hienthisotrang=hien_thi_so_trang($tongsosp, $soluongsp);
         include "view/page-products-list.php";
         break;
       case 'page-add-product':
@@ -143,7 +191,10 @@
           }
         }  
         //trở về trang dssp
-        $productlist=get_dssp_admin($kyw, $iddm, 100); 
+        $soluongsp = 8;
+        $productlist = get_dssp_admin($kyw, $iddm, 1, $soluongsp);
+        $tongsosp=get_dssp_all();
+        $hienthisotrang=hien_thi_so_trang($tongsosp, $soluongsp);
         include "view/page-products-list.php";
         break;
       case 'addproduct':
@@ -184,7 +235,10 @@
           sanpham_insert($name, $img, $price, $old_price, $describe1, $describe2, $bestseller, $hot, $new, $iddm);
 
           //trở về trang dssp
-          $productlist=get_dssp_admin($kyw, $iddm, 100); 
+          $soluongsp = 8;
+          $productlist = get_dssp_admin($kyw, $iddm, 1, $soluongsp);
+          $tongsosp=get_dssp_all();
+          $hienthisotrang=hien_thi_so_trang($tongsosp, $soluongsp);
           include "view/page-products-list.php";
         } else {
           $categorylist=danhmuc_all();
@@ -266,7 +320,49 @@
         include "view/page-update-dm.php";
         break;
       case 'orders':
-        $orderlist=get_order();
+        if(!isset($_GET['status'])){
+          $status=0;
+        }else{
+          $status=$_GET['status'];
+        }
+        $kyw="";
+        if (isset($_POST["search"])) {
+          $kyw=$_POST["kyw"];
+        }
+        if(!isset($_GET['page'])){
+          $page=1;
+        }else{
+          $page=$_GET['page'];
+        }
+        if($status==1){
+          $orderlist=get_order($kyw, $status);
+          $hienthiother="";
+        } 
+        elseif($status==2) {
+          $orderlist=get_order($kyw, $status);
+          $hienthiother="";
+        }
+        elseif($status==3){
+          $orderlist=get_order($kyw, $status);
+          $hienthiother="";
+        } 
+        elseif($status==4){
+          $orderlist=get_order($kyw, $status);
+          $hienthiother="";
+        } 
+        elseif($status==5){
+          $orderlist=get_order($kyw, $status);
+          $hienthiother="";
+        } 
+        elseif($status==6){
+          $orderlist=get_order($kyw, $status);
+          $hienthiother="";
+        } 
+        else {
+          $orderlist=get_order_all($kyw, $page, 8); 
+          $tongother= get_other_all();
+          $hienthiother= hien_thi_other($tongother, 8);
+        }
         include "view/page-orders.php";
         break;
       case 'orders-detail':
@@ -283,12 +379,21 @@
       case 'order-pending':
         if(isset($_GET['id']) && $_GET['id'] > 0) {
           $id = $_GET['id'];
-          
           // Lấy trạng thái từ cơ sở dữ liệu hoặc bất kỳ nguồn dữ liệu nào khác
           $status = get_status($id);
-  
           update_status($id, 1);
-          $orderlist=get_order();
+          $kyw="";
+          if (isset($_POST["search"])) {
+            $kyw=$_POST["kyw"];
+          }
+          if(!isset($_GET['page'])){
+            $page=1;
+          }else{
+            $page=$_GET['page'];
+          }
+          $orderlist=get_order_all($kyw, $page, 8); 
+          $tongother= get_other_all();
+          $hienthiother= hien_thi_other($tongother, 8);
           include "view/page-orders.php";
         }else {
           include "view/home.php";
@@ -297,12 +402,21 @@
       case 'order-confirm':
         if(isset($_GET['id']) && $_GET['id'] > 0) {
           $id = $_GET['id'];
-          
           // Lấy trạng thái từ cơ sở dữ liệu hoặc bất kỳ nguồn dữ liệu nào khác
           $status = get_status($id);
-  
           update_status($id, 2);
-          $orderlist=get_order();
+          $kyw="";
+          if (isset($_POST["search"])) {
+            $kyw=$_POST["kyw"];
+          }
+          if(!isset($_GET['page'])){
+            $page=1;
+          }else{
+            $page=$_GET['page'];
+          }
+          $orderlist=get_order_all($kyw, $page, 8); 
+          $tongother= get_other_all();
+          $hienthiother= hien_thi_other($tongother, 8);
           include "view/page-orders.php";
         }else {
           include "view/home.php";
@@ -311,26 +425,44 @@
       case 'order-delivering':
         if(isset($_GET['id']) && $_GET['id'] > 0) {
           $id = $_GET['id'];
-          
           // Lấy trạng thái từ cơ sở dữ liệu hoặc bất kỳ nguồn dữ liệu nào khác
           $status = get_status($id);
-  
           update_status($id, 3);
-          $orderlist=get_order();
+          $kyw="";
+          if (isset($_POST["search"])) {
+            $kyw=$_POST["kyw"];
+          }
+          if(!isset($_GET['page'])){
+            $page=1;
+          }else{
+            $page=$_GET['page'];
+          }
+          $orderlist=get_order_all($kyw, $page, 8); 
+          $tongother= get_other_all();
+          $hienthiother= hien_thi_other($tongother, 8);
           include "view/page-orders.php";
         }else {
           include "view/home.php";
         }
-        break;  
+        break;
       case 'order-complete':
         if(isset($_GET['id']) && $_GET['id'] > 0) {
           $id = $_GET['id'];
-          
           // Lấy trạng thái từ cơ sở dữ liệu hoặc bất kỳ nguồn dữ liệu nào khác
           $status = get_status($id);
-  
           update_status($id, 4);
-          $orderlist=get_order();
+          $kyw="";
+          if (isset($_POST["search"])) {
+            $kyw=$_POST["kyw"];
+          }
+          if(!isset($_GET['page'])){
+            $page=1;
+          }else{
+            $page=$_GET['page'];
+          }
+          $orderlist=get_order_all($kyw, $page, 8); 
+          $tongother= get_other_all();
+          $hienthiother= hien_thi_other($tongother, 8);
           include "view/page-orders.php";
         }else {
           include "view/home.php";
@@ -339,19 +471,40 @@
       case 'order-fail':
         if(isset($_GET['id']) && $_GET['id'] > 0) {
           $id = $_GET['id'];
-          
           // Lấy trạng thái từ cơ sở dữ liệu hoặc bất kỳ nguồn dữ liệu nào khác
           $status = get_status($id);
-  
           update_status($id, 5);
-          $orderlist=get_order();
+          $kyw="";
+          if (isset($_POST["search"])) {
+            $kyw=$_POST["kyw"];
+          }
+          if(!isset($_GET['page'])){
+            $page=1;
+          }else{
+            $page=$_GET['page'];
+          }
+          $orderlist=get_order_all($kyw, $page, 8); 
+          $tongother= get_other_all();
+          $hienthiother= hien_thi_other($tongother, 8);
           include "view/page-orders.php";
         }else {
           include "view/home.php";
         }
         break;
       case 'user-list':
-        $listuser=loadall_user();
+        $kyw="";
+        if (isset($_POST["search"])) {
+          $kyw=$_POST["kyw"];
+        }
+        if(!isset($_GET['page'])){
+          $page=1;
+        }else{
+          $page=$_GET['page'];
+        }
+        $soluong_user=6;
+        $listuser=loadall_user($kyw, $page, $soluong_user);
+        $tongso_user= get_user_all();
+        $hienthi_user= hien_thi_user($tongso_user, $soluong_user);
         include "view/page-user-list.php";
         break;
       case 'deluser':
@@ -369,13 +522,182 @@
           }
         } 
         //trở về trang user
-        $listuser=loadall_user();
+        $kyw="";
+        if (isset($_POST["search"])) {
+          $kyw=$_POST["kyw"];
+        }
+        if(!isset($_GET['page'])){
+          $page=1;
+        }else{
+          $page=$_GET['page'];
+        }
+        $soluong_user=6;
+        $listuser=loadall_user($kyw, $page, $soluong_user);
+        $tongso_user= get_user_all();
+        $hienthi_user= hien_thi_user($tongso_user, $soluong_user);
         include "view/page-user-list.php";
         break;
+      case 'page-blog-list':
+        $dsloai = dmuc_all();
+        $kyw = "";
+        $idloai="";
+        if (!isset($_GET['idloai'])) {
+          $idloai = 0;
+        } else {
+          $idloai = $_GET['idloai'];
+        }
+  
+        if (isset($_POST["search"])) {
+          $kyw = $_POST["kyw"];
+        }
+        if(!isset($_GET['page'])){
+          $page=1;
+        }else{
+          $page=$_GET['page'];
+        }
+        $soluong_tintuc=6;
+        $bloglist = get_dsblog_admin($kyw, $idloai, $page, $soluong_tintuc);
+        $tong_so_tin_tuc=get_tintuc_all();
+        $hien_thi_tin_tuc=hien_thi_tin_tuc($tong_so_tin_tuc, $soluong_tintuc);
+        include "view/page-blog-list.php";
+        break;
+      case 'addblog':
+        $tintuclist = dmuc_all();
+        include "view/page-add-blog.php";
+        break;
+      case 'page-add-blog':
+        if (isset($_POST['addblog'])) {
+          $dsloai = dmuc_all();
+          $kyw = "";
+          //Lấy dữ liệu về
+          $author = $_POST['author'];
+          $date = $_POST['date'];
+          $title = $_POST['title'];
+          $content = $_POST['content'];
+          $idloai = $_POST['idloai'];
+          $img = $_FILES['img']['name'];
+          //upload hình
+          $target_file = IMG_PATH_ADMIN . $img;
+          move_uploaded_file($_FILES["img"]["tmp_name"], $target_file);
+  
+          //Insert into
+          blog_insert($author, $date, $title, $content, $img, $idloai);
+          // Chuyển hướng người dùng sau khi thêm tin tức
+          header("Location: index.php?pg=page-blog-list");
+          exit(); //
+        } else {
+          $tintuclist = dmuc_all();
+          include "view/page-add-blog.php";
+        }
+        break;
+      case 'delblog':
+        $dsloai = dmuc_all();
+        $kyw = "";
+        $idloai = "";
+        if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+          $id = $_GET['id'];
+          $img = IMG_PATH_ADMIN . get_img($id);
+          if (is_file($img)) {
+            unlink($img);
+          }
+          try {
+            blog_delete($id);
+          } catch (\Throwable $th) {
+            //throw $th;
+            echo "<h3 style='color:red; text-align:center' >Tin tức đặc biệt! Không được quyền xóa!</h3>";
+          }
+        }
+        //trở về trang dstt
+        if(!isset($_GET['page'])){
+          $page=1;
+        }else{
+          $page=$_GET['page'];
+        }
+        $soluong_tintuc=6;
+        $bloglist = get_dsblog_admin($kyw, $idloai, $page, $soluong_tintuc);
+        $tong_so_tin_tuc=get_tintuc_all();
+        $hien_thi_tin_tuc=hien_thi_tin_tuc($tong_so_tin_tuc, $soluong_tintuc);
+        include "view/page-blog-list.php";
+        break;
+      case 'page-update-blog':
+        if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+          $id = $_GET['id'];
+          $tt = get_tt_by_id($id);
+        }
+        //trở về trang dstt
+        $tintuclist = dmuc_all();
+        include "view/page-update-blog.php";
+        break;
+      case 'updateblog':
+        $dsloai = danhmuc_all();
+        $kyw = "";
+        $idloai = "";
+        //kiểm tra và lấy dữ liệu
+        if(isset($_POST['updateblog'])){
+          $author = $_POST['author'];
+          $date = $_POST['date'];
+          $title = $_POST['title'];
+          $content = $_POST['content'];
+          $idloai = $_POST['idloai'];
+          $id = $_POST['id'];
+          $img = $_FILES['img']['name'];
+          if ($img != "") {
+            //upload hình
+            $target_file = IMG_PATH_ADMIN . $img;
+            move_uploaded_file($_FILES["img"]["tmp_name"], $target_file);
+  
+            //xóa hình cũ trên host
+            $old_img = IMG_PATH_ADMIN . $_POST['old_img'];
+            if (file_exists($old_img))
+              unlink($old_img);
+          } else {
+            $img = "";
+          }
+          //Insert into
+          blog_update($author, $date, $title, $content, $img, $idloai, $id);
+        }
+        //trở về trang dstt
+        if(!isset($_GET['page'])){
+          $page=1;
+        }else{
+          $page=$_GET['page'];
+        }
+        $soluong_tintuc=6;
+        $bloglist = get_dsblog_admin($kyw, $idloai, $page, $soluong_tintuc);
+        $tong_so_tin_tuc=get_tintuc_all();
+        $hien_thi_tin_tuc=hien_thi_tin_tuc($tong_so_tin_tuc, $soluong_tintuc);
+        include "view/page-blog-list.php";
+        break;
       case 'page-review':
+        if(!isset($_GET['page'])){
+          $page=1;
+        }else{
+          $page=$_GET['page'];
+        }
+        $soluong_cmt=6;
+        $comment_list = comment_select_all($page, $soluong_cmt);
+        $tongso_cmt= get_cmt_all();
+        $hienthi_cmt= hien_thi_cmt($tongso_cmt, $soluong_cmt);
         include "view/page-review.php";
         break;
-  
+      case 'delcomment':
+        if(isset($_GET['id']) && ($_GET['id'] > 0)){
+          $id = $_GET['id'];
+          comment_delete($id);
+        } 
+        // Redirect back to comments page
+        if(!isset($_GET['page'])){
+          $page=1;
+        }else{
+          $page=$_GET['page'];
+        }
+        $soluong_cmt=6;
+        $comment_list = comment_select_all($page, $soluong_cmt);
+        $tongso_cmt= get_cmt_all();
+        $hienthi_cmt= hien_thi_cmt($tongso_cmt, $soluong_cmt);
+        include "view/page-review.php";
+        break;
+      
       default:
         include "view/home.php";
         break;

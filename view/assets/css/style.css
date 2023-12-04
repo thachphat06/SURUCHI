@@ -11074,12 +11074,18 @@ input.quickview__value--number {
   .checkout__sidebar {
     padding: 3rem 0 0 4.5rem;
   }
+  #download-pdf{
+    display: none;
+  }
 }
 
 @media only screen and (max-width: 767px) {
   .checkout__sidebar {
     width: 100%;
     padding: 3rem 0 0;
+    display: none;
+  }
+  #download-pdf{
     display: none;
   }
 }
@@ -11092,6 +11098,9 @@ input.quickview__value--number {
 @media only screen and (max-width: 767px) {
   .checkout__breadcrumb {
     margin-top: 2.5rem;
+  }
+  #download-pdf{
+    display: none;
   }
 }
 
@@ -11123,6 +11132,9 @@ input.quickview__value--number {
 @media only screen and (max-width: 767px) {
   .order__summary--mobile__version {
     display: block;
+  }
+  #download-pdf{
+    display: none;
   }
 }
 
@@ -11276,6 +11288,9 @@ details > summary::-webkit-details-marker {
         -ms-flex-align: start;
             align-items: flex-start;
   }
+  #download-pdf{
+    display: none;
+  }
 }
 
 .section__header--title {
@@ -11293,6 +11308,9 @@ details > summary::-webkit-details-marker {
 @media only screen and (max-width: 575px) {
   .section__header--title {
     margin-bottom: 0.8rem;
+  }
+  #download-pdf{
+    display: none;
   }
 }
 
@@ -13110,5 +13128,10 @@ details > summary::-webkit-details-marker {
   color: #98530c;
   background-color: #ffe8d0;
   border-color: #fedcb9;
+}
+
+.forgot-pass{
+  margin: 0 auto;
+  width: 50%;
 }
 /*# sourceMappingURL=style.css.map */

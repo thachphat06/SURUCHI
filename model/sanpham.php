@@ -21,17 +21,25 @@ function sanpham_delete($id){
     pdo_execute($sql, $id);
 }
 
-// function hang_hoa_select_all(){
-//     $sql = "SELECT * FROM hang_hoa";
-//     return pdo_query($sql);
-// }
-
 function get_iddm($id) {
     $sql = "SELECT iddm FROM product WHERE id=?";
     return pdo_query_value($sql, $id);
 }
+function hien_thi_st($dssp, $sosp){
+    $tongsp=count($dssp);
+    $strang= ceil($tongsp/$sosp);
+    $html_strang="";
+    
+    for ($i=1; $i <= $strang ; $i++) { 
+        $html_strang.='<li class="pagination__list">
+                        <a href="index.php?pg=shop&page='.$i.'" class="pagination__item pagination__item--current">'.$i.'</a>
+                    </li>';
+    }
+    return $html_strang;
+}
 
-function get_dssp($kyw, $iddm, $limi){
+function get_dssp($kyw, $iddm, $pg, $sosp){    
+    $begin = ($pg - 1) * $sosp;
     $sql = "SELECT * FROM product WHERE 1";
     if($iddm>0){
         $sql .=" AND iddm=".$iddm;
@@ -39,8 +47,7 @@ function get_dssp($kyw, $iddm, $limi){
     if($kyw!=""){
         $sql .=" AND name LIKE '%".$kyw."%'";
     }
-
-    $sql .= " ORDER BY id DESC LIMIT ".$limi;
+    $sql .= " ORDER BY id ASC LIMIT " . $begin . "," . $sosp;
     return pdo_query($sql);
 }
 
@@ -175,6 +182,7 @@ function showsp($dssp){
     }
     return $html_dssp;
 }
+
 function showsp_slide($dssp){
     $html_dssp='';
     foreach ($dssp as $sp) {
@@ -311,7 +319,7 @@ function showsp_admin($dssp){
     $html_dssp.='<article class="itemlist">
                     <div class="row align-items-center">
                         <div class="col-lg-1 col-quantity"> 
-                            <span>'.$i.'</span> 
+                            <span>'.$id.'</span> 
                         </div>
                         <div class="col-lg-2 col-sm-4 col-8 flex-grow-1 col-name">
                             <a class="itemside" href="#">
@@ -339,9 +347,9 @@ function showsp_admin($dssp){
                                 <i class="material-icons md-delete_forever"></i>Xóa
                             </a>
                         </div>
-                        <input hidden type="checkbox" name="best" '.$bestcheck.' class="form-control1" id="product_bestseller">
-                        <input hidden type="checkbox" name="new" '.$newcheck.' class="form-control1" id="product_new">
-                        <input hidden type="checkbox" name="hot" '.$hotcheck.' class="form-control1" id="product_hot">
+                        <input hidden type="checkbox" name="best" '.$bestcheck.' class="form-control1">
+                        <input hidden type="checkbox" name="new" '.$newcheck.' class="form-control1">
+                        <input hidden type="checkbox" name="hot" '.$hotcheck.' class="form-control1">
                     </div>
                 </article>';
                 $i++;
@@ -349,8 +357,23 @@ function showsp_admin($dssp){
     return $html_dssp;
 }
 
-function get_dssp_admin($kyw, $iddm, $limi){
+function hien_thi_so_trang($productlist, $soluongsp){
+    $tong_sp=count($productlist);
+    $sotrang= ceil($tong_sp/$soluongsp);
+    $html_sotrang="";
+    
+    for ($i=1; $i <= $sotrang ; $i++) { 
+        $html_sotrang.='<li class="page-item active">
+                        <a class="page-link" href="index.php?pg=products-list&page='.$i.'">'.$i.'</a>
+                        </li>';
+    }
+    return $html_sotrang;
+}
+
+function get_dssp_admin($kyw, $iddm, $page, $soluongsp){
+    $batdau = ($page - 1) * $soluongsp;
     $sql = "SELECT * FROM product WHERE 1";
+
     if($iddm>0){
         $sql .=" AND iddm=".$iddm;
     }
@@ -358,7 +381,12 @@ function get_dssp_admin($kyw, $iddm, $limi){
         $sql .=" AND name LIKE '%".$kyw."%'";
     }
 
-    $sql .= " ORDER BY id DESC LIMIT ".$limi;
+    $sql .= " ORDER BY id ASC LIMIT " . $batdau . "," . $soluongsp;
+    return pdo_query($sql);
+}
+
+function get_dssp_all(){
+    $sql = " SELECT * FROM product ORDER BY id ASC ";
     return pdo_query($sql);
 }
 
@@ -374,61 +402,3 @@ function get_img($id) {
         return 'Ảnh không tồn tại'; // Hoặc giá trị mặc định khác tùy vào yêu cầu của bạn
     }
 }
-
-// function hang_hoa_select_by_id($ma_hh){
-//     $sql = "SELECT * FROM hang_hoa WHERE ma_hh=?";
-//     return pdo_query_one($sql, $ma_hh);
-// }
-
-// function hang_hoa_exist($ma_hh){
-//     $sql = "SELECT count(*) FROM hang_hoa WHERE ma_hh=?";
-//     return pdo_query_value($sql, $ma_hh) > 0;
-// }
-
-// function hang_hoa_tang_so_luot_xem($ma_hh){
-//     $sql = "UPDATE hang_hoa SET so_luot_xem = so_luot_xem + 1 WHERE ma_hh=?";
-//     pdo_execute($sql, $ma_hh);
-// }
-
-// function hang_hoa_select_top10(){
-//     $sql = "SELECT * FROM hang_hoa WHERE so_luot_xem > 0 ORDER BY so_luot_xem DESC LIMIT 0, 10";
-//     return pdo_query($sql);
-// }
-
-// function hang_hoa_select_dac_biet(){
-//     $sql = "SELECT * FROM hang_hoa WHERE dac_biet=1";
-//     return pdo_query($sql);
-// }
-
-// function hang_hoa_select_by_loai($ma_loai){
-//     $sql = "SELECT * FROM hang_hoa WHERE ma_loai=?";
-//     return pdo_query($sql, $ma_loai);
-// }
-
-// function hang_hoa_select_keyword($keyword){
-//     $sql = "SELECT * FROM hang_hoa hh "
-//             . " JOIN loai lo ON lo.ma_loai=hh.ma_loai "
-//             . " WHERE ten_hh LIKE ? OR ten_loai LIKE ?";
-//     return pdo_query($sql, '%'.$keyword.'%', '%'.$keyword.'%');
-// }
-
-// function hang_hoa_select_page(){
-//     if(!isset($_SESSION['page_no'])){
-//         $_SESSION['page_no'] = 0;
-//     }
-//     if(!isset($_SESSION['page_count'])){
-//         $row_count = pdo_query_value("SELECT count(*) FROM hang_hoa");
-//         $_SESSION['page_count'] = ceil($row_count/10.0);
-//     }
-//     if(exist_param("page_no")){
-//         $_SESSION['page_no'] = $_REQUEST['page_no'];
-//     }
-//     if($_SESSION['page_no'] < 0){
-//         $_SESSION['page_no'] = $_SESSION['page_count'] - 1;
-//     }
-//     if($_SESSION['page_no'] >= $_SESSION['page_count']){
-//         $_SESSION['page_no'] = 0;
-//     }
-//     $sql = "SELECT * FROM hang_hoa ORDER BY ma_hh LIMIT ".$_SESSION['page_no'].", 10";
-//     return pdo_query($sql);
-// }

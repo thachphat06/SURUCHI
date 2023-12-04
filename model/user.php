@@ -15,31 +15,42 @@ function isPasswordExists($password) {
     return $result !== false;
 }
 
-
 function user_insert($username, $password, $email) {
     // Thực hiện quá trình đăng ký khi tài khoản không tồn tại
     $sql = "INSERT INTO users(username, password, email) VALUES (?, ?, ?)";
     pdo_execute($sql, $username, $password, $email);
 }
 
+function user_insert_id($username, $password, $name, $address, $email, $sdt)
+{
+    $sql = "INSERT INTO users(username, password, name, address, email, sdt) VALUES (?, ?, ?, ?, ?, ?)";
+    return pdo_execute_id($sql,  $username, $password, $name, $address, $email, $sdt);
+}
+
 function user_update($username, $password, $email, $name, $img, $address, $sdt, $role, $id) {
-    if($img!="") {
+    if($img!="" && $role==0) {
         $sql = "UPDATE users SET username=?, password=?, email=?, name=?, img=?, address=?, sdt=?, role=? WHERE id=?";
         pdo_execute($sql, $username, $password, $email, $name, $img, $address, $sdt, $role, $id);
     } else {
-        $sql = "UPDATE users SET username=?, password=?, email=?, name=?, address=?, sdt=?, role=? WHERE id=?";
-        pdo_execute($sql, $username, $password, $email, $name, $address, $sdt, $role, $id);
+        $sql = "UPDATE users SET username=?, password=?, email=?, name=?, address=?, sdt=? WHERE id=?";
+        pdo_execute($sql, $username, $password, $email, $name, $address, $sdt, $id);
     }
 }
+
 
 function checkuser($username, $password) {
     $sql = "SELECT * FROM users WHERE username=? AND password=?";
     return pdo_query_one($sql, $username, $password);
-    // if (is_array($kq)&&(count($kq))) {
-    //     return $kq["id"];
-    // } else {
-    //     return 0;
-    // }
+}
+
+function checkmail($usr, $Mailer){
+    $sql = "SELECT * FROM users WHERE username=? AND email=? ";
+    return pdo_query_one($sql, $usr, $Mailer);
+}
+
+function checkpass(){
+    $sql = "SELECT * FROM users ";
+    return pdo_query_one($sql);
 }
 
 function get_user($id) {
@@ -47,45 +58,33 @@ function get_user($id) {
     return pdo_query_one($sql, $id);
 }
 
-// function user_update($ma_kh, $mat_khau, $ho_ten, $email, $hinh, $kich_hoat, $vai_tro){
-//     $sql = "UPDATE users SET mat_khau=?,ho_ten=?,email=?,hinh=?,kich_hoat=?,vai_tro=? WHERE ma_kh=?";
-//     pdo_execute($sql, $mat_khau, $ho_ten, $email, $hinh, $kich_hoat==1, $vai_tro==1, $ma_kh);
-// }
-
 function user_delete($id){
     $sql = "DELETE FROM users WHERE id=?";
     pdo_execute($sql, $id);
 }
 
-// function user_select_all(){
-//     $sql = "SELECT * FROM users";
-//     return pdo_query($sql);
-// }
+function user_change_password($rs_pwf, $iduser){
+    $sql = "UPDATE users SET password=? WHERE id=?";
+    pdo_execute($sql, $rs_pwf, $iduser);
+}
 
-// function user_select_by_id($ma_kh){
-//     $sql = "SELECT * FROM users WHERE ma_kh=?";
-//     return pdo_query_one($sql, $ma_kh);
-// }
+function loadall_user($kyw, $page, $soluong_user) {
+    $batdau = ($page - 1) * $soluong_user;
+    $sql = "SELECT * FROM users WHERE 1";
 
-// function user_exist($ma_kh){
-//     $sql = "SELECT count(*) FROM users WHERE $ma_kh=?";
-//     return pdo_query_value($sql, $ma_kh) > 0;
-// }
+    if ($kyw != "") {
+        $sql .= " AND username LIKE '%" . $kyw . "%'";
+    }
 
-// function user_select_by_role($vai_tro){
-//     $sql = "SELECT * FROM users WHERE vai_tro=?";
-//     return pdo_query($sql, $vai_tro);
-// }
+    $sql .= " ORDER BY id ASC LIMIT " . $batdau . "," . $soluong_user;
 
-// function user_change_password($ma_kh, $mat_khau_moi){
-//     $sql = "UPDATE users SET mat_khau=? WHERE ma_kh=?";
-//     pdo_execute($sql, $mat_khau_moi, $ma_kh);
-// }
+    return pdo_query($sql);
+}
 
-function loadall_user(){
-    $sql = "select * from users";
-    $listuser=pdo_query($sql);
-    return $listuser;
+function load_user_role(){
+    $sql = "SELECT * FROM users WHERE role = 1 ORDER BY id DESC";
+    $userlist = pdo_query($sql);
+    return $userlist;
 } 
 
 function get_img_user($id) {
@@ -110,3 +109,21 @@ function update_role($id, $role) {
     $sql = "UPDATE users SET role = ? WHERE id = ?";
     pdo_execute($sql, $role, $id);
 }
+
+function hien_thi_user($listuser, $soluong_user){
+    $tong_user = count($listuser);
+    $sotrang_user= ceil($tong_user/ $soluong_user);
+    $html_sotrang_user="";
+    for ($i=1; $i <= $sotrang_user ; $i++){
+        $html_sotrang_user.='<li class="page-item active">
+                                <a class="page-link" href="index.php?pg=user-list&page='.$i.'">'.$i.'</a>
+                            </li>';
+    }
+    return $html_sotrang_user;
+}
+function get_user_all(){
+    $sql = " SELECT * FROM users ORDER BY id ASC ";
+    return pdo_query($sql);
+}
+
+

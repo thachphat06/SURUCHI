@@ -11,9 +11,34 @@
             $count_order++;
         }
     }
+
     foreach ($count_product as $item) {
         extract($item);
         $total_products += 1;
+    }
+
+    $html_userlist = '';
+    $count = 0;
+
+    foreach ($userlist as $item) {
+        extract($item);
+
+        $html_userlist .= '<div class="d-flex align-items-center justify-content-between mb-4">
+                                <div class="d-flex align-items-center">
+                                    <img src="../uploads/'.$img.'" alt="" class="avatar">
+                                    <div>
+                                        <h6>'.$name.'</h6>
+                                    </div>
+                                </div>
+                            </div>';
+
+        // Tăng biến đếm sau mỗi lần lặp
+        $count++;
+
+        // Kiểm tra nếu biến đếm đạt đến 3, thoát khỏi vòng lặp
+        if ($count === 6) {
+            break;
+        }
     }
 ?>
 
@@ -93,42 +118,7 @@
                         <article class="card-body">
                             <h5 class="card-title">Thành viên mới</h5>
                             <div class="new-member-list">
-                                <div class="d-flex align-items-center justify-content-between mb-4">
-                                    <div class="d-flex align-items-center">
-                                        <img src="assets/imgs/people/avatar4.jpg" alt="" class="avatar">
-                                        <div>
-                                            <h6>Huỳnh Nguyễn Thạch Phát</h6>
-                                            <p class="text-muted font-xs">
-                                                Bình Định
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <a href="#" class="btn btn-xs"><i class="material-icons md-add"></i> Add</a>
-                                </div>
-                                <div class="d-flex align-items-center justify-content-between mb-4">
-                                    <div class="d-flex align-items-center">
-                                        <img src="assets/imgs/people/avatar2.jpg" alt="" class="avatar">
-                                        <div>
-                                            <h6>Trần Minh Dương</h6>
-                                            <p class="text-muted font-xs">
-                                                Khánh Hòa
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <a href="#" class="btn btn-xs"><i class="material-icons md-add"></i> Add</a>
-                                </div>
-                                <div class="d-flex align-items-center justify-content-between mb-4">
-                                    <div class="d-flex align-items-center">
-                                        <img src="assets/imgs/people/avatar3.jpg" alt="" class="avatar">
-                                        <div>
-                                            <h6>Nguyễn Thị Ngọc Trân</h6>
-                                            <p class="text-muted font-xs">
-                                                Bình Phước
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <a href="#" class="btn btn-xs"><i class="material-icons md-add"></i> Add</a>
-                                </div>
+                                <?=$html_userlist;?>
                             </div>
                         </article>
                     </div>
