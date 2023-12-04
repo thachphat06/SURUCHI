@@ -29,14 +29,13 @@
                             <input type="date" name="date" class="form-control" id="publish_date" required>
                         </div>
                         <div class="mb-4">
-                            <label class="form-label" for="">Tiêu đề</label>
-                            <textarea name="title" id="" cols="30" rows="10" class="form-control"
+                            <label class="form-label" for="title">Tiêu đề</label>
+                            <textarea name="title" id="title" cols="30" rows="10" class="form-control"
                                 required></textarea>
                         </div>
                         <div class="mb-4">
-                            <label class="form-label" for="">Nội dung</label>
-                            <textarea name="content" id="" cols="30" rows="10" class="form-control form-control1"
-                                required></textarea>
+                            <label class="form-label" for="content">Nội dung</label>
+                            <textarea name="content" id="content" cols="30" rows="10" class="form-control form-control1" style="font-size: 17px;" required></textarea>
                         </div>
                     </div>
                 </div>

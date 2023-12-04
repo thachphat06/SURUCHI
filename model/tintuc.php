@@ -5,13 +5,13 @@ function blog_insert($author, $date, $title, $content, $img, $idloai){
     $sql = "INSERT INTO blog (author, date, title, content, img, idloai) VALUES (?,?,?,?,?,?)";
     pdo_execute($sql, $author, $date, $title, $content, $img, $idloai);
 }
-function blog_update($author, $date, $title, $content, $img, $id){
+function blog_update($author, $date, $title, $content, $img, $idloai, $id){
     if($img!=""){
-        $sql = "UPDATE blog SET author=?, date=?, title=?, content=?, img=? WHERE id=?";
-        pdo_execute($sql, $author, $date, $title, $content, $img, $id);
+        $sql = "UPDATE blog SET author=?, date=?, title=?, content=?, img=?, idloai=? WHERE id=?";
+        pdo_execute($sql, $author, $date, $title, $content, $img, $idloai, $id);
     } else{
         $sql = "UPDATE blog SET author=?, date=?, title=?, content=?, idloai=? WHERE id=?";
-        pdo_execute($sql, $author, $date, $title, $content, $id);
+        pdo_execute($sql, $author, $date, $title, $content, $idloai, $id);
     }
 }
 

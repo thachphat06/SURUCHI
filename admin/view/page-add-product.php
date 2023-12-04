@@ -22,7 +22,7 @@
                     <div class="card-body">
                         <div class="mb-4">
                             <label class="form-label">Tên Sản Phẩm</label>
-                            <input type="text" name="name" placeholder="Type here" class="form-control" id="product_name" required>
+                            <input type="text" name="name" placeholder="Type here" class="form-control" id="product_name" autocomplete="additional-name" required>
                         </div>
                         <div class="row">
                             <div class="col-lg-4">
@@ -41,12 +41,12 @@
                             </div>
                         </div>
                         <div class="mb-4">
-                            <label class="form-label" for="">Mô tả 1</label>
-                            <textarea name="describe1" id="" cols="30" rows="10" class="form-control" required></textarea>
+                            <label class="form-label" for="describe1">Mô tả 1</label>
+                            <textarea name="describe1" id="describe1" cols="30" rows="10" class="form-control" required></textarea>
                         </div>
                         <div class="mb-4">
-                            <label class="form-label" for="">Mô tả 2</label>
-                            <textarea name="describe2" id="" cols="30" rows="10" class="form-control form-control1" required></textarea>
+                            <label class="form-label" for="describe2">Mô tả 2</label>
+                            <textarea name="describe2" id="describe2" cols="30" rows="10" class="form-control form-control1" required></textarea>
                         </div>
                         <div class="mb-4">
                             <label class="form-label">Bestseller</label>

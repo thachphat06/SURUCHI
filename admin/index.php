@@ -540,6 +540,7 @@
       case 'page-blog-list':
         $dsloai = dmuc_all();
         $kyw = "";
+        $idloai="";
         if (!isset($_GET['idloai'])) {
           $idloai = 0;
         } else {
@@ -653,7 +654,7 @@
             $img = "";
           }
           //Insert into
-          blog_update($author, $date, $title, $content, $img, $idloai);
+          blog_update($author, $date, $title, $content, $img, $idloai, $id);
         }
         //trở về trang dstt
         if(!isset($_GET['page'])){

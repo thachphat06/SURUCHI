@@ -1,7 +1,4 @@
 <?php
-    $idloai = "";
-    $idupdate = "";
-    $old_img = "";
     if (isset($tt) && is_array($tt) && count($tt) > 0) {
         extract($tt);
         $idupdate = $id;
@@ -76,7 +73,7 @@
                     <div class="card-body">
                         <div class="input-upload">
                             <img src="../uploads/<?=$img?>" alt="">
-                            <input class="form-control" type="file" name="img" required>
+                            <input class="form-control" type="file" name="img">
                         </div>
                     </div>
                 </div>
