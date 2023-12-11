@@ -152,7 +152,7 @@
                             <li class="header__shipping--text text-white d-sm-2-none"><img class="header__shipping--text__icon" src="./view/assets/img/icon/email.png" alt="email-icon"> <a class="header__shipping--text__link" href="mailto:suruchi@gmail.com">suruchi@gmail.com</a></li>
                         </ul>
                     </div>
-                    <div class="language__currency d-none d-lg-block">
+                    <!-- <div class="language__currency d-none d-lg-block">
                         <ul class="d-flex align-items-center">
                             <li class="language__currency--list">
                                 <a class="language__switcher text-white" href="#">
@@ -181,7 +181,7 @@
                                 </div>
                             </li>
                         </ul>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

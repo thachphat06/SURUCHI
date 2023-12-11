@@ -353,22 +353,24 @@
         // Trang PHP nơi bạn muốn thực hiện thêm sản phẩm vào giỏ hàng
         include_once("./controller/AddToCart.php");
         break;
-      case 'checkoutcart':
-        if(isset($_POST['btncheckout']) && ($_POST['btncheckout'])){
-          $id = $_POST['id'];
-          $name = $_POST['name'];
-          $img = $_POST['img'];
-          $price = $_POST['price'];
-          if(isset($_POST['amount']) && ($_POST['amount'] > 0)){
-            $amount = $_POST['amount'];
-          }else{
-            $amount = 1;
+        case "edit":
+          $total_price = 0;
+          foreach ($_SESSION['cart_item'] as $k => $v) {
+            if($_POST["code"] == $k) {
+              if($_POST["quantity"] == '0') {
+                unset($_SESSION["cart_item"][$k]);
+              } else {
+              $_SESSION['cart_item'][$k]["quantity"] = $_POST["quantity"];
+              }
+            }
+            $total_price += $_SESSION['cart_item'][$k]["price"] * $_SESSION['cart_item'][$k]["quantity"];	
+              
           }
-          $sp=["id"=>$id,"name"=>$name,"img"=>$img,"price"=>$price,"amount"=>$amount];
-          $_SESSION['thanhtoan'][]=$sp;
-          header('location: index.php?pg=checkout');
-        }
-        break;
+          if($total_price!=0 && is_numeric($total_price)) {
+            print "$" . number_format($total_price,2);
+            exit;
+          }
+        break;	
       case 'delcart':
         if(isset($_GET['ind'])&&($_GET['ind']>=0)) {
           array_splice($_SESSION['giohang'],$_GET['ind'],1);

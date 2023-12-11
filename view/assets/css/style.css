@@ -78,6 +78,17 @@
   --secondary-color: #b79e8c;
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #ee2761;
+  border-radius: 100rem;
+}
+
 /* Common Style */
 *,
 *::after,
@@ -8239,7 +8250,7 @@ input.quickview__value--number {
 }
 
 .about__author--signature {
-  margin-left: 1.5rem;
+  margin-left: 3.5rem;
 }
 
 .counterup__banner__bg2 {
@@ -8383,7 +8394,9 @@ input.quickview__value--number {
 
 .team__thumb--img {
   display: block;
-  width: 100%;
+  /* width: 100%; */
+  width: 140px;
+  height: 140px;
 }
 
 .team__social--list {

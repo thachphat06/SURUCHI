@@ -159,7 +159,7 @@
                             <th>Tên Khách Hàng</th>
                             <th>Tổng Tiền</th>
                             <th>Trạng Thái</th>
-                            <th>Ngày Đặt Hàng</th>
+                            <th class="text-end">Ngày Đặt Hàng</th>
                         </tr>
                     </thead>
                     <tbody>
