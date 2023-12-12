@@ -35,7 +35,7 @@
                                 Sau khi phê duyệt bình luận của bạn, ảnh hồ sơ của bạn sẽ được hiển thị công khai trong bối cảnh bình luận của bạn.</p>
                             <h3 class="privacy__policy--content__subtitle">Phương tiện truyền thông</h3>
                             <p class="privacy__policy--content__desc">Nếu bạn tải hình ảnh lên trang web, bạn nên tránh tải lên hình ảnh có chứa dữ liệu vị trí được nhúng (EXIF GPS). Khách truy cập vào trang web có thể tải xuống và trích xuất bất kỳ dữ liệu vị trí nào từ hình ảnh trên trang web.</p>
-                            <h3 class="privacy__policy--content__subtitle">Bánh quy</h3>
+                            <h3 class="privacy__policy--content__subtitle">Cookie</h3>
                             <p class="privacy__policy--content__desc">Nếu bạn để lại nhận xét trên trang web của chúng tôi, bạn có thể chọn tham gia lưu tên, địa chỉ email và trang web của mình vào cookie. Những điều này nhằm mục đích thuận tiện cho bạn để bạn không phải điền lại thông tin chi
                                 tiết của mình khi để lại nhận xét khác. Những cookie này sẽ tồn tại trong một năm.</p>
                             <p class="privacy__policy--content__desc">Nếu bạn có tài khoản và đăng nhập vào trang này, chúng tôi sẽ đặt cookie tạm thời để xác định xem trình duyệt của bạn có chấp nhận cookie hay không. Cookie này không chứa dữ liệu cá nhân và bị loại bỏ khi bạn đóng trình duyệt.</p>

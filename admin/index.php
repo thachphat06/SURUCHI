@@ -512,10 +512,6 @@
       case 'deluser':
         if(isset($_GET['id'])&&($_GET['id']>0)){
           $id=$_GET['id'];
-          $img=IMG_PATH_ADMIN.get_img_user($id);
-          if(is_file($img)){
-            unlink($img);
-          }
           try {
             user_delete($id);
           } catch(\Throwable $th){

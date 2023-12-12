@@ -491,3 +491,35 @@
     </section>
     <!-- End shipping section -->
 </main>
+
+<script>
+    //Chặn e - + cho tất cả các trường input số
+    document.addEventListener('keydown', function (e) {
+    var target = e.target;
+
+    // Kiểm tra xem phần tử đang có focus có phải là một trường input số hay không
+    if (target.tagName === 'INPUT' && target.type === 'number') {
+        var key = e.key;
+
+        // Nếu là một trường input số, và phím là 'e', 'E', '-', hoặc '+', chặn sự kiện
+        if (key === 'e' || key === 'E' || key === '-' || key === '+') {
+        e.preventDefault();
+        }
+    }
+    });
+
+    // Chặn giá trị vượt quá 50
+    document.addEventListener('input', function (e) {
+    var target = e.target;
+
+    // Kiểm tra xem phần tử đang có focus có phải là một trường input số hay không
+    if (target.tagName === 'INPUT' && target.type === 'number') {
+        var value = parseInt(target.value, 10);
+
+        // Chặn 'e', 'E', '-', '+', và giới hạn giá trị tối đa là 50
+        if (isNaN(value) || value > 50) {
+            target.value = 50;
+        }
+    }
+    });
+</script>

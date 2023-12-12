@@ -128,7 +128,7 @@
             if (empty($username) || empty($password) || empty($email) || empty($repassword)) {
               $tbdk = "Vui lòng điền đầy đủ thông tin đăng ký.";
             } elseif (strlen($password) < 6) {
-                $tbdk = "Mật khẩu phải chứa ít nhất 6 ký tự.";
+              $tbdk = "Mật khẩu phải chứa ít nhất 6 ký tự.";
             } else {
               // Kiểm tra xem tài khoản đã tồn tại hay chưa
               if (isUsernameExists($username)) {
@@ -200,14 +200,16 @@
           
           // Kiểm tra xác thực mật khẩu và thực hiện đổi mật khẩu
           if (isPasswordExists($password)) {
-            if ($newpassword === $repassword) {
+            if (strlen($newpassword ) < 6) {
+              $tbpw = '<span class="h4" style="color: red";>Mật khẩu mới phải chứa ít nhất 6 ký tự.</span>';
+            }elseif ($newpassword === $repassword) {
               change_password($username, $newpassword);
-              $tbpw = "Đổi mật khẩu thành công!";
+              $tbpw = '<span class="h4" style="color: green";>Đổi mật khẩu thành công!</span>';
             }else {
-              $tbpw = "Mật khẩu mới không trùng khớp!";
+              $tbpw = '<span class="h4" style="color: red";>Mật khẩu mới không trùng khớp!</span>';
             }
           }else {
-            $tbpw = "Mật khẩu hiện tại không chính xác!";
+            $tbpw = '<span class="h4" style="color: red";>Mật khẩu hiện tại không chính xác!</span>';
           }  
         }
         include "view/change-pw.php";

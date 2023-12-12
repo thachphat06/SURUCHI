@@ -188,7 +188,6 @@
             method: 'get',
             success: function(response) {
                 const items = JSON.parse(response);
-                //console.log(items);
                 var idList = items.map(item => item.id).join(',');
                 localStorage.setItem('cartIds', idList)
                 var i = 0;
@@ -197,40 +196,40 @@
                     localStorage.setItem("sum" + item.id, parseInt(item.price) * parseInt(item.amount));
                     const linkdel = "index.php?pg=delcart&ind=" + i;
                     htmlOutput += '<tr class="cart__table--body__items">' + 
-                                    '<td class="cart__table--body__list">' +
-                                        '<div class="cart__product d-flex align-items-center">' + 
-                                            '<button class="cart__remove--btn" aria-label="search button" type="button">' +
-                                                '<a href="' + linkdel + '">' +
-                                                    '<svg fill="currentColor" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="16px" height="16px"><path d="M 4.7070312 3.2929688 L 3.2929688 4.7070312 L 10.585938 12 L 3.2929688 19.292969 L 4.7070312 20.707031 L 12 13.414062 L 19.292969 20.707031 L 20.707031 19.292969 L 13.414062 12 L 20.707031 4.7070312 L 19.292969 3.2929688 L 12 10.585938 L 4.7070312 3.2929688 z"/></svg>' +
-                                                '</a>' +
-                                            '</button>' +
-                                            '<div class="cart__thumbnail">' +
-                                                '<a href="product-details.html"><img class="border-radius-5 item-img" src="./uploads/' + item.img + '" alt="cart-product"></a>' +
-                                            '</div>' +
-                                            '<div class="cart__content">'+
-                                                '<h4 class="cart__content--title item-name">'+ item.name +'</h4>' +
-                                            '</div>'+
-                                        '</div>'+
-                                    '</td>'+
-                                    '<input type="hidden" class="pid" value="'+ item.id +'">'+
-                                    '<td class="cart__table--body__list">'+
-                                        '<span class="cart__price">'+ formatCurrency(item.price) +'</span>' +
-                                    '</td>'+
-                                    '<input type="hidden" class="pprice" value="'+ item.price +'">' +
-                                    '<td class="cart__table--body__list">'+
-                                        '<div class="quantity__box">'+
-                                            '<button type="button" class="quantity__value quickview__value--quantity decrease" aria-label="quantity value" value="Decrease Value">-</button>'+
-                                            '<label>'+
-                                                '<input type="number" class="quantity__number quickview__value--number form-input-number2 itemQty" value="'+ item.amount +'" name="amount" min="1" max="50" data-counter data-id="'+ item.id + '"/>'+
-                                            '</label>'+
-                                            '<button type="button" class="quantity__value quickview__value--quantity increase" aria-label="quantity value" value="Increase Value">+</button>'+
-                                        '</div>'+
-                                    '</td>'+
-                                    '<td class="cart__table--body__list">'+
-                                        '<span class="cart__price end" id="totalAmount">'+ formatCurrency(localStorage.getItem("sum" + item.id)) +'</span>'+
-                                    '</td>'+
-                                '</tr>'
-                                i++;
+                            '<td class="cart__table--body__list">' +
+                                '<div class="cart__product d-flex align-items-center">' + 
+                                    '<button class="cart__remove--btn" aria-label="search button" type="button">' +
+                                        '<a href="' + linkdel + '">' +
+                                            '<svg fill="currentColor" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="16px" height="16px"><path d="M 4.7070312 3.2929688 L 3.2929688 4.7070312 L 10.585938 12 L 3.2929688 19.292969 L 4.7070312 20.707031 L 12 13.414062 L 19.292969 20.707031 L 20.707031 19.292969 L 13.414062 12 L 20.707031 4.7070312 L 19.292969 3.2929688 L 12 10.585938 L 4.7070312 3.2929688 z"/></svg>' +
+                                        '</a>' +
+                                    '</button>' +
+                                    '<div class="cart__thumbnail">' +
+                                        '<a href="product-details.html"><img class="border-radius-5 item-img" src="./uploads/' + item.img + '" alt="cart-product"></a>' +
+                                    '</div>' +
+                                    '<div class="cart__content">' +
+                                        '<h4 class="cart__content--title item-name">' + item.name + '</h4>' +
+                                    '</div>' +
+                                '</div>' +
+                            '</td>' +
+                            '<input type="hidden" class="pid" value="' + item.id + '">' +
+                            '<td class="cart__table--body__list">' +
+                                '<span class="cart__price">' + formatCurrency(item.price) + '</span>' +
+                            '</td>' +
+                            '<input type="hidden" class="pprice" value="' + item.price + '">' +
+                            '<td class="cart__table--body__list">' +
+                                '<div class="quantity__box">' +
+                                    '<button type="button" class="quantity__value quickview__value--quantity decrease" aria-label="quantity value" value="Decrease Value">-</button>' +
+                                    '<label>' +
+                                        '<input type="number" class="quantity__number quickview__value--number form-input-number2 itemQty" value="' + item.amount + '" name="amount" min="1" max="50" data-counter data-id="' + item.id + '"/>' +
+                                    '</label>' +
+                                    '<button type="button" class="quantity__value quickview__value--quantity increase" aria-label="quantity value" value="Increase Value">+</button>' +
+                                '</div>' +
+                            '</td>' +
+                            '<td class="cart__table--body__list">' +
+                                '<span class="cart__price end" id="totalAmount">' + formatCurrency(localStorage.getItem("sum" + item.id)) + '</span>' +
+                            '</td>' +
+                        '</tr>'
+                        i++;
                 });
                 $( '.cart__table--body' ).append( htmlOutput );
             }
@@ -319,9 +318,9 @@
             success: function (response) {
                 if(response){
                     window.location.href = "index.php?pg=checkout";
+                    // Handle success, if necessary
+                    console.log(true);
                 }
-                // Handle success, if necessary
-                console.log(123,response);
             },
             error: function (error) {
                 // Handle error, if necessary

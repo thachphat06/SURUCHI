@@ -47,8 +47,8 @@
                                     </div>
                                     <div class="info pl-3">
                                         <h6 class="mb-0 title">'.$username.'</h6>
-                                        <small class="text-muted">'.$name.'</small>
-                                        <small class="text-muted">Seller ID: #'.$id.'</small>
+                                        <small class="text-muted">'.$name.'</small> <br>
+                                        <small class="text-muted">Mã khách hàng: #'.$id.'</small>
                                     </div>
                                 </a>
                             </td>
