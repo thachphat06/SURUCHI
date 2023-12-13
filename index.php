@@ -47,7 +47,7 @@
             //Nội dung mail là link dẩn tới trang thay đổi password và có username của user muốn thay đổi pass
             $context = "http://localhost/suruchi/index.php?pg=reset-pass&id=".$checkmail['id'];
             $link_text = '<div style="border: 1px solid #dadce0;border-radius:8px;padding:20px 30px;width: 40%;margin: 0px auto;" align="center">
-                            <img src="https://lh3.googleusercontent.com/CBDv24siAwX6vHlA4gqFH0p5U98Nb0_jWnOoWQoaoUrgT3kwqg5jKAcFxeBiSUkYFZ8j=s157" alt="logo" style="width: 190px;padding-bottom: 20px;padding-top: 5px;">
+                            <img src="https://lh3.googleusercontent.com/UWdO6HtS61_LSu4AdvUnAc3AnXw1dr29t4CyZsDobjv9XIZ27547Fgkabhhmz9YYsJFNgH4=s157" alt="logo" style="width: 190px;padding-bottom: 20px;padding-top: 5px;">
                             <div style="font-family: Google Sans,Roboto,RobotoDraft,Helvetica,Arial,sans-serif;border-bottom:thin solid #dadce0;color:rgba(0,0,0,0.87);line-height:32px;padding-bottom:24px;text-align:center;">
                                 <h1 style="font-size:24px">Đổi mật khẩu mới</h1>
                             </div>
