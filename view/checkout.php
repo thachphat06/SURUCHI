@@ -163,11 +163,7 @@
                                 <div class="customer__information">
                                     <div class="checkout__email--phone mb-12">
                                         <label>
-<<<<<<< HEAD
-                                            <input class="checkout__input--field border-radius-5" placeholder="Email hoặc số điện thoại"  type="text" name="email" value="<?=$email?>" >
-=======
                                             <input class="checkout__input--field border-radius-5" placeholder="Email hoặc số điện thoại"  type="text" name="email" value="<?=$email?>" required>
->>>>>>> master
                                        </label>
                                     </div>
                                     <div class="checkout__checkbox">
