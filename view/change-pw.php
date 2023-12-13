@@ -44,7 +44,7 @@
                         <div class="account__details--footer d-flex">
                           <button class="account__details--footer__btn" name="change_pw" type="submit">Cập nhật</button>
                         </div> <br>
-                        <span><?=$tbpw?></span>
+                        <?=$tbpw?>
                     </form>
                 </div>
             </div>

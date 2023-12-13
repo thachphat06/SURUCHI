@@ -29,7 +29,7 @@
                             </div>
                             <div class="about__thumb--items position__relative">
                                 <img class="about__thumb--img border-radius-5 display-block" src="./view/assets/img/other/about-thumb-list2.png" alt="about-thumb">
-                                <div class="banner__bideo--play about__thumb--play">
+                                <!-- <div class="banner__bideo--play about__thumb--play">
                                     <a class="banner__bideo--play__icon about__thumb--play__icon glightbox" href="https://vimeo.com/115041822" data-gallery="video">
                                         <svg id="play" xmlns="http://www.w3.org/2000/svg" width="40.302" height="40.302" viewBox="0 0 46.302 46.302">
                                             <g id="Group_193" data-name="Group 193" transform="translate(0 0)">
@@ -53,7 +53,7 @@
                                         </svg>
                                         <span class="visually-hidden">Video</span>
                                     </a>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -68,7 +68,7 @@
                                     <h4 class="about__author--name">Nguyễn Hữu Nghĩa</h4>
                                     <span class="about__author--rank">Quản lý Suruchi</span>
                                 </div>
-                                <img class="about__author--signature display-block" src="./view/assets/img/icon/signature.png" alt="signature">
+                                <img class="about__author--signature display-block" src="./view/assets/img/logo/nav-log.png" alt="signature">
                             </div>
                         </div>
                     </div>
@@ -86,22 +86,22 @@
                             <div class="counterup__banner--items text-center">
                                 <h2 class="counterup__banner--items__text text-white">NĂM THÀNH <br>
                                     LẬP</h2>
-                                <span class="counterup__banner--items__number js-counter text-white" data-count="5">0</span>
+                                <span class="counterup__banner--items__number text-white">1</span>
                             </div>
                             <div class="counterup__banner--items text-center">
                                 <h2 class="counterup__banner--items__text text-white">THÀNH VIÊN <br>
                                     NHÓM </h2>
-                                <span class="counterup__banner--items__number js-counter text-white" data-count="6">0</span>
+                                <span class="counterup__banner--items__number text-white">6</span>
                             </div>
                             <div class="counterup__banner--items text-center">
                                 <h2 class="counterup__banner--items__text text-white">KHÁCH HÀNG <br>
                                     THÂN THIẾT</h2>
-                                <span class="counterup__banner--items__number js-counter text-white" data-count="80">0</span>
+                                <span class="counterup__banner--items__number text-white">30</span>
                             </div>
                             <div class="counterup__banner--items text-center">
                                 <h2 class="counterup__banner--items__text text-white">ĐƠN HÀNG <br>
                                     HÀNG THÁNG</h2>
-                                <span class="counterup__banner--items__number js-counter text-white" data-count="60">0</span>
+                                <span class="counterup__banner--items__number text-white">25</span>
                             </div>
                         </div>
                     </div>
@@ -121,7 +121,7 @@
                         <div class="col-lg-2 col-md-4 col-sm-6 col-6 custom-col">
                             <div class="team__items text-center">
                                 <div class="team__thumb">
-                                    <img class="team__thumb--img border-radius-50" src="./view/assets/img/other/team1.png" alt="">
+                                    <img class="team__thumb--img border-radius-50" src="./view/assets/img/other/avt1.jpg" alt="">
                                 </div>
                                 <div class="team__content ">
                                     <h3 class="team__content--title">Nguyễn Hữu Nghĩa PS27599</h3>
@@ -166,7 +166,7 @@
                         <div class="col-lg-2 col-md-4 col-sm-6 col-6 custom-col">
                             <div class="team__items text-center">
                                 <div class="team__thumb">
-                                    <img class="team__thumb--img border-radius-50" src="./view/assets/img/other/team2.png" alt="">
+                                    <img class="team__thumb--img border-radius-50" src="./view/assets/img/other/avt2.png" alt="">
                                 </div>
                                 <div class="team__content">
                                     <h3 class="team__content--title">Nguyễn Thị Ngọc Trân PS26576</h3>
@@ -211,7 +211,7 @@
                         <div class="col-lg-2 col-md-4 col-sm-6 col-6 custom-col">
                             <div class="team__items text-center">
                                 <div class="team__thumb">
-                                    <img class="team__thumb--img border-radius-50" src="./view/assets/img/other/team1.png" alt="">
+                                    <img class="team__thumb--img border-radius-50" src="./view/assets/img/other/avt3.jpg" alt="">
                                 </div>
                                 <div class="team__content ">
                                     <h3 class="team__content--title">Nguyễn Huynh PS27711</h3>
@@ -257,7 +257,7 @@
                         <div class="col-lg-2 col-md-4 col-sm-6 col-6 custom-col">
                             <div class="team__items text-center">
                                 <div class="team__thumb">
-                                    <img class="team__thumb--img border-radius-50" src="./view/assets/img/other/team2.png" alt="">
+                                    <img class="team__thumb--img border-radius-50" src="./view/assets/img/other/avt4.jpg" alt="">
                                 </div>
                                 <div class="team__content">
                                     <h3 class="team__content--title">Phan Thị Minh Thư <br> PS27457</h3>
@@ -302,7 +302,7 @@
                         <div class="col-lg-2 col-md-4 col-sm-6 col-6 custom-col">
                             <div class="team__items text-center">
                                 <div class="team__thumb">
-                                    <img class="team__thumb--img border-radius-50" src="./view/assets/img/other/team3.png" alt="">
+                                    <img class="team__thumb--img border-radius-50" src="./view/assets/img/other/avt5.jpg" alt="">
                                 </div>
                                 <div class="team__content">
                                     <h3 class="team__content--title">Trần Minh Dương PS27840</h3>
@@ -347,7 +347,7 @@
                         <div class="col-lg-2 col-md-4 col-sm-6 col-6 custom-col">
                             <div class="team__items text-center">
                                 <div class="team__thumb">
-                                    <img class="team__thumb--img border-radius-50" src="./view/assets/img/other/team1.png" alt="">
+                                    <img class="team__thumb--img border-radius-50" src="./view/assets/img/other/avt6.jpg" alt="">
                                 </div>
                                 <div class="team__content">
                                     <h3 class="team__content--title">Huỳnh Nguyễn Thạch Phát PS27741</h3>

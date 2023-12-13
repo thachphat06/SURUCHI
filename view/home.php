@@ -442,7 +442,7 @@
                         <div class="deals__banner--content position__relative">
                             <span class="deals__banner--content__subtitle text__secondary">Hãy nhanh tay để được giảm giá 25%</span>
                             <h2 class="deals__banner--content__maintitle">Ưu đãi trong ngày</h2>
-                            <p class="deals__banner--content__desc">"Chương trình sale 25% trong ngày! Hãy nhanh tay <br> mua sắm để nhận ưu đãi hấp dẫn này!"</p>
+                            <p class="deals__banner--content__desc">"Chương trình sale 25% trong ngày! Hãy nhanh tay mua sắm để nhận ưu đãi hấp dẫn này!"</p>
                             <!-- <div class="deals__banner--countdown d-flex" data-countdown="Sep 30, 2022 00:00:00"></div> -->
                             <a class="primary__btn" href="index.php?pg=shop">Mua Ngay
                                 <svg class="primary__btn--arrow__icon" xmlns="http://www.w3.org/2000/svg" width="20.2" height="12.2" viewBox="0 0 6.2 6.2">
@@ -450,7 +450,7 @@
                                 </svg>
                             </a>
                             <br>
-                            <div class="banner__bideo--play">
+                            <!-- <div class="banner__bideo--play">
                                 <a class="banner__bideo--play__icon glightbox" href="https://vimeo.com/115041822" data-gallery="video">
                                     <svg id="play" xmlns="http://www.w3.org/2000/svg" width="40.302" height="40.302" viewBox="0 0 46.302 46.302">
                                         <g id="Group_193" data-name="Group 193" transform="translate(0 0)">
@@ -474,7 +474,7 @@
                                     </svg>
                                     <span class="visually-hidden">Video Play</span>
                                 </a>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -746,30 +746,6 @@
         </div>
     </section>
     <!-- End testimonial section -->
-
-    <!-- Start banner section -->
-    <section class="banner__section section--padding pt-0">
-        <div class="container-fluid">
-            <div class="row row-cols-1">
-                <div class="col">
-                    <div class="banner__section--inner position__relative">
-                        <a class="banner__items--thumbnail display-block" href="index.php?pg=shop"><img class="banner__items--thumbnail__img banner__img--height__md display-block" src="./view/assets/img/banner/banner-bg2.png" alt="banner-img">
-                            <div class="banner__content--style2">
-                                <h2 class="banner__content--style2__title text-white">Cần giày mùa đông?</h2>
-                                <p class="banner__content--style2__desc">Bạn đang cần một đôi giày mùa đông vừa rẻ vừa chất lượng? Hãy đến ngay với chúng tôi!!!</p>
-                                <span class="primary__btn">Mua Ngay
-                                    <svg class="primary__btn--arrow__icon" xmlns="http://www.w3.org/2000/svg" width="20.2" height="12.2" viewBox="0 0 6.2 6.2">
-                                    <path d="M7.1,4l-.546.546L8.716,6.713H4v.775H8.716L6.554,9.654,7.1,10.2,9.233,8.067,10.2,7.1Z" transform="translate(-4 -4)" fill="currentColor"></path>
-                                    </svg>
-                                </span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End banner section -->
 
     <!-- Start blog section -->
     <section class="blog__section section--padding pt-0">

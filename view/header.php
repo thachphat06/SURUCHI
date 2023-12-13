@@ -57,7 +57,7 @@
                                     <div class="quantity__box minicart__quantity">
                                         <button type="button"  class="quantity__value decrease" aria-label="quantity value" value="Decrease Value">-</button>
                                         <label>
-                                            <input type="number" class="quantity__number" min="1" value="'.$amount.'" data-counter />
+                                            <input type="number" class="quantity__number form-input-number" min="1" max="50" value="'.$amount.'" data-counter />
                                         </label>
                                         <button type="button" class="quantity__value increase"  value="Increase Value">+</button>
                                     </div>
@@ -78,7 +78,6 @@
 <head>
   <meta charset="utf-8">
   <title>Suruchi</title>
-  <meta name="description" content="Morden Bootstrap HTML5 Template">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="shortcut icon" type="image/x-icon" href="./view/assets/img/favicon.ico">
     
@@ -152,7 +151,7 @@
                             <li class="header__shipping--text text-white d-sm-2-none"><img class="header__shipping--text__icon" src="./view/assets/img/icon/email.png" alt="email-icon"> <a class="header__shipping--text__link" href="mailto:suruchi@gmail.com">suruchi@gmail.com</a></li>
                         </ul>
                     </div>
-                    <div class="language__currency d-none d-lg-block">
+                    <!-- <div class="language__currency d-none d-lg-block">
                         <ul class="d-flex align-items-center">
                             <li class="language__currency--list">
                                 <a class="language__switcher text-white" href="#">
@@ -181,7 +180,7 @@
                                 </div>
                             </li>
                         </ul>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

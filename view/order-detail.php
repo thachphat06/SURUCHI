@@ -130,7 +130,7 @@
                                         <div class="customer__information--step">
                                             <h4 class="customer__information--subtitle h5">Phương pháp vận chuyển</h4>
                                             <ul>
-                                                <li><span class="customer__information--text"><?=$tbpt;?></span></li>
+                                                <li><span class="customer__information--text">Giao hàng nhanh</span></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -138,7 +138,7 @@
                                         <div class="customer__information--step">
                                             <h4 class="customer__information--subtitle h5">Phương thức thanh toán</h4>
                                             <ul>
-                                                <li><span class="customer__information--text">Thanh toán khi nhận hàng</span></li>
+                                                <li><span class="customer__information--text"><?=$tbpt;?></span></li>
                                             </ul>
                                         </div>
                                     </div>

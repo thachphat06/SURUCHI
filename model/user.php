@@ -8,6 +8,13 @@ function isUsernameExists($username) {
     return $result !== false;
 }
 
+// function isEmailExists($email) {
+//     $sql = "SELECT * FROM users WHERE email = ?";
+//     $result = pdo_query_one($sql, $email);
+
+//     return $result !== false;
+// }
+
 function isPasswordExists($password) {
     $sql = "SELECT * FROM users WHERE password = ?";
     $result = pdo_query_one($sql, $password);
@@ -81,10 +88,9 @@ function loadall_user($kyw, $page, $soluong_user) {
     return pdo_query($sql);
 }
 
-function load_user_role(){
-    $sql = "SELECT * FROM users WHERE role = 1 ORDER BY id DESC";
-    $userlist = pdo_query($sql);
-    return $userlist;
+function load_user($limi){
+    $sql = "SELECT * FROM users ORDER BY id DESC limit ".$limi;
+    return pdo_query($sql);
 } 
 
 function get_img_user($id) {

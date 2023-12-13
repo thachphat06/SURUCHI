@@ -78,6 +78,17 @@
   --secondary-color: #b79e8c;
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #ee2761;
+  border-radius: 100rem;
+}
+
 /* Common Style */
 *,
 *::after,
@@ -8239,7 +8250,7 @@ input.quickview__value--number {
 }
 
 .about__author--signature {
-  margin-left: 1.5rem;
+  margin-left: 3.5rem;
 }
 
 .counterup__banner__bg2 {
@@ -8383,7 +8394,9 @@ input.quickview__value--number {
 
 .team__thumb--img {
   display: block;
-  width: 100%;
+  /* width: 100%; */
+  width: 140px;
+  height: 140px;
 }
 
 .team__social--list {
@@ -11074,9 +11087,7 @@ input.quickview__value--number {
   .checkout__sidebar {
     padding: 3rem 0 0 4.5rem;
   }
-  #download-pdf{
-    display: none;
-  }
+  
 }
 
 @media only screen and (max-width: 767px) {
@@ -11085,9 +11096,7 @@ input.quickview__value--number {
     padding: 3rem 0 0;
     display: none;
   }
-  #download-pdf{
-    display: none;
-  }
+  
 }
 
 .checkout__breadcrumb {
@@ -11099,9 +11108,7 @@ input.quickview__value--number {
   .checkout__breadcrumb {
     margin-top: 2.5rem;
   }
-  #download-pdf{
-    display: none;
-  }
+  
 }
 
 .breadcrumb__link {
@@ -11133,9 +11140,7 @@ input.quickview__value--number {
   .order__summary--mobile__version {
     display: block;
   }
-  #download-pdf{
-    display: none;
-  }
+  
 }
 
 .order__summary--toggle {
@@ -11288,9 +11293,7 @@ details > summary::-webkit-details-marker {
         -ms-flex-align: start;
             align-items: flex-start;
   }
-  #download-pdf{
-    display: none;
-  }
+  
 }
 
 .section__header--title {
@@ -11308,9 +11311,6 @@ details > summary::-webkit-details-marker {
 @media only screen and (max-width: 575px) {
   .section__header--title {
     margin-bottom: 0.8rem;
-  }
-  #download-pdf{
-    display: none;
   }
 }
 

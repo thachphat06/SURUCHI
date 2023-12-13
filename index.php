@@ -47,7 +47,7 @@
             //Nội dung mail là link dẩn tới trang thay đổi password và có username của user muốn thay đổi pass
             $context = "http://localhost/suruchi/index.php?pg=reset-pass&id=".$checkmail['id'];
             $link_text = '<div style="border: 1px solid #dadce0;border-radius:8px;padding:20px 30px;width: 40%;margin: 0px auto;" align="center">
-                            <img src="https://lh3.googleusercontent.com/CBDv24siAwX6vHlA4gqFH0p5U98Nb0_jWnOoWQoaoUrgT3kwqg5jKAcFxeBiSUkYFZ8j=s157" alt="logo" style="width: 190px;padding-bottom: 20px;padding-top: 5px;">
+                            <img src="https://lh3.googleusercontent.com/UWdO6HtS61_LSu4AdvUnAc3AnXw1dr29t4CyZsDobjv9XIZ27547Fgkabhhmz9YYsJFNgH4=s157" alt="logo" style="width: 190px;padding-bottom: 20px;padding-top: 5px;">
                             <div style="font-family: Google Sans,Roboto,RobotoDraft,Helvetica,Arial,sans-serif;border-bottom:thin solid #dadce0;color:rgba(0,0,0,0.87);line-height:32px;padding-bottom:24px;text-align:center;">
                                 <h1 style="font-size:24px">Đổi mật khẩu mới</h1>
                             </div>
@@ -128,7 +128,7 @@
             if (empty($username) || empty($password) || empty($email) || empty($repassword)) {
               $tbdk = "Vui lòng điền đầy đủ thông tin đăng ký.";
             } elseif (strlen($password) < 6) {
-                $tbdk = "Mật khẩu phải chứa ít nhất 6 ký tự.";
+              $tbdk = "Mật khẩu phải chứa ít nhất 6 ký tự.";
             } else {
               // Kiểm tra xem tài khoản đã tồn tại hay chưa
               if (isUsernameExists($username)) {
@@ -153,38 +153,38 @@
         // Bạn có thể thay đổi đường dẫn tới file view nếu cần thiết
         include "view/login.php";
         break;
-        case 'updateuser':
-          // xác định giá trị input
-          if(isset($_POST["update"])) {
-            $username=$_POST["username"];
-            // $password=$_POST["password"];
-            $email=$_POST["email"];
-            $name=$_POST["name"];
-            $address=$_POST["address"];
-            $sdt=$_POST["sdt"];
-            $id=$_POST["id"];
-            $role=0;
-  
-            $img=$_FILES["img"]["name"];
-            $target_file = IMG_PATH_USER.basename($img);
-            if($img!=""){
-              //upload hình
-              $target_file = IMG_PATH_USER.$img;
-              move_uploaded_file($_FILES["img"]["tmp_name"], $target_file);
-              
-              //xóa hình cũ trên host
-              $old_img=IMG_PATH_USER.$_POST['old_img'];
-              if(file_exists($old_img)) unlink($old_img);
-  
-            } else {
-              $img="";
-            }
-              //xử lý
-            user_update($username, $password, $email, $name, $img, $address, $sdt, $role, $id);
-  
-            include "view/my-account.php";
+      case 'updateuser':
+        // xác định giá trị input
+        if(isset($_POST["update"])) {
+          $username=$_POST["username"];
+          // $password=$_POST["password"];
+          $email=$_POST["email"];
+          $name=$_POST["name"];
+          $address=$_POST["address"];
+          $sdt=$_POST["sdt"];
+          $id=$_POST["id"];
+          $role=0;
+
+          $img=$_FILES["img"]["name"];
+          $target_file = IMG_PATH_USER.basename($img);
+          if($img!=""){
+            //upload hình
+            $target_file = IMG_PATH_USER.$img;
+            move_uploaded_file($_FILES["img"]["tmp_name"], $target_file);
+            
+            // //xóa hình cũ trên host
+            // $old_img=IMG_PATH_USER.$_POST['old_img'];
+            // if(file_exists($old_img)) unlink($old_img);
+
+          } else {
+            $img="";
           }
-          break;  
+            //xử lý
+          user_update($username, $password, $email, $name, $img, $address, $sdt, $role, $id);
+
+          include "view/my-account.php";
+        }
+        break;  
       case 'my-account':
         if(isset($_SESSION['s_user'])&&(count($_SESSION['s_user'])>0)) {
           include "view/my-account.php";
@@ -200,14 +200,16 @@
           
           // Kiểm tra xác thực mật khẩu và thực hiện đổi mật khẩu
           if (isPasswordExists($password)) {
-            if ($newpassword === $repassword) {
+            if (strlen($newpassword ) < 6) {
+              $tbpw = '<span class="h4" style="color: red";>Mật khẩu mới phải chứa ít nhất 6 ký tự.</span>';
+            }elseif ($newpassword === $repassword) {
               change_password($username, $newpassword);
-              $tbpw = "Đổi mật khẩu thành công!";
+              $tbpw = '<span class="h4" style="color: green";>Đổi mật khẩu thành công!</span>';
             }else {
-              $tbpw = "Mật khẩu mới không trùng khớp!";
+              $tbpw = '<span class="h4" style="color: red";>Mật khẩu mới không trùng khớp!</span>';
             }
           }else {
-            $tbpw = "Mật khẩu hiện tại không chính xác!";
+            $tbpw = '<span class="h4" style="color: red";>Mật khẩu hiện tại không chính xác!</span>';
           }  
         }
         include "view/change-pw.php";
@@ -353,22 +355,24 @@
         // Trang PHP nơi bạn muốn thực hiện thêm sản phẩm vào giỏ hàng
         include_once("./controller/AddToCart.php");
         break;
-      case 'checkoutcart':
-        if(isset($_POST['btncheckout']) && ($_POST['btncheckout'])){
-          $id = $_POST['id'];
-          $name = $_POST['name'];
-          $img = $_POST['img'];
-          $price = $_POST['price'];
-          if(isset($_POST['amount']) && ($_POST['amount'] > 0)){
-            $amount = $_POST['amount'];
-          }else{
-            $amount = 1;
+        case "edit":
+          $total_price = 0;
+          foreach ($_SESSION['cart_item'] as $k => $v) {
+            if($_POST["code"] == $k) {
+              if($_POST["quantity"] == '0') {
+                unset($_SESSION["cart_item"][$k]);
+              } else {
+              $_SESSION['cart_item'][$k]["quantity"] = $_POST["quantity"];
+              }
+            }
+            $total_price += $_SESSION['cart_item'][$k]["price"] * $_SESSION['cart_item'][$k]["quantity"];	
+              
           }
-          $sp=["id"=>$id,"name"=>$name,"img"=>$img,"price"=>$price,"amount"=>$amount];
-          $_SESSION['thanhtoan'][]=$sp;
-          header('location: index.php?pg=checkout');
-        }
-        break;
+          if($total_price!=0 && is_numeric($total_price)) {
+            print "$" . number_format($total_price,2);
+            exit;
+          }
+        break;	
       case 'delcart':
         if(isset($_GET['ind'])&&($_GET['ind']>=0)) {
           array_splice($_SESSION['giohang'],$_GET['ind'],1);

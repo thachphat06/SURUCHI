@@ -211,7 +211,6 @@
 <!-- End checkout page area -->
 
 <script src="https://rawgit.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
-
 <script>
     document.getElementById('download-pdf').addEventListener('click', function () {
         var element = document.querySelector('.container');

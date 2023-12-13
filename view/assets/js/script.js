@@ -676,7 +676,7 @@ if (quantityWrapper) {
         let value = parseInt(input.value, 10);
         value = isNaN(value) ? 0 : value;
         value++;
-        input.value = value;
+        input.value = value;  
       }
     });
 
@@ -945,28 +945,58 @@ star.addEventListener("click", () => {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-var starRating = document.getElementById('starRating');
-var hiddenRatingInput = document.getElementById('hiddenRatingInput');
+  var starRating = document.getElementById('starRating');
+  var hiddenRatingInput = document.getElementById('hiddenRatingInput');
 
-// Xử lý sự kiện khi người dùng chọn một đánh giá sao
-starRating.addEventListener('click', function (event) {
+  // Xử lý sự kiện khi người dùng chọn một đánh giá sao
+  starRating.addEventListener('click', function (event) {
     var selectedRating = event.target.closest('.rating__list1');
 
     if (selectedRating) {
-        var ratingValue = selectedRating.getAttribute('data-rating');
-        hiddenRatingInput.value = ratingValue;
+      var ratingValue = selectedRating.getAttribute('data-rating');
+      hiddenRatingInput.value = ratingValue;
 
-        // Đánh dấu các sao đã chọn (có thể thêm hiệu ứng CSS ở đây)
-        resetStarRating();
-        selectedRating.classList.add('selected');
+      // Đánh dấu các sao đã chọn (có thể thêm hiệu ứng CSS ở đây)
+      resetStarRating();
+      selectedRating.classList.add('selected');
     }
-});
+  });
 
-// Reset trạng thái của các sao
-function resetStarRating() {
+  // Reset trạng thái của các sao
+  function resetStarRating() {
     var allStars = document.querySelectorAll('.rating__list1');
     allStars.forEach(function (star) {
-        star.classList.remove('selected');
+      star.classList.remove('selected');
     });
-}
+  }
+});
+
+//Chặn e - + cho tất cả các trường input số
+document.addEventListener('keydown', function (e) {
+  var target = e.target;
+
+  // Kiểm tra xem phần tử đang có focus có phải là một trường input số hay không
+  if (target.tagName === 'INPUT' && target.type === 'number') {
+    var key = e.key;
+
+    // Nếu là một trường input số, và phím là 'e', 'E', '-', hoặc '+', chặn sự kiện
+    if (key === 'e' || key === 'E' || key === '-' || key === '+') {
+      e.preventDefault();
+    }
+  }
+});
+
+// Chặn giá trị vượt quá 50
+document.addEventListener('input', function (e) {
+  var target = e.target;
+
+  // Kiểm tra xem phần tử đang có focus có phải là một trường input số hay không
+  if (target.tagName === 'INPUT' && target.type === 'number') {
+    var value = parseInt(target.value, 10);
+
+    // Chặn 'e', 'E', '-', '+', và giới hạn giá trị tối đa là 50
+    if (isNaN(value) || value > 50) {
+        target.value = 50;
+    }
+  }
 });

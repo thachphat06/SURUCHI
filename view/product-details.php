@@ -215,7 +215,7 @@
                                     </span>
                                 </li>
                             </ul>
-                            <span class="product__items--rating__count--number">(24)</span>
+                            <span class="product__items--rating__count--number">(<?=$total_comments;?>)</span>
                         </div>
                         <p class="product__details--info__desc mb-15"><?=$describe1?></p>
                         <form action="index.php?pg=addcart" method="post" class="product__variant">
@@ -227,7 +227,7 @@
                                 <div class="quantity__box">
                                     <button type="button" class="quantity__value quickview__value--quantity decrease" aria-label="quantity value" value="Decrease Value">-</button>
                                     <label>
-                                        <input type="number" class="quantity__number quickview__value--number" name="amount" min="1" value="1" data-counter/>
+                                        <input type="number" class="quantity__number quickview__value--number form-input-number" name="amount" min="1" max="50" value="1" data-counter/>
                                     </label>
                                     <button type="button" class="quantity__value quickview__value--quantity increase" aria-label="quantity value" value="Increase Value">+</button>
                                 </div>
@@ -491,3 +491,35 @@
     </section>
     <!-- End shipping section -->
 </main>
+
+<script>
+    //Chặn e - + cho tất cả các trường input số
+    document.addEventListener('keydown', function (e) {
+    var target = e.target;
+
+    // Kiểm tra xem phần tử đang có focus có phải là một trường input số hay không
+    if (target.tagName === 'INPUT' && target.type === 'number') {
+        var key = e.key;
+
+        // Nếu là một trường input số, và phím là 'e', 'E', '-', hoặc '+', chặn sự kiện
+        if (key === 'e' || key === 'E' || key === '-' || key === '+') {
+        e.preventDefault();
+        }
+    }
+    });
+
+    // Chặn giá trị vượt quá 50
+    document.addEventListener('input', function (e) {
+    var target = e.target;
+
+    // Kiểm tra xem phần tử đang có focus có phải là một trường input số hay không
+    if (target.tagName === 'INPUT' && target.type === 'number') {
+        var value = parseInt(target.value, 10);
+
+        // Chặn 'e', 'E', '-', '+', và giới hạn giá trị tối đa là 50
+        if (isNaN(value) || value > 50) {
+            target.value = 50;
+        }
+    }
+    });
+</script>

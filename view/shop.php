@@ -118,16 +118,15 @@
                                     <?=$html_dm;?>
                                 </ul>
                             </div>
-                            <div class="single__widget price__filter widget__bg">
+                            <!-- <div class="single__widget price__filter widget__bg">
                                 <h2 class="widget__title h3">Lọc theo giá</h2>
-                                <form class="price__filter--form" action="#"> 
+                                <form class="price__filter--form" action="index.php?pg=shop" method="post"> 
                                     <div class="price__filter--form__inner mb-15 d-flex align-items-center">
                                         <div class="price__filter--group">
                                             <label class="price__filter--label" for="Filter-Price-GTE2">Từ</label>
                                             <div class="price__filter--input border-radius-5 d-flex align-items-center">
-                                                <!-- <span class="price__filter--currency">VNĐ</span> -->
                                                 <label>
-                                                    <input class="price__filter--input__field border-0" name="filter.v.price.gte" type="number" placeholder="0" min="0" max="2.000.000">
+                                                    <input class="price__filter--input__field border-0" name="min_price" type="number" placeholder="0" min="0" max="2.000.000">
                                                 </label>
                                             </div>
                                         </div>
@@ -137,9 +136,8 @@
                                         <div class="price__filter--group">
                                             <label class="price__filter--label" for="Filter-Price-LTE2">Tới</label>
                                             <div class="price__filter--input border-radius-5 d-flex align-items-center">
-                                                <!-- <span class="price__filter--currency">VNĐ</span> -->
                                                 <label>
-                                                    <input class="price__filter--input__field border-0" name="filter.v.price.lte" type="number" min="0" placeholder="2.000.000" max="2.000.000"> 
+                                                    <input class="price__filter--input__field border-0" name="max_price" type="number" min="0" placeholder="2.000.000" max="2.000.000"> 
                                                 </label>
                                             </div>	
                                         </div>
@@ -159,7 +157,7 @@
                                     <li class="widget__tagcloud--list"><a class="widget__tagcloud--link" href="index.php?pg=shop">Accessories</a></li>
                                     <li class="widget__tagcloud--list"><a class="widget__tagcloud--link" href="index.php?pg=shop">Dress </a></li>
                                 </ul>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div class="col-xl-9 col-lg-8">
@@ -681,21 +679,21 @@
                             <div class="pagination__area bg__gray--color">
                                 <nav class="pagination justify-content-center">
                                     <ul class="pagination__wrapper d-flex align-items-center justify-content-center">
-                                        <li class="pagination__list">
+                                        <!-- <li class="pagination__list">
                                             <a href="index.php?pg=shop" class="pagination__item--arrow  link ">
                                                 <svg xmlns="http://www.w3.org/2000/svg"  width="22.51" height="20.443" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M244 400L100 256l144-144M120 256h292"/></svg>
                                                 <span class="visually-hidden">pagination arrow</span>
                                             </a>
-                                        <li>
+                                        <li> -->
                                         <?php
                                             echo $hienthist;
                                         ?>
-                                        <li class="pagination__list">
+                                        <!-- <li class="pagination__list">
                                             <a href="index.php?pg=shop" class="pagination__item--arrow  link ">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="22.51" height="20.443" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M268 112l144 144-144 144M392 256H100"/></svg>
                                                 <span class="visually-hidden">pagination arrow</span>
                                             </a>
-                                        <li>
+                                        <li> -->
                                     </ul>
                                 </nav>
                             </div>

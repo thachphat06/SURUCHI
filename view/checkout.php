@@ -89,14 +89,14 @@
                                         </tbody>
                                     </table>
                                 </div>
-                                <div class="checkout__discount--code">
+                                <!-- <div class="checkout__discount--code">
                                     <form class="d-flex" action="#">
                                         <label>
                                             <input class="checkout__discount--code__input--field border-radius-5" placeholder="Mã giảm giá"  type="text">
                                         </label>
                                         <button class="checkout__discount--code__btn primary__btn border-radius-5" type="submit">Áp dụng</button>
                                     </form>
-                                </div>
+                                </div> -->
                                 <div class="checkout__total">
                                     <table class="checkout__total--table">
                                         <tbody class="checkout__total--body">
@@ -261,14 +261,14 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="checkout__discount--code">
+                    <!-- <div class="checkout__discount--code">
                         <form class="d-flex" action="#">
                             <label>
                                 <input class="checkout__discount--code__input--field border-radius-5" placeholder="Thẻ quà tặng hoặc mã"  type="text">
                             </label>
                             <button class="checkout__discount--code__btn primary__btn border-radius-5" type="submit">Áp dụng</button>
                         </form>
-                    </div>
+                    </div> -->
                     <div class="checkout__total">
                         <table class="checkout__total--table">
                             <tbody class="checkout__total--body">
